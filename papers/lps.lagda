@@ -1,11 +1,13 @@
 
 \documentclass[a4paper,english]{lipics}
+\usepackage{ucs}
+
+\usepackage{tikz}
 \usepackage{amsthm, amsmath}
 \usepackage{mathpartir}
 \usepackage[references]{agda}
 \usepackage{hyperref}
 
-\usepackage{todonotes}
 \usepackage{float}
 \floatstyle{boxed}
 \restylefloat{figure}
@@ -62,7 +64,7 @@ which are statically known to be correct~\cite{boutin1997using,pollack1995extens
 It is only natural to delve into the literature to try and find
 decidability proofs which, through the Curry-Howard correspondence,
 could make good candidates for mechanisation (see e.g. Pierre
-Crégut's work on Presburger arithmetic~\cite{cregut2004procedure}).
+Cr\'{e}gut's work on Presburger arithmetic~\cite{cregut2004procedure}).
 Reality is however not as welcoming as one would hope: most of
 these proofs have not been formulated with mechanisation in mind
 and would require a huge effort to be ported \emph{as is} in your
@@ -1518,7 +1520,8 @@ We start by defining this \AF{Model} together with its semantics:
 \AgdaHide{
 \begin{code}
   open import Prelude as Prelude hiding (ℕ ; _×_ ; Fin ; _$_ ; flip ; lookup)
-\end{code}}
+\end{code}
+}
 
 \begin{code}
   Model : (n : ℕ) → Set

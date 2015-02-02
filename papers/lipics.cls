@@ -433,7 +433,6 @@
     \parindent\z@\hangindent1em
     \leavevmode
     \hb@xt@1em{\@makefnmark\hss}#1}
-\usepackage[utf8]{inputenc}
 \IfFileExists{lmodern.sty}{\RequirePackage{lmodern}}{}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{textcomp}

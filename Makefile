@@ -8,4 +8,4 @@ short:
 
 clean:
 	find . -name *.agdai | xargs rm
-	rm -rf lps/latex/
+	rm -rf papers/latex/
