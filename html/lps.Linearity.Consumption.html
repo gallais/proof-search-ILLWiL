@@ -1,0 +1,4164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >lps.Linearity.Consumption</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >import</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="lps.IMLL.html#1" class="Module"
+      >lps.IMLL</a
+      ><a name="16"
+      >      </a
+      ><a name="22" class="Symbol"
+      >as</a
+      ><a name="24"
+      > </a
+      ><a name="25" class="Module"
+      >IMLL</a
+      ><a name="29"
+      >
+</a
+      ><a name="30" class="Keyword"
+      >import</a
+      ><a name="36"
+      > </a
+      ><a name="37" href="lps.Linearity.html#1" class="Module"
+      >lps.Linearity</a
+      ><a name="50"
+      > </a
+      ><a name="51" class="Symbol"
+      >as</a
+      ><a name="53"
+      > </a
+      ><a name="54" class="Module"
+      >Linearity</a
+      ><a name="63"
+      >
+
+</a
+      ><a name="65" class="Keyword"
+      >open</a
+      ><a name="69"
+      > </a
+      ><a name="70" class="Keyword"
+      >import</a
+      ><a name="76"
+      > </a
+      ><a name="77" href="Data.Empty.html#1" class="Module"
+      >Data.Empty</a
+      ><a name="87"
+      >
+</a
+      ><a name="88" class="Keyword"
+      >open</a
+      ><a name="92"
+      > </a
+      ><a name="93" class="Keyword"
+      >import</a
+      ><a name="99"
+      > </a
+      ><a name="100" href="Data.Nat.html#1" class="Module"
+      >Data.Nat</a
+      ><a name="108"
+      >
+</a
+      ><a name="109" class="Keyword"
+      >open</a
+      ><a name="113"
+      > </a
+      ><a name="114" class="Keyword"
+      >import</a
+      ><a name="120"
+      > </a
+      ><a name="121" href="Function.html#1" class="Module"
+      >Function</a
+      ><a name="129"
+      >
+
+</a
+      ><a name="131" class="Keyword"
+      >import</a
+      ><a name="137"
+      > </a
+      ><a name="138" href="lib.Context.html#1" class="Module"
+      >lib.Context</a
+      ><a name="149"
+      > </a
+      ><a name="150" class="Symbol"
+      >as</a
+      ><a name="152"
+      > </a
+      ><a name="153" class="Module"
+      >Con</a
+      ><a name="156"
+      >
+</a
+      ><a name="157" class="Keyword"
+      >open</a
+      ><a name="161"
+      > </a
+      ><a name="162" class="Keyword"
+      >import</a
+      ><a name="168"
+      > </a
+      ><a name="169" href="lib.Maybe.html#1" class="Module"
+      >lib.Maybe</a
+      ><a name="178"
+      >
+
+</a
+      ><a name="180" class="Keyword"
+      >module</a
+      ><a name="186"
+      > </a
+      ><a name="187" href="lps.Linearity.Consumption.html#1" class="Module"
+      >lps.Linearity.Consumption</a
+      ><a name="212"
+      > </a
+      ><a name="213" class="Symbol"
+      >(</a
+      ><a name="214" href="lps.Linearity.Consumption.html#214" class="Bound"
+      >Pr</a
+      ><a name="216"
+      > </a
+      ><a name="217" class="Symbol"
+      >:</a
+      ><a name="218"
+      > </a
+      ><a name="219" class="PrimitiveType"
+      >Set</a
+      ><a name="222" class="Symbol"
+      >)</a
+      ><a name="223"
+      > </a
+      ><a name="224" class="Keyword"
+      >where</a
+      ><a name="229"
+      >
+
+  </a
+      ><a name="233" class="Keyword"
+      >module</a
+      ><a name="239"
+      > </a
+      ><a name="240" href="lps.Linearity.Consumption.html#240" class="Module"
+      >Type</a
+      ><a name="244"
+      > </a
+      ><a name="245" class="Keyword"
+      >where</a
+      ><a name="250"
+      >
+
+    </a
+      ><a name="256" class="Keyword"
+      >open</a
+      ><a name="260"
+      > </a
+      ><a name="261" href="lib.Context.html#12" class="Module"
+      >Con.</a
+      ><a name="265" href="lib.Context.html#322" class="Module"
+      >Context</a
+      ><a name="272"
+      >
+    </a
+      ><a name="277" class="Keyword"
+      >open</a
+      ><a name="281"
+      > </a
+      ><a name="282" href="lps.IMLL.html#282" class="Module"
+      >IMLL.</a
+      ><a name="287" href="lps.IMLL.html#314" class="Module"
+      >Type</a
+      ><a name="291"
+      > </a
+      ><a name="292" href="lps.Linearity.Consumption.html#214" class="Bound"
+      >Pr</a
+      ><a name="294"
+      >
+
+    </a
+      ><a name="300" class="Keyword"
+      >module</a
+      ><a name="306"
+      > </a
+      ><a name="307" href="lps.Linearity.Consumption.html#307" class="Module"
+      >Cover</a
+      ><a name="312"
+      > </a
+      ><a name="313" class="Keyword"
+      >where</a
+      ><a name="318"
+      >
+
+      </a
+      ><a name="326" class="Keyword"
+      >open</a
+      ><a name="330"
+      > </a
+      ><a name="331" href="lps.Linearity.html#289" class="Module"
+      >Linearity.</a
+      ><a name="341" href="lps.Linearity.html#326" class="Module"
+      >Type</a
+      ><a name="345"
+      > </a
+      ><a name="346" href="lps.Linearity.Consumption.html#214" class="Bound"
+      >Pr</a
+      ><a name="348"
+      >
+
+      </a
+      ><a name="356" class="Keyword"
+      >infix</a
+      ><a name="361"
+      > </a
+      ><a name="362" class="Number"
+      >4</a
+      ><a name="363"
+      > _&#8801;_&#9472;_
+      </a
+      ><a name="376" class="Keyword"
+      >data</a
+      ><a name="380"
+      > </a
+      ><a name="381" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >_&#8801;_&#9472;_</a
+      ><a name="386"
+      > </a
+      ><a name="387" class="Symbol"
+      >:</a
+      ><a name="388"
+      > </a
+      ><a name="389" class="Symbol"
+      >{</a
+      ><a name="390" href="lps.Linearity.Consumption.html#390" class="Bound"
+      >&#963;</a
+      ><a name="391"
+      > </a
+      ><a name="392" class="Symbol"
+      >:</a
+      ><a name="393"
+      > </a
+      ><a name="394" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="396" class="Symbol"
+      >}</a
+      ><a name="397"
+      > </a
+      ><a name="398" class="Symbol"
+      >(</a
+      ><a name="399" href="lps.Linearity.Consumption.html#399" class="Bound"
+      >S</a
+      ><a name="400"
+      > </a
+      ><a name="401" href="lps.Linearity.Consumption.html#401" class="Bound"
+      >S&#8321;</a
+      ><a name="403"
+      > </a
+      ><a name="404" href="lps.Linearity.Consumption.html#404" class="Bound"
+      >S&#8322;</a
+      ><a name="406"
+      > </a
+      ><a name="407" class="Symbol"
+      >:</a
+      ><a name="408"
+      > </a
+      ><a name="409" href="lps.Linearity.html#744" class="Datatype"
+      >Cover</a
+      ><a name="414"
+      > </a
+      ><a name="415" href="lps.Linearity.Consumption.html#390" class="Bound"
+      >&#963;</a
+      ><a name="416" class="Symbol"
+      >)</a
+      ><a name="417"
+      > </a
+      ><a name="418" class="Symbol"
+      >&#8594;</a
+      ><a name="419"
+      > </a
+      ><a name="420" class="PrimitiveType"
+      >Set</a
+      ><a name="423"
+      > </a
+      ><a name="424" class="Keyword"
+      >where</a
+      ><a name="429"
+      >
+        </a
+      ><a name="438" class="Comment"
+      >-- structural rules</a
+      ><a name="457"
+      >
+        </a
+      ><a name="466" href="lps.Linearity.Consumption.html#466" class="InductiveConstructor Operator"
+      >_`&#8855;_</a
+      ><a name="470"
+      >     </a
+      ><a name="475" class="Symbol"
+      >:</a
+      ><a name="476"
+      > </a
+      ><a name="477" class="Symbol"
+      >{</a
+      ><a name="478" href="lps.Linearity.Consumption.html#478" class="Bound"
+      >&#963;</a
+      ><a name="479"
+      > </a
+      ><a name="480" class="Symbol"
+      >:</a
+      ><a name="481"
+      > </a
+      ><a name="482" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="484" class="Symbol"
+      >}</a
+      ><a name="485"
+      > </a
+      ><a name="486" class="Symbol"
+      >{</a
+      ><a name="487" href="lps.Linearity.Consumption.html#487" class="Bound"
+      >S</a
+      ><a name="488"
+      > </a
+      ><a name="489" href="lps.Linearity.Consumption.html#489" class="Bound"
+      >S&#8321;</a
+      ><a name="491"
+      > </a
+      ><a name="492" href="lps.Linearity.Consumption.html#492" class="Bound"
+      >S&#8322;</a
+      ><a name="494"
+      > </a
+      ><a name="495" class="Symbol"
+      >:</a
+      ><a name="496"
+      > </a
+      ><a name="497" href="lps.Linearity.html#744" class="Datatype"
+      >Cover</a
+      ><a name="502"
+      > </a
+      ><a name="503" href="lps.Linearity.Consumption.html#478" class="Bound"
+      >&#963;</a
+      ><a name="504" class="Symbol"
+      >}</a
+      ><a name="505"
+      > </a
+      ><a name="506" class="Symbol"
+      >(</a
+      ><a name="507" href="lps.Linearity.Consumption.html#507" class="Bound"
+      >pr&#963;</a
+      ><a name="510"
+      > </a
+      ><a name="511" class="Symbol"
+      >:</a
+      ><a name="512"
+      > </a
+      ><a name="513" href="lps.Linearity.Consumption.html#487" class="Bound"
+      >S</a
+      ><a name="514"
+      > </a
+      ><a name="515" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="516"
+      > </a
+      ><a name="517" href="lps.Linearity.Consumption.html#489" class="Bound"
+      >S&#8321;</a
+      ><a name="519"
+      > </a
+      ><a name="520" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="521"
+      > </a
+      ><a name="522" href="lps.Linearity.Consumption.html#492" class="Bound"
+      >S&#8322;</a
+      ><a name="524" class="Symbol"
+      >)</a
+      ><a name="525"
+      >
+                   </a
+      ><a name="545" class="Symbol"
+      >{</a
+      ><a name="546" href="lps.Linearity.Consumption.html#546" class="Bound"
+      >&#964;</a
+      ><a name="547"
+      > </a
+      ><a name="548" class="Symbol"
+      >:</a
+      ><a name="549"
+      > </a
+      ><a name="550" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="552" class="Symbol"
+      >}</a
+      ><a name="553"
+      > </a
+      ><a name="554" class="Symbol"
+      >{</a
+      ><a name="555" href="lps.Linearity.Consumption.html#555" class="Bound"
+      >T</a
+      ><a name="556"
+      > </a
+      ><a name="557" href="lps.Linearity.Consumption.html#557" class="Bound"
+      >T&#8321;</a
+      ><a name="559"
+      > </a
+      ><a name="560" href="lps.Linearity.Consumption.html#560" class="Bound"
+      >T&#8322;</a
+      ><a name="562"
+      > </a
+      ><a name="563" class="Symbol"
+      >:</a
+      ><a name="564"
+      > </a
+      ><a name="565" href="lps.Linearity.html#744" class="Datatype"
+      >Cover</a
+      ><a name="570"
+      > </a
+      ><a name="571" href="lps.Linearity.Consumption.html#546" class="Bound"
+      >&#964;</a
+      ><a name="572" class="Symbol"
+      >}</a
+      ><a name="573"
+      > </a
+      ><a name="574" class="Symbol"
+      >(</a
+      ><a name="575" href="lps.Linearity.Consumption.html#575" class="Bound"
+      >pr&#964;</a
+      ><a name="578"
+      > </a
+      ><a name="579" class="Symbol"
+      >:</a
+      ><a name="580"
+      > </a
+      ><a name="581" href="lps.Linearity.Consumption.html#555" class="Bound"
+      >T</a
+      ><a name="582"
+      > </a
+      ><a name="583" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="584"
+      > </a
+      ><a name="585" href="lps.Linearity.Consumption.html#557" class="Bound"
+      >T&#8321;</a
+      ><a name="587"
+      > </a
+      ><a name="588" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="589"
+      > </a
+      ><a name="590" href="lps.Linearity.Consumption.html#560" class="Bound"
+      >T&#8322;</a
+      ><a name="592" class="Symbol"
+      >)</a
+      ><a name="593"
+      > </a
+      ><a name="594" class="Symbol"
+      >&#8594;</a
+      ><a name="595"
+      >
+                   </a
+      ><a name="615" href="lps.Linearity.Consumption.html#487" class="Bound"
+      >S</a
+      ><a name="616"
+      > </a
+      ><a name="617" href="lps.Linearity.html#820" class="InductiveConstructor Operator"
+      >`&#8855;</a
+      ><a name="619"
+      > </a
+      ><a name="620" href="lps.Linearity.Consumption.html#555" class="Bound"
+      >T</a
+      ><a name="621"
+      > </a
+      ><a name="622" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="623"
+      > </a
+      ><a name="624" href="lps.Linearity.Consumption.html#489" class="Bound"
+      >S&#8321;</a
+      ><a name="626"
+      > </a
+      ><a name="627" href="lps.Linearity.html#820" class="InductiveConstructor Operator"
+      >`&#8855;</a
+      ><a name="629"
+      > </a
+      ><a name="630" href="lps.Linearity.Consumption.html#557" class="Bound"
+      >T&#8321;</a
+      ><a name="632"
+      > </a
+      ><a name="633" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="634"
+      > </a
+      ><a name="635" href="lps.Linearity.Consumption.html#492" class="Bound"
+      >S&#8322;</a
+      ><a name="637"
+      > </a
+      ><a name="638" href="lps.Linearity.html#820" class="InductiveConstructor Operator"
+      >`&#8855;</a
+      ><a name="640"
+      > </a
+      ><a name="641" href="lps.Linearity.Consumption.html#560" class="Bound"
+      >T&#8322;</a
+      ><a name="643"
+      >
+        </a
+      ><a name="652" href="lps.Linearity.Consumption.html#652" class="InductiveConstructor Operator"
+      >[_]`&#8855;_</a
+      ><a name="658"
+      >   </a
+      ><a name="661" class="Symbol"
+      >:</a
+      ><a name="662"
+      > </a
+      ><a name="663" class="Symbol"
+      >(</a
+      ><a name="664" href="lps.Linearity.Consumption.html#664" class="Bound"
+      >&#963;</a
+      ><a name="665"
+      > </a
+      ><a name="666" class="Symbol"
+      >:</a
+      ><a name="667"
+      > </a
+      ><a name="668" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="670" class="Symbol"
+      >)</a
+      ><a name="671"
+      > </a
+      ><a name="672" class="Symbol"
+      >{</a
+      ><a name="673" href="lps.Linearity.Consumption.html#673" class="Bound"
+      >&#964;</a
+      ><a name="674"
+      > </a
+      ><a name="675" class="Symbol"
+      >:</a
+      ><a name="676"
+      > </a
+      ><a name="677" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="679" class="Symbol"
+      >}</a
+      ><a name="680"
+      > </a
+      ><a name="681" class="Symbol"
+      >{</a
+      ><a name="682" href="lps.Linearity.Consumption.html#682" class="Bound"
+      >T</a
+      ><a name="683"
+      > </a
+      ><a name="684" href="lps.Linearity.Consumption.html#684" class="Bound"
+      >T&#8321;</a
+      ><a name="686"
+      > </a
+      ><a name="687" href="lps.Linearity.Consumption.html#687" class="Bound"
+      >T&#8322;</a
+      ><a name="689"
+      > </a
+      ><a name="690" class="Symbol"
+      >:</a
+      ><a name="691"
+      > </a
+      ><a name="692" href="lps.Linearity.html#744" class="Datatype"
+      >Cover</a
+      ><a name="697"
+      > </a
+      ><a name="698" href="lps.Linearity.Consumption.html#673" class="Bound"
+      >&#964;</a
+      ><a name="699" class="Symbol"
+      >}</a
+      ><a name="700"
+      > </a
+      ><a name="701" class="Symbol"
+      >(</a
+      ><a name="702" href="lps.Linearity.Consumption.html#702" class="Bound"
+      >prT</a
+      ><a name="705"
+      > </a
+      ><a name="706" class="Symbol"
+      >:</a
+      ><a name="707"
+      > </a
+      ><a name="708" href="lps.Linearity.Consumption.html#682" class="Bound"
+      >T</a
+      ><a name="709"
+      > </a
+      ><a name="710" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="711"
+      > </a
+      ><a name="712" href="lps.Linearity.Consumption.html#684" class="Bound"
+      >T&#8321;</a
+      ><a name="714"
+      > </a
+      ><a name="715" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="716"
+      > </a
+      ><a name="717" href="lps.Linearity.Consumption.html#687" class="Bound"
+      >T&#8322;</a
+      ><a name="719" class="Symbol"
+      >)</a
+      ><a name="720"
+      > </a
+      ><a name="721" class="Symbol"
+      >&#8594;</a
+      ><a name="722"
+      >
+                   </a
+      ><a name="742" href="lps.Linearity.html#895" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="743"
+      > </a
+      ><a name="744" href="lps.Linearity.Consumption.html#664" class="Bound"
+      >&#963;</a
+      ><a name="745"
+      > </a
+      ><a name="746" href="lps.Linearity.html#895" class="InductiveConstructor Operator"
+      >]`&#8855;</a
+      ><a name="749"
+      > </a
+      ><a name="750" href="lps.Linearity.Consumption.html#682" class="Bound"
+      >T</a
+      ><a name="751"
+      > </a
+      ><a name="752" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="753"
+      > </a
+      ><a name="754" href="lps.Linearity.html#895" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="755"
+      > </a
+      ><a name="756" href="lps.Linearity.Consumption.html#664" class="Bound"
+      >&#963;</a
+      ><a name="757"
+      > </a
+      ><a name="758" href="lps.Linearity.html#895" class="InductiveConstructor Operator"
+      >]`&#8855;</a
+      ><a name="761"
+      > </a
+      ><a name="762" href="lps.Linearity.Consumption.html#684" class="Bound"
+      >T&#8321;</a
+      ><a name="764"
+      > </a
+      ><a name="765" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="766"
+      > </a
+      ><a name="767" href="lps.Linearity.html#895" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="768"
+      > </a
+      ><a name="769" href="lps.Linearity.Consumption.html#664" class="Bound"
+      >&#963;</a
+      ><a name="770"
+      > </a
+      ><a name="771" href="lps.Linearity.html#895" class="InductiveConstructor Operator"
+      >]`&#8855;</a
+      ><a name="774"
+      > </a
+      ><a name="775" href="lps.Linearity.Consumption.html#687" class="Bound"
+      >T&#8322;</a
+      ><a name="777"
+      >
+        </a
+      ><a name="786" href="lps.Linearity.Consumption.html#786" class="InductiveConstructor Operator"
+      >_`&#8855;[_]</a
+      ><a name="792"
+      >   </a
+      ><a name="795" class="Symbol"
+      >:</a
+      ><a name="796"
+      > </a
+      ><a name="797" class="Symbol"
+      >{</a
+      ><a name="798" href="lps.Linearity.Consumption.html#798" class="Bound"
+      >&#963;</a
+      ><a name="799"
+      > </a
+      ><a name="800" class="Symbol"
+      >:</a
+      ><a name="801"
+      > </a
+      ><a name="802" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="804" class="Symbol"
+      >}</a
+      ><a name="805"
+      > </a
+      ><a name="806" class="Symbol"
+      >{</a
+      ><a name="807" href="lps.Linearity.Consumption.html#807" class="Bound"
+      >S</a
+      ><a name="808"
+      > </a
+      ><a name="809" href="lps.Linearity.Consumption.html#809" class="Bound"
+      >S&#8321;</a
+      ><a name="811"
+      > </a
+      ><a name="812" href="lps.Linearity.Consumption.html#812" class="Bound"
+      >S&#8322;</a
+      ><a name="814"
+      > </a
+      ><a name="815" class="Symbol"
+      >:</a
+      ><a name="816"
+      > </a
+      ><a name="817" href="lps.Linearity.html#744" class="Datatype"
+      >Cover</a
+      ><a name="822"
+      > </a
+      ><a name="823" href="lps.Linearity.Consumption.html#798" class="Bound"
+      >&#963;</a
+      ><a name="824" class="Symbol"
+      >}</a
+      ><a name="825"
+      > </a
+      ><a name="826" class="Symbol"
+      >(</a
+      ><a name="827" href="lps.Linearity.Consumption.html#827" class="Bound"
+      >prS</a
+      ><a name="830"
+      > </a
+      ><a name="831" class="Symbol"
+      >:</a
+      ><a name="832"
+      > </a
+      ><a name="833" href="lps.Linearity.Consumption.html#807" class="Bound"
+      >S</a
+      ><a name="834"
+      > </a
+      ><a name="835" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="836"
+      > </a
+      ><a name="837" href="lps.Linearity.Consumption.html#809" class="Bound"
+      >S&#8321;</a
+      ><a name="839"
+      > </a
+      ><a name="840" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="841"
+      > </a
+      ><a name="842" href="lps.Linearity.Consumption.html#812" class="Bound"
+      >S&#8322;</a
+      ><a name="844" class="Symbol"
+      >)</a
+      ><a name="845"
+      > </a
+      ><a name="846" class="Symbol"
+      >(</a
+      ><a name="847" href="lps.Linearity.Consumption.html#847" class="Bound"
+      >&#964;</a
+      ><a name="848"
+      > </a
+      ><a name="849" class="Symbol"
+      >:</a
+      ><a name="850"
+      > </a
+      ><a name="851" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="853" class="Symbol"
+      >)</a
+      ><a name="854"
+      > </a
+      ><a name="855" class="Symbol"
+      >&#8594;</a
+      ><a name="856"
+      >
+                   </a
+      ><a name="876" href="lps.Linearity.Consumption.html#807" class="Bound"
+      >S</a
+      ><a name="877"
+      > </a
+      ><a name="878" href="lps.Linearity.html#963" class="InductiveConstructor Operator"
+      >`&#8855;[</a
+      ><a name="881"
+      > </a
+      ><a name="882" href="lps.Linearity.Consumption.html#847" class="Bound"
+      >&#964;</a
+      ><a name="883"
+      > </a
+      ><a name="884" href="lps.Linearity.html#963" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="885"
+      > </a
+      ><a name="886" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="887"
+      > </a
+      ><a name="888" href="lps.Linearity.Consumption.html#809" class="Bound"
+      >S&#8321;</a
+      ><a name="890"
+      > </a
+      ><a name="891" href="lps.Linearity.html#963" class="InductiveConstructor Operator"
+      >`&#8855;[</a
+      ><a name="894"
+      > </a
+      ><a name="895" href="lps.Linearity.Consumption.html#847" class="Bound"
+      >&#964;</a
+      ><a name="896"
+      > </a
+      ><a name="897" href="lps.Linearity.html#963" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="898"
+      > </a
+      ><a name="899" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="900"
+      > </a
+      ><a name="901" href="lps.Linearity.Consumption.html#812" class="Bound"
+      >S&#8322;</a
+      ><a name="903"
+      > </a
+      ><a name="904" href="lps.Linearity.html#963" class="InductiveConstructor Operator"
+      >`&#8855;[</a
+      ><a name="907"
+      > </a
+      ><a name="908" href="lps.Linearity.Consumption.html#847" class="Bound"
+      >&#964;</a
+      ><a name="909"
+      > </a
+      ><a name="910" href="lps.Linearity.html#963" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="911"
+      >
+        </a
+      ><a name="920" href="lps.Linearity.Consumption.html#920" class="InductiveConstructor Operator"
+      >[_]`&amp;_</a
+      ><a name="926"
+      >   </a
+      ><a name="929" class="Symbol"
+      >:</a
+      ><a name="930"
+      > </a
+      ><a name="931" class="Symbol"
+      >(</a
+      ><a name="932" href="lps.Linearity.Consumption.html#932" class="Bound"
+      >&#963;</a
+      ><a name="933"
+      > </a
+      ><a name="934" class="Symbol"
+      >:</a
+      ><a name="935"
+      > </a
+      ><a name="936" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="938" class="Symbol"
+      >)</a
+      ><a name="939"
+      > </a
+      ><a name="940" class="Symbol"
+      >{</a
+      ><a name="941" href="lps.Linearity.Consumption.html#941" class="Bound"
+      >&#964;</a
+      ><a name="942"
+      > </a
+      ><a name="943" class="Symbol"
+      >:</a
+      ><a name="944"
+      > </a
+      ><a name="945" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="947" class="Symbol"
+      >}</a
+      ><a name="948"
+      > </a
+      ><a name="949" class="Symbol"
+      >{</a
+      ><a name="950" href="lps.Linearity.Consumption.html#950" class="Bound"
+      >T</a
+      ><a name="951"
+      > </a
+      ><a name="952" href="lps.Linearity.Consumption.html#952" class="Bound"
+      >T&#8321;</a
+      ><a name="954"
+      > </a
+      ><a name="955" href="lps.Linearity.Consumption.html#955" class="Bound"
+      >T&#8322;</a
+      ><a name="957"
+      > </a
+      ><a name="958" class="Symbol"
+      >:</a
+      ><a name="959"
+      > </a
+      ><a name="960" href="lps.Linearity.html#744" class="Datatype"
+      >Cover</a
+      ><a name="965"
+      > </a
+      ><a name="966" href="lps.Linearity.Consumption.html#941" class="Bound"
+      >&#964;</a
+      ><a name="967" class="Symbol"
+      >}</a
+      ><a name="968"
+      > </a
+      ><a name="969" class="Symbol"
+      >(</a
+      ><a name="970" href="lps.Linearity.Consumption.html#970" class="Bound"
+      >pr&#964;</a
+      ><a name="973"
+      > </a
+      ><a name="974" class="Symbol"
+      >:</a
+      ><a name="975"
+      > </a
+      ><a name="976" href="lps.Linearity.Consumption.html#950" class="Bound"
+      >T</a
+      ><a name="977"
+      > </a
+      ><a name="978" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="979"
+      > </a
+      ><a name="980" href="lps.Linearity.Consumption.html#952" class="Bound"
+      >T&#8321;</a
+      ><a name="982"
+      > </a
+      ><a name="983" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="984"
+      > </a
+      ><a name="985" href="lps.Linearity.Consumption.html#955" class="Bound"
+      >T&#8322;</a
+      ><a name="987" class="Symbol"
+      >)</a
+      ><a name="988"
+      > </a
+      ><a name="989" class="Symbol"
+      >&#8594;</a
+      ><a name="990"
+      >
+                   </a
+      ><a name="1010" href="lps.Linearity.html#1299" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="1011"
+      > </a
+      ><a name="1012" href="lps.Linearity.Consumption.html#932" class="Bound"
+      >&#963;</a
+      ><a name="1013"
+      > </a
+      ><a name="1014" href="lps.Linearity.html#1299" class="InductiveConstructor Operator"
+      >]`&amp;</a
+      ><a name="1017"
+      > </a
+      ><a name="1018" href="lps.Linearity.Consumption.html#950" class="Bound"
+      >T</a
+      ><a name="1019"
+      > </a
+      ><a name="1020" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="1021"
+      > </a
+      ><a name="1022" href="lps.Linearity.html#1299" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="1023"
+      > </a
+      ><a name="1024" href="lps.Linearity.Consumption.html#932" class="Bound"
+      >&#963;</a
+      ><a name="1025"
+      > </a
+      ><a name="1026" href="lps.Linearity.html#1299" class="InductiveConstructor Operator"
+      >]`&amp;</a
+      ><a name="1029"
+      > </a
+      ><a name="1030" href="lps.Linearity.Consumption.html#952" class="Bound"
+      >T&#8321;</a
+      ><a name="1032"
+      > </a
+      ><a name="1033" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="1034"
+      > </a
+      ><a name="1035" href="lps.Linearity.html#1299" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="1036"
+      > </a
+      ><a name="1037" href="lps.Linearity.Consumption.html#932" class="Bound"
+      >&#963;</a
+      ><a name="1038"
+      > </a
+      ><a name="1039" href="lps.Linearity.html#1299" class="InductiveConstructor Operator"
+      >]`&amp;</a
+      ><a name="1042"
+      > </a
+      ><a name="1043" href="lps.Linearity.Consumption.html#955" class="Bound"
+      >T&#8322;</a
+      ><a name="1045"
+      >
+        </a
+      ><a name="1054" href="lps.Linearity.Consumption.html#1054" class="InductiveConstructor Operator"
+      >_`&amp;[_]</a
+      ><a name="1060"
+      >   </a
+      ><a name="1063" class="Symbol"
+      >:</a
+      ><a name="1064"
+      > </a
+      ><a name="1065" class="Symbol"
+      >{</a
+      ><a name="1066" href="lps.Linearity.Consumption.html#1066" class="Bound"
+      >&#963;</a
+      ><a name="1067"
+      > </a
+      ><a name="1068" class="Symbol"
+      >:</a
+      ><a name="1069"
+      > </a
+      ><a name="1070" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="1072" class="Symbol"
+      >}</a
+      ><a name="1073"
+      > </a
+      ><a name="1074" class="Symbol"
+      >{</a
+      ><a name="1075" href="lps.Linearity.Consumption.html#1075" class="Bound"
+      >S</a
+      ><a name="1076"
+      > </a
+      ><a name="1077" href="lps.Linearity.Consumption.html#1077" class="Bound"
+      >S&#8321;</a
+      ><a name="1079"
+      > </a
+      ><a name="1080" href="lps.Linearity.Consumption.html#1080" class="Bound"
+      >S&#8322;</a
+      ><a name="1082"
+      > </a
+      ><a name="1083" class="Symbol"
+      >:</a
+      ><a name="1084"
+      > </a
+      ><a name="1085" href="lps.Linearity.html#744" class="Datatype"
+      >Cover</a
+      ><a name="1090"
+      > </a
+      ><a name="1091" href="lps.Linearity.Consumption.html#1066" class="Bound"
+      >&#963;</a
+      ><a name="1092" class="Symbol"
+      >}</a
+      ><a name="1093"
+      > </a
+      ><a name="1094" class="Symbol"
+      >(</a
+      ><a name="1095" href="lps.Linearity.Consumption.html#1095" class="Bound"
+      >pr&#963;</a
+      ><a name="1098"
+      > </a
+      ><a name="1099" class="Symbol"
+      >:</a
+      ><a name="1100"
+      > </a
+      ><a name="1101" href="lps.Linearity.Consumption.html#1075" class="Bound"
+      >S</a
+      ><a name="1102"
+      > </a
+      ><a name="1103" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="1104"
+      > </a
+      ><a name="1105" href="lps.Linearity.Consumption.html#1077" class="Bound"
+      >S&#8321;</a
+      ><a name="1107"
+      > </a
+      ><a name="1108" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="1109"
+      > </a
+      ><a name="1110" href="lps.Linearity.Consumption.html#1080" class="Bound"
+      >S&#8322;</a
+      ><a name="1112" class="Symbol"
+      >)</a
+      ><a name="1113"
+      > </a
+      ><a name="1114" class="Symbol"
+      >(</a
+      ><a name="1115" href="lps.Linearity.Consumption.html#1115" class="Bound"
+      >&#964;</a
+      ><a name="1116"
+      > </a
+      ><a name="1117" class="Symbol"
+      >:</a
+      ><a name="1118"
+      > </a
+      ><a name="1119" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="1121" class="Symbol"
+      >)</a
+      ><a name="1122"
+      > </a
+      ><a name="1123" class="Symbol"
+      >&#8594;</a
+      ><a name="1124"
+      >
+                   </a
+      ><a name="1144" href="lps.Linearity.Consumption.html#1075" class="Bound"
+      >S</a
+      ><a name="1145"
+      > </a
+      ><a name="1146" href="lps.Linearity.html#1230" class="InductiveConstructor Operator"
+      >`&amp;[</a
+      ><a name="1149"
+      > </a
+      ><a name="1150" href="lps.Linearity.Consumption.html#1115" class="Bound"
+      >&#964;</a
+      ><a name="1151"
+      > </a
+      ><a name="1152" href="lps.Linearity.html#1230" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="1153"
+      > </a
+      ><a name="1154" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="1155"
+      > </a
+      ><a name="1156" href="lps.Linearity.Consumption.html#1077" class="Bound"
+      >S&#8321;</a
+      ><a name="1158"
+      > </a
+      ><a name="1159" href="lps.Linearity.html#1230" class="InductiveConstructor Operator"
+      >`&amp;[</a
+      ><a name="1162"
+      > </a
+      ><a name="1163" href="lps.Linearity.Consumption.html#1115" class="Bound"
+      >&#964;</a
+      ><a name="1164"
+      > </a
+      ><a name="1165" href="lps.Linearity.html#1230" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="1166"
+      > </a
+      ><a name="1167" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="1168"
+      > </a
+      ><a name="1169" href="lps.Linearity.Consumption.html#1080" class="Bound"
+      >S&#8322;</a
+      ><a name="1171"
+      > </a
+      ><a name="1172" href="lps.Linearity.html#1230" class="InductiveConstructor Operator"
+      >`&amp;[</a
+      ><a name="1175"
+      > </a
+      ><a name="1176" href="lps.Linearity.Consumption.html#1115" class="Bound"
+      >&#964;</a
+      ><a name="1177"
+      > </a
+      ><a name="1178" href="lps.Linearity.html#1230" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="1179"
+      >
+        </a
+      ><a name="1188" class="Comment"
+      >-- identity on the right hand side</a
+      ><a name="1222"
+      >
+        </a
+      ><a name="1231" href="lps.Linearity.Consumption.html#1231" class="InductiveConstructor Operator"
+      >_`&#8855;&#737;_</a
+      ><a name="1236"
+      >    </a
+      ><a name="1240" class="Symbol"
+      >:</a
+      ><a name="1241"
+      > </a
+      ><a name="1242" class="Symbol"
+      >{</a
+      ><a name="1243" href="lps.Linearity.Consumption.html#1243" class="Bound"
+      >&#963;</a
+      ><a name="1244"
+      > </a
+      ><a name="1245" href="lps.Linearity.Consumption.html#1245" class="Bound"
+      >&#964;</a
+      ><a name="1246"
+      > </a
+      ><a name="1247" class="Symbol"
+      >:</a
+      ><a name="1248"
+      > </a
+      ><a name="1249" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="1251" class="Symbol"
+      >}</a
+      ><a name="1252"
+      > </a
+      ><a name="1253" class="Symbol"
+      >{</a
+      ><a name="1254" href="lps.Linearity.Consumption.html#1254" class="Bound"
+      >S</a
+      ><a name="1255"
+      > </a
+      ><a name="1256" href="lps.Linearity.Consumption.html#1256" class="Bound"
+      >S&#8321;</a
+      ><a name="1258"
+      > </a
+      ><a name="1259" href="lps.Linearity.Consumption.html#1259" class="Bound"
+      >S&#8322;</a
+      ><a name="1261"
+      > </a
+      ><a name="1262" class="Symbol"
+      >:</a
+      ><a name="1263"
+      > </a
+      ><a name="1264" href="lps.Linearity.html#744" class="Datatype"
+      >Cover</a
+      ><a name="1269"
+      > </a
+      ><a name="1270" href="lps.Linearity.Consumption.html#1243" class="Bound"
+      >&#963;</a
+      ><a name="1271" class="Symbol"
+      >}</a
+      ><a name="1272"
+      > </a
+      ><a name="1273" class="Symbol"
+      >(</a
+      ><a name="1274" href="lps.Linearity.Consumption.html#1274" class="Bound"
+      >prS</a
+      ><a name="1277"
+      > </a
+      ><a name="1278" class="Symbol"
+      >:</a
+      ><a name="1279"
+      > </a
+      ><a name="1280" href="lps.Linearity.Consumption.html#1254" class="Bound"
+      >S</a
+      ><a name="1281"
+      > </a
+      ><a name="1282" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="1283"
+      > </a
+      ><a name="1284" href="lps.Linearity.Consumption.html#1256" class="Bound"
+      >S&#8321;</a
+      ><a name="1286"
+      > </a
+      ><a name="1287" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="1288"
+      > </a
+      ><a name="1289" href="lps.Linearity.Consumption.html#1259" class="Bound"
+      >S&#8322;</a
+      ><a name="1291" class="Symbol"
+      >)</a
+      ><a name="1292"
+      >
+                   </a
+      ><a name="1312" class="Symbol"
+      >(</a
+      ><a name="1313" href="lps.Linearity.Consumption.html#1313" class="Bound"
+      >T</a
+      ><a name="1314"
+      > </a
+      ><a name="1315" class="Symbol"
+      >:</a
+      ><a name="1316"
+      > </a
+      ><a name="1317" href="lps.Linearity.html#744" class="Datatype"
+      >Cover</a
+      ><a name="1322"
+      > </a
+      ><a name="1323" href="lps.Linearity.Consumption.html#1245" class="Bound"
+      >&#964;</a
+      ><a name="1324" class="Symbol"
+      >)</a
+      ><a name="1325"
+      > </a
+      ><a name="1326" class="Symbol"
+      >&#8594;</a
+      ><a name="1327"
+      > </a
+      ><a name="1328" href="lps.Linearity.Consumption.html#1254" class="Bound"
+      >S</a
+      ><a name="1329"
+      > </a
+      ><a name="1330" href="lps.Linearity.html#820" class="InductiveConstructor Operator"
+      >`&#8855;</a
+      ><a name="1332"
+      > </a
+      ><a name="1333" href="lps.Linearity.Consumption.html#1313" class="Bound"
+      >T</a
+      ><a name="1334"
+      > </a
+      ><a name="1335" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="1336"
+      > </a
+      ><a name="1337" href="lps.Linearity.Consumption.html#1256" class="Bound"
+      >S&#8321;</a
+      ><a name="1339"
+      > </a
+      ><a name="1340" href="lps.Linearity.html#820" class="InductiveConstructor Operator"
+      >`&#8855;</a
+      ><a name="1342"
+      > </a
+      ><a name="1343" href="lps.Linearity.Consumption.html#1313" class="Bound"
+      >T</a
+      ><a name="1344"
+      > </a
+      ><a name="1345" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="1346"
+      > </a
+      ><a name="1347" href="lps.Linearity.Consumption.html#1259" class="Bound"
+      >S&#8322;</a
+      ><a name="1349"
+      > </a
+      ><a name="1350" href="lps.Linearity.html#963" class="InductiveConstructor Operator"
+      >`&#8855;[</a
+      ><a name="1353"
+      > </a
+      ><a name="1354" href="lps.Linearity.Consumption.html#1245" class="Bound"
+      >&#964;</a
+      ><a name="1355"
+      > </a
+      ><a name="1356" href="lps.Linearity.html#963" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="1357"
+      >
+        </a
+      ><a name="1366" href="lps.Linearity.Consumption.html#1366" class="InductiveConstructor Operator"
+      >_`&#8855;&#691;_</a
+      ><a name="1371"
+      >    </a
+      ><a name="1375" class="Symbol"
+      >:</a
+      ><a name="1376"
+      > </a
+      ><a name="1377" class="Symbol"
+      >{</a
+      ><a name="1378" href="lps.Linearity.Consumption.html#1378" class="Bound"
+      >&#963;</a
+      ><a name="1379"
+      > </a
+      ><a name="1380" href="lps.Linearity.Consumption.html#1380" class="Bound"
+      >&#964;</a
+      ><a name="1381"
+      > </a
+      ><a name="1382" class="Symbol"
+      >:</a
+      ><a name="1383"
+      > </a
+      ><a name="1384" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="1386" class="Symbol"
+      >}</a
+      ><a name="1387"
+      > </a
+      ><a name="1388" class="Symbol"
+      >(</a
+      ><a name="1389" href="lps.Linearity.Consumption.html#1389" class="Bound"
+      >S</a
+      ><a name="1390"
+      > </a
+      ><a name="1391" class="Symbol"
+      >:</a
+      ><a name="1392"
+      > </a
+      ><a name="1393" href="lps.Linearity.html#744" class="Datatype"
+      >Cover</a
+      ><a name="1398"
+      > </a
+      ><a name="1399" href="lps.Linearity.Consumption.html#1378" class="Bound"
+      >&#963;</a
+      ><a name="1400" class="Symbol"
+      >)</a
+      ><a name="1401"
+      > </a
+      ><a name="1402" class="Symbol"
+      >{</a
+      ><a name="1403" href="lps.Linearity.Consumption.html#1403" class="Bound"
+      >T</a
+      ><a name="1404"
+      > </a
+      ><a name="1405" href="lps.Linearity.Consumption.html#1405" class="Bound"
+      >T&#8321;</a
+      ><a name="1407"
+      > </a
+      ><a name="1408" href="lps.Linearity.Consumption.html#1408" class="Bound"
+      >T&#8322;</a
+      ><a name="1410"
+      > </a
+      ><a name="1411" class="Symbol"
+      >:</a
+      ><a name="1412"
+      > </a
+      ><a name="1413" href="lps.Linearity.html#744" class="Datatype"
+      >Cover</a
+      ><a name="1418"
+      > </a
+      ><a name="1419" href="lps.Linearity.Consumption.html#1380" class="Bound"
+      >&#964;</a
+      ><a name="1420" class="Symbol"
+      >}</a
+      ><a name="1421"
+      >
+                   </a
+      ><a name="1441" class="Symbol"
+      >(</a
+      ><a name="1442" href="lps.Linearity.Consumption.html#1442" class="Bound"
+      >prT</a
+      ><a name="1445"
+      > </a
+      ><a name="1446" class="Symbol"
+      >:</a
+      ><a name="1447"
+      > </a
+      ><a name="1448" href="lps.Linearity.Consumption.html#1403" class="Bound"
+      >T</a
+      ><a name="1449"
+      > </a
+      ><a name="1450" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="1451"
+      > </a
+      ><a name="1452" href="lps.Linearity.Consumption.html#1405" class="Bound"
+      >T&#8321;</a
+      ><a name="1454"
+      > </a
+      ><a name="1455" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="1456"
+      > </a
+      ><a name="1457" href="lps.Linearity.Consumption.html#1408" class="Bound"
+      >T&#8322;</a
+      ><a name="1459" class="Symbol"
+      >)</a
+      ><a name="1460"
+      > </a
+      ><a name="1461" class="Symbol"
+      >&#8594;</a
+      ><a name="1462"
+      > </a
+      ><a name="1463" href="lps.Linearity.Consumption.html#1389" class="Bound"
+      >S</a
+      ><a name="1464"
+      > </a
+      ><a name="1465" href="lps.Linearity.html#820" class="InductiveConstructor Operator"
+      >`&#8855;</a
+      ><a name="1467"
+      > </a
+      ><a name="1468" href="lps.Linearity.Consumption.html#1403" class="Bound"
+      >T</a
+      ><a name="1469"
+      > </a
+      ><a name="1470" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="1471"
+      > </a
+      ><a name="1472" href="lps.Linearity.Consumption.html#1389" class="Bound"
+      >S</a
+      ><a name="1473"
+      > </a
+      ><a name="1474" href="lps.Linearity.html#820" class="InductiveConstructor Operator"
+      >`&#8855;</a
+      ><a name="1476"
+      > </a
+      ><a name="1477" href="lps.Linearity.Consumption.html#1405" class="Bound"
+      >T&#8321;</a
+      ><a name="1479"
+      > </a
+      ><a name="1480" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="1481"
+      > </a
+      ><a name="1482" href="lps.Linearity.html#895" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="1483"
+      > </a
+      ><a name="1484" href="lps.Linearity.Consumption.html#1378" class="Bound"
+      >&#963;</a
+      ><a name="1485"
+      > </a
+      ><a name="1486" href="lps.Linearity.html#895" class="InductiveConstructor Operator"
+      >]`&#8855;</a
+      ><a name="1489"
+      > </a
+      ><a name="1490" href="lps.Linearity.Consumption.html#1408" class="Bound"
+      >T&#8322;</a
+      ><a name="1492"
+      >
+        </a
+      ><a name="1501" class="Comment"
+      >-- breaking apart free subtypes</a
+      ><a name="1532"
+      >
+        </a
+      ><a name="1541" href="lps.Linearity.Consumption.html#1541" class="InductiveConstructor Operator"
+      >[_]`&#8855;&#737;_</a
+      ><a name="1548"
+      >  </a
+      ><a name="1550" class="Symbol"
+      >:</a
+      ><a name="1551"
+      > </a
+      ><a name="1552" class="Symbol"
+      >{</a
+      ><a name="1553" href="lps.Linearity.Consumption.html#1553" class="Bound"
+      >&#963;</a
+      ><a name="1554"
+      > </a
+      ><a name="1555" class="Symbol"
+      >:</a
+      ><a name="1556"
+      > </a
+      ><a name="1557" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="1559" class="Symbol"
+      >}</a
+      ><a name="1560"
+      > </a
+      ><a name="1561" class="Symbol"
+      >(</a
+      ><a name="1562" href="lps.Linearity.Consumption.html#1562" class="Bound"
+      >S</a
+      ><a name="1563"
+      > </a
+      ><a name="1564" class="Symbol"
+      >:</a
+      ><a name="1565"
+      > </a
+      ><a name="1566" href="lps.Linearity.html#744" class="Datatype"
+      >Cover</a
+      ><a name="1571"
+      > </a
+      ><a name="1572" href="lps.Linearity.Consumption.html#1553" class="Bound"
+      >&#963;</a
+      ><a name="1573" class="Symbol"
+      >)</a
+      ><a name="1574"
+      > </a
+      ><a name="1575" class="Symbol"
+      >{</a
+      ><a name="1576" href="lps.Linearity.Consumption.html#1576" class="Bound"
+      >&#964;</a
+      ><a name="1577"
+      > </a
+      ><a name="1578" class="Symbol"
+      >:</a
+      ><a name="1579"
+      > </a
+      ><a name="1580" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="1582" class="Symbol"
+      >}</a
+      ><a name="1583"
+      > </a
+      ><a name="1584" class="Symbol"
+      >(</a
+      ><a name="1585" href="lps.Linearity.Consumption.html#1585" class="Bound"
+      >T</a
+      ><a name="1586"
+      > </a
+      ><a name="1587" class="Symbol"
+      >:</a
+      ><a name="1588"
+      > </a
+      ><a name="1589" href="lps.Linearity.html#744" class="Datatype"
+      >Cover</a
+      ><a name="1594"
+      > </a
+      ><a name="1595" href="lps.Linearity.Consumption.html#1576" class="Bound"
+      >&#964;</a
+      ><a name="1596" class="Symbol"
+      >)</a
+      ><a name="1597"
+      > </a
+      ><a name="1598" class="Symbol"
+      >&#8594;</a
+      ><a name="1599"
+      >
+                   </a
+      ><a name="1619" href="lps.Linearity.Consumption.html#1562" class="Bound"
+      >S</a
+      ><a name="1620"
+      > </a
+      ><a name="1621" href="lps.Linearity.html#820" class="InductiveConstructor Operator"
+      >`&#8855;</a
+      ><a name="1623"
+      > </a
+      ><a name="1624" href="lps.Linearity.Consumption.html#1585" class="Bound"
+      >T</a
+      ><a name="1625"
+      > </a
+      ><a name="1626" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="1627"
+      > </a
+      ><a name="1628" href="lps.Linearity.html#895" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="1629"
+      > </a
+      ><a name="1630" href="lps.Linearity.Consumption.html#1553" class="Bound"
+      >&#963;</a
+      ><a name="1631"
+      > </a
+      ><a name="1632" href="lps.Linearity.html#895" class="InductiveConstructor Operator"
+      >]`&#8855;</a
+      ><a name="1635"
+      > </a
+      ><a name="1636" href="lps.Linearity.Consumption.html#1585" class="Bound"
+      >T</a
+      ><a name="1637"
+      > </a
+      ><a name="1638" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="1639"
+      > </a
+      ><a name="1640" href="lps.Linearity.Consumption.html#1562" class="Bound"
+      >S</a
+      ><a name="1641"
+      > </a
+      ><a name="1642" href="lps.Linearity.html#963" class="InductiveConstructor Operator"
+      >`&#8855;[</a
+      ><a name="1645"
+      > </a
+      ><a name="1646" href="lps.Linearity.Consumption.html#1576" class="Bound"
+      >&#964;</a
+      ><a name="1647"
+      > </a
+      ><a name="1648" href="lps.Linearity.html#963" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="1649"
+      >
+        </a
+      ><a name="1658" href="lps.Linearity.Consumption.html#1658" class="InductiveConstructor Operator"
+      >[_]`&#8855;&#737;&#691;_</a
+      ><a name="1666"
+      > </a
+      ><a name="1667" class="Symbol"
+      >:</a
+      ><a name="1668"
+      > </a
+      ><a name="1669" class="Symbol"
+      >{</a
+      ><a name="1670" href="lps.Linearity.Consumption.html#1670" class="Bound"
+      >&#963;</a
+      ><a name="1671"
+      > </a
+      ><a name="1672" class="Symbol"
+      >:</a
+      ><a name="1673"
+      > </a
+      ><a name="1674" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="1676" class="Symbol"
+      >}</a
+      ><a name="1677"
+      > </a
+      ><a name="1678" class="Symbol"
+      >(</a
+      ><a name="1679" href="lps.Linearity.Consumption.html#1679" class="Bound"
+      >S</a
+      ><a name="1680"
+      > </a
+      ><a name="1681" class="Symbol"
+      >:</a
+      ><a name="1682"
+      > </a
+      ><a name="1683" href="lps.Linearity.html#744" class="Datatype"
+      >Cover</a
+      ><a name="1688"
+      > </a
+      ><a name="1689" href="lps.Linearity.Consumption.html#1670" class="Bound"
+      >&#963;</a
+      ><a name="1690" class="Symbol"
+      >)</a
+      ><a name="1691"
+      > </a
+      ><a name="1692" class="Symbol"
+      >{</a
+      ><a name="1693" href="lps.Linearity.Consumption.html#1693" class="Bound"
+      >&#964;</a
+      ><a name="1694"
+      > </a
+      ><a name="1695" class="Symbol"
+      >:</a
+      ><a name="1696"
+      > </a
+      ><a name="1697" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="1699" class="Symbol"
+      >}</a
+      ><a name="1700"
+      > </a
+      ><a name="1701" class="Symbol"
+      >{</a
+      ><a name="1702" href="lps.Linearity.Consumption.html#1702" class="Bound"
+      >T</a
+      ><a name="1703"
+      > </a
+      ><a name="1704" href="lps.Linearity.Consumption.html#1704" class="Bound"
+      >T&#8321;</a
+      ><a name="1706"
+      > </a
+      ><a name="1707" href="lps.Linearity.Consumption.html#1707" class="Bound"
+      >T&#8322;</a
+      ><a name="1709"
+      > </a
+      ><a name="1710" class="Symbol"
+      >:</a
+      ><a name="1711"
+      > </a
+      ><a name="1712" href="lps.Linearity.html#744" class="Datatype"
+      >Cover</a
+      ><a name="1717"
+      > </a
+      ><a name="1718" href="lps.Linearity.Consumption.html#1693" class="Bound"
+      >&#964;</a
+      ><a name="1719" class="Symbol"
+      >}</a
+      ><a name="1720"
+      >
+                   </a
+      ><a name="1740" class="Symbol"
+      >(</a
+      ><a name="1741" href="lps.Linearity.Consumption.html#1741" class="Bound"
+      >pr&#964;</a
+      ><a name="1744"
+      > </a
+      ><a name="1745" class="Symbol"
+      >:</a
+      ><a name="1746"
+      > </a
+      ><a name="1747" href="lps.Linearity.Consumption.html#1702" class="Bound"
+      >T</a
+      ><a name="1748"
+      > </a
+      ><a name="1749" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="1750"
+      > </a
+      ><a name="1751" href="lps.Linearity.Consumption.html#1704" class="Bound"
+      >T&#8321;</a
+      ><a name="1753"
+      > </a
+      ><a name="1754" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="1755"
+      > </a
+      ><a name="1756" href="lps.Linearity.Consumption.html#1707" class="Bound"
+      >T&#8322;</a
+      ><a name="1758" class="Symbol"
+      >)</a
+      ><a name="1759"
+      > </a
+      ><a name="1760" class="Symbol"
+      >&#8594;</a
+      ><a name="1761"
+      > </a
+      ><a name="1762" href="lps.Linearity.Consumption.html#1679" class="Bound"
+      >S</a
+      ><a name="1763"
+      > </a
+      ><a name="1764" href="lps.Linearity.html#820" class="InductiveConstructor Operator"
+      >`&#8855;</a
+      ><a name="1766"
+      > </a
+      ><a name="1767" href="lps.Linearity.Consumption.html#1702" class="Bound"
+      >T</a
+      ><a name="1768"
+      > </a
+      ><a name="1769" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="1770"
+      > </a
+      ><a name="1771" href="lps.Linearity.html#895" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="1772"
+      > </a
+      ><a name="1773" href="lps.Linearity.Consumption.html#1670" class="Bound"
+      >&#963;</a
+      ><a name="1774"
+      > </a
+      ><a name="1775" href="lps.Linearity.html#895" class="InductiveConstructor Operator"
+      >]`&#8855;</a
+      ><a name="1778"
+      > </a
+      ><a name="1779" href="lps.Linearity.Consumption.html#1704" class="Bound"
+      >T&#8321;</a
+      ><a name="1781"
+      > </a
+      ><a name="1782" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="1783"
+      > </a
+      ><a name="1784" href="lps.Linearity.Consumption.html#1679" class="Bound"
+      >S</a
+      ><a name="1785"
+      > </a
+      ><a name="1786" href="lps.Linearity.html#820" class="InductiveConstructor Operator"
+      >`&#8855;</a
+      ><a name="1788"
+      > </a
+      ><a name="1789" href="lps.Linearity.Consumption.html#1707" class="Bound"
+      >T&#8322;</a
+      ><a name="1791"
+      >
+        </a
+      ><a name="1800" href="lps.Linearity.Consumption.html#1800" class="InductiveConstructor Operator"
+      >_`&#8855;&#691;[_]</a
+      ><a name="1807"
+      >  </a
+      ><a name="1809" class="Symbol"
+      >:</a
+      ><a name="1810"
+      > </a
+      ><a name="1811" class="Symbol"
+      >{</a
+      ><a name="1812" href="lps.Linearity.Consumption.html#1812" class="Bound"
+      >&#963;</a
+      ><a name="1813"
+      > </a
+      ><a name="1814" class="Symbol"
+      >:</a
+      ><a name="1815"
+      > </a
+      ><a name="1816" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="1818" class="Symbol"
+      >}</a
+      ><a name="1819"
+      > </a
+      ><a name="1820" class="Symbol"
+      >(</a
+      ><a name="1821" href="lps.Linearity.Consumption.html#1821" class="Bound"
+      >S</a
+      ><a name="1822"
+      > </a
+      ><a name="1823" class="Symbol"
+      >:</a
+      ><a name="1824"
+      > </a
+      ><a name="1825" href="lps.Linearity.html#744" class="Datatype"
+      >Cover</a
+      ><a name="1830"
+      > </a
+      ><a name="1831" href="lps.Linearity.Consumption.html#1812" class="Bound"
+      >&#963;</a
+      ><a name="1832" class="Symbol"
+      >)</a
+      ><a name="1833"
+      >  </a
+      ><a name="1835" class="Symbol"
+      >{</a
+      ><a name="1836" href="lps.Linearity.Consumption.html#1836" class="Bound"
+      >&#964;</a
+      ><a name="1837"
+      > </a
+      ><a name="1838" class="Symbol"
+      >:</a
+      ><a name="1839"
+      > </a
+      ><a name="1840" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="1842" class="Symbol"
+      >}</a
+      ><a name="1843"
+      > </a
+      ><a name="1844" class="Symbol"
+      >(</a
+      ><a name="1845" href="lps.Linearity.Consumption.html#1845" class="Bound"
+      >T</a
+      ><a name="1846"
+      > </a
+      ><a name="1847" class="Symbol"
+      >:</a
+      ><a name="1848"
+      > </a
+      ><a name="1849" href="lps.Linearity.html#744" class="Datatype"
+      >Cover</a
+      ><a name="1854"
+      > </a
+      ><a name="1855" href="lps.Linearity.Consumption.html#1836" class="Bound"
+      >&#964;</a
+      ><a name="1856" class="Symbol"
+      >)</a
+      ><a name="1857"
+      > </a
+      ><a name="1858" class="Symbol"
+      >&#8594;</a
+      ><a name="1859"
+      >
+                   </a
+      ><a name="1879" href="lps.Linearity.Consumption.html#1821" class="Bound"
+      >S</a
+      ><a name="1880"
+      > </a
+      ><a name="1881" href="lps.Linearity.html#820" class="InductiveConstructor Operator"
+      >`&#8855;</a
+      ><a name="1883"
+      > </a
+      ><a name="1884" href="lps.Linearity.Consumption.html#1845" class="Bound"
+      >T</a
+      ><a name="1885"
+      > </a
+      ><a name="1886" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="1887"
+      > </a
+      ><a name="1888" href="lps.Linearity.Consumption.html#1821" class="Bound"
+      >S</a
+      ><a name="1889"
+      > </a
+      ><a name="1890" href="lps.Linearity.html#963" class="InductiveConstructor Operator"
+      >`&#8855;[</a
+      ><a name="1893"
+      > </a
+      ><a name="1894" href="lps.Linearity.Consumption.html#1836" class="Bound"
+      >&#964;</a
+      ><a name="1895"
+      > </a
+      ><a name="1896" href="lps.Linearity.html#963" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="1897"
+      > </a
+      ><a name="1898" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="1899"
+      > </a
+      ><a name="1900" href="lps.Linearity.html#895" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="1901"
+      > </a
+      ><a name="1902" href="lps.Linearity.Consumption.html#1812" class="Bound"
+      >&#963;</a
+      ><a name="1903"
+      > </a
+      ><a name="1904" href="lps.Linearity.html#895" class="InductiveConstructor Operator"
+      >]`&#8855;</a
+      ><a name="1907"
+      > </a
+      ><a name="1908" href="lps.Linearity.Consumption.html#1845" class="Bound"
+      >T</a
+      ><a name="1909"
+      >
+        </a
+      ><a name="1918" href="lps.Linearity.Consumption.html#1918" class="InductiveConstructor Operator"
+      >_`&#8855;&#737;&#691;[_]</a
+      ><a name="1926"
+      > </a
+      ><a name="1927" class="Symbol"
+      >:</a
+      ><a name="1928"
+      > </a
+      ><a name="1929" class="Symbol"
+      >{</a
+      ><a name="1930" href="lps.Linearity.Consumption.html#1930" class="Bound"
+      >&#963;</a
+      ><a name="1931"
+      > </a
+      ><a name="1932" class="Symbol"
+      >:</a
+      ><a name="1933"
+      > </a
+      ><a name="1934" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="1936" class="Symbol"
+      >}</a
+      ><a name="1937"
+      > </a
+      ><a name="1938" class="Symbol"
+      >{</a
+      ><a name="1939" href="lps.Linearity.Consumption.html#1939" class="Bound"
+      >S</a
+      ><a name="1940"
+      > </a
+      ><a name="1941" href="lps.Linearity.Consumption.html#1941" class="Bound"
+      >S&#8321;</a
+      ><a name="1943"
+      > </a
+      ><a name="1944" href="lps.Linearity.Consumption.html#1944" class="Bound"
+      >S&#8322;</a
+      ><a name="1946"
+      > </a
+      ><a name="1947" class="Symbol"
+      >:</a
+      ><a name="1948"
+      > </a
+      ><a name="1949" href="lps.Linearity.html#744" class="Datatype"
+      >Cover</a
+      ><a name="1954"
+      > </a
+      ><a name="1955" href="lps.Linearity.Consumption.html#1930" class="Bound"
+      >&#963;</a
+      ><a name="1956" class="Symbol"
+      >}</a
+      ><a name="1957"
+      > </a
+      ><a name="1958" class="Symbol"
+      >(</a
+      ><a name="1959" href="lps.Linearity.Consumption.html#1959" class="Bound"
+      >pr&#963;</a
+      ><a name="1962"
+      > </a
+      ><a name="1963" class="Symbol"
+      >:</a
+      ><a name="1964"
+      > </a
+      ><a name="1965" href="lps.Linearity.Consumption.html#1939" class="Bound"
+      >S</a
+      ><a name="1966"
+      > </a
+      ><a name="1967" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="1968"
+      > </a
+      ><a name="1969" href="lps.Linearity.Consumption.html#1941" class="Bound"
+      >S&#8321;</a
+      ><a name="1971"
+      > </a
+      ><a name="1972" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="1973"
+      > </a
+      ><a name="1974" href="lps.Linearity.Consumption.html#1944" class="Bound"
+      >S&#8322;</a
+      ><a name="1976" class="Symbol"
+      >)</a
+      ><a name="1977"
+      >
+                   </a
+      ><a name="1997" class="Symbol"
+      >{</a
+      ><a name="1998" href="lps.Linearity.Consumption.html#1998" class="Bound"
+      >&#964;</a
+      ><a name="1999"
+      > </a
+      ><a name="2000" class="Symbol"
+      >:</a
+      ><a name="2001"
+      > </a
+      ><a name="2002" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="2004" class="Symbol"
+      >}</a
+      ><a name="2005"
+      > </a
+      ><a name="2006" class="Symbol"
+      >(</a
+      ><a name="2007" href="lps.Linearity.Consumption.html#2007" class="Bound"
+      >T</a
+      ><a name="2008"
+      > </a
+      ><a name="2009" class="Symbol"
+      >:</a
+      ><a name="2010"
+      > </a
+      ><a name="2011" href="lps.Linearity.html#744" class="Datatype"
+      >Cover</a
+      ><a name="2016"
+      > </a
+      ><a name="2017" href="lps.Linearity.Consumption.html#1998" class="Bound"
+      >&#964;</a
+      ><a name="2018" class="Symbol"
+      >)</a
+      ><a name="2019"
+      > </a
+      ><a name="2020" class="Symbol"
+      >&#8594;</a
+      ><a name="2021"
+      > </a
+      ><a name="2022" href="lps.Linearity.Consumption.html#1939" class="Bound"
+      >S</a
+      ><a name="2023"
+      > </a
+      ><a name="2024" href="lps.Linearity.html#820" class="InductiveConstructor Operator"
+      >`&#8855;</a
+      ><a name="2026"
+      > </a
+      ><a name="2027" href="lps.Linearity.Consumption.html#2007" class="Bound"
+      >T</a
+      ><a name="2028"
+      > </a
+      ><a name="2029" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="2030"
+      > </a
+      ><a name="2031" href="lps.Linearity.Consumption.html#1941" class="Bound"
+      >S&#8321;</a
+      ><a name="2033"
+      > </a
+      ><a name="2034" href="lps.Linearity.html#963" class="InductiveConstructor Operator"
+      >`&#8855;[</a
+      ><a name="2037"
+      > </a
+      ><a name="2038" href="lps.Linearity.Consumption.html#1998" class="Bound"
+      >&#964;</a
+      ><a name="2039"
+      > </a
+      ><a name="2040" href="lps.Linearity.html#963" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2041"
+      > </a
+      ><a name="2042" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="2043"
+      > </a
+      ><a name="2044" href="lps.Linearity.Consumption.html#1944" class="Bound"
+      >S&#8322;</a
+      ><a name="2046"
+      > </a
+      ><a name="2047" href="lps.Linearity.html#820" class="InductiveConstructor Operator"
+      >`&#8855;</a
+      ><a name="2049"
+      > </a
+      ><a name="2050" href="lps.Linearity.Consumption.html#2007" class="Bound"
+      >T</a
+      ><a name="2051"
+      >
+
+
+      </a
+      ><a name="2060" href="lps.Linearity.Consumption.html#2060" class="Function"
+      >&#172;id&#9472;</a
+      ><a name="2064"
+      > </a
+      ><a name="2065" class="Symbol"
+      >:</a
+      ><a name="2066"
+      > </a
+      ><a name="2067" class="Symbol"
+      >&#8704;</a
+      ><a name="2068"
+      > </a
+      ><a name="2069" class="Symbol"
+      >{</a
+      ><a name="2070" href="lps.Linearity.Consumption.html#2070" class="Bound"
+      >a</a
+      ><a name="2071" class="Symbol"
+      >}</a
+      ><a name="2072"
+      > </a
+      ><a name="2073" class="Symbol"
+      >{</a
+      ><a name="2074" href="lps.Linearity.Consumption.html#2074" class="Bound"
+      >S</a
+      ><a name="2075"
+      > </a
+      ><a name="2076" href="lps.Linearity.Consumption.html#2076" class="Bound"
+      >T</a
+      ><a name="2077"
+      > </a
+      ><a name="2078" class="Symbol"
+      >:</a
+      ><a name="2079"
+      > </a
+      ><a name="2080" href="lps.Linearity.html#744" class="Datatype"
+      >Cover</a
+      ><a name="2085"
+      > </a
+      ><a name="2086" href="lps.Linearity.Consumption.html#2070" class="Bound"
+      >a</a
+      ><a name="2087" class="Symbol"
+      >}</a
+      ><a name="2088"
+      > </a
+      ><a name="2089" class="Symbol"
+      >(</a
+      ><a name="2090" href="lps.Linearity.Consumption.html#2090" class="Bound"
+      >hf</a
+      ><a name="2092"
+      > </a
+      ><a name="2093" class="Symbol"
+      >:</a
+      ><a name="2094"
+      > </a
+      ><a name="2095" href="lps.Linearity.Consumption.html#2076" class="Bound"
+      >T</a
+      ><a name="2096"
+      > </a
+      ><a name="2097" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="2098"
+      > </a
+      ><a name="2099" href="lps.Linearity.Consumption.html#2074" class="Bound"
+      >S</a
+      ><a name="2100"
+      > </a
+      ><a name="2101" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="2102"
+      > </a
+      ><a name="2103" href="lps.Linearity.Consumption.html#2076" class="Bound"
+      >T</a
+      ><a name="2104" class="Symbol"
+      >)</a
+      ><a name="2105"
+      > </a
+      ><a name="2106" class="Symbol"
+      >&#8594;</a
+      ><a name="2107"
+      > </a
+      ><a name="2108" href="Data.Empty.html#243" class="Datatype"
+      >&#8869;</a
+      ><a name="2109"
+      >
+      </a
+      ><a name="2116" href="lps.Linearity.Consumption.html#2060" class="Function"
+      >&#172;id&#9472;</a
+      ><a name="2120"
+      > </a
+      ><a name="2121" class="Symbol"
+      >(</a
+      ><a name="2122" href="lps.Linearity.Consumption.html#2122" class="Bound"
+      >hf</a
+      ><a name="2124"
+      > </a
+      ><a name="2125" href="lps.Linearity.Consumption.html#466" class="InductiveConstructor Operator"
+      >`&#8855;</a
+      ><a name="2127"
+      > </a
+      ><a name="2128" class="Symbol"
+      >_)</a
+      ><a name="2130"
+      >      </a
+      ><a name="2136" class="Symbol"
+      >=</a
+      ><a name="2137"
+      > </a
+      ><a name="2138" href="lps.Linearity.Consumption.html#2060" class="Function"
+      >&#172;id&#9472;</a
+      ><a name="2142"
+      > </a
+      ><a name="2143" href="lps.Linearity.Consumption.html#2122" class="Bound"
+      >hf</a
+      ><a name="2145"
+      >
+      </a
+      ><a name="2152" href="lps.Linearity.Consumption.html#2060" class="Function"
+      >&#172;id&#9472;</a
+      ><a name="2156"
+      > </a
+      ><a name="2157" class="Symbol"
+      >(</a
+      ><a name="2158" href="lps.Linearity.Consumption.html#652" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2159"
+      > </a
+      ><a name="2160" class="Symbol"
+      >_</a
+      ><a name="2161"
+      > </a
+      ><a name="2162" href="lps.Linearity.Consumption.html#652" class="InductiveConstructor Operator"
+      >]`&#8855;</a
+      ><a name="2165"
+      > </a
+      ><a name="2166" href="lps.Linearity.Consumption.html#2166" class="Bound"
+      >hf</a
+      ><a name="2168" class="Symbol"
+      >)</a
+      ><a name="2169"
+      >   </a
+      ><a name="2172" class="Symbol"
+      >=</a
+      ><a name="2173"
+      > </a
+      ><a name="2174" href="lps.Linearity.Consumption.html#2060" class="Function"
+      >&#172;id&#9472;</a
+      ><a name="2178"
+      > </a
+      ><a name="2179" href="lps.Linearity.Consumption.html#2166" class="Bound"
+      >hf</a
+      ><a name="2181"
+      >
+      </a
+      ><a name="2188" href="lps.Linearity.Consumption.html#2060" class="Function"
+      >&#172;id&#9472;</a
+      ><a name="2192"
+      > </a
+      ><a name="2193" class="Symbol"
+      >(</a
+      ><a name="2194" href="lps.Linearity.Consumption.html#2194" class="Bound"
+      >hf</a
+      ><a name="2196"
+      > </a
+      ><a name="2197" href="lps.Linearity.Consumption.html#786" class="InductiveConstructor Operator"
+      >`&#8855;[</a
+      ><a name="2200"
+      > </a
+      ><a name="2201" class="Symbol"
+      >_</a
+      ><a name="2202"
+      > </a
+      ><a name="2203" href="lps.Linearity.Consumption.html#786" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2204" class="Symbol"
+      >)</a
+      ><a name="2205"
+      >   </a
+      ><a name="2208" class="Symbol"
+      >=</a
+      ><a name="2209"
+      > </a
+      ><a name="2210" href="lps.Linearity.Consumption.html#2060" class="Function"
+      >&#172;id&#9472;</a
+      ><a name="2214"
+      > </a
+      ><a name="2215" href="lps.Linearity.Consumption.html#2194" class="Bound"
+      >hf</a
+      ><a name="2217"
+      >
+      </a
+      ><a name="2224" href="lps.Linearity.Consumption.html#2060" class="Function"
+      >&#172;id&#9472;</a
+      ><a name="2228"
+      > </a
+      ><a name="2229" class="Symbol"
+      >(</a
+      ><a name="2230" href="lps.Linearity.Consumption.html#920" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2231"
+      > </a
+      ><a name="2232" class="Symbol"
+      >_</a
+      ><a name="2233"
+      > </a
+      ><a name="2234" href="lps.Linearity.Consumption.html#920" class="InductiveConstructor Operator"
+      >]`&amp;</a
+      ><a name="2237"
+      > </a
+      ><a name="2238" href="lps.Linearity.Consumption.html#2238" class="Bound"
+      >hf</a
+      ><a name="2240" class="Symbol"
+      >)</a
+      ><a name="2241"
+      >   </a
+      ><a name="2244" class="Symbol"
+      >=</a
+      ><a name="2245"
+      > </a
+      ><a name="2246" href="lps.Linearity.Consumption.html#2060" class="Function"
+      >&#172;id&#9472;</a
+      ><a name="2250"
+      > </a
+      ><a name="2251" href="lps.Linearity.Consumption.html#2238" class="Bound"
+      >hf</a
+      ><a name="2253"
+      >
+      </a
+      ><a name="2260" href="lps.Linearity.Consumption.html#2060" class="Function"
+      >&#172;id&#9472;</a
+      ><a name="2264"
+      > </a
+      ><a name="2265" class="Symbol"
+      >(</a
+      ><a name="2266" href="lps.Linearity.Consumption.html#2266" class="Bound"
+      >hf</a
+      ><a name="2268"
+      > </a
+      ><a name="2269" href="lps.Linearity.Consumption.html#1054" class="InductiveConstructor Operator"
+      >`&amp;[</a
+      ><a name="2272"
+      > </a
+      ><a name="2273" class="Symbol"
+      >_</a
+      ><a name="2274"
+      > </a
+      ><a name="2275" href="lps.Linearity.Consumption.html#1054" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2276" class="Symbol"
+      >)</a
+      ><a name="2277"
+      >   </a
+      ><a name="2280" class="Symbol"
+      >=</a
+      ><a name="2281"
+      > </a
+      ><a name="2282" href="lps.Linearity.Consumption.html#2060" class="Function"
+      >&#172;id&#9472;</a
+      ><a name="2286"
+      > </a
+      ><a name="2287" href="lps.Linearity.Consumption.html#2266" class="Bound"
+      >hf</a
+      ><a name="2289"
+      >
+      </a
+      ><a name="2296" href="lps.Linearity.Consumption.html#2060" class="Function"
+      >&#172;id&#9472;</a
+      ><a name="2300"
+      > </a
+      ><a name="2301" class="Symbol"
+      >(</a
+      ><a name="2302" href="lps.Linearity.Consumption.html#1658" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2303"
+      > </a
+      ><a name="2304" class="Symbol"
+      >_</a
+      ><a name="2305"
+      > </a
+      ><a name="2306" href="lps.Linearity.Consumption.html#1658" class="InductiveConstructor Operator"
+      >]`&#8855;&#737;&#691;</a
+      ><a name="2311"
+      > </a
+      ><a name="2312" href="lps.Linearity.Consumption.html#2312" class="Bound"
+      >hf</a
+      ><a name="2314" class="Symbol"
+      >)</a
+      ><a name="2315"
+      > </a
+      ><a name="2316" class="Symbol"
+      >=</a
+      ><a name="2317"
+      > </a
+      ><a name="2318" href="lps.Linearity.Consumption.html#2060" class="Function"
+      >&#172;id&#9472;</a
+      ><a name="2322"
+      > </a
+      ><a name="2323" href="lps.Linearity.Consumption.html#2312" class="Bound"
+      >hf</a
+      ><a name="2325"
+      >
+      </a
+      ><a name="2332" href="lps.Linearity.Consumption.html#2060" class="Function"
+      >&#172;id&#9472;</a
+      ><a name="2336"
+      > </a
+      ><a name="2337" class="Symbol"
+      >(</a
+      ><a name="2338" href="lps.Linearity.Consumption.html#2338" class="Bound"
+      >hf</a
+      ><a name="2340"
+      > </a
+      ><a name="2341" href="lps.Linearity.Consumption.html#1918" class="InductiveConstructor Operator"
+      >`&#8855;&#737;&#691;[</a
+      ><a name="2346"
+      > </a
+      ><a name="2347" class="Symbol"
+      >_</a
+      ><a name="2348"
+      > </a
+      ><a name="2349" href="lps.Linearity.Consumption.html#1918" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2350" class="Symbol"
+      >)</a
+      ><a name="2351"
+      > </a
+      ><a name="2352" class="Symbol"
+      >=</a
+      ><a name="2353"
+      > </a
+      ><a name="2354" href="lps.Linearity.Consumption.html#2060" class="Function"
+      >&#172;id&#9472;</a
+      ><a name="2358"
+      > </a
+      ><a name="2359" href="lps.Linearity.Consumption.html#2338" class="Bound"
+      >hf</a
+      ><a name="2361"
+      >
+
+      </a
+      ><a name="2369" href="lps.Linearity.Consumption.html#2369" class="Function"
+      >&#172;diag</a
+      ><a name="2374"
+      > </a
+      ><a name="2375" class="Symbol"
+      >:</a
+      ><a name="2376"
+      > </a
+      ><a name="2377" class="Symbol"
+      >&#8704;</a
+      ><a name="2378"
+      > </a
+      ><a name="2379" class="Symbol"
+      >{</a
+      ><a name="2380" href="lps.Linearity.Consumption.html#2380" class="Bound"
+      >a</a
+      ><a name="2381" class="Symbol"
+      >}</a
+      ><a name="2382"
+      > </a
+      ><a name="2383" class="Symbol"
+      >{</a
+      ><a name="2384" href="lps.Linearity.Consumption.html#2384" class="Bound"
+      >S</a
+      ><a name="2385"
+      > </a
+      ><a name="2386" href="lps.Linearity.Consumption.html#2386" class="Bound"
+      >T</a
+      ><a name="2387"
+      > </a
+      ><a name="2388" class="Symbol"
+      >:</a
+      ><a name="2389"
+      > </a
+      ><a name="2390" href="lps.Linearity.html#744" class="Datatype"
+      >Cover</a
+      ><a name="2395"
+      > </a
+      ><a name="2396" href="lps.Linearity.Consumption.html#2380" class="Bound"
+      >a</a
+      ><a name="2397" class="Symbol"
+      >}</a
+      ><a name="2398"
+      > </a
+      ><a name="2399" class="Symbol"
+      >(</a
+      ><a name="2400" href="lps.Linearity.Consumption.html#2400" class="Bound"
+      >hf</a
+      ><a name="2402"
+      > </a
+      ><a name="2403" class="Symbol"
+      >:</a
+      ><a name="2404"
+      > </a
+      ><a name="2405" href="lps.Linearity.Consumption.html#2384" class="Bound"
+      >S</a
+      ><a name="2406"
+      > </a
+      ><a name="2407" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="2408"
+      > </a
+      ><a name="2409" href="lps.Linearity.Consumption.html#2386" class="Bound"
+      >T</a
+      ><a name="2410"
+      > </a
+      ><a name="2411" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="2412"
+      > </a
+      ><a name="2413" href="lps.Linearity.Consumption.html#2386" class="Bound"
+      >T</a
+      ><a name="2414" class="Symbol"
+      >)</a
+      ><a name="2415"
+      > </a
+      ><a name="2416" class="Symbol"
+      >&#8594;</a
+      ><a name="2417"
+      > </a
+      ><a name="2418" href="Data.Empty.html#243" class="Datatype"
+      >&#8869;</a
+      ><a name="2419"
+      >
+      </a
+      ><a name="2426" href="lps.Linearity.Consumption.html#2369" class="Function"
+      >&#172;diag</a
+      ><a name="2431"
+      > </a
+      ><a name="2432" class="Symbol"
+      >(</a
+      ><a name="2433" href="lps.Linearity.Consumption.html#2433" class="Bound"
+      >hf</a
+      ><a name="2435"
+      > </a
+      ><a name="2436" href="lps.Linearity.Consumption.html#466" class="InductiveConstructor Operator"
+      >`&#8855;</a
+      ><a name="2438"
+      > </a
+      ><a name="2439" class="Symbol"
+      >_)</a
+      ><a name="2441"
+      >    </a
+      ><a name="2445" class="Symbol"
+      >=</a
+      ><a name="2446"
+      > </a
+      ><a name="2447" href="lps.Linearity.Consumption.html#2369" class="Function"
+      >&#172;diag</a
+      ><a name="2452"
+      > </a
+      ><a name="2453" href="lps.Linearity.Consumption.html#2433" class="Bound"
+      >hf</a
+      ><a name="2455"
+      >
+      </a
+      ><a name="2462" href="lps.Linearity.Consumption.html#2369" class="Function"
+      >&#172;diag</a
+      ><a name="2467"
+      > </a
+      ><a name="2468" class="Symbol"
+      >(</a
+      ><a name="2469" href="lps.Linearity.Consumption.html#652" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2470"
+      > </a
+      ><a name="2471" class="Symbol"
+      >_</a
+      ><a name="2472"
+      > </a
+      ><a name="2473" href="lps.Linearity.Consumption.html#652" class="InductiveConstructor Operator"
+      >]`&#8855;</a
+      ><a name="2476"
+      > </a
+      ><a name="2477" href="lps.Linearity.Consumption.html#2477" class="Bound"
+      >hf</a
+      ><a name="2479" class="Symbol"
+      >)</a
+      ><a name="2480"
+      > </a
+      ><a name="2481" class="Symbol"
+      >=</a
+      ><a name="2482"
+      > </a
+      ><a name="2483" href="lps.Linearity.Consumption.html#2369" class="Function"
+      >&#172;diag</a
+      ><a name="2488"
+      > </a
+      ><a name="2489" href="lps.Linearity.Consumption.html#2477" class="Bound"
+      >hf</a
+      ><a name="2491"
+      >
+      </a
+      ><a name="2498" href="lps.Linearity.Consumption.html#2369" class="Function"
+      >&#172;diag</a
+      ><a name="2503"
+      > </a
+      ><a name="2504" class="Symbol"
+      >(</a
+      ><a name="2505" href="lps.Linearity.Consumption.html#2505" class="Bound"
+      >hf</a
+      ><a name="2507"
+      > </a
+      ><a name="2508" href="lps.Linearity.Consumption.html#786" class="InductiveConstructor Operator"
+      >`&#8855;[</a
+      ><a name="2511"
+      > </a
+      ><a name="2512" class="Symbol"
+      >_</a
+      ><a name="2513"
+      > </a
+      ><a name="2514" href="lps.Linearity.Consumption.html#786" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2515" class="Symbol"
+      >)</a
+      ><a name="2516"
+      > </a
+      ><a name="2517" class="Symbol"
+      >=</a
+      ><a name="2518"
+      > </a
+      ><a name="2519" href="lps.Linearity.Consumption.html#2369" class="Function"
+      >&#172;diag</a
+      ><a name="2524"
+      > </a
+      ><a name="2525" href="lps.Linearity.Consumption.html#2505" class="Bound"
+      >hf</a
+      ><a name="2527"
+      >
+      </a
+      ><a name="2534" href="lps.Linearity.Consumption.html#2369" class="Function"
+      >&#172;diag</a
+      ><a name="2539"
+      > </a
+      ><a name="2540" class="Symbol"
+      >(</a
+      ><a name="2541" href="lps.Linearity.Consumption.html#920" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2542"
+      > </a
+      ><a name="2543" href="lps.Linearity.Consumption.html#2543" class="Bound"
+      >&#963;</a
+      ><a name="2544"
+      > </a
+      ><a name="2545" href="lps.Linearity.Consumption.html#920" class="InductiveConstructor Operator"
+      >]`&amp;</a
+      ><a name="2548"
+      > </a
+      ><a name="2549" href="lps.Linearity.Consumption.html#2549" class="Bound"
+      >hf</a
+      ><a name="2551" class="Symbol"
+      >)</a
+      ><a name="2552"
+      > </a
+      ><a name="2553" class="Symbol"
+      >=</a
+      ><a name="2554"
+      > </a
+      ><a name="2555" href="lps.Linearity.Consumption.html#2369" class="Function"
+      >&#172;diag</a
+      ><a name="2560"
+      > </a
+      ><a name="2561" href="lps.Linearity.Consumption.html#2549" class="Bound"
+      >hf</a
+      ><a name="2563"
+      >
+      </a
+      ><a name="2570" href="lps.Linearity.Consumption.html#2369" class="Function"
+      >&#172;diag</a
+      ><a name="2575"
+      > </a
+      ><a name="2576" class="Symbol"
+      >(</a
+      ><a name="2577" href="lps.Linearity.Consumption.html#2577" class="Bound"
+      >hf</a
+      ><a name="2579"
+      > </a
+      ><a name="2580" href="lps.Linearity.Consumption.html#1054" class="InductiveConstructor Operator"
+      >`&amp;[</a
+      ><a name="2583"
+      > </a
+      ><a name="2584" href="lps.Linearity.Consumption.html#2584" class="Bound"
+      >&#964;</a
+      ><a name="2585"
+      > </a
+      ><a name="2586" href="lps.Linearity.Consumption.html#1054" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2587" class="Symbol"
+      >)</a
+      ><a name="2588"
+      > </a
+      ><a name="2589" class="Symbol"
+      >=</a
+      ><a name="2590"
+      > </a
+      ><a name="2591" href="lps.Linearity.Consumption.html#2369" class="Function"
+      >&#172;diag</a
+      ><a name="2596"
+      > </a
+      ><a name="2597" href="lps.Linearity.Consumption.html#2577" class="Bound"
+      >hf</a
+      ><a name="2599"
+      >
+
+    </a
+      ><a name="2605" class="Keyword"
+      >module</a
+      ><a name="2611"
+      > </a
+      ><a name="2612" href="lps.Linearity.Consumption.html#2612" class="Module"
+      >Usage</a
+      ><a name="2617"
+      > </a
+      ><a name="2618" class="Keyword"
+      >where</a
+      ><a name="2623"
+      >
+
+      </a
+      ><a name="2631" class="Keyword"
+      >open</a
+      ><a name="2635"
+      > </a
+      ><a name="2636" href="lps.Linearity.html#289" class="Module"
+      >Linearity.</a
+      ><a name="2646" href="lps.Linearity.html#326" class="Module"
+      >Type</a
+      ><a name="2650"
+      > </a
+      ><a name="2651" href="lps.Linearity.Consumption.html#214" class="Bound"
+      >Pr</a
+      ><a name="2653"
+      >
+
+      </a
+      ><a name="2661" class="Keyword"
+      >data</a
+      ><a name="2665"
+      > </a
+      ><a name="2666" href="lps.Linearity.Consumption.html#2666" class="Datatype Operator"
+      >_&#8801;_&#9472;_</a
+      ><a name="2671"
+      > </a
+      ><a name="2672" class="Symbol"
+      >{</a
+      ><a name="2673" href="lps.Linearity.Consumption.html#2673" class="Bound"
+      >&#963;</a
+      ><a name="2674"
+      > </a
+      ><a name="2675" class="Symbol"
+      >:</a
+      ><a name="2676"
+      > </a
+      ><a name="2677" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="2679" class="Symbol"
+      >}</a
+      ><a name="2680"
+      > </a
+      ><a name="2681" class="Symbol"
+      >:</a
+      ><a name="2682"
+      > </a
+      ><a name="2683" class="Symbol"
+      >(</a
+      ><a name="2684" href="lps.Linearity.Consumption.html#2684" class="Bound"
+      >S</a
+      ><a name="2685"
+      > </a
+      ><a name="2686" href="lps.Linearity.Consumption.html#2686" class="Bound"
+      >S&#8321;</a
+      ><a name="2688"
+      > </a
+      ><a name="2689" href="lps.Linearity.Consumption.html#2689" class="Bound"
+      >S&#8322;</a
+      ><a name="2691"
+      > </a
+      ><a name="2692" class="Symbol"
+      >:</a
+      ><a name="2693"
+      > </a
+      ><a name="2694" href="lps.Linearity.html#4904" class="Datatype"
+      >Usage</a
+      ><a name="2699"
+      > </a
+      ><a name="2700" href="lps.Linearity.Consumption.html#2673" class="Bound"
+      >&#963;</a
+      ><a name="2701" class="Symbol"
+      >)</a
+      ><a name="2702"
+      > </a
+      ><a name="2703" class="Symbol"
+      >&#8594;</a
+      ><a name="2704"
+      > </a
+      ><a name="2705" class="PrimitiveType"
+      >Set</a
+      ><a name="2708"
+      > </a
+      ><a name="2709" class="Keyword"
+      >where</a
+      ><a name="2714"
+      >
+        </a
+      ><a name="2723" href="lps.Linearity.Consumption.html#2723" class="InductiveConstructor"
+      >`id&#737;</a
+      ><a name="2727"
+      > </a
+      ><a name="2728" class="Symbol"
+      >:</a
+      ><a name="2729"
+      > </a
+      ><a name="2730" class="Symbol"
+      >{</a
+      ><a name="2731" href="lps.Linearity.Consumption.html#2731" class="Bound"
+      >S</a
+      ><a name="2732"
+      > </a
+      ><a name="2733" class="Symbol"
+      >:</a
+      ><a name="2734"
+      > </a
+      ><a name="2735" href="lps.Linearity.html#4904" class="Datatype"
+      >Usage</a
+      ><a name="2740"
+      > </a
+      ><a name="2741" href="lps.Linearity.Consumption.html#2673" class="Bound"
+      >&#963;</a
+      ><a name="2742" class="Symbol"
+      >}</a
+      ><a name="2743"
+      > </a
+      ><a name="2744" class="Symbol"
+      >&#8594;</a
+      ><a name="2745"
+      > </a
+      ><a name="2746" href="lps.Linearity.Consumption.html#2731" class="Bound"
+      >S</a
+      ><a name="2747"
+      > </a
+      ><a name="2748" href="lps.Linearity.Consumption.html#2666" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="2749"
+      > </a
+      ><a name="2750" href="lps.Linearity.Consumption.html#2731" class="Bound"
+      >S</a
+      ><a name="2751"
+      > </a
+      ><a name="2752" href="lps.Linearity.Consumption.html#2666" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="2753"
+      > </a
+      ><a name="2754" href="lps.Linearity.html#4938" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2755"
+      > </a
+      ><a name="2756" href="lps.Linearity.Consumption.html#2673" class="Bound"
+      >&#963;</a
+      ><a name="2757"
+      > </a
+      ><a name="2758" href="lps.Linearity.html#4938" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2759"
+      >
+        </a
+      ><a name="2768" href="lps.Linearity.Consumption.html#2768" class="InductiveConstructor"
+      >`id&#691;</a
+      ><a name="2772"
+      > </a
+      ><a name="2773" class="Symbol"
+      >:</a
+      ><a name="2774"
+      > </a
+      ><a name="2775" class="Symbol"
+      >{</a
+      ><a name="2776" href="lps.Linearity.Consumption.html#2776" class="Bound"
+      >S</a
+      ><a name="2777"
+      > </a
+      ><a name="2778" class="Symbol"
+      >:</a
+      ><a name="2779"
+      > </a
+      ><a name="2780" href="lps.Linearity.html#4904" class="Datatype"
+      >Usage</a
+      ><a name="2785"
+      > </a
+      ><a name="2786" href="lps.Linearity.Consumption.html#2673" class="Bound"
+      >&#963;</a
+      ><a name="2787" class="Symbol"
+      >}</a
+      ><a name="2788"
+      > </a
+      ><a name="2789" class="Symbol"
+      >&#8594;</a
+      ><a name="2790"
+      > </a
+      ><a name="2791" href="lps.Linearity.Consumption.html#2776" class="Bound"
+      >S</a
+      ><a name="2792"
+      > </a
+      ><a name="2793" href="lps.Linearity.Consumption.html#2666" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="2794"
+      > </a
+      ><a name="2795" href="lps.Linearity.html#4938" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2796"
+      > </a
+      ><a name="2797" href="lps.Linearity.Consumption.html#2673" class="Bound"
+      >&#963;</a
+      ><a name="2798"
+      > </a
+      ><a name="2799" href="lps.Linearity.html#4938" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2800"
+      > </a
+      ><a name="2801" href="lps.Linearity.Consumption.html#2666" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="2802"
+      > </a
+      ><a name="2803" href="lps.Linearity.Consumption.html#2776" class="Bound"
+      >S</a
+      ><a name="2804"
+      >
+        </a
+      ><a name="2813" href="lps.Linearity.Consumption.html#2813" class="InductiveConstructor Operator"
+      >]_[</a
+      ><a name="2816"
+      > </a
+      ><a name="2817" class="Symbol"
+      >:</a
+      ><a name="2818"
+      > </a
+      ><a name="2819" class="Symbol"
+      >{</a
+      ><a name="2820" href="lps.Linearity.Consumption.html#2820" class="Bound"
+      >S</a
+      ><a name="2821"
+      > </a
+      ><a name="2822" href="lps.Linearity.Consumption.html#2822" class="Bound"
+      >S&#8321;</a
+      ><a name="2824"
+      > </a
+      ><a name="2825" href="lps.Linearity.Consumption.html#2825" class="Bound"
+      >S&#8322;</a
+      ><a name="2827"
+      > </a
+      ><a name="2828" class="Symbol"
+      >:</a
+      ><a name="2829"
+      > </a
+      ><a name="2830" href="lps.Linearity.html#744" class="Datatype"
+      >Cover</a
+      ><a name="2835"
+      > </a
+      ><a name="2836" href="lps.Linearity.Consumption.html#2673" class="Bound"
+      >&#963;</a
+      ><a name="2837" class="Symbol"
+      >}</a
+      ><a name="2838"
+      > </a
+      ><a name="2839" class="Symbol"
+      >(</a
+      ><a name="2840" href="lps.Linearity.Consumption.html#2840" class="Bound"
+      >prS</a
+      ><a name="2843"
+      > </a
+      ><a name="2844" class="Symbol"
+      >:</a
+      ><a name="2845"
+      > </a
+      ><a name="2846" href="lps.Linearity.Consumption.html#2820" class="Bound"
+      >S</a
+      ><a name="2847"
+      > </a
+      ><a name="2848" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >Cover.&#8801;</a
+      ><a name="2855"
+      > </a
+      ><a name="2856" href="lps.Linearity.Consumption.html#2822" class="Bound"
+      >S&#8321;</a
+      ><a name="2858"
+      > </a
+      ><a name="2859" href="lps.Linearity.Consumption.html#381" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="2860"
+      > </a
+      ><a name="2861" href="lps.Linearity.Consumption.html#2825" class="Bound"
+      >S&#8322;</a
+      ><a name="2863" class="Symbol"
+      >)</a
+      ><a name="2864"
+      > </a
+      ><a name="2865" class="Symbol"
+      >&#8594;</a
+      ><a name="2866"
+      >
+              </a
+      ><a name="2881" href="lps.Linearity.html#4974" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2882"
+      > </a
+      ><a name="2883" href="lps.Linearity.Consumption.html#2820" class="Bound"
+      >S</a
+      ><a name="2884"
+      > </a
+      ><a name="2885" href="lps.Linearity.html#4974" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2886"
+      > </a
+      ><a name="2887" href="lps.Linearity.Consumption.html#2666" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="2888"
+      > </a
+      ><a name="2889" href="lps.Linearity.html#4974" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2890"
+      > </a
+      ><a name="2891" href="lps.Linearity.Consumption.html#2822" class="Bound"
+      >S&#8321;</a
+      ><a name="2893"
+      > </a
+      ><a name="2894" href="lps.Linearity.html#4974" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2895"
+      > </a
+      ><a name="2896" href="lps.Linearity.Consumption.html#2666" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="2897"
+      > </a
+      ><a name="2898" href="lps.Linearity.html#4974" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2899"
+      > </a
+      ><a name="2900" href="lps.Linearity.Consumption.html#2825" class="Bound"
+      >S&#8322;</a
+      ><a name="2902"
+      > </a
+      ><a name="2903" href="lps.Linearity.html#4974" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2904"
+      >
+
+    
+      </a
+      ><a name="2917" href="lps.Linearity.Consumption.html#2917" class="Function Operator"
+      >inj[_]</a
+      ><a name="2923"
+      > </a
+      ><a name="2924" class="Symbol"
+      >:</a
+      ><a name="2925"
+      > </a
+      ><a name="2926" class="Symbol"
+      >&#8704;</a
+      ><a name="2927"
+      > </a
+      ><a name="2928" class="Symbol"
+      >{</a
+      ><a name="2929" href="lps.Linearity.Consumption.html#2929" class="Bound"
+      >a</a
+      ><a name="2930" class="Symbol"
+      >}</a
+      ><a name="2931"
+      > </a
+      ><a name="2932" class="Symbol"
+      >(</a
+      ><a name="2933" href="lps.Linearity.Consumption.html#2933" class="Bound"
+      >A</a
+      ><a name="2934"
+      > </a
+      ><a name="2935" class="Symbol"
+      >:</a
+      ><a name="2936"
+      > </a
+      ><a name="2937" href="lps.Linearity.html#4904" class="Datatype"
+      >Usage</a
+      ><a name="2942"
+      > </a
+      ><a name="2943" href="lps.Linearity.Consumption.html#2929" class="Bound"
+      >a</a
+      ><a name="2944" class="Symbol"
+      >)</a
+      ><a name="2945"
+      > </a
+      ><a name="2946" class="Symbol"
+      >&#8594;</a
+      ><a name="2947"
+      > </a
+      ><a name="2948" href="lps.Linearity.Consumption.html#2933" class="Bound"
+      >A</a
+      ><a name="2949"
+      > </a
+      ><a name="2950" href="lps.Linearity.Consumption.html#2666" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="2951"
+      > </a
+      ><a name="2952" href="lps.Linearity.html#4938" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2953"
+      > </a
+      ><a name="2954" href="lps.Linearity.Consumption.html#2929" class="Bound"
+      >a</a
+      ><a name="2955"
+      > </a
+      ><a name="2956" href="lps.Linearity.html#4938" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2957"
+      > </a
+      ><a name="2958" href="lps.Linearity.Consumption.html#2666" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="2959"
+      > </a
+      ><a name="2960" href="lps.Linearity.Consumption.html#2933" class="Bound"
+      >A</a
+      ><a name="2961"
+      >
+      </a
+      ><a name="2968" href="lps.Linearity.Consumption.html#2917" class="Function Operator"
+      >inj[</a
+      ><a name="2972"
+      > </a
+      ><a name="2973" href="lps.Linearity.html#4938" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2974"
+      > </a
+      ><a name="2975" href="lps.Linearity.Consumption.html#2975" class="Bound"
+      >a</a
+      ><a name="2976"
+      > </a
+      ><a name="2977" href="lps.Linearity.html#4938" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2978"
+      > </a
+      ><a name="2979" href="lps.Linearity.Consumption.html#2917" class="Function Operator"
+      >]</a
+      ><a name="2980"
+      > </a
+      ><a name="2981" class="Symbol"
+      >=</a
+      ><a name="2982"
+      > </a
+      ><a name="2983" href="lps.Linearity.Consumption.html#2723" class="InductiveConstructor"
+      >`id&#737;</a
+      ><a name="2987"
+      >
+      </a
+      ><a name="2994" href="lps.Linearity.Consumption.html#2917" class="Function Operator"
+      >inj[</a
+      ><a name="2998"
+      > </a
+      ><a name="2999" href="lps.Linearity.html#4974" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="3000"
+      > </a
+      ><a name="3001" href="lps.Linearity.Consumption.html#3001" class="Bound"
+      >A</a
+      ><a name="3002"
+      > </a
+      ><a name="3003" href="lps.Linearity.html#4974" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="3004"
+      > </a
+      ><a name="3005" href="lps.Linearity.Consumption.html#2917" class="Function Operator"
+      >]</a
+      ><a name="3006"
+      > </a
+      ><a name="3007" class="Symbol"
+      >=</a
+      ><a name="3008"
+      > </a
+      ><a name="3009" href="lps.Linearity.Consumption.html#2768" class="InductiveConstructor"
+      >`id&#691;</a
+      ><a name="3013"
+      >
+
+      </a
+      ><a name="3021" href="lps.Linearity.Consumption.html#3021" class="Function"
+      >isUsed-inj</a
+      ><a name="3031"
+      > </a
+      ><a name="3032" class="Symbol"
+      >:</a
+      ><a name="3033"
+      > </a
+      ><a name="3034" class="Symbol"
+      >{</a
+      ><a name="3035" href="lps.Linearity.Consumption.html#3035" class="Bound"
+      >&#963;</a
+      ><a name="3036"
+      > </a
+      ><a name="3037" class="Symbol"
+      >:</a
+      ><a name="3038"
+      > </a
+      ><a name="3039" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="3041" class="Symbol"
+      >}</a
+      ><a name="3042"
+      > </a
+      ><a name="3043" class="Symbol"
+      >{</a
+      ><a name="3044" href="lps.Linearity.Consumption.html#3044" class="Bound"
+      >S</a
+      ><a name="3045"
+      > </a
+      ><a name="3046" href="lps.Linearity.Consumption.html#3046" class="Bound"
+      >T</a
+      ><a name="3047"
+      > </a
+      ><a name="3048" class="Symbol"
+      >:</a
+      ><a name="3049"
+      > </a
+      ><a name="3050" href="lps.Linearity.html#4904" class="Datatype"
+      >Usage</a
+      ><a name="3055"
+      > </a
+      ><a name="3056" href="lps.Linearity.Consumption.html#3035" class="Bound"
+      >&#963;</a
+      ><a name="3057" class="Symbol"
+      >}</a
+      ><a name="3058"
+      > </a
+      ><a name="3059" class="Symbol"
+      >(</a
+      ><a name="3060" href="lps.Linearity.Consumption.html#3060" class="Bound"
+      >pr</a
+      ><a name="3062"
+      > </a
+      ><a name="3063" class="Symbol"
+      >:</a
+      ><a name="3064"
+      > </a
+      ><a name="3065" href="lps.Linearity.html#5099" class="Datatype"
+      >Usage.isUsed</a
+      ><a name="3077"
+      > </a
+      ><a name="3078" href="lps.Linearity.Consumption.html#3044" class="Bound"
+      >S</a
+      ><a name="3079" class="Symbol"
+      >)</a
+      ><a name="3080"
+      > </a
+      ><a name="3081" class="Symbol"
+      >&#8594;</a
+      ><a name="3082"
+      >
+                  </a
+      ><a name="3101" class="Symbol"
+      >(</a
+      ><a name="3102" href="lps.Linearity.Consumption.html#3102" class="Bound"
+      >diff</a
+      ><a name="3106"
+      > </a
+      ><a name="3107" class="Symbol"
+      >:</a
+      ><a name="3108"
+      > </a
+      ><a name="3109" href="lps.Linearity.Consumption.html#3044" class="Bound"
+      >S</a
+      ><a name="3110"
+      > </a
+      ><a name="3111" href="lps.Linearity.Consumption.html#2666" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="3112"
+      > </a
+      ><a name="3113" href="lps.Linearity.html#4938" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="3114"
+      > </a
+      ><a name="3115" href="lps.Linearity.Consumption.html#3035" class="Bound"
+      >&#963;</a
+      ><a name="3116"
+      > </a
+      ><a name="3117" href="lps.Linearity.html#4938" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="3118"
+      > </a
+      ><a name="3119" href="lps.Linearity.Consumption.html#2666" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="3120"
+      > </a
+      ><a name="3121" href="lps.Linearity.Consumption.html#3046" class="Bound"
+      >T</a
+      ><a name="3122" class="Symbol"
+      >)</a
+      ><a name="3123"
+      > </a
+      ><a name="3124" class="Symbol"
+      >&#8594;</a
+      ><a name="3125"
+      > </a
+      ><a name="3126" href="lps.Linearity.html#5099" class="Datatype"
+      >Usage.isUsed</a
+      ><a name="3138"
+      > </a
+      ><a name="3139" href="lps.Linearity.Consumption.html#3046" class="Bound"
+      >T</a
+      ><a name="3140"
+      >
+      </a
+      ><a name="3147" href="lps.Linearity.Consumption.html#3021" class="Function"
+      >isUsed-inj</a
+      ><a name="3157"
+      > </a
+      ><a name="3158" href="lps.Linearity.Consumption.html#3158" class="Bound"
+      >pr</a
+      ><a name="3160"
+      > </a
+      ><a name="3161" href="lps.Linearity.Consumption.html#2723" class="InductiveConstructor"
+      >`id&#737;</a
+      ><a name="3165"
+      > </a
+      ><a name="3166" class="Symbol"
+      >=</a
+      ><a name="3167"
+      > </a
+      ><a name="3168" href="lps.Linearity.Consumption.html#3158" class="Bound"
+      >pr</a
+      ><a name="3170"
+      >
+      </a
+      ><a name="3177" href="lps.Linearity.Consumption.html#3021" class="Function"
+      >isUsed-inj</a
+      ><a name="3187"
+      > </a
+      ><a name="3188" href="lps.Linearity.Consumption.html#3188" class="Bound"
+      >pr</a
+      ><a name="3190"
+      > </a
+      ><a name="3191" href="lps.Linearity.Consumption.html#2768" class="InductiveConstructor"
+      >`id&#691;</a
+      ><a name="3195"
+      > </a
+      ><a name="3196" class="Symbol"
+      >=</a
+      ><a name="3197"
+      > </a
+      ><a name="3198" href="lps.Linearity.Consumption.html#3188" class="Bound"
+      >pr</a
+      ><a name="3200"
+      >
+
+  </a
+      ><a name="3204" class="Keyword"
+      >module</a
+      ><a name="3210"
+      > </a
+      ><a name="3211" href="lps.Linearity.Consumption.html#3211" class="Module"
+      >Context</a
+      ><a name="3218"
+      > </a
+      ><a name="3219" class="Keyword"
+      >where</a
+      ><a name="3224"
+      >
+
+    </a
+      ><a name="3230" class="Keyword"
+      >open</a
+      ><a name="3234"
+      > </a
+      ><a name="3235" href="lib.Context.html#12" class="Module"
+      >Con.</a
+      ><a name="3239" href="lib.Context.html#322" class="Module"
+      >Context</a
+      ><a name="3246"
+      >
+    </a
+      ><a name="3251" class="Keyword"
+      >open</a
+      ><a name="3255"
+      > </a
+      ><a name="3256" href="lib.Context.html#2033" class="Module"
+      >Pointwise</a
+      ><a name="3265"
+      >
+    </a
+      ><a name="3270" class="Keyword"
+      >open</a
+      ><a name="3274"
+      > </a
+      ><a name="3275" href="lps.IMLL.html#282" class="Module"
+      >IMLL.</a
+      ><a name="3280" href="lps.IMLL.html#314" class="Module"
+      >Type</a
+      ><a name="3284"
+      > </a
+      ><a name="3285" href="lps.Linearity.Consumption.html#214" class="Bound"
+      >Pr</a
+      ><a name="3287"
+      >
+    </a
+      ><a name="3292" class="Keyword"
+      >open</a
+      ><a name="3296"
+      > </a
+      ><a name="3297" href="lps.Linearity.html#1" class="Module"
+      >Linearity</a
+      ><a name="3306"
+      > </a
+      ><a name="3307" href="lps.Linearity.Consumption.html#214" class="Bound"
+      >Pr</a
+      ><a name="3309"
+      >
+
+    </a
+      ><a name="3315" class="Keyword"
+      >infix</a
+      ><a name="3320"
+      > </a
+      ><a name="3321" class="Number"
+      >4</a
+      ><a name="3322"
+      > _&#8801;_&#9472;_
+    </a
+      ><a name="3333" class="Keyword"
+      >data</a
+      ><a name="3337"
+      > </a
+      ><a name="3338" href="lps.Linearity.Consumption.html#3338" class="Datatype Operator"
+      >_&#8801;_&#9472;_</a
+      ><a name="3343"
+      > </a
+      ><a name="3344" class="Symbol"
+      >:</a
+      ><a name="3345"
+      > </a
+      ><a name="3346" class="Symbol"
+      >{</a
+      ><a name="3347" href="lps.Linearity.Consumption.html#3347" class="Bound"
+      >&#947;</a
+      ><a name="3348"
+      > </a
+      ><a name="3349" class="Symbol"
+      >:</a
+      ><a name="3350"
+      > </a
+      ><a name="3351" href="lib.Context.html#360" class="Datatype"
+      >Con</a
+      ><a name="3354"
+      > </a
+      ><a name="3355" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="3357" class="Symbol"
+      >}</a
+      ><a name="3358"
+      > </a
+      ><a name="3359" class="Symbol"
+      >(</a
+      ><a name="3360" href="lps.Linearity.Consumption.html#3360" class="Bound"
+      >E</a
+      ><a name="3361"
+      > </a
+      ><a name="3362" href="lps.Linearity.Consumption.html#3362" class="Bound"
+      >&#916;&#8321;</a
+      ><a name="3364"
+      > </a
+      ><a name="3365" href="lps.Linearity.Consumption.html#3365" class="Bound"
+      >&#916;&#8322;</a
+      ><a name="3367"
+      > </a
+      ><a name="3368" class="Symbol"
+      >:</a
+      ><a name="3369"
+      > </a
+      ><a name="3370" href="lps.Linearity.html#5990" class="Function"
+      >LC.Usage</a
+      ><a name="3378"
+      > </a
+      ><a name="3379" href="lps.Linearity.Consumption.html#3347" class="Bound"
+      >&#947;</a
+      ><a name="3380" class="Symbol"
+      >)</a
+      ><a name="3381"
+      > </a
+      ><a name="3382" class="Symbol"
+      >&#8594;</a
+      ><a name="3383"
+      > </a
+      ><a name="3384" class="PrimitiveType"
+      >Set</a
+      ><a name="3387"
+      > </a
+      ><a name="3388" class="Keyword"
+      >where</a
+      ><a name="3393"
+      >
+      </a
+      ><a name="3400" href="lps.Linearity.Consumption.html#3400" class="InductiveConstructor"
+      >&#949;</a
+      ><a name="3401"
+      >   </a
+      ><a name="3404" class="Symbol"
+      >:</a
+      ><a name="3405"
+      > </a
+      ><a name="3406" href="lib.Context.html#2128" class="InductiveConstructor"
+      >&#949;</a
+      ><a name="3407"
+      > </a
+      ><a name="3408" href="lps.Linearity.Consumption.html#3338" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="3409"
+      > </a
+      ><a name="3410" href="lib.Context.html#2128" class="InductiveConstructor"
+      >&#949;</a
+      ><a name="3411"
+      > </a
+      ><a name="3412" href="lps.Linearity.Consumption.html#3338" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="3413"
+      > </a
+      ><a name="3414" href="lib.Context.html#2128" class="InductiveConstructor"
+      >&#949;</a
+      ><a name="3415"
+      >
+      </a
+      ><a name="3422" href="lps.Linearity.Consumption.html#3422" class="InductiveConstructor Operator"
+      >_&#8729;_</a
+      ><a name="3425"
+      > </a
+      ><a name="3426" class="Symbol"
+      >:</a
+      ><a name="3427"
+      > </a
+      ><a name="3428" class="Symbol"
+      >&#8704;</a
+      ><a name="3429"
+      > </a
+      ><a name="3430" class="Symbol"
+      >{</a
+      ><a name="3431" href="lps.Linearity.Consumption.html#3431" class="Bound"
+      >&#947;</a
+      ><a name="3432"
+      > </a
+      ><a name="3433" href="lps.Linearity.Consumption.html#3433" class="Bound"
+      >&#963;</a
+      ><a name="3434" class="Symbol"
+      >}</a
+      ><a name="3435"
+      > </a
+      ><a name="3436" class="Symbol"
+      >{</a
+      ><a name="3437" href="lps.Linearity.Consumption.html#3437" class="Bound"
+      >&#915;</a
+      ><a name="3438"
+      > </a
+      ><a name="3439" href="lps.Linearity.Consumption.html#3439" class="Bound"
+      >&#916;</a
+      ><a name="3440"
+      > </a
+      ><a name="3441" href="lps.Linearity.Consumption.html#3441" class="Bound"
+      >E</a
+      ><a name="3442"
+      > </a
+      ><a name="3443" class="Symbol"
+      >:</a
+      ><a name="3444"
+      > </a
+      ><a name="3445" href="lps.Linearity.html#5990" class="Function"
+      >LC.Usage</a
+      ><a name="3453"
+      > </a
+      ><a name="3454" href="lps.Linearity.Consumption.html#3431" class="Bound"
+      >&#947;</a
+      ><a name="3455" class="Symbol"
+      >}</a
+      ><a name="3456"
+      > </a
+      ><a name="3457" class="Symbol"
+      >{</a
+      ><a name="3458" href="lps.Linearity.Consumption.html#3458" class="Bound"
+      >S</a
+      ><a name="3459"
+      > </a
+      ><a name="3460" href="lps.Linearity.Consumption.html#3460" class="Bound"
+      >T</a
+      ><a name="3461"
+      > </a
+      ><a name="3462" href="lps.Linearity.Consumption.html#3462" class="Bound"
+      >U</a
+      ><a name="3463"
+      > </a
+      ><a name="3464" class="Symbol"
+      >:</a
+      ><a name="3465"
+      > </a
+      ><a name="3466" href="lps.Linearity.html#4904" class="Datatype"
+      >Type.Usage</a
+      ><a name="3476"
+      > </a
+      ><a name="3477" href="lps.Linearity.Consumption.html#3433" class="Bound"
+      >&#963;</a
+      ><a name="3478" class="Symbol"
+      >}</a
+      ><a name="3479"
+      > </a
+      ><a name="3480" class="Symbol"
+      >&#8594;</a
+      ><a name="3481"
+      >
+            </a
+      ><a name="3494" class="Symbol"
+      >(</a
+      ><a name="3495" href="lps.Linearity.Consumption.html#3495" class="Bound"
+      >pr&#915;</a
+      ><a name="3498"
+      > </a
+      ><a name="3499" class="Symbol"
+      >:</a
+      ><a name="3500"
+      > </a
+      ><a name="3501" href="lps.Linearity.Consumption.html#3439" class="Bound"
+      >&#916;</a
+      ><a name="3502"
+      > </a
+      ><a name="3503" href="lps.Linearity.Consumption.html#3338" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="3504"
+      > </a
+      ><a name="3505" href="lps.Linearity.Consumption.html#3437" class="Bound"
+      >&#915;</a
+      ><a name="3506"
+      > </a
+      ><a name="3507" href="lps.Linearity.Consumption.html#3338" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="3508"
+      > </a
+      ><a name="3509" href="lps.Linearity.Consumption.html#3441" class="Bound"
+      >E</a
+      ><a name="3510" class="Symbol"
+      >)</a
+      ><a name="3511"
+      > </a
+      ><a name="3512" class="Symbol"
+      >(</a
+      ><a name="3513" href="lps.Linearity.Consumption.html#3513" class="Bound"
+      >prS</a
+      ><a name="3516"
+      > </a
+      ><a name="3517" class="Symbol"
+      >:</a
+      ><a name="3518"
+      > </a
+      ><a name="3519" href="lps.Linearity.Consumption.html#3460" class="Bound"
+      >T</a
+      ><a name="3520"
+      > </a
+      ><a name="3521" href="lps.Linearity.Consumption.html#2666" class="Datatype Operator"
+      >Type.Usage.&#8801;</a
+      ><a name="3533"
+      > </a
+      ><a name="3534" href="lps.Linearity.Consumption.html#3458" class="Bound"
+      >S</a
+      ><a name="3535"
+      > </a
+      ><a name="3536" href="lps.Linearity.Consumption.html#2666" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="3537"
+      > </a
+      ><a name="3538" href="lps.Linearity.Consumption.html#3462" class="Bound"
+      >U</a
+      ><a name="3539" class="Symbol"
+      >)</a
+      ><a name="3540"
+      > </a
+      ><a name="3541" class="Symbol"
+      >&#8594;</a
+      ><a name="3542"
+      >
+            </a
+      ><a name="3555" href="lps.Linearity.Consumption.html#3439" class="Bound"
+      >&#916;</a
+      ><a name="3556"
+      > </a
+      ><a name="3557" href="lib.Context.html#2149" class="InductiveConstructor Operator"
+      >&#8729;</a
+      ><a name="3558"
+      > </a
+      ><a name="3559" href="lps.Linearity.Consumption.html#3460" class="Bound"
+      >T</a
+      ><a name="3560"
+      > </a
+      ><a name="3561" href="lps.Linearity.Consumption.html#3338" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="3562"
+      > </a
+      ><a name="3563" href="lps.Linearity.Consumption.html#3437" class="Bound"
+      >&#915;</a
+      ><a name="3564"
+      > </a
+      ><a name="3565" href="lib.Context.html#2149" class="InductiveConstructor Operator"
+      >&#8729;</a
+      ><a name="3566"
+      > </a
+      ><a name="3567" href="lps.Linearity.Consumption.html#3458" class="Bound"
+      >S</a
+      ><a name="3568"
+      > </a
+      ><a name="3569" href="lps.Linearity.Consumption.html#3338" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="3570"
+      > </a
+      ><a name="3571" href="lps.Linearity.Consumption.html#3441" class="Bound"
+      >E</a
+      ><a name="3572"
+      > </a
+      ><a name="3573" href="lib.Context.html#2149" class="InductiveConstructor Operator"
+      >&#8729;</a
+      ><a name="3574"
+      > </a
+      ><a name="3575" href="lps.Linearity.Consumption.html#3462" class="Bound"
+      >U</a
+      ><a name="3576"
+      >
+
+    </a
+      ><a name="3582" href="lps.Linearity.Consumption.html#3582" class="Function Operator"
+      >inj[_]</a
+      ><a name="3588"
+      > </a
+      ><a name="3589" class="Symbol"
+      >:</a
+      ><a name="3590"
+      > </a
+      ><a name="3591" class="Symbol"
+      >&#8704;</a
+      ><a name="3592"
+      > </a
+      ><a name="3593" class="Symbol"
+      >{</a
+      ><a name="3594" href="lps.Linearity.Consumption.html#3594" class="Bound"
+      >&#947;</a
+      ><a name="3595" class="Symbol"
+      >}</a
+      ><a name="3596"
+      > </a
+      ><a name="3597" class="Symbol"
+      >(</a
+      ><a name="3598" href="lps.Linearity.Consumption.html#3598" class="Bound"
+      >&#915;</a
+      ><a name="3599"
+      > </a
+      ><a name="3600" class="Symbol"
+      >:</a
+      ><a name="3601"
+      > </a
+      ><a name="3602" href="lps.Linearity.html#5990" class="Function"
+      >LC.Usage</a
+      ><a name="3610"
+      > </a
+      ><a name="3611" href="lps.Linearity.Consumption.html#3594" class="Bound"
+      >&#947;</a
+      ><a name="3612" class="Symbol"
+      >)</a
+      ><a name="3613"
+      > </a
+      ><a name="3614" class="Symbol"
+      >&#8594;</a
+      ><a name="3615"
+      > </a
+      ><a name="3616" href="lps.Linearity.Consumption.html#3598" class="Bound"
+      >&#915;</a
+      ><a name="3617"
+      > </a
+      ><a name="3618" href="lps.Linearity.Consumption.html#3338" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="3619"
+      > </a
+      ><a name="3620" href="lps.Linearity.Consumption.html#3598" class="Bound"
+      >&#915;</a
+      ><a name="3621"
+      > </a
+      ><a name="3622" href="lps.Linearity.Consumption.html#3338" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="3623"
+      > </a
+      ><a name="3624" href="lps.Linearity.html#6044" class="Function Operator"
+      >LC.inj[</a
+      ><a name="3631"
+      > </a
+      ><a name="3632" href="lps.Linearity.Consumption.html#3594" class="Bound"
+      >&#947;</a
+      ><a name="3633"
+      > </a
+      ><a name="3634" href="lps.Linearity.html#6044" class="Function Operator"
+      >]</a
+      ><a name="3635"
+      >
+    </a
+      ><a name="3640" href="lps.Linearity.Consumption.html#3582" class="Function Operator"
+      >inj[_]</a
+      ><a name="3646"
+      > </a
+      ><a name="3647" class="Symbol"
+      >=</a
+      ><a name="3648"
+      > </a
+      ><a name="3649" href="lib.Context.html#2628" class="Function"
+      >Pointwise.induction</a
+      ><a name="3668"
+      > </a
+      ><a name="3669" class="Symbol"
+      >(&#955;</a
+      ><a name="3671"
+      > </a
+      ><a name="3672" href="lps.Linearity.Consumption.html#3672" class="Bound"
+      >&#947;</a
+      ><a name="3673"
+      > </a
+      ><a name="3674" href="lps.Linearity.Consumption.html#3674" class="Bound"
+      >&#915;</a
+      ><a name="3675"
+      > </a
+      ><a name="3676" class="Symbol"
+      >&#8594;</a
+      ><a name="3677"
+      > </a
+      ><a name="3678" href="lps.Linearity.Consumption.html#3674" class="Bound"
+      >&#915;</a
+      ><a name="3679"
+      > </a
+      ><a name="3680" href="lps.Linearity.Consumption.html#3338" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="3681"
+      > </a
+      ><a name="3682" href="lps.Linearity.Consumption.html#3674" class="Bound"
+      >&#915;</a
+      ><a name="3683"
+      > </a
+      ><a name="3684" href="lps.Linearity.Consumption.html#3338" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="3685"
+      > </a
+      ><a name="3686" href="lps.Linearity.html#6044" class="Function Operator"
+      >LC.inj[</a
+      ><a name="3693"
+      > </a
+      ><a name="3694" href="lps.Linearity.Consumption.html#3672" class="Bound"
+      >&#947;</a
+      ><a name="3695"
+      > </a
+      ><a name="3696" href="lps.Linearity.html#6044" class="Function Operator"
+      >]</a
+      ><a name="3697" class="Symbol"
+      >)</a
+      ><a name="3698"
+      >
+             </a
+      ><a name="3712" class="Symbol"
+      >(&#955;</a
+      ><a name="3714"
+      > </a
+      ><a name="3715" href="lps.Linearity.Consumption.html#3715" class="Bound"
+      >_</a
+      ><a name="3716"
+      > </a
+      ><a name="3717" href="lps.Linearity.Consumption.html#3717" class="Bound"
+      >ih</a
+      ><a name="3719"
+      > </a
+      ><a name="3720" class="Symbol"
+      >&#8594;</a
+      ><a name="3721"
+      > </a
+      ><a name="3722" href="lps.Linearity.Consumption.html#3717" class="Bound"
+      >ih</a
+      ><a name="3724"
+      > </a
+      ><a name="3725" href="lps.Linearity.Consumption.html#3422" class="InductiveConstructor Operator"
+      >&#8729;</a
+      ><a name="3726"
+      > </a
+      ><a name="3727" href="lps.Linearity.Consumption.html#2723" class="InductiveConstructor"
+      >Type.Usage.`id&#737;</a
+      ><a name="3742" class="Symbol"
+      >)</a
+      ><a name="3743"
+      > </a
+      ><a name="3744" href="lps.Linearity.Consumption.html#3400" class="InductiveConstructor"
+      >&#949;</a
+      ><a name="3745"
+      >
+
+    </a
+      ><a name="3751" href="lps.Linearity.Consumption.html#3751" class="Function"
+      >isUsed-diff</a
+      ><a name="3762"
+      > </a
+      ><a name="3763" class="Symbol"
+      >:</a
+      ><a name="3764"
+      > </a
+      ><a name="3765" class="Symbol"
+      >{</a
+      ><a name="3766" href="lps.Linearity.Consumption.html#3766" class="Bound"
+      >&#947;</a
+      ><a name="3767"
+      > </a
+      ><a name="3768" class="Symbol"
+      >:</a
+      ><a name="3769"
+      > </a
+      ><a name="3770" href="lib.Context.html#360" class="Datatype"
+      >Con</a
+      ><a name="3773"
+      > </a
+      ><a name="3774" href="lps.IMLL.html#359" class="Datatype"
+      >ty</a
+      ><a name="3776" class="Symbol"
+      >}</a
+      ><a name="3777"
+      > </a
+      ><a name="3778" class="Symbol"
+      >{</a
+      ><a name="3779" href="lps.Linearity.Consumption.html#3779" class="Bound"
+      >&#915;</a
+      ><a name="3780"
+      > </a
+      ><a name="3781" href="lps.Linearity.Consumption.html#3781" class="Bound"
+      >E</a
+      ><a name="3782"
+      > </a
+      ><a name="3783" class="Symbol"
+      >:</a
+      ><a name="3784"
+      > </a
+      ><a name="3785" href="lps.Linearity.html#5990" class="Function"
+      >LC.Usage</a
+      ><a name="3793"
+      > </a
+      ><a name="3794" href="lps.Linearity.Consumption.html#3766" class="Bound"
+      >&#947;</a
+      ><a name="3795" class="Symbol"
+      >}</a
+      ><a name="3796"
+      > </a
+      ><a name="3797" class="Symbol"
+      >(</a
+      ><a name="3798" href="lps.Linearity.Consumption.html#3798" class="Bound"
+      >pr</a
+      ><a name="3800"
+      > </a
+      ><a name="3801" class="Symbol"
+      >:</a
+      ><a name="3802"
+      > </a
+      ><a name="3803" href="lps.Linearity.html#6256" class="Datatype"
+      >LC.isUsed</a
+      ><a name="3812"
+      > </a
+      ><a name="3813" href="lps.Linearity.Consumption.html#3779" class="Bound"
+      >&#915;</a
+      ><a name="3814" class="Symbol"
+      >)</a
+      ><a name="3815"
+      > </a
+      ><a name="3816" class="Symbol"
+      >&#8594;</a
+      ><a name="3817"
+      >
+                  </a
+      ><a name="3836" class="Symbol"
+      >(</a
+      ><a name="3837" href="lps.Linearity.Consumption.html#3837" class="Bound"
+      >diff</a
+      ><a name="3841"
+      > </a
+      ><a name="3842" class="Symbol"
+      >:</a
+      ><a name="3843"
+      > </a
+      ><a name="3844" href="lps.Linearity.Consumption.html#3779" class="Bound"
+      >&#915;</a
+      ><a name="3845"
+      > </a
+      ><a name="3846" href="lps.Linearity.Consumption.html#3338" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="3847"
+      > </a
+      ><a name="3848" href="lps.Linearity.html#6044" class="Function Operator"
+      >LC.inj[</a
+      ><a name="3855"
+      > </a
+      ><a name="3856" href="lps.Linearity.Consumption.html#3766" class="Bound"
+      >&#947;</a
+      ><a name="3857"
+      > </a
+      ><a name="3858" href="lps.Linearity.html#6044" class="Function Operator"
+      >]</a
+      ><a name="3859"
+      > </a
+      ><a name="3860" href="lps.Linearity.Consumption.html#3338" class="Datatype Operator"
+      >&#9472;</a
+      ><a name="3861"
+      > </a
+      ><a name="3862" href="lps.Linearity.Consumption.html#3781" class="Bound"
+      >E</a
+      ><a name="3863" class="Symbol"
+      >)</a
+      ><a name="3864"
+      > </a
+      ><a name="3865" class="Symbol"
+      >&#8594;</a
+      ><a name="3866"
+      > </a
+      ><a name="3867" href="lps.Linearity.html#6256" class="Datatype"
+      >LC.isUsed</a
+      ><a name="3876"
+      > </a
+      ><a name="3877" href="lps.Linearity.Consumption.html#3781" class="Bound"
+      >E</a
+      ><a name="3878"
+      >
+    </a
+      ><a name="3883" href="lps.Linearity.Consumption.html#3751" class="Function"
+      >isUsed-diff</a
+      ><a name="3894"
+      > </a
+      ><a name="3895" href="lps.Linearity.Consumption.html#3895" class="Bound"
+      >pr</a
+      ><a name="3897"
+      >            </a
+      ><a name="3909" href="lps.Linearity.Consumption.html#3400" class="InductiveConstructor"
+      >&#949;</a
+      ><a name="3910"
+      >            </a
+      ><a name="3922" class="Symbol"
+      >=</a
+      ><a name="3923"
+      > </a
+      ><a name="3924" href="lps.Linearity.Consumption.html#3895" class="Bound"
+      >pr</a
+      ><a name="3926"
+      >
+    </a
+      ><a name="3931" href="lps.Linearity.Consumption.html#3751" class="Function"
+      >isUsed-diff</a
+      ><a name="3942"
+      > </a
+      ><a name="3943" class="Symbol"
+      >(</a
+      ><a name="3944" href="lps.Linearity.Consumption.html#3944" class="Bound"
+      >pr</a
+      ><a name="3946"
+      > </a
+      ><a name="3947" href="lps.Linearity.html#6331" class="InductiveConstructor Operator"
+      >LC.&#8729;</a
+      ><a name="3951"
+      > </a
+      ><a name="3952" href="lps.Linearity.Consumption.html#3952" class="Bound"
+      >prS</a
+      ><a name="3955" class="Symbol"
+      >)</a
+      ><a name="3956"
+      > </a
+      ><a name="3957" class="Symbol"
+      >(</a
+      ><a name="3958" href="lps.Linearity.Consumption.html#3958" class="Bound"
+      >diff</a
+      ><a name="3962"
+      > </a
+      ><a name="3963" href="lps.Linearity.Consumption.html#3422" class="InductiveConstructor Operator"
+      >&#8729;</a
+      ><a name="3964"
+      > </a
+      ><a name="3965" href="lps.Linearity.Consumption.html#3965" class="Bound"
+      >dS</a
+      ><a name="3967" class="Symbol"
+      >)</a
+      ><a name="3968"
+      > </a
+      ><a name="3969" class="Symbol"
+      >=</a
+      ><a name="3970"
+      > </a
+      ><a name="3971" href="lps.Linearity.Consumption.html#3751" class="Function"
+      >isUsed-diff</a
+      ><a name="3982"
+      > </a
+      ><a name="3983" href="lps.Linearity.Consumption.html#3944" class="Bound"
+      >pr</a
+      ><a name="3985"
+      > </a
+      ><a name="3986" href="lps.Linearity.Consumption.html#3958" class="Bound"
+      >diff</a
+      ><a name="3990"
+      > </a
+      ><a name="3991" href="lps.Linearity.html#6331" class="InductiveConstructor Operator"
+      >LC.&#8729;</a
+      ><a name="3995"
+      > </a
+      ><a name="3996" href="lps.Linearity.Consumption.html#3021" class="Function"
+      >Type.Usage.isUsed-inj</a
+      ><a name="4017"
+      > </a
+      ><a name="4018" href="lps.Linearity.Consumption.html#3952" class="Bound"
+      >prS</a
+      ><a name="4021"
+      > </a
+      ><a name="4022" href="lps.Linearity.Consumption.html#3965" class="Bound"
+      >dS</a
+      ><a name="4024"
+      >
+
+</a
+      ><a name="4026" class="Keyword"
+      >module</a
+      ><a name="4032"
+      > </a
+      ><a name="4033" href="lps.Linearity.Consumption.html#4033" class="Module"
+      >LCT</a
+      ><a name="4036"
+      > </a
+      ><a name="4037" class="Symbol"
+      >=</a
+      ><a name="4038"
+      > </a
+      ><a name="4039" href="lps.Linearity.Consumption.html#240" class="Module"
+      >Type</a
+      ><a name="4043"
+      >
+</a
+      ><a name="4044" class="Keyword"
+      >module</a
+      ><a name="4050"
+      > </a
+      ><a name="4051" href="lps.Linearity.Consumption.html#4051" class="Module"
+      >LCC</a
+      ><a name="4054"
+      > </a
+      ><a name="4055" class="Symbol"
+      >=</a
+      ><a name="4056"
+      > </a
+      ><a name="4057" href="lps.Linearity.Consumption.html#3211" class="Module"
+      >Context</a
+      ></pre
+    ></body
+  ></html
+>

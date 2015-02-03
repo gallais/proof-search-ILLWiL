@@ -1,0 +1,1453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >Logical-equivalence</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Comment"
+      >------------------------------------------------------------------------</a
+      ><a name="73"
+      >
+</a
+      ><a name="74" class="Comment"
+      >-- Logical equivalences</a
+      ><a name="97"
+      >
+</a
+      ><a name="98" class="Comment"
+      >------------------------------------------------------------------------</a
+      ><a name="170"
+      >
+
+</a
+      ><a name="172" class="Symbol"
+      >{-#</a
+      ><a name="175"
+      > </a
+      ><a name="176" class="Keyword"
+      >OPTIONS</a
+      ><a name="183"
+      > --without-K </a
+      ><a name="196" class="Symbol"
+      >#-}</a
+      ><a name="199"
+      >
+
+</a
+      ><a name="201" class="Keyword"
+      >module</a
+      ><a name="207"
+      > </a
+      ><a name="208" href="Logical-equivalence.html#1" class="Module"
+      >Logical-equivalence</a
+      ><a name="227"
+      > </a
+      ><a name="228" class="Keyword"
+      >where</a
+      ><a name="233"
+      >
+
+</a
+      ><a name="235" class="Keyword"
+      >open</a
+      ><a name="239"
+      > </a
+      ><a name="240" class="Keyword"
+      >import</a
+      ><a name="246"
+      > </a
+      ><a name="247" href="Prelude.html#1" class="Module"
+      >Prelude</a
+      ><a name="254"
+      > </a
+      ><a name="255" class="Symbol"
+      >as</a
+      ><a name="257"
+      > </a
+      ><a name="258" class="Module"
+      >P</a
+      ><a name="259"
+      > </a
+      ><a name="260" class="Keyword"
+      >hiding</a
+      ><a name="266"
+      > </a
+      ><a name="267" class="Symbol"
+      >(</a
+      ><a name="268"
+      >id</a
+      ><a name="270" class="Symbol"
+      >)</a
+      ><a name="271"
+      > </a
+      ><a name="272" class="Keyword"
+      >renaming</a
+      ><a name="280"
+      > </a
+      ><a name="281" class="Symbol"
+      >(</a
+      ><a name="282"
+      >_&#8728;_ </a
+      ><a name="286" class="Symbol"
+      >to</a
+      ><a name="288"
+      > _&#8858;_</a
+      ><a name="292" class="Symbol"
+      >)</a
+      ><a name="293"
+      >
+
+</a
+      ><a name="295" class="Comment"
+      >------------------------------------------------------------------------</a
+      ><a name="367"
+      >
+</a
+      ><a name="368" class="Comment"
+      >-- Logical equivalence</a
+      ><a name="390"
+      >
+
+</a
+      ><a name="392" class="Comment"
+      >-- A&#160;&#8660;&#160;B means that A and B are logically equivalent.</a
+      ><a name="445"
+      >
+
+</a
+      ><a name="447" class="Keyword"
+      >infix</a
+      ><a name="452"
+      > </a
+      ><a name="453" class="Number"
+      >0</a
+      ><a name="454"
+      > _&#8660;_
+
+</a
+      ><a name="460" class="Keyword"
+      >record</a
+      ><a name="466"
+      > </a
+      ><a name="467" href="Logical-equivalence.html#467" class="Record Operator"
+      >_&#8660;_</a
+      ><a name="470"
+      > </a
+      ><a name="471" class="Symbol"
+      >{</a
+      ><a name="472" href="Logical-equivalence.html#472" class="Bound"
+      >f</a
+      ><a name="473"
+      > </a
+      ><a name="474" href="Logical-equivalence.html#474" class="Bound"
+      >t</a
+      ><a name="475" class="Symbol"
+      >}</a
+      ><a name="476"
+      > </a
+      ><a name="477" class="Symbol"
+      >(</a
+      ><a name="478" href="Logical-equivalence.html#478" class="Bound"
+      >From</a
+      ><a name="482"
+      > </a
+      ><a name="483" class="Symbol"
+      >:</a
+      ><a name="484"
+      > </a
+      ><a name="485" class="PrimitiveType"
+      >Set</a
+      ><a name="488"
+      > </a
+      ><a name="489" href="Logical-equivalence.html#472" class="Bound"
+      >f</a
+      ><a name="490" class="Symbol"
+      >)</a
+      ><a name="491"
+      > </a
+      ><a name="492" class="Symbol"
+      >(</a
+      ><a name="493" href="Logical-equivalence.html#493" class="Bound"
+      >To</a
+      ><a name="495"
+      > </a
+      ><a name="496" class="Symbol"
+      >:</a
+      ><a name="497"
+      > </a
+      ><a name="498" class="PrimitiveType"
+      >Set</a
+      ><a name="501"
+      > </a
+      ><a name="502" href="Logical-equivalence.html#474" class="Bound"
+      >t</a
+      ><a name="503" class="Symbol"
+      >)</a
+      ><a name="504"
+      > </a
+      ><a name="505" class="Symbol"
+      >:</a
+      ><a name="506"
+      > </a
+      ><a name="507" class="PrimitiveType"
+      >Set</a
+      ><a name="510"
+      > </a
+      ><a name="511" class="Symbol"
+      >(</a
+      ><a name="512" href="Logical-equivalence.html#472" class="Bound"
+      >f</a
+      ><a name="513"
+      > </a
+      ><a name="514" href="Agda.Primitive.html#626" class="Primitive Operator"
+      >&#8852;</a
+      ><a name="515"
+      > </a
+      ><a name="516" href="Logical-equivalence.html#474" class="Bound"
+      >t</a
+      ><a name="517" class="Symbol"
+      >)</a
+      ><a name="518"
+      > </a
+      ><a name="519" class="Keyword"
+      >where</a
+      ><a name="524"
+      >
+  </a
+      ><a name="527" class="Keyword"
+      >field</a
+      ><a name="532"
+      >
+    </a
+      ><a name="537" href="Logical-equivalence.html#537" class="Field"
+      >to</a
+      ><a name="539"
+      >   </a
+      ><a name="542" class="Symbol"
+      >:</a
+      ><a name="543"
+      > </a
+      ><a name="544" href="Logical-equivalence.html#478" class="Bound"
+      >From</a
+      ><a name="548"
+      > </a
+      ><a name="549" class="Symbol"
+      >&#8594;</a
+      ><a name="550"
+      > </a
+      ><a name="551" href="Logical-equivalence.html#493" class="Bound"
+      >To</a
+      ><a name="553"
+      >
+    </a
+      ><a name="558" href="Logical-equivalence.html#558" class="Field"
+      >from</a
+      ><a name="562"
+      > </a
+      ><a name="563" class="Symbol"
+      >:</a
+      ><a name="564"
+      > </a
+      ><a name="565" href="Logical-equivalence.html#493" class="Bound"
+      >To</a
+      ><a name="567"
+      > </a
+      ><a name="568" class="Symbol"
+      >&#8594;</a
+      ><a name="569"
+      > </a
+      ><a name="570" href="Logical-equivalence.html#478" class="Bound"
+      >From</a
+      ><a name="574"
+      >
+
+</a
+      ><a name="576" class="Comment"
+      >------------------------------------------------------------------------</a
+      ><a name="648"
+      >
+</a
+      ><a name="649" class="Comment"
+      >-- Equivalence relation</a
+      ><a name="672"
+      >
+
+</a
+      ><a name="674" class="Comment"
+      >-- _&#8660;_ is an equivalence relation.</a
+      ><a name="708"
+      >
+
+</a
+      ><a name="710" href="Logical-equivalence.html#710" class="Function"
+      >id</a
+      ><a name="712"
+      > </a
+      ><a name="713" class="Symbol"
+      >:</a
+      ><a name="714"
+      > </a
+      ><a name="715" class="Symbol"
+      >&#8704;</a
+      ><a name="716"
+      > </a
+      ><a name="717" class="Symbol"
+      >{</a
+      ><a name="718" href="Logical-equivalence.html#718" class="Bound"
+      >a</a
+      ><a name="719" class="Symbol"
+      >}</a
+      ><a name="720"
+      > </a
+      ><a name="721" class="Symbol"
+      >{</a
+      ><a name="722" href="Logical-equivalence.html#722" class="Bound"
+      >A</a
+      ><a name="723"
+      > </a
+      ><a name="724" class="Symbol"
+      >:</a
+      ><a name="725"
+      > </a
+      ><a name="726" class="PrimitiveType"
+      >Set</a
+      ><a name="729"
+      > </a
+      ><a name="730" href="Logical-equivalence.html#718" class="Bound"
+      >a</a
+      ><a name="731" class="Symbol"
+      >}</a
+      ><a name="732"
+      > </a
+      ><a name="733" class="Symbol"
+      >&#8594;</a
+      ><a name="734"
+      > </a
+      ><a name="735" href="Logical-equivalence.html#722" class="Bound"
+      >A</a
+      ><a name="736"
+      > </a
+      ><a name="737" href="Logical-equivalence.html#467" class="Record Operator"
+      >&#8660;</a
+      ><a name="738"
+      > </a
+      ><a name="739" href="Logical-equivalence.html#722" class="Bound"
+      >A</a
+      ><a name="740"
+      >
+</a
+      ><a name="741" href="Logical-equivalence.html#710" class="Function"
+      >id</a
+      ><a name="743"
+      > </a
+      ><a name="744" class="Symbol"
+      >=</a
+      ><a name="745"
+      > </a
+      ><a name="746" class="Keyword"
+      >record</a
+      ><a name="752"
+      >
+  </a
+      ><a name="755" class="Symbol"
+      >{</a
+      ><a name="756"
+      > </a
+      ><a name="757" class="Field"
+      >to</a
+      ><a name="759"
+      >   </a
+      ><a name="762" class="Symbol"
+      >=</a
+      ><a name="763"
+      > </a
+      ><a name="764" href="Prelude.html#2882" class="Function"
+      >P.id</a
+      ><a name="768"
+      >
+  </a
+      ><a name="771" class="Symbol"
+      >;</a
+      ><a name="772"
+      > </a
+      ><a name="773" class="Field"
+      >from</a
+      ><a name="777"
+      > </a
+      ><a name="778" class="Symbol"
+      >=</a
+      ><a name="779"
+      > </a
+      ><a name="780" href="Prelude.html#2882" class="Function"
+      >P.id</a
+      ><a name="784"
+      >
+  </a
+      ><a name="787" class="Symbol"
+      >}</a
+      ><a name="788"
+      >
+
+</a
+      ><a name="790" href="Logical-equivalence.html#790" class="Function"
+      >inverse</a
+      ><a name="797"
+      > </a
+      ><a name="798" class="Symbol"
+      >:</a
+      ><a name="799"
+      > </a
+      ><a name="800" class="Symbol"
+      >&#8704;</a
+      ><a name="801"
+      > </a
+      ><a name="802" class="Symbol"
+      >{</a
+      ><a name="803" href="Logical-equivalence.html#803" class="Bound"
+      >a</a
+      ><a name="804"
+      > </a
+      ><a name="805" href="Logical-equivalence.html#805" class="Bound"
+      >b</a
+      ><a name="806" class="Symbol"
+      >}</a
+      ><a name="807"
+      > </a
+      ><a name="808" class="Symbol"
+      >{</a
+      ><a name="809" href="Logical-equivalence.html#809" class="Bound"
+      >A</a
+      ><a name="810"
+      > </a
+      ><a name="811" class="Symbol"
+      >:</a
+      ><a name="812"
+      > </a
+      ><a name="813" class="PrimitiveType"
+      >Set</a
+      ><a name="816"
+      > </a
+      ><a name="817" href="Logical-equivalence.html#803" class="Bound"
+      >a</a
+      ><a name="818" class="Symbol"
+      >}</a
+      ><a name="819"
+      > </a
+      ><a name="820" class="Symbol"
+      >{</a
+      ><a name="821" href="Logical-equivalence.html#821" class="Bound"
+      >B</a
+      ><a name="822"
+      > </a
+      ><a name="823" class="Symbol"
+      >:</a
+      ><a name="824"
+      > </a
+      ><a name="825" class="PrimitiveType"
+      >Set</a
+      ><a name="828"
+      > </a
+      ><a name="829" href="Logical-equivalence.html#805" class="Bound"
+      >b</a
+      ><a name="830" class="Symbol"
+      >}</a
+      ><a name="831"
+      > </a
+      ><a name="832" class="Symbol"
+      >&#8594;</a
+      ><a name="833"
+      > </a
+      ><a name="834" href="Logical-equivalence.html#809" class="Bound"
+      >A</a
+      ><a name="835"
+      > </a
+      ><a name="836" href="Logical-equivalence.html#467" class="Record Operator"
+      >&#8660;</a
+      ><a name="837"
+      > </a
+      ><a name="838" href="Logical-equivalence.html#821" class="Bound"
+      >B</a
+      ><a name="839"
+      > </a
+      ><a name="840" class="Symbol"
+      >&#8594;</a
+      ><a name="841"
+      > </a
+      ><a name="842" href="Logical-equivalence.html#821" class="Bound"
+      >B</a
+      ><a name="843"
+      > </a
+      ><a name="844" href="Logical-equivalence.html#467" class="Record Operator"
+      >&#8660;</a
+      ><a name="845"
+      > </a
+      ><a name="846" href="Logical-equivalence.html#809" class="Bound"
+      >A</a
+      ><a name="847"
+      >
+</a
+      ><a name="848" href="Logical-equivalence.html#790" class="Function"
+      >inverse</a
+      ><a name="855"
+      > </a
+      ><a name="856" href="Logical-equivalence.html#856" class="Bound"
+      >A&#8660;B</a
+      ><a name="859"
+      > </a
+      ><a name="860" class="Symbol"
+      >=</a
+      ><a name="861"
+      > </a
+      ><a name="862" class="Keyword"
+      >record</a
+      ><a name="868"
+      >
+  </a
+      ><a name="871" class="Symbol"
+      >{</a
+      ><a name="872"
+      > </a
+      ><a name="873" class="Field"
+      >to</a
+      ><a name="875"
+      >               </a
+      ><a name="890" class="Symbol"
+      >=</a
+      ><a name="891"
+      > </a
+      ><a name="892" href="Logical-equivalence.html#558" class="Function"
+      >from</a
+      ><a name="896"
+      >
+  </a
+      ><a name="899" class="Symbol"
+      >;</a
+      ><a name="900"
+      > </a
+      ><a name="901" class="Field"
+      >from</a
+      ><a name="905"
+      >             </a
+      ><a name="918" class="Symbol"
+      >=</a
+      ><a name="919"
+      > </a
+      ><a name="920" href="Logical-equivalence.html#537" class="Function"
+      >to</a
+      ><a name="922"
+      >
+  </a
+      ><a name="925" class="Symbol"
+      >}</a
+      ><a name="926"
+      > </a
+      ><a name="927" class="Keyword"
+      >where</a
+      ><a name="932"
+      > </a
+      ><a name="933" class="Keyword"
+      >open</a
+      ><a name="937"
+      > </a
+      ><a name="938" href="Logical-equivalence.html#467" class="Module Operator"
+      >_&#8660;_</a
+      ><a name="941"
+      > </a
+      ><a name="942" href="Logical-equivalence.html#856" class="Bound"
+      >A&#8660;B</a
+      ><a name="945"
+      >
+
+</a
+      ><a name="947" class="Keyword"
+      >infixr</a
+      ><a name="953"
+      > </a
+      ><a name="954" class="Number"
+      >9</a
+      ><a name="955"
+      > _&#8728;_
+
+</a
+      ><a name="961" href="Logical-equivalence.html#961" class="Function Operator"
+      >_&#8728;_</a
+      ><a name="964"
+      > </a
+      ><a name="965" class="Symbol"
+      >:</a
+      ><a name="966"
+      > </a
+      ><a name="967" class="Symbol"
+      >&#8704;</a
+      ><a name="968"
+      > </a
+      ><a name="969" class="Symbol"
+      >{</a
+      ><a name="970" href="Logical-equivalence.html#970" class="Bound"
+      >a</a
+      ><a name="971"
+      > </a
+      ><a name="972" href="Logical-equivalence.html#972" class="Bound"
+      >b</a
+      ><a name="973"
+      > </a
+      ><a name="974" href="Logical-equivalence.html#974" class="Bound"
+      >c</a
+      ><a name="975" class="Symbol"
+      >}</a
+      ><a name="976"
+      > </a
+      ><a name="977" class="Symbol"
+      >{</a
+      ><a name="978" href="Logical-equivalence.html#978" class="Bound"
+      >A</a
+      ><a name="979"
+      > </a
+      ><a name="980" class="Symbol"
+      >:</a
+      ><a name="981"
+      > </a
+      ><a name="982" class="PrimitiveType"
+      >Set</a
+      ><a name="985"
+      > </a
+      ><a name="986" href="Logical-equivalence.html#970" class="Bound"
+      >a</a
+      ><a name="987" class="Symbol"
+      >}</a
+      ><a name="988"
+      > </a
+      ><a name="989" class="Symbol"
+      >{</a
+      ><a name="990" href="Logical-equivalence.html#990" class="Bound"
+      >B</a
+      ><a name="991"
+      > </a
+      ><a name="992" class="Symbol"
+      >:</a
+      ><a name="993"
+      > </a
+      ><a name="994" class="PrimitiveType"
+      >Set</a
+      ><a name="997"
+      > </a
+      ><a name="998" href="Logical-equivalence.html#972" class="Bound"
+      >b</a
+      ><a name="999" class="Symbol"
+      >}</a
+      ><a name="1000"
+      > </a
+      ><a name="1001" class="Symbol"
+      >{</a
+      ><a name="1002" href="Logical-equivalence.html#1002" class="Bound"
+      >C</a
+      ><a name="1003"
+      > </a
+      ><a name="1004" class="Symbol"
+      >:</a
+      ><a name="1005"
+      > </a
+      ><a name="1006" class="PrimitiveType"
+      >Set</a
+      ><a name="1009"
+      > </a
+      ><a name="1010" href="Logical-equivalence.html#974" class="Bound"
+      >c</a
+      ><a name="1011" class="Symbol"
+      >}</a
+      ><a name="1012"
+      > </a
+      ><a name="1013" class="Symbol"
+      >&#8594;</a
+      ><a name="1014"
+      >
+      </a
+      ><a name="1021" href="Logical-equivalence.html#990" class="Bound"
+      >B</a
+      ><a name="1022"
+      > </a
+      ><a name="1023" href="Logical-equivalence.html#467" class="Record Operator"
+      >&#8660;</a
+      ><a name="1024"
+      > </a
+      ><a name="1025" href="Logical-equivalence.html#1002" class="Bound"
+      >C</a
+      ><a name="1026"
+      > </a
+      ><a name="1027" class="Symbol"
+      >&#8594;</a
+      ><a name="1028"
+      > </a
+      ><a name="1029" href="Logical-equivalence.html#978" class="Bound"
+      >A</a
+      ><a name="1030"
+      > </a
+      ><a name="1031" href="Logical-equivalence.html#467" class="Record Operator"
+      >&#8660;</a
+      ><a name="1032"
+      > </a
+      ><a name="1033" href="Logical-equivalence.html#990" class="Bound"
+      >B</a
+      ><a name="1034"
+      > </a
+      ><a name="1035" class="Symbol"
+      >&#8594;</a
+      ><a name="1036"
+      > </a
+      ><a name="1037" href="Logical-equivalence.html#978" class="Bound"
+      >A</a
+      ><a name="1038"
+      > </a
+      ><a name="1039" href="Logical-equivalence.html#467" class="Record Operator"
+      >&#8660;</a
+      ><a name="1040"
+      > </a
+      ><a name="1041" href="Logical-equivalence.html#1002" class="Bound"
+      >C</a
+      ><a name="1042"
+      >
+</a
+      ><a name="1043" href="Logical-equivalence.html#1043" class="Bound"
+      >f</a
+      ><a name="1044"
+      > </a
+      ><a name="1045" href="Logical-equivalence.html#961" class="Function Operator"
+      >&#8728;</a
+      ><a name="1046"
+      > </a
+      ><a name="1047" href="Logical-equivalence.html#1047" class="Bound"
+      >g</a
+      ><a name="1048"
+      > </a
+      ><a name="1049" class="Symbol"
+      >=</a
+      ><a name="1050"
+      > </a
+      ><a name="1051" class="Keyword"
+      >record</a
+      ><a name="1057"
+      >
+  </a
+      ><a name="1060" class="Symbol"
+      >{</a
+      ><a name="1061"
+      > </a
+      ><a name="1062" class="Field"
+      >to</a
+      ><a name="1064"
+      >   </a
+      ><a name="1067" class="Symbol"
+      >=</a
+      ><a name="1068"
+      > </a
+      ><a name="1069" href="Logical-equivalence.html#537" class="Field"
+      >to</a
+      ><a name="1071"
+      >   </a
+      ><a name="1074" href="Logical-equivalence.html#1043" class="Bound"
+      >f</a
+      ><a name="1075"
+      > </a
+      ><a name="1076" href="Prelude.html#2940" class="Function Operator"
+      >&#8858;</a
+      ><a name="1077"
+      > </a
+      ><a name="1078" href="Logical-equivalence.html#537" class="Field"
+      >to</a
+      ><a name="1080"
+      >   </a
+      ><a name="1083" href="Logical-equivalence.html#1047" class="Bound"
+      >g</a
+      ><a name="1084"
+      >
+  </a
+      ><a name="1087" class="Symbol"
+      >;</a
+      ><a name="1088"
+      > </a
+      ><a name="1089" class="Field"
+      >from</a
+      ><a name="1093"
+      > </a
+      ><a name="1094" class="Symbol"
+      >=</a
+      ><a name="1095"
+      > </a
+      ><a name="1096" href="Logical-equivalence.html#558" class="Field"
+      >from</a
+      ><a name="1100"
+      > </a
+      ><a name="1101" href="Logical-equivalence.html#1047" class="Bound"
+      >g</a
+      ><a name="1102"
+      > </a
+      ><a name="1103" href="Prelude.html#2940" class="Function Operator"
+      >&#8858;</a
+      ><a name="1104"
+      > </a
+      ><a name="1105" href="Logical-equivalence.html#558" class="Field"
+      >from</a
+      ><a name="1109"
+      > </a
+      ><a name="1110" href="Logical-equivalence.html#1043" class="Bound"
+      >f</a
+      ><a name="1111"
+      >
+  </a
+      ><a name="1114" class="Symbol"
+      >}</a
+      ><a name="1115"
+      > </a
+      ><a name="1116" class="Keyword"
+      >where</a
+      ><a name="1121"
+      > </a
+      ><a name="1122" class="Keyword"
+      >open</a
+      ><a name="1126"
+      > </a
+      ><a name="1127" href="Logical-equivalence.html#467" class="Module Operator"
+      >_&#8660;_</a
+      ><a name="1130"
+      >
+
+</a
+      ><a name="1132" class="Comment"
+      >-- &quot;Equational&quot; reasoning combinators.</a
+      ><a name="1170"
+      >
+
+</a
+      ><a name="1172" class="Keyword"
+      >infix</a
+      ><a name="1177"
+      >  </a
+      ><a name="1179" class="Number"
+      >0</a
+      ><a name="1180"
+      > finally-&#8660;
+</a
+      ><a name="1191" class="Keyword"
+      >infixr</a
+      ><a name="1197"
+      > </a
+      ><a name="1198" class="Number"
+      >0</a
+      ><a name="1199"
+      > _&#8660;&#10216;_&#10217;_
+
+</a
+      ><a name="1208" href="Logical-equivalence.html#1208" class="Function Operator"
+      >_&#8660;&#10216;_&#10217;_</a
+      ><a name="1214"
+      > </a
+      ><a name="1215" class="Symbol"
+      >:</a
+      ><a name="1216"
+      > </a
+      ><a name="1217" class="Symbol"
+      >&#8704;</a
+      ><a name="1218"
+      > </a
+      ><a name="1219" class="Symbol"
+      >{</a
+      ><a name="1220" href="Logical-equivalence.html#1220" class="Bound"
+      >a</a
+      ><a name="1221"
+      > </a
+      ><a name="1222" href="Logical-equivalence.html#1222" class="Bound"
+      >b</a
+      ><a name="1223"
+      > </a
+      ><a name="1224" href="Logical-equivalence.html#1224" class="Bound"
+      >c</a
+      ><a name="1225" class="Symbol"
+      >}</a
+      ><a name="1226"
+      > </a
+      ><a name="1227" class="Symbol"
+      >(</a
+      ><a name="1228" href="Logical-equivalence.html#1228" class="Bound"
+      >A</a
+      ><a name="1229"
+      > </a
+      ><a name="1230" class="Symbol"
+      >:</a
+      ><a name="1231"
+      > </a
+      ><a name="1232" class="PrimitiveType"
+      >Set</a
+      ><a name="1235"
+      > </a
+      ><a name="1236" href="Logical-equivalence.html#1220" class="Bound"
+      >a</a
+      ><a name="1237" class="Symbol"
+      >)</a
+      ><a name="1238"
+      > </a
+      ><a name="1239" class="Symbol"
+      >{</a
+      ><a name="1240" href="Logical-equivalence.html#1240" class="Bound"
+      >B</a
+      ><a name="1241"
+      > </a
+      ><a name="1242" class="Symbol"
+      >:</a
+      ><a name="1243"
+      > </a
+      ><a name="1244" class="PrimitiveType"
+      >Set</a
+      ><a name="1247"
+      > </a
+      ><a name="1248" href="Logical-equivalence.html#1222" class="Bound"
+      >b</a
+      ><a name="1249" class="Symbol"
+      >}</a
+      ><a name="1250"
+      > </a
+      ><a name="1251" class="Symbol"
+      >{</a
+      ><a name="1252" href="Logical-equivalence.html#1252" class="Bound"
+      >C</a
+      ><a name="1253"
+      > </a
+      ><a name="1254" class="Symbol"
+      >:</a
+      ><a name="1255"
+      > </a
+      ><a name="1256" class="PrimitiveType"
+      >Set</a
+      ><a name="1259"
+      > </a
+      ><a name="1260" href="Logical-equivalence.html#1224" class="Bound"
+      >c</a
+      ><a name="1261" class="Symbol"
+      >}</a
+      ><a name="1262"
+      > </a
+      ><a name="1263" class="Symbol"
+      >&#8594;</a
+      ><a name="1264"
+      >
+         </a
+      ><a name="1274" href="Logical-equivalence.html#1228" class="Bound"
+      >A</a
+      ><a name="1275"
+      > </a
+      ><a name="1276" href="Logical-equivalence.html#467" class="Record Operator"
+      >&#8660;</a
+      ><a name="1277"
+      > </a
+      ><a name="1278" href="Logical-equivalence.html#1240" class="Bound"
+      >B</a
+      ><a name="1279"
+      > </a
+      ><a name="1280" class="Symbol"
+      >&#8594;</a
+      ><a name="1281"
+      > </a
+      ><a name="1282" href="Logical-equivalence.html#1240" class="Bound"
+      >B</a
+      ><a name="1283"
+      > </a
+      ><a name="1284" href="Logical-equivalence.html#467" class="Record Operator"
+      >&#8660;</a
+      ><a name="1285"
+      > </a
+      ><a name="1286" href="Logical-equivalence.html#1252" class="Bound"
+      >C</a
+      ><a name="1287"
+      > </a
+      ><a name="1288" class="Symbol"
+      >&#8594;</a
+      ><a name="1289"
+      > </a
+      ><a name="1290" href="Logical-equivalence.html#1228" class="Bound"
+      >A</a
+      ><a name="1291"
+      > </a
+      ><a name="1292" href="Logical-equivalence.html#467" class="Record Operator"
+      >&#8660;</a
+      ><a name="1293"
+      > </a
+      ><a name="1294" href="Logical-equivalence.html#1252" class="Bound"
+      >C</a
+      ><a name="1295"
+      >
+</a
+      ><a name="1296" class="Symbol"
+      >_</a
+      ><a name="1297"
+      > </a
+      ><a name="1298" href="Logical-equivalence.html#1208" class="Function Operator"
+      >&#8660;&#10216;</a
+      ><a name="1300"
+      > </a
+      ><a name="1301" href="Logical-equivalence.html#1301" class="Bound"
+      >A&#8660;B</a
+      ><a name="1304"
+      > </a
+      ><a name="1305" href="Logical-equivalence.html#1208" class="Function Operator"
+      >&#10217;</a
+      ><a name="1306"
+      > </a
+      ><a name="1307" href="Logical-equivalence.html#1307" class="Bound"
+      >B&#8660;C</a
+      ><a name="1310"
+      > </a
+      ><a name="1311" class="Symbol"
+      >=</a
+      ><a name="1312"
+      > </a
+      ><a name="1313" href="Logical-equivalence.html#1307" class="Bound"
+      >B&#8660;C</a
+      ><a name="1316"
+      > </a
+      ><a name="1317" href="Logical-equivalence.html#961" class="Function Operator"
+      >&#8728;</a
+      ><a name="1318"
+      > </a
+      ><a name="1319" href="Logical-equivalence.html#1301" class="Bound"
+      >A&#8660;B</a
+      ><a name="1322"
+      >
+
+</a
+      ><a name="1324" href="Logical-equivalence.html#1324" class="Function"
+      >finally-&#8660;</a
+      ><a name="1333"
+      > </a
+      ><a name="1334" class="Symbol"
+      >:</a
+      ><a name="1335"
+      > </a
+      ><a name="1336" class="Symbol"
+      >&#8704;</a
+      ><a name="1337"
+      > </a
+      ><a name="1338" class="Symbol"
+      >{</a
+      ><a name="1339" href="Logical-equivalence.html#1339" class="Bound"
+      >a</a
+      ><a name="1340"
+      > </a
+      ><a name="1341" href="Logical-equivalence.html#1341" class="Bound"
+      >b</a
+      ><a name="1342" class="Symbol"
+      >}</a
+      ><a name="1343"
+      > </a
+      ><a name="1344" class="Symbol"
+      >(</a
+      ><a name="1345" href="Logical-equivalence.html#1345" class="Bound"
+      >A</a
+      ><a name="1346"
+      > </a
+      ><a name="1347" class="Symbol"
+      >:</a
+      ><a name="1348"
+      > </a
+      ><a name="1349" class="PrimitiveType"
+      >Set</a
+      ><a name="1352"
+      > </a
+      ><a name="1353" href="Logical-equivalence.html#1339" class="Bound"
+      >a</a
+      ><a name="1354" class="Symbol"
+      >)</a
+      ><a name="1355"
+      > </a
+      ><a name="1356" class="Symbol"
+      >(</a
+      ><a name="1357" href="Logical-equivalence.html#1357" class="Bound"
+      >B</a
+      ><a name="1358"
+      > </a
+      ><a name="1359" class="Symbol"
+      >:</a
+      ><a name="1360"
+      > </a
+      ><a name="1361" class="PrimitiveType"
+      >Set</a
+      ><a name="1364"
+      > </a
+      ><a name="1365" href="Logical-equivalence.html#1341" class="Bound"
+      >b</a
+      ><a name="1366" class="Symbol"
+      >)</a
+      ><a name="1367"
+      > </a
+      ><a name="1368" class="Symbol"
+      >&#8594;</a
+      ><a name="1369"
+      > </a
+      ><a name="1370" href="Logical-equivalence.html#1345" class="Bound"
+      >A</a
+      ><a name="1371"
+      > </a
+      ><a name="1372" href="Logical-equivalence.html#467" class="Record Operator"
+      >&#8660;</a
+      ><a name="1373"
+      > </a
+      ><a name="1374" href="Logical-equivalence.html#1357" class="Bound"
+      >B</a
+      ><a name="1375"
+      > </a
+      ><a name="1376" class="Symbol"
+      >&#8594;</a
+      ><a name="1377"
+      > </a
+      ><a name="1378" href="Logical-equivalence.html#1345" class="Bound"
+      >A</a
+      ><a name="1379"
+      > </a
+      ><a name="1380" href="Logical-equivalence.html#467" class="Record Operator"
+      >&#8660;</a
+      ><a name="1381"
+      > </a
+      ><a name="1382" href="Logical-equivalence.html#1357" class="Bound"
+      >B</a
+      ><a name="1383"
+      >
+</a
+      ><a name="1384" href="Logical-equivalence.html#1324" class="Function"
+      >finally-&#8660;</a
+      ><a name="1393"
+      > </a
+      ><a name="1394" class="Symbol"
+      >_</a
+      ><a name="1395"
+      > </a
+      ><a name="1396" class="Symbol"
+      >_</a
+      ><a name="1397"
+      > </a
+      ><a name="1398" href="Logical-equivalence.html#1398" class="Bound"
+      >A&#8660;B</a
+      ><a name="1401"
+      > </a
+      ><a name="1402" class="Symbol"
+      >=</a
+      ><a name="1403"
+      > </a
+      ><a name="1404" href="Logical-equivalence.html#1398" class="Bound"
+      >A&#8660;B</a
+      ><a name="1407"
+      >
+
+</a
+      ><a name="1409" class="Keyword"
+      >syntax</a
+      ><a name="1415"
+      > finally-&#8660; A B A&#8660;B </a
+      ><a name="1434" class="Symbol"
+      >=</a
+      ><a name="1435"
+      > A &#8660;&#10216; A&#8660;B &#10217;&#9633; B &#9633;
+
+</a
+      ><a name="1453" class="Comment"
+      >------------------------------------------------------------------------</a
+      ><a name="1525"
+      >
+</a
+      ><a name="1526" class="Comment"
+      >-- A lemma</a
+      ><a name="1536"
+      >
+
+</a
+      ><a name="1538" class="Comment"
+      >-- Dec preserves logical equivalences.</a
+      ><a name="1576"
+      >
+
+</a
+      ><a name="1578" href="Logical-equivalence.html#1578" class="Function"
+      >Dec-preserves</a
+      ><a name="1591"
+      > </a
+      ><a name="1592" class="Symbol"
+      >:</a
+      ><a name="1593"
+      > </a
+      ><a name="1594" class="Symbol"
+      >{</a
+      ><a name="1595" href="Logical-equivalence.html#1595" class="Bound"
+      >A</a
+      ><a name="1596"
+      > </a
+      ><a name="1597" href="Logical-equivalence.html#1597" class="Bound"
+      >B</a
+      ><a name="1598"
+      > </a
+      ><a name="1599" class="Symbol"
+      >:</a
+      ><a name="1600"
+      > </a
+      ><a name="1601" class="PrimitiveType"
+      >Set</a
+      ><a name="1604" class="Symbol"
+      >}</a
+      ><a name="1605"
+      > </a
+      ><a name="1606" class="Symbol"
+      >&#8594;</a
+      ><a name="1607"
+      > </a
+      ><a name="1608" href="Logical-equivalence.html#1595" class="Bound"
+      >A</a
+      ><a name="1609"
+      > </a
+      ><a name="1610" href="Logical-equivalence.html#467" class="Record Operator"
+      >&#8660;</a
+      ><a name="1611"
+      > </a
+      ><a name="1612" href="Logical-equivalence.html#1597" class="Bound"
+      >B</a
+      ><a name="1613"
+      > </a
+      ><a name="1614" class="Symbol"
+      >&#8594;</a
+      ><a name="1615"
+      > </a
+      ><a name="1616" href="Prelude.html#6512" class="Function"
+      >Dec</a
+      ><a name="1619"
+      > </a
+      ><a name="1620" href="Logical-equivalence.html#1595" class="Bound"
+      >A</a
+      ><a name="1621"
+      > </a
+      ><a name="1622" href="Logical-equivalence.html#467" class="Record Operator"
+      >&#8660;</a
+      ><a name="1623"
+      > </a
+      ><a name="1624" href="Prelude.html#6512" class="Function"
+      >Dec</a
+      ><a name="1627"
+      > </a
+      ><a name="1628" href="Logical-equivalence.html#1597" class="Bound"
+      >B</a
+      ><a name="1629"
+      >
+</a
+      ><a name="1630" href="Logical-equivalence.html#1578" class="Function"
+      >Dec-preserves</a
+      ><a name="1643"
+      > </a
+      ><a name="1644" href="Logical-equivalence.html#1644" class="Bound"
+      >A&#8660;B</a
+      ><a name="1647"
+      > </a
+      ><a name="1648" class="Symbol"
+      >=</a
+      ><a name="1649"
+      > </a
+      ><a name="1650" class="Keyword"
+      >record</a
+      ><a name="1656"
+      >
+  </a
+      ><a name="1659" class="Symbol"
+      >{</a
+      ><a name="1660"
+      > </a
+      ><a name="1661" class="Field"
+      >to</a
+      ><a name="1663"
+      >   </a
+      ><a name="1666" class="Symbol"
+      >=</a
+      ><a name="1667"
+      > </a
+      ><a name="1668" href="Logical-equivalence.html#1723" class="Function"
+      >lemma</a
+      ><a name="1673"
+      > </a
+      ><a name="1674" href="Logical-equivalence.html#1644" class="Bound"
+      >A&#8660;B</a
+      ><a name="1677"
+      >
+  </a
+      ><a name="1680" class="Symbol"
+      >;</a
+      ><a name="1681"
+      > </a
+      ><a name="1682" class="Field"
+      >from</a
+      ><a name="1686"
+      > </a
+      ><a name="1687" class="Symbol"
+      >=</a
+      ><a name="1688"
+      > </a
+      ><a name="1689" href="Logical-equivalence.html#1723" class="Function"
+      >lemma</a
+      ><a name="1694"
+      > </a
+      ><a name="1695" class="Symbol"
+      >(</a
+      ><a name="1696" href="Logical-equivalence.html#790" class="Function"
+      >inverse</a
+      ><a name="1703"
+      > </a
+      ><a name="1704" href="Logical-equivalence.html#1644" class="Bound"
+      >A&#8660;B</a
+      ><a name="1707" class="Symbol"
+      >)</a
+      ><a name="1708"
+      >
+  </a
+      ><a name="1711" class="Symbol"
+      >}</a
+      ><a name="1712"
+      >
+  </a
+      ><a name="1715" class="Keyword"
+      >where</a
+      ><a name="1720"
+      >
+  </a
+      ><a name="1723" href="Logical-equivalence.html#1723" class="Function"
+      >lemma</a
+      ><a name="1728"
+      > </a
+      ><a name="1729" class="Symbol"
+      >:</a
+      ><a name="1730"
+      > </a
+      ><a name="1731" class="Symbol"
+      >{</a
+      ><a name="1732" href="Logical-equivalence.html#1732" class="Bound"
+      >A</a
+      ><a name="1733"
+      > </a
+      ><a name="1734" href="Logical-equivalence.html#1734" class="Bound"
+      >B</a
+      ><a name="1735"
+      > </a
+      ><a name="1736" class="Symbol"
+      >:</a
+      ><a name="1737"
+      > </a
+      ><a name="1738" class="PrimitiveType"
+      >Set</a
+      ><a name="1741" class="Symbol"
+      >}</a
+      ><a name="1742"
+      > </a
+      ><a name="1743" class="Symbol"
+      >&#8594;</a
+      ><a name="1744"
+      > </a
+      ><a name="1745" href="Logical-equivalence.html#1732" class="Bound"
+      >A</a
+      ><a name="1746"
+      > </a
+      ><a name="1747" href="Logical-equivalence.html#467" class="Record Operator"
+      >&#8660;</a
+      ><a name="1748"
+      > </a
+      ><a name="1749" href="Logical-equivalence.html#1734" class="Bound"
+      >B</a
+      ><a name="1750"
+      > </a
+      ><a name="1751" class="Symbol"
+      >&#8594;</a
+      ><a name="1752"
+      > </a
+      ><a name="1753" href="Prelude.html#6512" class="Function"
+      >Dec</a
+      ><a name="1756"
+      > </a
+      ><a name="1757" href="Logical-equivalence.html#1732" class="Bound"
+      >A</a
+      ><a name="1758"
+      > </a
+      ><a name="1759" class="Symbol"
+      >&#8594;</a
+      ><a name="1760"
+      > </a
+      ><a name="1761" href="Prelude.html#6512" class="Function"
+      >Dec</a
+      ><a name="1764"
+      > </a
+      ><a name="1765" href="Logical-equivalence.html#1734" class="Bound"
+      >B</a
+      ><a name="1766"
+      >
+  </a
+      ><a name="1769" href="Logical-equivalence.html#1723" class="Function"
+      >lemma</a
+      ><a name="1774"
+      > </a
+      ><a name="1775" href="Logical-equivalence.html#1775" class="Bound"
+      >A&#8660;B</a
+      ><a name="1778"
+      > </a
+      ><a name="1779" class="Symbol"
+      >=</a
+      ><a name="1780"
+      > </a
+      ><a name="1781" href="Prelude.html#6278" class="Function"
+      >&#8846;-map</a
+      ><a name="1786"
+      > </a
+      ><a name="1787" href="Logical-equivalence.html#537" class="Function"
+      >to</a
+      ><a name="1789"
+      > </a
+      ><a name="1790" class="Symbol"
+      >(&#955;</a
+      ><a name="1792"
+      > </a
+      ><a name="1793" href="Logical-equivalence.html#1793" class="Bound"
+      >&#172;A</a
+      ><a name="1795"
+      > </a
+      ><a name="1796" class="Symbol"
+      >&#8594;</a
+      ><a name="1797"
+      > </a
+      ><a name="1798" href="Logical-equivalence.html#1793" class="Bound"
+      >&#172;A</a
+      ><a name="1800"
+      > </a
+      ><a name="1801" href="Prelude.html#2940" class="Function Operator"
+      >&#8858;</a
+      ><a name="1802"
+      > </a
+      ><a name="1803" href="Logical-equivalence.html#558" class="Function"
+      >from</a
+      ><a name="1807" class="Symbol"
+      >)</a
+      ><a name="1808"
+      >
+    </a
+      ><a name="1813" class="Keyword"
+      >where</a
+      ><a name="1818"
+      > </a
+      ><a name="1819" class="Keyword"
+      >open</a
+      ><a name="1823"
+      > </a
+      ><a name="1824" href="Logical-equivalence.html#467" class="Module Operator"
+      >_&#8660;_</a
+      ><a name="1827"
+      > </a
+      ><a name="1828" href="Logical-equivalence.html#1775" class="Bound"
+      >A&#8660;B</a
+      ><a name="1831"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

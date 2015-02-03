@@ -1,0 +1,1717 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >lps.Examples</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Comment"
+      >--------------------------------------------------</a
+      ><a name="51"
+      >
+</a
+      ><a name="52" class="Comment"
+      >-- Proving a goal in ILL</a
+      ><a name="76"
+      >
+</a
+      ><a name="77" class="Comment"
+      >--------------------------------------------------</a
+      ><a name="127"
+      >
+</a
+      ><a name="128" class="Comment"
+      >-- These first few examples are all discharged by our automated prover.</a
+      ><a name="199"
+      >
+
+</a
+      ><a name="201" class="Keyword"
+      >open</a
+      ><a name="205"
+      > </a
+      ><a name="206" class="Keyword"
+      >import</a
+      ><a name="212"
+      > </a
+      ><a name="213" href="lib.Context.html#1" class="Module"
+      >lib.Context</a
+      ><a name="224"
+      >          </a
+      ><a name="234" class="Symbol"
+      >as</a
+      ><a name="236"
+      > </a
+      ><a name="237" class="Module"
+      >Con</a
+      ><a name="240"
+      >
+</a
+      ><a name="241" class="Keyword"
+      >import</a
+      ><a name="247"
+      > </a
+      ><a name="248" href="lps.IMLL.html#1" class="Module"
+      >lps.IMLL</a
+      ><a name="256"
+      >                  </a
+      ><a name="274" class="Symbol"
+      >as</a
+      ><a name="276"
+      > </a
+      ><a name="277" class="Module"
+      >IMLL</a
+      ><a name="281"
+      >
+
+</a
+      ><a name="283" class="Keyword"
+      >module</a
+      ><a name="289"
+      > </a
+      ><a name="290" href="lps.Examples.html#1" class="Module"
+      >lps.Examples</a
+      ><a name="302"
+      > </a
+      ><a name="303" class="Keyword"
+      >where</a
+      ><a name="308"
+      >
+
+  </a
+      ><a name="312" class="Keyword"
+      >open</a
+      ><a name="316"
+      > </a
+      ><a name="317" class="Keyword"
+      >import</a
+      ><a name="323"
+      > </a
+      ><a name="324" href="Data.Nat.html#1" class="Module"
+      >Data.Nat</a
+      ><a name="332"
+      >
+
+  </a
+      ><a name="336" class="Keyword"
+      >open</a
+      ><a name="340"
+      > </a
+      ><a name="341" href="lib.Context.html#12" class="Module"
+      >Con.</a
+      ><a name="345" href="lib.Context.html#322" class="Module"
+      >Context</a
+      ><a name="352"
+      >
+  </a
+      ><a name="355" class="Keyword"
+      >open</a
+      ><a name="359"
+      > </a
+      ><a name="360" href="lps.IMLL.html#1" class="Module"
+      >IMLL</a
+      ><a name="364"
+      > </a
+      ><a name="365" href="Data.Nat.html#663" class="Datatype"
+      >&#8469;</a
+      ><a name="366"
+      >
+  </a
+      ><a name="369" class="Keyword"
+      >open</a
+      ><a name="373"
+      > </a
+      ><a name="374" href="lps.IMLL.html#282" class="Module"
+      >IMLL.</a
+      ><a name="379" href="lps.IMLL.html#314" class="Module"
+      >Type</a
+      ><a name="383"
+      > </a
+      ><a name="384" href="Data.Nat.html#663" class="Datatype"
+      >&#8469;</a
+      ><a name="385"
+      >
+  </a
+      ><a name="388" class="Keyword"
+      >open</a
+      ><a name="392"
+      > </a
+      ><a name="393" class="Keyword"
+      >import</a
+      ><a name="399"
+      > </a
+      ><a name="400" href="lps.ProofSearch.html#1" class="Module"
+      >lps.ProofSearch</a
+      ><a name="415"
+      >
+  </a
+      ><a name="418" class="Keyword"
+      >open</a
+      ><a name="422"
+      > </a
+      ><a name="423" href="lps.ProofSearch.html#373" class="Module"
+      >Prove</a
+      ><a name="428"
+      > </a
+      ><a name="429" href="Data.Nat.html#663" class="Datatype"
+      >&#8469;</a
+      ><a name="430"
+      > </a
+      ><a name="431" href="Data.Nat.html#3049" class="Function Operator"
+      >_&#8799;_</a
+      ><a name="434"
+      >
+
+  </a
+      ><a name="438" href="lps.Examples.html#438" class="Function"
+      >example&#8855;</a
+      ><a name="446"
+      > </a
+      ><a name="447" class="Symbol"
+      >:</a
+      ><a name="448"
+      >
+    </a
+      ><a name="453" class="Keyword"
+      >let</a
+      ><a name="456"
+      > </a
+      ><a name="457" href="lps.Examples.html#457" class="Bound"
+      >A</a
+      ><a name="458"
+      > </a
+      ><a name="459" class="Symbol"
+      >=</a
+      ><a name="460"
+      > </a
+      ><a name="461" href="lps.IMLL.html#380" class="InductiveConstructor"
+      >`&#954;</a
+      ><a name="463"
+      > </a
+      ><a name="464" class="Number"
+      >0</a
+      ><a name="465"
+      >
+        </a
+      ><a name="474" href="lps.Examples.html#474" class="Bound"
+      >&#947;</a
+      ><a name="475"
+      > </a
+      ><a name="476" class="Symbol"
+      >=</a
+      ><a name="477"
+      > </a
+      ><a name="478" href="lib.Context.html#390" class="InductiveConstructor"
+      >&#949;</a
+      ><a name="479"
+      > </a
+      ><a name="480" href="lib.Context.html#404" class="InductiveConstructor Operator"
+      >&#8729;</a
+      ><a name="481"
+      > </a
+      ><a name="482" href="lps.Examples.html#457" class="Bound"
+      >A</a
+      ><a name="483"
+      > </a
+      ><a name="484" href="lps.IMLL.html#412" class="InductiveConstructor Operator"
+      >`&#8855;</a
+      ><a name="486"
+      > </a
+      ><a name="487" href="lps.Examples.html#457" class="Bound"
+      >A</a
+      ><a name="488"
+      >
+    </a
+      ><a name="493" class="Keyword"
+      >in</a
+      ><a name="495"
+      > </a
+      ><a name="496" href="lps.Examples.html#474" class="Bound"
+      >&#947;</a
+      ><a name="497"
+      > </a
+      ><a name="498" href="lps.IMLL.html#922" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="499"
+      > </a
+      ><a name="500" href="lps.Examples.html#457" class="Bound"
+      >A</a
+      ><a name="501"
+      > </a
+      ><a name="502" href="lps.IMLL.html#412" class="InductiveConstructor Operator"
+      >`&#8855;</a
+      ><a name="504"
+      > </a
+      ><a name="505" href="lps.Examples.html#457" class="Bound"
+      >A</a
+      ><a name="506"
+      >
+  </a
+      ><a name="509" href="lps.Examples.html#438" class="Function"
+      >example&#8855;</a
+      ><a name="517"
+      > </a
+      ><a name="518" class="Symbol"
+      >=</a
+      ><a name="519"
+      > </a
+      ><a name="520" href="lps.ProofSearch.html#513" class="Function"
+      >prove</a
+      ><a name="525"
+      > </a
+      ><a name="526" class="Symbol"
+      >_</a
+      ><a name="527"
+      > </a
+      ><a name="528" class="Symbol"
+      >_</a
+      ><a name="529"
+      >
+
+  </a
+      ><a name="533" href="lps.Examples.html#533" class="Function"
+      >example&amp;</a
+      ><a name="541"
+      > </a
+      ><a name="542" class="Symbol"
+      >:</a
+      ><a name="543"
+      >
+    </a
+      ><a name="548" class="Keyword"
+      >let</a
+      ><a name="551"
+      > </a
+      ><a name="552" href="lps.Examples.html#552" class="Bound"
+      >A</a
+      ><a name="553"
+      > </a
+      ><a name="554" class="Symbol"
+      >=</a
+      ><a name="555"
+      > </a
+      ><a name="556" href="lps.IMLL.html#380" class="InductiveConstructor"
+      >`&#954;</a
+      ><a name="558"
+      > </a
+      ><a name="559" class="Number"
+      >0</a
+      ><a name="560"
+      >
+        </a
+      ><a name="569" href="lps.Examples.html#569" class="Bound"
+      >&#947;</a
+      ><a name="570"
+      > </a
+      ><a name="571" class="Symbol"
+      >=</a
+      ><a name="572"
+      > </a
+      ><a name="573" href="lib.Context.html#390" class="InductiveConstructor"
+      >&#949;</a
+      ><a name="574"
+      > </a
+      ><a name="575" href="lib.Context.html#404" class="InductiveConstructor Operator"
+      >&#8729;</a
+      ><a name="576"
+      > </a
+      ><a name="577" class="Symbol"
+      >(</a
+      ><a name="578" href="lps.Examples.html#552" class="Bound"
+      >A</a
+      ><a name="579"
+      > </a
+      ><a name="580" href="lps.IMLL.html#417" class="InductiveConstructor Operator"
+      >`&amp;</a
+      ><a name="582"
+      > </a
+      ><a name="583" class="Symbol"
+      >(</a
+      ><a name="584" href="lps.Examples.html#552" class="Bound"
+      >A</a
+      ><a name="585"
+      > </a
+      ><a name="586" href="lps.IMLL.html#412" class="InductiveConstructor Operator"
+      >`&#8855;</a
+      ><a name="588"
+      > </a
+      ><a name="589" href="lps.Examples.html#552" class="Bound"
+      >A</a
+      ><a name="590" class="Symbol"
+      >))</a
+      ><a name="592"
+      >
+    </a
+      ><a name="597" class="Keyword"
+      >in</a
+      ><a name="599"
+      > </a
+      ><a name="600" href="lps.Examples.html#569" class="Bound"
+      >&#947;</a
+      ><a name="601"
+      > </a
+      ><a name="602" href="lps.IMLL.html#922" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="603"
+      > </a
+      ><a name="604" href="lps.Examples.html#552" class="Bound"
+      >A</a
+      ><a name="605"
+      >
+  </a
+      ><a name="608" href="lps.Examples.html#533" class="Function"
+      >example&amp;</a
+      ><a name="616"
+      > </a
+      ><a name="617" class="Symbol"
+      >=</a
+      ><a name="618"
+      > </a
+      ><a name="619" href="lps.ProofSearch.html#513" class="Function"
+      >prove</a
+      ><a name="624"
+      > </a
+      ><a name="625" class="Symbol"
+      >_</a
+      ><a name="626"
+      > </a
+      ><a name="627" class="Symbol"
+      >_</a
+      ><a name="628"
+      >
+
+  </a
+      ><a name="632" href="lps.Examples.html#632" class="Function"
+      >example&amp;&#8242;</a
+      ><a name="641"
+      > </a
+      ><a name="642" class="Symbol"
+      >:</a
+      ><a name="643"
+      >
+    </a
+      ><a name="648" class="Keyword"
+      >let</a
+      ><a name="651"
+      > </a
+      ><a name="652" href="lps.Examples.html#652" class="Bound"
+      >A</a
+      ><a name="653"
+      > </a
+      ><a name="654" class="Symbol"
+      >=</a
+      ><a name="655"
+      > </a
+      ><a name="656" href="lps.IMLL.html#380" class="InductiveConstructor"
+      >`&#954;</a
+      ><a name="658"
+      > </a
+      ><a name="659" class="Number"
+      >0</a
+      ><a name="660"
+      >
+        </a
+      ><a name="669" href="lps.Examples.html#669" class="Bound"
+      >B</a
+      ><a name="670"
+      > </a
+      ><a name="671" class="Symbol"
+      >=</a
+      ><a name="672"
+      > </a
+      ><a name="673" href="lps.IMLL.html#380" class="InductiveConstructor"
+      >`&#954;</a
+      ><a name="675"
+      > </a
+      ><a name="676" class="Number"
+      >1</a
+      ><a name="677"
+      >
+        </a
+      ><a name="686" href="lps.Examples.html#686" class="Bound"
+      >&#966;</a
+      ><a name="687"
+      > </a
+      ><a name="688" class="Symbol"
+      >=</a
+      ><a name="689"
+      > </a
+      ><a name="690" class="Symbol"
+      >(</a
+      ><a name="691" href="lps.Examples.html#652" class="Bound"
+      >A</a
+      ><a name="692"
+      > </a
+      ><a name="693" href="lps.IMLL.html#417" class="InductiveConstructor Operator"
+      >`&amp;</a
+      ><a name="695"
+      > </a
+      ><a name="696" href="lps.Examples.html#669" class="Bound"
+      >B</a
+      ><a name="697" class="Symbol"
+      >)</a
+      ><a name="698"
+      > </a
+      ><a name="699" href="lps.IMLL.html#417" class="InductiveConstructor Operator"
+      >`&amp;</a
+      ><a name="701"
+      > </a
+      ><a name="702" href="lps.Examples.html#669" class="Bound"
+      >B</a
+      ><a name="703"
+      >
+        </a
+      ><a name="712" href="lps.Examples.html#712" class="Bound"
+      >&#947;</a
+      ><a name="713"
+      > </a
+      ><a name="714" class="Symbol"
+      >=</a
+      ><a name="715"
+      > </a
+      ><a name="716" href="lib.Context.html#390" class="InductiveConstructor"
+      >&#949;</a
+      ><a name="717"
+      > </a
+      ><a name="718" href="lib.Context.html#404" class="InductiveConstructor Operator"
+      >&#8729;</a
+      ><a name="719"
+      > </a
+      ><a name="720" href="lps.Examples.html#686" class="Bound"
+      >&#966;</a
+      ><a name="721"
+      >
+    </a
+      ><a name="726" class="Keyword"
+      >in</a
+      ><a name="728"
+      > </a
+      ><a name="729" href="lps.Examples.html#712" class="Bound"
+      >&#947;</a
+      ><a name="730"
+      > </a
+      ><a name="731" href="lps.IMLL.html#922" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="732"
+      > </a
+      ><a name="733" href="lps.Examples.html#686" class="Bound"
+      >&#966;</a
+      ><a name="734"
+      >
+  </a
+      ><a name="737" href="lps.Examples.html#632" class="Function"
+      >example&amp;&#8242;</a
+      ><a name="746"
+      > </a
+      ><a name="747" class="Symbol"
+      >=</a
+      ><a name="748"
+      > </a
+      ><a name="749" href="lps.ProofSearch.html#513" class="Function"
+      >prove</a
+      ><a name="754"
+      > </a
+      ><a name="755" class="Symbol"
+      >_</a
+      ><a name="756"
+      > </a
+      ><a name="757" class="Symbol"
+      >_</a
+      ><a name="758"
+      >
+
+
+
+</a
+      ><a name="762" class="Comment"
+      >--------------------------------------------------</a
+      ><a name="812"
+      >
+</a
+      ><a name="813" class="Comment"
+      >-- Solving equations on a commutative monoid</a
+      ><a name="857"
+      >
+</a
+      ><a name="858" class="Comment"
+      >--------------------------------------------------</a
+      ><a name="908"
+      >
+</a
+      ><a name="909" class="Comment"
+      >-- Using our theorem prover, we have managed to derive a solver</a
+      ><a name="972"
+      >
+</a
+      ><a name="973" class="Comment"
+      >-- for equations on a commutative monoid. Here is an example of</a
+      ><a name="1036"
+      >
+</a
+      ><a name="1037" class="Comment"
+      >-- it in action:</a
+      ><a name="1053"
+      >
+
+
+  </a
+      ><a name="1058" class="Keyword"
+      >open</a
+      ><a name="1062"
+      > </a
+      ><a name="1063" class="Keyword"
+      >import</a
+      ><a name="1069"
+      > </a
+      ><a name="1070" href="Algebra.Structures.html#1" class="Module"
+      >Algebra.Structures</a
+      ><a name="1088"
+      >
+  </a
+      ><a name="1091" class="Keyword"
+      >open</a
+      ><a name="1095"
+      > </a
+      ><a name="1096" class="Keyword"
+      >import</a
+      ><a name="1102"
+      > </a
+      ><a name="1103" href="Data.Nat.html#1" class="Module"
+      >Data.Nat</a
+      ><a name="1111"
+      > </a
+      ><a name="1112" class="Symbol"
+      >as</a
+      ><a name="1114"
+      > </a
+      ><a name="1115" class="Module"
+      >Nat</a
+      ><a name="1118"
+      >
+  </a
+      ><a name="1121" class="Keyword"
+      >open</a
+      ><a name="1125"
+      > </a
+      ><a name="1126" class="Keyword"
+      >import</a
+      ><a name="1132"
+      > </a
+      ><a name="1133" href="Data.Nat.Properties.html#1" class="Module"
+      >Data.Nat.Properties</a
+      ><a name="1152"
+      >
+  </a
+      ><a name="1155" class="Keyword"
+      >module</a
+      ><a name="1161"
+      > </a
+      ><a name="1162" href="lps.Examples.html#1162" class="Module"
+      >AbSR</a
+      ><a name="1166"
+      > </a
+      ><a name="1167" class="Symbol"
+      >=</a
+      ><a name="1168"
+      > </a
+      ><a name="1169" href="Algebra.Structures.html#6684" class="Module"
+      >IsCommutativeSemiring</a
+      ><a name="1190"
+      > </a
+      ><a name="1191" href="Data.Nat.Properties.html#1086" class="Function"
+      >isCommutativeSemiring</a
+      ><a name="1212"
+      >
+
+  </a
+      ><a name="1216" class="Keyword"
+      >import</a
+      ><a name="1222"
+      > </a
+      ><a name="1223" href="Relation.Binary.PropositionalEquality.html#1" class="Module"
+      >Relation.Binary.PropositionalEquality</a
+      ><a name="1260"
+      > </a
+      ><a name="1261" class="Symbol"
+      >as</a
+      ><a name="1263"
+      > </a
+      ><a name="1264" class="Module"
+      >RBEq</a
+      ><a name="1268"
+      >
+
+  </a
+      ><a name="1272" class="Keyword"
+      >open</a
+      ><a name="1276"
+      > </a
+      ><a name="1277" class="Keyword"
+      >import</a
+      ><a name="1283"
+      > </a
+      ><a name="1284" href="Data.Fin.html#1" class="Module"
+      >Data.Fin</a
+      ><a name="1292"
+      > </a
+      ><a name="1293" class="Symbol"
+      >as</a
+      ><a name="1295"
+      > </a
+      ><a name="1296" class="Module"
+      >Fin</a
+      ><a name="1299"
+      > </a
+      ><a name="1300" class="Keyword"
+      >hiding</a
+      ><a name="1306"
+      > </a
+      ><a name="1307" class="Symbol"
+      >(</a
+      ><a name="1308"
+      >_+_</a
+      ><a name="1311" class="Symbol"
+      >)</a
+      ><a name="1312"
+      >
+  </a
+      ><a name="1315" class="Keyword"
+      >open</a
+      ><a name="1319"
+      > </a
+      ><a name="1320" class="Keyword"
+      >import</a
+      ><a name="1326"
+      > </a
+      ><a name="1327" href="Data.Vec.html#1" class="Module"
+      >Data.Vec</a
+      ><a name="1335"
+      > </a
+      ><a name="1336" class="Symbol"
+      >as</a
+      ><a name="1338"
+      > </a
+      ><a name="1339" class="Module"
+      >Vec</a
+      ><a name="1342"
+      >
+  </a
+      ><a name="1345" class="Keyword"
+      >open</a
+      ><a name="1349"
+      > </a
+      ><a name="1350" class="Keyword"
+      >import</a
+      ><a name="1356"
+      > </a
+      ><a name="1357" href="lps.Tactics.html#1" class="Module"
+      >lps.Tactics</a
+      ><a name="1368"
+      >
+  </a
+      ><a name="1371" class="Keyword"
+      >module</a
+      ><a name="1377"
+      > </a
+      ><a name="1378" href="lps.Examples.html#1378" class="Module"
+      >&#8469;+</a
+      ><a name="1380"
+      > </a
+      ><a name="1381" class="Symbol"
+      >=</a
+      ><a name="1382"
+      > </a
+      ><a name="1383" href="lps.Tactics.html#3101" class="Module"
+      >TacticsAbMon</a
+      ><a name="1395"
+      > </a
+      ><a name="1396" class="Symbol"
+      >(</a
+      ><a name="1397" class="Keyword"
+      >record</a
+      ><a name="1403"
+      >
+                        </a
+      ><a name="1428" class="Symbol"
+      >{</a
+      ><a name="1429"
+      > </a
+      ><a name="1430" class="Field"
+      >Carrier</a
+      ><a name="1437"
+      > </a
+      ><a name="1438" class="Symbol"
+      >=</a
+      ><a name="1439"
+      > </a
+      ><a name="1440" href="Data.Nat.html#663" class="Datatype"
+      >&#8469;</a
+      ><a name="1441"
+      >
+                        </a
+      ><a name="1466" class="Symbol"
+      >;</a
+      ><a name="1467"
+      > </a
+      ><a name="1468" class="Field Operator"
+      >_&#8776;_</a
+      ><a name="1471"
+      > </a
+      ><a name="1472" class="Symbol"
+      >=</a
+      ><a name="1473"
+      > </a
+      ><a name="1474" href="Relation.Binary.Core.html#4603" class="Datatype Operator"
+      >RBEq._&#8801;_</a
+      ><a name="1482"
+      >
+                        </a
+      ><a name="1507" class="Symbol"
+      >;</a
+      ><a name="1508"
+      > </a
+      ><a name="1509" class="Field Operator"
+      >_&#8729;_</a
+      ><a name="1512"
+      > </a
+      ><a name="1513" class="Symbol"
+      >=</a
+      ><a name="1514"
+      > </a
+      ><a name="1515" href="Data.Nat.html#2168" class="Primitive Operator"
+      >_+_</a
+      ><a name="1518"
+      >
+                        </a
+      ><a name="1543" class="Symbol"
+      >;</a
+      ><a name="1544"
+      > </a
+      ><a name="1545" class="Field"
+      >&#949;</a
+      ><a name="1546"
+      >   </a
+      ><a name="1549" class="Symbol"
+      >=</a
+      ><a name="1550"
+      > </a
+      ><a name="1551" class="Number"
+      >0</a
+      ><a name="1552"
+      >
+                        </a
+      ><a name="1577" class="Symbol"
+      >;</a
+      ><a name="1578"
+      > </a
+      ><a name="1579" class="Field"
+      >isCommutativeMonoid</a
+      ><a name="1598"
+      > </a
+      ><a name="1599" class="Symbol"
+      >=</a
+      ><a name="1600"
+      > </a
+      ><a name="1601" href="Algebra.Structures.html#6846" class="Function"
+      >AbSR.+-isCommutativeMonoid</a
+      ><a name="1627"
+      >
+                        </a
+      ><a name="1652" class="Symbol"
+      >})</a
+      ><a name="1654"
+      > </a
+      ><a name="1655" href="Data.Nat.html#3049" class="Function Operator"
+      >Nat._&#8799;_</a
+      ><a name="1662"
+      >
+  </a
+      ><a name="1665" class="Keyword"
+      >import</a
+      ><a name="1671"
+      > </a
+      ><a name="1672" href="Prelude.html#1" class="Module"
+      >Prelude</a
+      ><a name="1679"
+      > </a
+      ><a name="1680" class="Symbol"
+      >as</a
+      ><a name="1682"
+      > </a
+      ><a name="1683" class="Module"
+      >Pr</a
+      ><a name="1685"
+      >
+
+  </a
+      ><a name="1689" href="lps.Examples.html#1689" class="Function"
+      >2+x+y+1</a
+      ><a name="1696"
+      > </a
+      ><a name="1697" class="Symbol"
+      >:</a
+      ><a name="1698"
+      > </a
+      ><a name="1699" class="Symbol"
+      >(</a
+      ><a name="1700" href="lps.Examples.html#1700" class="Bound"
+      >x</a
+      ><a name="1701"
+      > </a
+      ><a name="1702" href="lps.Examples.html#1702" class="Bound"
+      >y</a
+      ><a name="1703"
+      > </a
+      ><a name="1704" class="Symbol"
+      >:</a
+      ><a name="1705"
+      > </a
+      ><a name="1706" href="Data.Nat.html#663" class="Datatype"
+      >Nat.&#8469;</a
+      ><a name="1711" class="Symbol"
+      >)</a
+      ><a name="1712"
+      > </a
+      ><a name="1713" class="Symbol"
+      >&#8594;</a
+      ><a name="1714"
+      > </a
+      ><a name="1715" class="Number"
+      >2</a
+      ><a name="1716"
+      > </a
+      ><a name="1717" href="Data.Nat.html#2168" class="Primitive Operator"
+      >+</a
+      ><a name="1718"
+      > </a
+      ><a name="1719" class="Symbol"
+      >(</a
+      ><a name="1720" href="lps.Examples.html#1700" class="Bound"
+      >x</a
+      ><a name="1721"
+      > </a
+      ><a name="1722" href="Data.Nat.html#2168" class="Primitive Operator"
+      >+</a
+      ><a name="1723"
+      > </a
+      ><a name="1724" href="lps.Examples.html#1702" class="Bound"
+      >y</a
+      ><a name="1725"
+      > </a
+      ><a name="1726" href="Data.Nat.html#2168" class="Primitive Operator"
+      >+</a
+      ><a name="1727"
+      > </a
+      ><a name="1728" class="Number"
+      >1</a
+      ><a name="1729" class="Symbol"
+      >)</a
+      ><a name="1730"
+      > </a
+      ><a name="1731" href="Relation.Binary.Core.html#4603" class="Datatype Operator"
+      >RBEq.&#8801;</a
+      ><a name="1737"
+      > </a
+      ><a name="1738" href="lps.Examples.html#1700" class="Bound"
+      >x</a
+      ><a name="1739"
+      > </a
+      ><a name="1740" href="Data.Nat.html#2168" class="Primitive Operator"
+      >+</a
+      ><a name="1741"
+      > </a
+      ><a name="1742" class="Number"
+      >3</a
+      ><a name="1743"
+      > </a
+      ><a name="1744" href="Data.Nat.html#2168" class="Primitive Operator"
+      >+</a
+      ><a name="1745"
+      > </a
+      ><a name="1746" href="lps.Examples.html#1702" class="Bound"
+      >y</a
+      ><a name="1747"
+      >
+  </a
+      ><a name="1750" href="lps.Examples.html#1689" class="Function"
+      >2+x+y+1</a
+      ><a name="1757"
+      > </a
+      ><a name="1758" href="lps.Examples.html#1758" class="Bound"
+      >x</a
+      ><a name="1759"
+      > </a
+      ><a name="1760" href="lps.Examples.html#1760" class="Bound"
+      >y</a
+      ><a name="1761"
+      > </a
+      ><a name="1762" class="Symbol"
+      >=</a
+      ><a name="1763"
+      >
+     </a
+      ><a name="1769" class="Keyword"
+      >let</a
+      ><a name="1772"
+      > </a
+      ><a name="1773" class="Keyword"
+      >open</a
+      ><a name="1777"
+      > </a
+      ><a name="1778" href="lps.Examples.html#1378" class="Module"
+      >&#8469;+</a
+      ><a name="1780"
+      >
+         </a
+      ><a name="1790" href="lps.Examples.html#1790" class="Bound"
+      >`x</a
+      ><a name="1792"
+      >  </a
+      ><a name="1794" class="Symbol"
+      >=</a
+      ><a name="1795"
+      > </a
+      ><a name="1796" href="lps.Tactics.html#3470" class="InductiveConstructor"
+      >`v</a
+      ><a name="1798"
+      > </a
+      ><a name="1799" href="Data.Fin.html#797" class="InductiveConstructor"
+      >Fin.zero</a
+      ><a name="1807"
+      >
+         </a
+      ><a name="1817" href="lps.Examples.html#1817" class="Bound"
+      >`y</a
+      ><a name="1819"
+      >  </a
+      ><a name="1821" class="Symbol"
+      >=</a
+      ><a name="1822"
+      > </a
+      ><a name="1823" href="lps.Tactics.html#3470" class="InductiveConstructor"
+      >`v</a
+      ><a name="1825"
+      > </a
+      ><a name="1826" class="Symbol"
+      >(</a
+      ><a name="1827" href="Data.Fin.html#828" class="InductiveConstructor"
+      >Fin.suc</a
+      ><a name="1834"
+      > </a
+      ><a name="1835" href="Data.Fin.html#797" class="InductiveConstructor"
+      >Fin.zero</a
+      ><a name="1843" class="Symbol"
+      >)</a
+      ><a name="1844"
+      >
+         </a
+      ><a name="1854" href="lps.Examples.html#1854" class="Bound"
+      >LHS</a
+      ><a name="1857"
+      > </a
+      ><a name="1858" class="Symbol"
+      >=</a
+      ><a name="1859"
+      > </a
+      ><a name="1860" href="lps.Tactics.html#3510" class="InductiveConstructor"
+      >`c</a
+      ><a name="1862"
+      > </a
+      ><a name="1863" class="Number"
+      >2</a
+      ><a name="1864"
+      > </a
+      ><a name="1865" href="lps.Tactics.html#3549" class="InductiveConstructor Operator"
+      >`&#8729;</a
+      ><a name="1867"
+      > </a
+      ><a name="1868" class="Symbol"
+      >((</a
+      ><a name="1870" href="lps.Examples.html#1790" class="Bound"
+      >`x</a
+      ><a name="1872"
+      > </a
+      ><a name="1873" href="lps.Tactics.html#3549" class="InductiveConstructor Operator"
+      >`&#8729;</a
+      ><a name="1875"
+      > </a
+      ><a name="1876" href="lps.Examples.html#1817" class="Bound"
+      >`y</a
+      ><a name="1878" class="Symbol"
+      >)</a
+      ><a name="1879"
+      > </a
+      ><a name="1880" href="lps.Tactics.html#3549" class="InductiveConstructor Operator"
+      >`&#8729;</a
+      ><a name="1882"
+      > </a
+      ><a name="1883" href="lps.Tactics.html#3510" class="InductiveConstructor"
+      >`c</a
+      ><a name="1885"
+      > </a
+      ><a name="1886" class="Number"
+      >1</a
+      ><a name="1887" class="Symbol"
+      >)</a
+      ><a name="1888"
+      >
+         </a
+      ><a name="1898" href="lps.Examples.html#1898" class="Bound"
+      >RHS</a
+      ><a name="1901"
+      > </a
+      ><a name="1902" class="Symbol"
+      >=</a
+      ><a name="1903"
+      > </a
+      ><a name="1904" class="Symbol"
+      >(</a
+      ><a name="1905" href="lps.Examples.html#1790" class="Bound"
+      >`x</a
+      ><a name="1907"
+      > </a
+      ><a name="1908" href="lps.Tactics.html#3549" class="InductiveConstructor Operator"
+      >`&#8729;</a
+      ><a name="1910"
+      > </a
+      ><a name="1911" href="lps.Tactics.html#3510" class="InductiveConstructor"
+      >`c</a
+      ><a name="1913"
+      > </a
+      ><a name="1914" class="Number"
+      >3</a
+      ><a name="1915" class="Symbol"
+      >)</a
+      ><a name="1916"
+      > </a
+      ><a name="1917" href="lps.Tactics.html#3549" class="InductiveConstructor Operator"
+      >`&#8729;</a
+      ><a name="1919"
+      > </a
+      ><a name="1920" href="lps.Examples.html#1817" class="Bound"
+      >`y</a
+      ><a name="1922"
+      >
+     </a
+      ><a name="1928" class="Keyword"
+      >in</a
+      ><a name="1930"
+      > </a
+      ><a name="1931" href="lps.Tactics.html#10241" class="Function"
+      >proveMonEq</a
+      ><a name="1941"
+      > </a
+      ><a name="1942" href="lps.Examples.html#1854" class="Bound"
+      >LHS</a
+      ><a name="1945"
+      > </a
+      ><a name="1946" href="lps.Examples.html#1898" class="Bound"
+      >RHS</a
+      ><a name="1949"
+      > </a
+      ><a name="1950" class="Symbol"
+      >(</a
+      ><a name="1951" href="lps.Examples.html#1758" class="Bound"
+      >x</a
+      ><a name="1952"
+      > </a
+      ><a name="1953" href="Data.Vec.html#663" class="InductiveConstructor Operator"
+      >Vec.&#8759;</a
+      ><a name="1958"
+      > </a
+      ><a name="1959" href="lps.Examples.html#1760" class="Bound"
+      >y</a
+      ><a name="1960"
+      > </a
+      ><a name="1961" href="Data.Vec.html#663" class="InductiveConstructor Operator"
+      >Vec.&#8759;</a
+      ><a name="1966"
+      > </a
+      ><a name="1967" href="Data.Vec.html#644" class="InductiveConstructor"
+      >Vec.[]</a
+      ><a name="1973" class="Symbol"
+      >)</a
+      ><a name="1974"
+      >
+
+
+
+</a
+      ><a name="1978" class="Comment"
+      >--------------------------------------------------</a
+      ><a name="2028"
+      >
+</a
+      ><a name="2029" class="Comment"
+      >-- Proving to lists to be bag-equivalent</a
+      ><a name="2069"
+      >
+</a
+      ><a name="2070" class="Comment"
+      >--------------------------------------------------</a
+      ><a name="2120"
+      >
+</a
+      ><a name="2121" class="Comment"
+      >-- The solver can then be instantiated to automatically discharge</a
+      ><a name="2186"
+      >
+</a
+      ><a name="2187" class="Comment"
+      >-- problems involving bag equivalence of lists</a
+      ><a name="2233"
+      >
+
+
+
+  </a
+      ><a name="2239" class="Keyword"
+      >open</a
+      ><a name="2243"
+      > </a
+      ><a name="2244" class="Keyword"
+      >import</a
+      ><a name="2250"
+      > </a
+      ><a name="2251" href="Bag-equivalence.html#1" class="Module"
+      >Bag-equivalence</a
+      ><a name="2266"
+      >
+  </a
+      ><a name="2269" class="Keyword"
+      >module</a
+      ><a name="2275"
+      > </a
+      ><a name="2276" href="lps.Examples.html#2276" class="Module"
+      >BE</a
+      ><a name="2278"
+      > </a
+      ><a name="2279" class="Symbol"
+      >=</a
+      ><a name="2280"
+      > </a
+      ><a name="2281" href="lps.Tactics.html#10529" class="Module"
+      >BagEq</a
+      ><a name="2286"
+      > </a
+      ><a name="2287" href="Data.Nat.html#663" class="Datatype"
+      >Nat.&#8469;</a
+      ><a name="2292"
+      > </a
+      ><a name="2293" href="Data.Nat.html#3049" class="Function Operator"
+      >Nat._&#8799;_</a
+      ><a name="2300"
+      >
+
+  </a
+      ><a name="2304" href="lps.Examples.html#2304" class="Function"
+      >sgl</a
+      ><a name="2307"
+      > </a
+      ><a name="2308" class="Symbol"
+      >:</a
+      ><a name="2309"
+      > </a
+      ><a name="2310" href="Data.Nat.html#663" class="Datatype"
+      >&#8469;</a
+      ><a name="2311"
+      > </a
+      ><a name="2312" class="Symbol"
+      >&#8594;</a
+      ><a name="2313"
+      > </a
+      ><a name="2314" href="Prelude.html#6928" class="Datatype"
+      >Pr.List</a
+      ><a name="2321"
+      > </a
+      ><a name="2322" href="Data.Nat.html#663" class="Datatype"
+      >&#8469;</a
+      ><a name="2323"
+      >
+  </a
+      ><a name="2326" href="lps.Examples.html#2304" class="Function"
+      >sgl</a
+      ><a name="2329"
+      > </a
+      ><a name="2330" href="lps.Examples.html#2330" class="Bound"
+      >x</a
+      ><a name="2331"
+      > </a
+      ><a name="2332" class="Symbol"
+      >=</a
+      ><a name="2333"
+      > </a
+      ><a name="2334" href="lps.Examples.html#2330" class="Bound"
+      >x</a
+      ><a name="2335"
+      > </a
+      ><a name="2336" href="Prelude.html#6980" class="InductiveConstructor Operator"
+      >Pr.&#8759;</a
+      ><a name="2340"
+      > </a
+      ><a name="2341" href="Prelude.html#6965" class="InductiveConstructor"
+      >Pr.[]</a
+      ><a name="2346"
+      >
+
+  </a
+      ><a name="2350" href="lps.Examples.html#2350" class="Function"
+      >1&#8759;2&#8759;3&#8759;3&#8242;</a
+      ><a name="2358"
+      > </a
+      ><a name="2359" class="Symbol"
+      >:</a
+      ><a name="2360"
+      > </a
+      ><a name="2361" class="Keyword"
+      >let</a
+      ><a name="2364"
+      > </a
+      ><a name="2365" class="Keyword"
+      >open</a
+      ><a name="2369"
+      > </a
+      ><a name="2370" href="Prelude.html#1" class="Module"
+      >Pr</a
+      ><a name="2372"
+      > </a
+      ><a name="2373" class="Keyword"
+      >in</a
+      ><a name="2375"
+      >
+             </a
+      ><a name="2389" class="Symbol"
+      >(</a
+      ><a name="2390" href="lps.Examples.html#2390" class="Bound"
+      >xs</a
+      ><a name="2392"
+      > </a
+      ><a name="2393" class="Symbol"
+      >:</a
+      ><a name="2394"
+      > </a
+      ><a name="2395" href="Prelude.html#6928" class="Datatype"
+      >List</a
+      ><a name="2399"
+      > </a
+      ><a name="2400" href="Data.Nat.html#663" class="Datatype"
+      >Nat.&#8469;</a
+      ><a name="2405" class="Symbol"
+      >)</a
+      ><a name="2406"
+      > </a
+      ><a name="2407" class="Symbol"
+      >&#8594;</a
+      ><a name="2408"
+      >
+             </a
+      ><a name="2422" class="Number"
+      >1</a
+      ><a name="2423"
+      > </a
+      ><a name="2424" href="Prelude.html#6980" class="InductiveConstructor Operator"
+      >&#8759;</a
+      ><a name="2425"
+      > </a
+      ><a name="2426" class="Number"
+      >2</a
+      ><a name="2427"
+      > </a
+      ><a name="2428" href="Prelude.html#6980" class="InductiveConstructor Operator"
+      >&#8759;</a
+      ><a name="2429"
+      > </a
+      ><a name="2430" class="Number"
+      >3</a
+      ><a name="2431"
+      > </a
+      ><a name="2432" href="Prelude.html#6980" class="InductiveConstructor Operator"
+      >&#8759;</a
+      ><a name="2433"
+      > </a
+      ><a name="2434" href="lps.Examples.html#2390" class="Bound"
+      >xs</a
+      ><a name="2436"
+      > </a
+      ><a name="2437" href="Prelude.html#7315" class="Function Operator"
+      >Pr.++</a
+      ><a name="2442"
+      > </a
+      ><a name="2443" class="Number"
+      >3</a
+      ><a name="2444"
+      > </a
+      ><a name="2445" href="Prelude.html#6980" class="InductiveConstructor Operator"
+      >&#8759;</a
+      ><a name="2446"
+      > </a
+      ><a name="2447" href="Prelude.html#6965" class="InductiveConstructor"
+      >[]</a
+      ><a name="2449"
+      > </a
+      ><a name="2450" href="Bag-equivalence.html#7792" class="Function Operator"
+      >&#8776;-bag</a
+      ><a name="2455"
+      > </a
+      ><a name="2456" class="Number"
+      >3</a
+      ><a name="2457"
+      > </a
+      ><a name="2458" href="Prelude.html#6980" class="InductiveConstructor Operator"
+      >&#8759;</a
+      ><a name="2459"
+      > </a
+      ><a name="2460" class="Number"
+      >2</a
+      ><a name="2461"
+      > </a
+      ><a name="2462" href="Prelude.html#6980" class="InductiveConstructor Operator"
+      >&#8759;</a
+      ><a name="2463"
+      > </a
+      ><a name="2464" href="lps.Examples.html#2390" class="Bound"
+      >xs</a
+      ><a name="2466"
+      > </a
+      ><a name="2467" href="Prelude.html#7315" class="Function Operator"
+      >Pr.++</a
+      ><a name="2472"
+      > </a
+      ><a name="2473" class="Number"
+      >3</a
+      ><a name="2474"
+      > </a
+      ><a name="2475" href="Prelude.html#6980" class="InductiveConstructor Operator"
+      >&#8759;</a
+      ><a name="2476"
+      > </a
+      ><a name="2477" class="Number"
+      >1</a
+      ><a name="2478"
+      > </a
+      ><a name="2479" href="Prelude.html#6980" class="InductiveConstructor Operator"
+      >&#8759;</a
+      ><a name="2480"
+      > </a
+      ><a name="2481" href="Prelude.html#6965" class="InductiveConstructor"
+      >[]</a
+      ><a name="2483"
+      >
+  </a
+      ><a name="2486" href="lps.Examples.html#2350" class="Function"
+      >1&#8759;2&#8759;3&#8759;3&#8242;</a
+      ><a name="2494"
+      > </a
+      ><a name="2495" href="lps.Examples.html#2495" class="Bound"
+      >xs</a
+      ><a name="2497"
+      > </a
+      ><a name="2498" class="Symbol"
+      >=</a
+      ><a name="2499"
+      > </a
+      ><a name="2500" href="lps.Tactics.html#10241" class="Function"
+      >BE.proveMonEq</a
+      ><a name="2513"
+      > </a
+      ><a name="2514" href="lps.Examples.html#2726" class="Function"
+      >LHS</a
+      ><a name="2517"
+      > </a
+      ><a name="2518" href="lps.Examples.html#2774" class="Function"
+      >RHS</a
+      ><a name="2521"
+      > </a
+      ><a name="2522" href="lps.Examples.html#2820" class="Function"
+      >CTX</a
+      ><a name="2525"
+      >
+    </a
+      ><a name="2530" class="Keyword"
+      >where</a
+      ><a name="2535"
+      > </a
+      ><a name="2536" class="Keyword"
+      >open</a
+      ><a name="2540"
+      > </a
+      ><a name="2541" href="lps.Examples.html#2276" class="Module"
+      >BE</a
+      ><a name="2543"
+      >
+          </a
+      ><a name="2554" href="lps.Examples.html#2554" class="Function"
+      >`1</a
+      ><a name="2556"
+      >  </a
+      ><a name="2558" class="Symbol"
+      >=</a
+      ><a name="2559"
+      > </a
+      ><a name="2560" href="lps.Tactics.html#3470" class="InductiveConstructor"
+      >`v</a
+      ><a name="2562"
+      > </a
+      ><a name="2563" href="Data.Fin.html#797" class="InductiveConstructor"
+      >Fin.zero</a
+      ><a name="2571"
+      >
+          </a
+      ><a name="2582" href="lps.Examples.html#2582" class="Function"
+      >`2</a
+      ><a name="2584"
+      >  </a
+      ><a name="2586" class="Symbol"
+      >=</a
+      ><a name="2587"
+      > </a
+      ><a name="2588" href="lps.Tactics.html#3470" class="InductiveConstructor"
+      >`v</a
+      ><a name="2590"
+      > </a
+      ><a name="2591" class="Symbol"
+      >(</a
+      ><a name="2592" href="Data.Fin.html#828" class="InductiveConstructor"
+      >Fin.suc</a
+      ><a name="2599"
+      > </a
+      ><a name="2600" href="Data.Fin.html#797" class="InductiveConstructor"
+      >Fin.zero</a
+      ><a name="2608" class="Symbol"
+      >)</a
+      ><a name="2609"
+      >
+          </a
+      ><a name="2620" href="lps.Examples.html#2620" class="Function"
+      >`3</a
+      ><a name="2622"
+      >  </a
+      ><a name="2624" class="Symbol"
+      >=</a
+      ><a name="2625"
+      > </a
+      ><a name="2626" href="lps.Tactics.html#3470" class="InductiveConstructor"
+      >`v</a
+      ><a name="2628"
+      > </a
+      ><a name="2629" class="Symbol"
+      >(</a
+      ><a name="2630" href="Data.Fin.html#828" class="InductiveConstructor"
+      >Fin.suc</a
+      ><a name="2637"
+      > </a
+      ><a name="2638" class="Symbol"
+      >(</a
+      ><a name="2639" href="Data.Fin.html#828" class="InductiveConstructor"
+      >Fin.suc</a
+      ><a name="2646"
+      > </a
+      ><a name="2647" href="Data.Fin.html#797" class="InductiveConstructor"
+      >Fin.zero</a
+      ><a name="2655" class="Symbol"
+      >))</a
+      ><a name="2657"
+      >
+          </a
+      ><a name="2668" href="lps.Examples.html#2668" class="Function"
+      >`xs</a
+      ><a name="2671"
+      > </a
+      ><a name="2672" class="Symbol"
+      >=</a
+      ><a name="2673"
+      > </a
+      ><a name="2674" href="lps.Tactics.html#3470" class="InductiveConstructor"
+      >`v</a
+      ><a name="2676"
+      > </a
+      ><a name="2677" class="Symbol"
+      >(</a
+      ><a name="2678" href="Data.Fin.html#828" class="InductiveConstructor"
+      >Fin.suc</a
+      ><a name="2685"
+      > </a
+      ><a name="2686" class="Symbol"
+      >(</a
+      ><a name="2687" href="Data.Fin.html#828" class="InductiveConstructor"
+      >Fin.suc</a
+      ><a name="2694"
+      > </a
+      ><a name="2695" class="Symbol"
+      >(</a
+      ><a name="2696" href="Data.Fin.html#828" class="InductiveConstructor"
+      >Fin.suc</a
+      ><a name="2703"
+      > </a
+      ><a name="2704" href="Data.Fin.html#797" class="InductiveConstructor"
+      >Fin.zero</a
+      ><a name="2712" class="Symbol"
+      >)))</a
+      ><a name="2715"
+      >
+          </a
+      ><a name="2726" href="lps.Examples.html#2726" class="Function"
+      >LHS</a
+      ><a name="2729"
+      > </a
+      ><a name="2730" class="Symbol"
+      >=</a
+      ><a name="2731"
+      > </a
+      ><a name="2732" class="Symbol"
+      >((</a
+      ><a name="2734" href="lps.Examples.html#2554" class="Function"
+      >`1</a
+      ><a name="2736"
+      > </a
+      ><a name="2737" href="lps.Tactics.html#3549" class="InductiveConstructor Operator"
+      >`&#8729;</a
+      ><a name="2739"
+      > </a
+      ><a name="2740" href="lps.Examples.html#2582" class="Function"
+      >`2</a
+      ><a name="2742"
+      > </a
+      ><a name="2743" href="lps.Tactics.html#3549" class="InductiveConstructor Operator"
+      >`&#8729;</a
+      ><a name="2745"
+      > </a
+      ><a name="2746" href="lps.Examples.html#2620" class="Function"
+      >`3</a
+      ><a name="2748" class="Symbol"
+      >)</a
+      ><a name="2749"
+      > </a
+      ><a name="2750" href="lps.Tactics.html#3549" class="InductiveConstructor Operator"
+      >`&#8729;</a
+      ><a name="2752"
+      > </a
+      ><a name="2753" href="lps.Examples.html#2668" class="Function"
+      >`xs</a
+      ><a name="2756" class="Symbol"
+      >)</a
+      ><a name="2757"
+      > </a
+      ><a name="2758" href="lps.Tactics.html#3549" class="InductiveConstructor Operator"
+      >`&#8729;</a
+      ><a name="2760"
+      > </a
+      ><a name="2761" href="lps.Examples.html#2620" class="Function"
+      >`3</a
+      ><a name="2763"
+      >
+          </a
+      ><a name="2774" href="lps.Examples.html#2774" class="Function"
+      >RHS</a
+      ><a name="2777"
+      > </a
+      ><a name="2778" class="Symbol"
+      >=</a
+      ><a name="2779"
+      > </a
+      ><a name="2780" class="Symbol"
+      >(</a
+      ><a name="2781" href="lps.Examples.html#2620" class="Function"
+      >`3</a
+      ><a name="2783"
+      > </a
+      ><a name="2784" href="lps.Tactics.html#3549" class="InductiveConstructor Operator"
+      >`&#8729;</a
+      ><a name="2786"
+      > </a
+      ><a name="2787" href="lps.Examples.html#2582" class="Function"
+      >`2</a
+      ><a name="2789" class="Symbol"
+      >)</a
+      ><a name="2790"
+      > </a
+      ><a name="2791" href="lps.Tactics.html#3549" class="InductiveConstructor Operator"
+      >`&#8729;</a
+      ><a name="2793"
+      > </a
+      ><a name="2794" href="lps.Examples.html#2668" class="Function"
+      >`xs</a
+      ><a name="2797"
+      > </a
+      ><a name="2798" href="lps.Tactics.html#3549" class="InductiveConstructor Operator"
+      >`&#8729;</a
+      ><a name="2800"
+      > </a
+      ><a name="2801" href="lps.Examples.html#2620" class="Function"
+      >`3</a
+      ><a name="2803"
+      > </a
+      ><a name="2804" href="lps.Tactics.html#3549" class="InductiveConstructor Operator"
+      >`&#8729;</a
+      ><a name="2806"
+      > </a
+      ><a name="2807" href="lps.Examples.html#2554" class="Function"
+      >`1</a
+      ><a name="2809"
+      >
+          </a
+      ><a name="2820" href="lps.Examples.html#2820" class="Function"
+      >CTX</a
+      ><a name="2823"
+      > </a
+      ><a name="2824" class="Symbol"
+      >=</a
+      ><a name="2825"
+      > </a
+      ><a name="2826" href="lps.Examples.html#2304" class="Function"
+      >sgl</a
+      ><a name="2829"
+      > </a
+      ><a name="2830" class="Number"
+      >1</a
+      ><a name="2831"
+      > </a
+      ><a name="2832" href="Data.Vec.html#663" class="InductiveConstructor Operator"
+      >Vec.&#8759;</a
+      ><a name="2837"
+      > </a
+      ><a name="2838" href="lps.Examples.html#2304" class="Function"
+      >sgl</a
+      ><a name="2841"
+      > </a
+      ><a name="2842" class="Number"
+      >2</a
+      ><a name="2843"
+      > </a
+      ><a name="2844" href="Data.Vec.html#663" class="InductiveConstructor Operator"
+      >Vec.&#8759;</a
+      ><a name="2849"
+      > </a
+      ><a name="2850" href="lps.Examples.html#2304" class="Function"
+      >sgl</a
+      ><a name="2853"
+      > </a
+      ><a name="2854" class="Number"
+      >3</a
+      ><a name="2855"
+      > </a
+      ><a name="2856" href="Data.Vec.html#663" class="InductiveConstructor Operator"
+      >Vec.&#8759;</a
+      ><a name="2861"
+      > </a
+      ><a name="2862" href="lps.Examples.html#2495" class="Bound"
+      >xs</a
+      ><a name="2864"
+      > </a
+      ><a name="2865" href="Data.Vec.html#663" class="InductiveConstructor Operator"
+      >Vec.&#8759;</a
+      ><a name="2870"
+      > </a
+      ><a name="2871" href="Data.Vec.html#644" class="InductiveConstructor"
+      >Vec.[]</a
+      ><a name="2877"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

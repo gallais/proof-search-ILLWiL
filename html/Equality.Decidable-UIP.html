@@ -1,0 +1,2697 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >Equality.Decidable-UIP</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Comment"
+      >------------------------------------------------------------------------</a
+      ><a name="73"
+      >
+</a
+      ><a name="74" class="Comment"
+      >-- Sets with decidable equality have unique identity proofs</a
+      ><a name="133"
+      >
+</a
+      ><a name="134" class="Comment"
+      >------------------------------------------------------------------------</a
+      ><a name="206"
+      >
+
+</a
+      ><a name="208" class="Symbol"
+      >{-#</a
+      ><a name="211"
+      > </a
+      ><a name="212" class="Keyword"
+      >OPTIONS</a
+      ><a name="219"
+      > --without-K </a
+      ><a name="232" class="Symbol"
+      >#-}</a
+      ><a name="235"
+      >
+
+</a
+      ><a name="237" class="Comment"
+      >-- The part up to &quot;decidable&#8658;UIP&quot; follows a proof by Michael Hedberg</a
+      ><a name="305"
+      >
+</a
+      ><a name="306" class="Comment"
+      >-- (&quot;A coherence theorem for Martin-L&#246;f's type theory&quot;, JFP 1998).</a
+      ><a name="372"
+      >
+
+</a
+      ><a name="374" class="Keyword"
+      >open</a
+      ><a name="378"
+      > </a
+      ><a name="379" class="Keyword"
+      >import</a
+      ><a name="385"
+      > </a
+      ><a name="386" href="Equality.html#1" class="Module"
+      >Equality</a
+      ><a name="394"
+      >
+
+</a
+      ><a name="396" class="Keyword"
+      >module</a
+      ><a name="402"
+      > </a
+      ><a name="403" href="Equality.Decidable-UIP.html#1" class="Module"
+      >Equality.Decidable-UIP</a
+      ><a name="425"
+      >
+  </a
+      ><a name="428" class="Symbol"
+      >{</a
+      ><a name="429" href="Equality.Decidable-UIP.html#429" class="Bound"
+      >reflexive</a
+      ><a name="438" class="Symbol"
+      >}</a
+      ><a name="439"
+      > </a
+      ><a name="440" class="Symbol"
+      >(</a
+      ><a name="441" href="Equality.Decidable-UIP.html#441" class="Bound"
+      >eq</a
+      ><a name="443"
+      > </a
+      ><a name="444" class="Symbol"
+      >:</a
+      ><a name="445"
+      > </a
+      ><a name="446" class="Symbol"
+      >&#8704;</a
+      ><a name="447"
+      > </a
+      ><a name="448" class="Symbol"
+      >{</a
+      ><a name="449" href="Equality.Decidable-UIP.html#449" class="Bound"
+      >a</a
+      ><a name="450"
+      > </a
+      ><a name="451" href="Equality.Decidable-UIP.html#451" class="Bound"
+      >p</a
+      ><a name="452" class="Symbol"
+      >}</a
+      ><a name="453"
+      > </a
+      ><a name="454" class="Symbol"
+      >&#8594;</a
+      ><a name="455"
+      > </a
+      ><a name="456" href="Equality.html#2165" class="Record"
+      >Equality-with-J</a
+      ><a name="471"
+      > </a
+      ><a name="472" href="Equality.Decidable-UIP.html#449" class="Bound"
+      >a</a
+      ><a name="473"
+      > </a
+      ><a name="474" href="Equality.Decidable-UIP.html#451" class="Bound"
+      >p</a
+      ><a name="475"
+      > </a
+      ><a name="476" href="Equality.Decidable-UIP.html#429" class="Bound"
+      >reflexive</a
+      ><a name="485" class="Symbol"
+      >)</a
+      ><a name="486"
+      > </a
+      ><a name="487" class="Keyword"
+      >where</a
+      ><a name="492"
+      >
+
+</a
+      ><a name="494" class="Keyword"
+      >open</a
+      ><a name="498"
+      > </a
+      ><a name="499" href="Equality.html#9726" class="Module"
+      >Derived-definitions-and-properties</a
+      ><a name="533"
+      > </a
+      ><a name="534" href="Equality.Decidable-UIP.html#441" class="Bound"
+      >eq</a
+      ><a name="536"
+      >
+</a
+      ><a name="537" class="Keyword"
+      >open</a
+      ><a name="541"
+      > </a
+      ><a name="542" class="Keyword"
+      >import</a
+      ><a name="548"
+      > </a
+      ><a name="549" href="Logical-equivalence.html#1" class="Module"
+      >Logical-equivalence</a
+      ><a name="568"
+      > </a
+      ><a name="569" class="Keyword"
+      >using</a
+      ><a name="574"
+      > </a
+      ><a name="575" class="Symbol"
+      >(</a
+      ><a name="576" class="Keyword"
+      >module</a
+      ><a name="582"
+      > _&#8660;_</a
+      ><a name="586" class="Symbol"
+      >)</a
+      ><a name="587"
+      >
+</a
+      ><a name="588" class="Keyword"
+      >open</a
+      ><a name="592"
+      > </a
+      ><a name="593" class="Keyword"
+      >import</a
+      ><a name="599"
+      > </a
+      ><a name="600" href="H-level.html#1" class="Module"
+      >H-level</a
+      ><a name="607"
+      > </a
+      ><a name="608" href="Equality.Decidable-UIP.html#441" class="Bound"
+      >eq</a
+      ><a name="610"
+      >
+</a
+      ><a name="611" class="Keyword"
+      >open</a
+      ><a name="615"
+      > </a
+      ><a name="616" class="Keyword"
+      >import</a
+      ><a name="622"
+      > </a
+      ><a name="623" href="Prelude.html#1" class="Module"
+      >Prelude</a
+      ><a name="630"
+      >
+
+</a
+      ><a name="632" class="Comment"
+      >-- Constant functions.</a
+      ><a name="654"
+      >
+
+</a
+      ><a name="656" href="Equality.Decidable-UIP.html#656" class="Function"
+      >Constant</a
+      ><a name="664"
+      > </a
+      ><a name="665" class="Symbol"
+      >:</a
+      ><a name="666"
+      > </a
+      ><a name="667" class="Symbol"
+      >&#8704;</a
+      ><a name="668"
+      > </a
+      ><a name="669" class="Symbol"
+      >{</a
+      ><a name="670" href="Equality.Decidable-UIP.html#670" class="Bound"
+      >a</a
+      ><a name="671"
+      > </a
+      ><a name="672" href="Equality.Decidable-UIP.html#672" class="Bound"
+      >b</a
+      ><a name="673" class="Symbol"
+      >}</a
+      ><a name="674"
+      > </a
+      ><a name="675" class="Symbol"
+      >{</a
+      ><a name="676" href="Equality.Decidable-UIP.html#676" class="Bound"
+      >A</a
+      ><a name="677"
+      > </a
+      ><a name="678" class="Symbol"
+      >:</a
+      ><a name="679"
+      > </a
+      ><a name="680" class="PrimitiveType"
+      >Set</a
+      ><a name="683"
+      > </a
+      ><a name="684" href="Equality.Decidable-UIP.html#670" class="Bound"
+      >a</a
+      ><a name="685" class="Symbol"
+      >}</a
+      ><a name="686"
+      > </a
+      ><a name="687" class="Symbol"
+      >{</a
+      ><a name="688" href="Equality.Decidable-UIP.html#688" class="Bound"
+      >B</a
+      ><a name="689"
+      > </a
+      ><a name="690" class="Symbol"
+      >:</a
+      ><a name="691"
+      > </a
+      ><a name="692" class="PrimitiveType"
+      >Set</a
+      ><a name="695"
+      > </a
+      ><a name="696" href="Equality.Decidable-UIP.html#672" class="Bound"
+      >b</a
+      ><a name="697" class="Symbol"
+      >}</a
+      ><a name="698"
+      > </a
+      ><a name="699" class="Symbol"
+      >&#8594;</a
+      ><a name="700"
+      > </a
+      ><a name="701" class="Symbol"
+      >(</a
+      ><a name="702" href="Equality.Decidable-UIP.html#676" class="Bound"
+      >A</a
+      ><a name="703"
+      > </a
+      ><a name="704" class="Symbol"
+      >&#8594;</a
+      ><a name="705"
+      > </a
+      ><a name="706" href="Equality.Decidable-UIP.html#688" class="Bound"
+      >B</a
+      ><a name="707" class="Symbol"
+      >)</a
+      ><a name="708"
+      > </a
+      ><a name="709" class="Symbol"
+      >&#8594;</a
+      ><a name="710"
+      > </a
+      ><a name="711" class="PrimitiveType"
+      >Set</a
+      ><a name="714"
+      > </a
+      ><a name="715" class="Symbol"
+      >(</a
+      ><a name="716" href="Equality.Decidable-UIP.html#670" class="Bound"
+      >a</a
+      ><a name="717"
+      > </a
+      ><a name="718" href="Agda.Primitive.html#626" class="Primitive Operator"
+      >&#8852;</a
+      ><a name="719"
+      > </a
+      ><a name="720" href="Equality.Decidable-UIP.html#672" class="Bound"
+      >b</a
+      ><a name="721" class="Symbol"
+      >)</a
+      ><a name="722"
+      >
+</a
+      ><a name="723" href="Equality.Decidable-UIP.html#656" class="Function"
+      >Constant</a
+      ><a name="731"
+      > </a
+      ><a name="732" href="Equality.Decidable-UIP.html#732" class="Bound"
+      >f</a
+      ><a name="733"
+      > </a
+      ><a name="734" class="Symbol"
+      >=</a
+      ><a name="735"
+      > </a
+      ><a name="736" class="Symbol"
+      >&#8704;</a
+      ><a name="737"
+      > </a
+      ><a name="738" href="Equality.Decidable-UIP.html#738" class="Bound"
+      >x</a
+      ><a name="739"
+      > </a
+      ><a name="740" href="Equality.Decidable-UIP.html#740" class="Bound"
+      >y</a
+      ><a name="741"
+      > </a
+      ><a name="742" class="Symbol"
+      >&#8594;</a
+      ><a name="743"
+      > </a
+      ><a name="744" href="Equality.Decidable-UIP.html#732" class="Bound"
+      >f</a
+      ><a name="745"
+      > </a
+      ><a name="746" href="Equality.Decidable-UIP.html#738" class="Bound"
+      >x</a
+      ><a name="747"
+      > </a
+      ><a name="748" href="Equality.html#510" class="Function Operator"
+      >&#8801;</a
+      ><a name="749"
+      > </a
+      ><a name="750" href="Equality.Decidable-UIP.html#732" class="Bound"
+      >f</a
+      ><a name="751"
+      > </a
+      ><a name="752" href="Equality.Decidable-UIP.html#740" class="Bound"
+      >y</a
+      ><a name="753"
+      >
+
+</a
+      ><a name="755" class="Comment"
+      >-- Left inverses.</a
+      ><a name="772"
+      >
+
+</a
+      ><a name="774" href="Equality.Decidable-UIP.html#774" class="Function Operator"
+      >_Left-inverse-of_</a
+      ><a name="791"
+      > </a
+      ><a name="792" class="Symbol"
+      >:</a
+      ><a name="793"
+      > </a
+      ><a name="794" class="Symbol"
+      >&#8704;</a
+      ><a name="795"
+      > </a
+      ><a name="796" class="Symbol"
+      >{</a
+      ><a name="797" href="Equality.Decidable-UIP.html#797" class="Bound"
+      >a</a
+      ><a name="798"
+      > </a
+      ><a name="799" href="Equality.Decidable-UIP.html#799" class="Bound"
+      >b</a
+      ><a name="800" class="Symbol"
+      >}</a
+      ><a name="801"
+      > </a
+      ><a name="802" class="Symbol"
+      >{</a
+      ><a name="803" href="Equality.Decidable-UIP.html#803" class="Bound"
+      >A</a
+      ><a name="804"
+      > </a
+      ><a name="805" class="Symbol"
+      >:</a
+      ><a name="806"
+      > </a
+      ><a name="807" class="PrimitiveType"
+      >Set</a
+      ><a name="810"
+      > </a
+      ><a name="811" href="Equality.Decidable-UIP.html#797" class="Bound"
+      >a</a
+      ><a name="812" class="Symbol"
+      >}</a
+      ><a name="813"
+      > </a
+      ><a name="814" class="Symbol"
+      >{</a
+      ><a name="815" href="Equality.Decidable-UIP.html#815" class="Bound"
+      >B</a
+      ><a name="816"
+      > </a
+      ><a name="817" class="Symbol"
+      >:</a
+      ><a name="818"
+      > </a
+      ><a name="819" class="PrimitiveType"
+      >Set</a
+      ><a name="822"
+      > </a
+      ><a name="823" href="Equality.Decidable-UIP.html#799" class="Bound"
+      >b</a
+      ><a name="824" class="Symbol"
+      >}</a
+      ><a name="825"
+      > </a
+      ><a name="826" class="Symbol"
+      >&#8594;</a
+      ><a name="827"
+      >
+                    </a
+      ><a name="848" class="Symbol"
+      >(</a
+      ><a name="849" href="Equality.Decidable-UIP.html#815" class="Bound"
+      >B</a
+      ><a name="850"
+      > </a
+      ><a name="851" class="Symbol"
+      >&#8594;</a
+      ><a name="852"
+      > </a
+      ><a name="853" href="Equality.Decidable-UIP.html#803" class="Bound"
+      >A</a
+      ><a name="854" class="Symbol"
+      >)</a
+      ><a name="855"
+      > </a
+      ><a name="856" class="Symbol"
+      >&#8594;</a
+      ><a name="857"
+      > </a
+      ><a name="858" class="Symbol"
+      >(</a
+      ><a name="859" href="Equality.Decidable-UIP.html#803" class="Bound"
+      >A</a
+      ><a name="860"
+      > </a
+      ><a name="861" class="Symbol"
+      >&#8594;</a
+      ><a name="862"
+      > </a
+      ><a name="863" href="Equality.Decidable-UIP.html#815" class="Bound"
+      >B</a
+      ><a name="864" class="Symbol"
+      >)</a
+      ><a name="865"
+      > </a
+      ><a name="866" class="Symbol"
+      >&#8594;</a
+      ><a name="867"
+      > </a
+      ><a name="868" class="PrimitiveType"
+      >Set</a
+      ><a name="871"
+      > </a
+      ><a name="872" href="Equality.Decidable-UIP.html#797" class="Bound"
+      >a</a
+      ><a name="873"
+      >
+</a
+      ><a name="874" href="Equality.Decidable-UIP.html#874" class="Bound"
+      >g</a
+      ><a name="875"
+      > </a
+      ><a name="876" href="Equality.Decidable-UIP.html#774" class="Function Operator"
+      >Left-inverse-of</a
+      ><a name="891"
+      > </a
+      ><a name="892" href="Equality.Decidable-UIP.html#892" class="Bound"
+      >f</a
+      ><a name="893"
+      > </a
+      ><a name="894" class="Symbol"
+      >=</a
+      ><a name="895"
+      > </a
+      ><a name="896" class="Symbol"
+      >&#8704;</a
+      ><a name="897"
+      > </a
+      ><a name="898" href="Equality.Decidable-UIP.html#898" class="Bound"
+      >x</a
+      ><a name="899"
+      > </a
+      ><a name="900" class="Symbol"
+      >&#8594;</a
+      ><a name="901"
+      > </a
+      ><a name="902" href="Equality.Decidable-UIP.html#874" class="Bound"
+      >g</a
+      ><a name="903"
+      > </a
+      ><a name="904" class="Symbol"
+      >(</a
+      ><a name="905" href="Equality.Decidable-UIP.html#892" class="Bound"
+      >f</a
+      ><a name="906"
+      > </a
+      ><a name="907" href="Equality.Decidable-UIP.html#898" class="Bound"
+      >x</a
+      ><a name="908" class="Symbol"
+      >)</a
+      ><a name="909"
+      > </a
+      ><a name="910" href="Equality.html#510" class="Function Operator"
+      >&#8801;</a
+      ><a name="911"
+      > </a
+      ><a name="912" href="Equality.Decidable-UIP.html#898" class="Bound"
+      >x</a
+      ><a name="913"
+      >
+
+</a
+      ><a name="915" class="Keyword"
+      >abstract</a
+      ><a name="923"
+      >
+
+  </a
+      ><a name="927" class="Comment"
+      >-- A set with a constant endofunction with a left inverse is proof</a
+      ><a name="993"
+      >
+  </a
+      ><a name="996" class="Comment"
+      >-- irrelevant.</a
+      ><a name="1010"
+      >
+
+  </a
+      ><a name="1014" href="Equality.Decidable-UIP.html#1014" class="Function"
+      >irrelevant</a
+      ><a name="1024"
+      > </a
+      ><a name="1025" class="Symbol"
+      >:</a
+      ><a name="1026"
+      > </a
+      ><a name="1027" class="Symbol"
+      >&#8704;</a
+      ><a name="1028"
+      > </a
+      ><a name="1029" class="Symbol"
+      >{</a
+      ><a name="1030" href="Equality.Decidable-UIP.html#1030" class="Bound"
+      >a</a
+      ><a name="1031" class="Symbol"
+      >}</a
+      ><a name="1032"
+      > </a
+      ><a name="1033" class="Symbol"
+      >{</a
+      ><a name="1034" href="Equality.Decidable-UIP.html#1034" class="Bound"
+      >A</a
+      ><a name="1035"
+      > </a
+      ><a name="1036" class="Symbol"
+      >:</a
+      ><a name="1037"
+      > </a
+      ><a name="1038" class="PrimitiveType"
+      >Set</a
+      ><a name="1041"
+      > </a
+      ><a name="1042" href="Equality.Decidable-UIP.html#1030" class="Bound"
+      >a</a
+      ><a name="1043" class="Symbol"
+      >}</a
+      ><a name="1044"
+      > </a
+      ><a name="1045" class="Symbol"
+      >&#8594;</a
+      ><a name="1046"
+      >
+               </a
+      ><a name="1062" class="Symbol"
+      >(</a
+      ><a name="1063" href="Equality.Decidable-UIP.html#1063" class="Bound"
+      >f</a
+      ><a name="1064"
+      > </a
+      ><a name="1065" class="Symbol"
+      >:</a
+      ><a name="1066"
+      > </a
+      ><a name="1067" href="Prelude.html#4135" class="Function"
+      >&#8707;</a
+      ><a name="1068"
+      > </a
+      ><a name="1069" class="Symbol"
+      >&#955;</a
+      ><a name="1070"
+      > </a
+      ><a name="1071" class="Symbol"
+      >(</a
+      ><a name="1072" href="Equality.Decidable-UIP.html#1072" class="Bound"
+      >f</a
+      ><a name="1073"
+      > </a
+      ><a name="1074" class="Symbol"
+      >:</a
+      ><a name="1075"
+      > </a
+      ><a name="1076" href="Equality.Decidable-UIP.html#1034" class="Bound"
+      >A</a
+      ><a name="1077"
+      > </a
+      ><a name="1078" class="Symbol"
+      >&#8594;</a
+      ><a name="1079"
+      > </a
+      ><a name="1080" href="Equality.Decidable-UIP.html#1034" class="Bound"
+      >A</a
+      ><a name="1081" class="Symbol"
+      >)</a
+      ><a name="1082"
+      > </a
+      ><a name="1083" class="Symbol"
+      >&#8594;</a
+      ><a name="1084"
+      > </a
+      ><a name="1085" href="Equality.Decidable-UIP.html#656" class="Function"
+      >Constant</a
+      ><a name="1093"
+      > </a
+      ><a name="1094" href="Equality.Decidable-UIP.html#1072" class="Bound"
+      >f</a
+      ><a name="1095" class="Symbol"
+      >)</a
+      ><a name="1096"
+      > </a
+      ><a name="1097" class="Symbol"
+      >&#8594;</a
+      ><a name="1098"
+      >
+               </a
+      ><a name="1114" class="Symbol"
+      >(</a
+      ><a name="1115" href="Prelude.html#4135" class="Function"
+      >&#8707;</a
+      ><a name="1116"
+      > </a
+      ><a name="1117" class="Symbol"
+      >&#955;</a
+      ><a name="1118"
+      > </a
+      ><a name="1119" href="Equality.Decidable-UIP.html#1119" class="Bound"
+      >g</a
+      ><a name="1120"
+      > </a
+      ><a name="1121" class="Symbol"
+      >&#8594;</a
+      ><a name="1122"
+      > </a
+      ><a name="1123" href="Equality.Decidable-UIP.html#1119" class="Bound"
+      >g</a
+      ><a name="1124"
+      > </a
+      ><a name="1125" href="Equality.Decidable-UIP.html#774" class="Function Operator"
+      >Left-inverse-of</a
+      ><a name="1140"
+      > </a
+      ><a name="1141" class="Symbol"
+      >(</a
+      ><a name="1142" href="Prelude.html#4037" class="Field"
+      >proj&#8321;</a
+      ><a name="1147"
+      > </a
+      ><a name="1148" href="Equality.Decidable-UIP.html#1063" class="Bound"
+      >f</a
+      ><a name="1149" class="Symbol"
+      >))</a
+      ><a name="1151"
+      > </a
+      ><a name="1152" class="Symbol"
+      >&#8594;</a
+      ><a name="1153"
+      >
+               </a
+      ><a name="1169" href="Equality.html#14815" class="Function"
+      >Proof-irrelevant</a
+      ><a name="1185"
+      > </a
+      ><a name="1186" href="Equality.Decidable-UIP.html#1034" class="Bound"
+      >A</a
+      ><a name="1187"
+      >
+  </a
+      ><a name="1190" href="Equality.Decidable-UIP.html#1014" class="Function"
+      >irrelevant</a
+      ><a name="1200"
+      > </a
+      ><a name="1201" class="Symbol"
+      >(</a
+      ><a name="1202" href="Equality.Decidable-UIP.html#1202" class="Bound"
+      >f</a
+      ><a name="1203"
+      > </a
+      ><a name="1204" href="Prelude.html#4021" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1205"
+      > </a
+      ><a name="1206" href="Equality.Decidable-UIP.html#1206" class="Bound"
+      >constant</a
+      ><a name="1214" class="Symbol"
+      >)</a
+      ><a name="1215"
+      > </a
+      ><a name="1216" class="Symbol"
+      >(</a
+      ><a name="1217" href="Equality.Decidable-UIP.html#1217" class="Bound"
+      >g</a
+      ><a name="1218"
+      > </a
+      ><a name="1219" href="Prelude.html#4021" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1220"
+      > </a
+      ><a name="1221" href="Equality.Decidable-UIP.html#1221" class="Bound"
+      >left-inverse</a
+      ><a name="1233" class="Symbol"
+      >)</a
+      ><a name="1234"
+      > </a
+      ><a name="1235" href="Equality.Decidable-UIP.html#1235" class="Bound"
+      >x</a
+      ><a name="1236"
+      > </a
+      ><a name="1237" href="Equality.Decidable-UIP.html#1237" class="Bound"
+      >y</a
+      ><a name="1238"
+      > </a
+      ><a name="1239" class="Symbol"
+      >=</a
+      ><a name="1240"
+      >
+    </a
+      ><a name="1245" href="Equality.Decidable-UIP.html#1235" class="Bound"
+      >x</a
+      ><a name="1246"
+      >        </a
+      ><a name="1254" href="Equality.html#6787" class="Function Operator"
+      >&#8801;&#10216;</a
+      ><a name="1256"
+      > </a
+      ><a name="1257" href="Equality.html#6042" class="Function"
+      >sym</a
+      ><a name="1260"
+      > </a
+      ><a name="1261" class="Symbol"
+      >(</a
+      ><a name="1262" href="Equality.Decidable-UIP.html#1221" class="Bound"
+      >left-inverse</a
+      ><a name="1274"
+      > </a
+      ><a name="1275" href="Equality.Decidable-UIP.html#1235" class="Bound"
+      >x</a
+      ><a name="1276" class="Symbol"
+      >)</a
+      ><a name="1277"
+      > </a
+      ><a name="1278" href="Equality.html#6787" class="Function Operator"
+      >&#10217;</a
+      ><a name="1279"
+      >
+    </a
+      ><a name="1284" href="Equality.Decidable-UIP.html#1217" class="Bound"
+      >g</a
+      ><a name="1285"
+      > </a
+      ><a name="1286" class="Symbol"
+      >(</a
+      ><a name="1287" href="Equality.Decidable-UIP.html#1202" class="Bound"
+      >f</a
+      ><a name="1288"
+      > </a
+      ><a name="1289" href="Equality.Decidable-UIP.html#1235" class="Bound"
+      >x</a
+      ><a name="1290" class="Symbol"
+      >)</a
+      ><a name="1291"
+      >  </a
+      ><a name="1293" href="Equality.html#6787" class="Function Operator"
+      >&#8801;&#10216;</a
+      ><a name="1295"
+      > </a
+      ><a name="1296" href="Equality.html#2932" class="Function"
+      >cong</a
+      ><a name="1300"
+      > </a
+      ><a name="1301" href="Equality.Decidable-UIP.html#1217" class="Bound"
+      >g</a
+      ><a name="1302"
+      > </a
+      ><a name="1303" class="Symbol"
+      >(</a
+      ><a name="1304" href="Equality.Decidable-UIP.html#1206" class="Bound"
+      >constant</a
+      ><a name="1312"
+      > </a
+      ><a name="1313" href="Equality.Decidable-UIP.html#1235" class="Bound"
+      >x</a
+      ><a name="1314"
+      > </a
+      ><a name="1315" href="Equality.Decidable-UIP.html#1237" class="Bound"
+      >y</a
+      ><a name="1316" class="Symbol"
+      >)</a
+      ><a name="1317"
+      > </a
+      ><a name="1318" href="Equality.html#6787" class="Function Operator"
+      >&#10217;</a
+      ><a name="1319"
+      >
+    </a
+      ><a name="1324" href="Equality.Decidable-UIP.html#1217" class="Bound"
+      >g</a
+      ><a name="1325"
+      > </a
+      ><a name="1326" class="Symbol"
+      >(</a
+      ><a name="1327" href="Equality.Decidable-UIP.html#1202" class="Bound"
+      >f</a
+      ><a name="1328"
+      > </a
+      ><a name="1329" href="Equality.Decidable-UIP.html#1237" class="Bound"
+      >y</a
+      ><a name="1330" class="Symbol"
+      >)</a
+      ><a name="1331"
+      >  </a
+      ><a name="1333" href="Equality.html#6959" class="Function"
+      >&#8801;&#10216;</a
+      ><a name="1335"
+      > </a
+      ><a name="1336" href="Equality.Decidable-UIP.html#1221" class="Bound"
+      >left-inverse</a
+      ><a name="1348"
+      > </a
+      ><a name="1349" href="Equality.Decidable-UIP.html#1237" class="Bound"
+      >y</a
+      ><a name="1350"
+      > </a
+      ><a name="1351" href="Equality.html#6959" class="Function"
+      >&#10217;&#8718;</a
+      ><a name="1353"
+      >
+    </a
+      ><a name="1358" href="Equality.Decidable-UIP.html#1237" class="Bound"
+      >y</a
+      ><a name="1359"
+      >        </a
+      ><a name="1367" href="Equality.html#6959" class="Function"
+      >&#8718;</a
+      ><a name="1368"
+      >
+
+  </a
+      ><a name="1372" class="Comment"
+      >-- Endofunction families on _&#8801;_ always have left inverses.</a
+      ><a name="1430"
+      >
+
+  </a
+      ><a name="1434" href="Equality.Decidable-UIP.html#1434" class="Function"
+      >left-inverse</a
+      ><a name="1446"
+      > </a
+      ><a name="1447" class="Symbol"
+      >:</a
+      ><a name="1448"
+      >
+    </a
+      ><a name="1453" class="Symbol"
+      >&#8704;</a
+      ><a name="1454"
+      > </a
+      ><a name="1455" class="Symbol"
+      >{</a
+      ><a name="1456" href="Equality.Decidable-UIP.html#1456" class="Bound"
+      >a</a
+      ><a name="1457" class="Symbol"
+      >}</a
+      ><a name="1458"
+      > </a
+      ><a name="1459" class="Symbol"
+      >{</a
+      ><a name="1460" href="Equality.Decidable-UIP.html#1460" class="Bound"
+      >A</a
+      ><a name="1461"
+      > </a
+      ><a name="1462" class="Symbol"
+      >:</a
+      ><a name="1463"
+      > </a
+      ><a name="1464" class="PrimitiveType"
+      >Set</a
+      ><a name="1467"
+      > </a
+      ><a name="1468" href="Equality.Decidable-UIP.html#1456" class="Bound"
+      >a</a
+      ><a name="1469" class="Symbol"
+      >}</a
+      ><a name="1470"
+      > </a
+      ><a name="1471" class="Symbol"
+      >(</a
+      ><a name="1472" href="Equality.Decidable-UIP.html#1472" class="Bound"
+      >f</a
+      ><a name="1473"
+      > </a
+      ><a name="1474" class="Symbol"
+      >:</a
+      ><a name="1475"
+      > </a
+      ><a name="1476" class="Symbol"
+      >(</a
+      ><a name="1477" href="Equality.Decidable-UIP.html#1477" class="Bound"
+      >x</a
+      ><a name="1478"
+      > </a
+      ><a name="1479" href="Equality.Decidable-UIP.html#1479" class="Bound"
+      >y</a
+      ><a name="1480"
+      > </a
+      ><a name="1481" class="Symbol"
+      >:</a
+      ><a name="1482"
+      > </a
+      ><a name="1483" href="Equality.Decidable-UIP.html#1460" class="Bound"
+      >A</a
+      ><a name="1484" class="Symbol"
+      >)</a
+      ><a name="1485"
+      > </a
+      ><a name="1486" class="Symbol"
+      >&#8594;</a
+      ><a name="1487"
+      > </a
+      ><a name="1488" href="Equality.Decidable-UIP.html#1477" class="Bound"
+      >x</a
+      ><a name="1489"
+      > </a
+      ><a name="1490" href="Equality.html#510" class="Function Operator"
+      >&#8801;</a
+      ><a name="1491"
+      > </a
+      ><a name="1492" href="Equality.Decidable-UIP.html#1479" class="Bound"
+      >y</a
+      ><a name="1493"
+      > </a
+      ><a name="1494" class="Symbol"
+      >&#8594;</a
+      ><a name="1495"
+      > </a
+      ><a name="1496" href="Equality.Decidable-UIP.html#1477" class="Bound"
+      >x</a
+      ><a name="1497"
+      > </a
+      ><a name="1498" href="Equality.html#510" class="Function Operator"
+      >&#8801;</a
+      ><a name="1499"
+      > </a
+      ><a name="1500" href="Equality.Decidable-UIP.html#1479" class="Bound"
+      >y</a
+      ><a name="1501" class="Symbol"
+      >)</a
+      ><a name="1502"
+      > </a
+      ><a name="1503" class="Symbol"
+      >&#8594;</a
+      ><a name="1504"
+      >
+    </a
+      ><a name="1509" class="Symbol"
+      >&#8704;</a
+      ><a name="1510"
+      > </a
+      ><a name="1511" class="Symbol"
+      >{</a
+      ><a name="1512" href="Equality.Decidable-UIP.html#1512" class="Bound"
+      >x</a
+      ><a name="1513"
+      > </a
+      ><a name="1514" href="Equality.Decidable-UIP.html#1514" class="Bound"
+      >y</a
+      ><a name="1515" class="Symbol"
+      >}</a
+      ><a name="1516"
+      > </a
+      ><a name="1517" class="Symbol"
+      >&#8594;</a
+      ><a name="1518"
+      > </a
+      ><a name="1519" href="Prelude.html#4135" class="Function"
+      >&#8707;</a
+      ><a name="1520"
+      > </a
+      ><a name="1521" class="Symbol"
+      >&#955;</a
+      ><a name="1522"
+      > </a
+      ><a name="1523" href="Equality.Decidable-UIP.html#1523" class="Bound"
+      >g</a
+      ><a name="1524"
+      > </a
+      ><a name="1525" class="Symbol"
+      >&#8594;</a
+      ><a name="1526"
+      > </a
+      ><a name="1527" href="Equality.Decidable-UIP.html#1523" class="Bound"
+      >g</a
+      ><a name="1528"
+      > </a
+      ><a name="1529" href="Equality.Decidable-UIP.html#774" class="Function Operator"
+      >Left-inverse-of</a
+      ><a name="1544"
+      > </a
+      ><a name="1545" href="Equality.Decidable-UIP.html#1472" class="Bound"
+      >f</a
+      ><a name="1546"
+      > </a
+      ><a name="1547" href="Equality.Decidable-UIP.html#1512" class="Bound"
+      >x</a
+      ><a name="1548"
+      > </a
+      ><a name="1549" href="Equality.Decidable-UIP.html#1514" class="Bound"
+      >y</a
+      ><a name="1550"
+      >
+  </a
+      ><a name="1553" href="Equality.Decidable-UIP.html#1434" class="Function"
+      >left-inverse</a
+      ><a name="1565"
+      > </a
+      ><a name="1566" class="Symbol"
+      >{</a
+      ><a name="1567" class="Argument"
+      >A</a
+      ><a name="1568"
+      > </a
+      ><a name="1569" class="Symbol"
+      >=</a
+      ><a name="1570"
+      > </a
+      ><a name="1571" href="Equality.Decidable-UIP.html#1571" class="Bound"
+      >A</a
+      ><a name="1572" class="Symbol"
+      >}</a
+      ><a name="1573"
+      > </a
+      ><a name="1574" href="Equality.Decidable-UIP.html#1574" class="Bound"
+      >f</a
+      ><a name="1575"
+      > </a
+      ><a name="1576" class="Symbol"
+      >{</a
+      ><a name="1577" href="Equality.Decidable-UIP.html#1577" class="Bound"
+      >x</a
+      ><a name="1578" class="Symbol"
+      >}</a
+      ><a name="1579"
+      > </a
+      ><a name="1580" class="Symbol"
+      >{</a
+      ><a name="1581" href="Equality.Decidable-UIP.html#1581" class="Bound"
+      >y</a
+      ><a name="1582" class="Symbol"
+      >}</a
+      ><a name="1583"
+      > </a
+      ><a name="1584" class="Symbol"
+      >=</a
+      ><a name="1585"
+      >
+    </a
+      ><a name="1590" class="Symbol"
+      >(&#955;</a
+      ><a name="1592"
+      > </a
+      ><a name="1593" href="Equality.Decidable-UIP.html#1593" class="Bound"
+      >x&#8801;y</a
+      ><a name="1596"
+      > </a
+      ><a name="1597" class="Symbol"
+      >&#8594;</a
+      ><a name="1598"
+      >
+       </a
+      ><a name="1606" href="Equality.Decidable-UIP.html#1577" class="Bound"
+      >x</a
+      ><a name="1607"
+      >  </a
+      ><a name="1609" href="Equality.html#6787" class="Function Operator"
+      >&#8801;&#10216;</a
+      ><a name="1611"
+      > </a
+      ><a name="1612" href="Equality.Decidable-UIP.html#1593" class="Bound"
+      >x&#8801;y</a
+      ><a name="1615"
+      > </a
+      ><a name="1616" href="Equality.html#6787" class="Function Operator"
+      >&#10217;</a
+      ><a name="1617"
+      >
+       </a
+      ><a name="1625" href="Equality.Decidable-UIP.html#1581" class="Bound"
+      >y</a
+      ><a name="1626"
+      >  </a
+      ><a name="1628" href="Equality.html#6959" class="Function"
+      >&#8801;&#10216;</a
+      ><a name="1630"
+      > </a
+      ><a name="1631" href="Equality.html#6042" class="Function"
+      >sym</a
+      ><a name="1634"
+      > </a
+      ><a name="1635" class="Symbol"
+      >(</a
+      ><a name="1636" href="Equality.Decidable-UIP.html#1574" class="Bound"
+      >f</a
+      ><a name="1637"
+      > </a
+      ><a name="1638" href="Equality.Decidable-UIP.html#1581" class="Bound"
+      >y</a
+      ><a name="1639"
+      > </a
+      ><a name="1640" href="Equality.Decidable-UIP.html#1581" class="Bound"
+      >y</a
+      ><a name="1641"
+      > </a
+      ><a name="1642" class="Symbol"
+      >(</a
+      ><a name="1643" href="Equality.html#570" class="Function"
+      >refl</a
+      ><a name="1647"
+      > </a
+      ><a name="1648" href="Equality.Decidable-UIP.html#1581" class="Bound"
+      >y</a
+      ><a name="1649" class="Symbol"
+      >))</a
+      ><a name="1651"
+      > </a
+      ><a name="1652" href="Equality.html#6959" class="Function"
+      >&#10217;&#8718;</a
+      ><a name="1654"
+      >
+       </a
+      ><a name="1662" href="Equality.Decidable-UIP.html#1581" class="Bound"
+      >y</a
+      ><a name="1663"
+      >  </a
+      ><a name="1665" href="Equality.html#6959" class="Function"
+      >&#8718;</a
+      ><a name="1666" class="Symbol"
+      >)</a
+      ><a name="1667"
+      > </a
+      ><a name="1668" href="Prelude.html#4021" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1669"
+      >
+    </a
+      ><a name="1674" href="Equality.html#2325" class="Function"
+      >elim</a
+      ><a name="1678"
+      > </a
+      ><a name="1679" class="Symbol"
+      >(&#955;</a
+      ><a name="1681"
+      > </a
+      ><a name="1682" class="Symbol"
+      >{</a
+      ><a name="1683" href="Equality.Decidable-UIP.html#1683" class="Bound"
+      >x</a
+      ><a name="1684"
+      > </a
+      ><a name="1685" href="Equality.Decidable-UIP.html#1685" class="Bound"
+      >y</a
+      ><a name="1686" class="Symbol"
+      >}</a
+      ><a name="1687"
+      > </a
+      ><a name="1688" href="Equality.Decidable-UIP.html#1688" class="Bound"
+      >x&#8801;y</a
+      ><a name="1691"
+      > </a
+      ><a name="1692" class="Symbol"
+      >&#8594;</a
+      ><a name="1693"
+      > </a
+      ><a name="1694" href="Equality.html#6386" class="Function"
+      >trans</a
+      ><a name="1699"
+      > </a
+      ><a name="1700" class="Symbol"
+      >(</a
+      ><a name="1701" href="Equality.Decidable-UIP.html#1574" class="Bound"
+      >f</a
+      ><a name="1702"
+      > </a
+      ><a name="1703" href="Equality.Decidable-UIP.html#1683" class="Bound"
+      >x</a
+      ><a name="1704"
+      > </a
+      ><a name="1705" href="Equality.Decidable-UIP.html#1685" class="Bound"
+      >y</a
+      ><a name="1706"
+      > </a
+      ><a name="1707" href="Equality.Decidable-UIP.html#1688" class="Bound"
+      >x&#8801;y</a
+      ><a name="1710" class="Symbol"
+      >)</a
+      ><a name="1711"
+      > </a
+      ><a name="1712" class="Symbol"
+      >(</a
+      ><a name="1713" href="Equality.html#6042" class="Function"
+      >sym</a
+      ><a name="1716"
+      > </a
+      ><a name="1717" class="Symbol"
+      >(</a
+      ><a name="1718" href="Equality.Decidable-UIP.html#1574" class="Bound"
+      >f</a
+      ><a name="1719"
+      > </a
+      ><a name="1720" href="Equality.Decidable-UIP.html#1685" class="Bound"
+      >y</a
+      ><a name="1721"
+      > </a
+      ><a name="1722" href="Equality.Decidable-UIP.html#1685" class="Bound"
+      >y</a
+      ><a name="1723"
+      > </a
+      ><a name="1724" class="Symbol"
+      >(</a
+      ><a name="1725" href="Equality.html#570" class="Function"
+      >refl</a
+      ><a name="1729"
+      > </a
+      ><a name="1730" href="Equality.Decidable-UIP.html#1685" class="Bound"
+      >y</a
+      ><a name="1731" class="Symbol"
+      >)))</a
+      ><a name="1734"
+      > </a
+      ><a name="1735" href="Equality.html#510" class="Function Operator"
+      >&#8801;</a
+      ><a name="1736"
+      > </a
+      ><a name="1737" href="Equality.Decidable-UIP.html#1688" class="Bound"
+      >x&#8801;y</a
+      ><a name="1740" class="Symbol"
+      >)</a
+      ><a name="1741"
+      >
+         </a
+      ><a name="1751" class="Symbol"
+      >(&#955;</a
+      ><a name="1753"
+      > </a
+      ><a name="1754" href="Equality.Decidable-UIP.html#1754" class="Bound"
+      >_</a
+      ><a name="1755"
+      > </a
+      ><a name="1756" class="Symbol"
+      >&#8594;</a
+      ><a name="1757"
+      > </a
+      ><a name="1758" href="Equality.html#18863" class="Function"
+      >trans-sym&#691;</a
+      ><a name="1768"
+      > </a
+      ><a name="1769" class="Symbol"
+      >_)</a
+      ><a name="1771"
+      >
+
+  </a
+      ><a name="1775" class="Comment"
+      >-- A set A has unique identity proofs if there is a family of</a
+      ><a name="1836"
+      >
+  </a
+      ><a name="1839" class="Comment"
+      >-- constant endofunctions on _&#8801;_&#160;{A = A}.</a
+      ><a name="1880"
+      >
+
+  </a
+      ><a name="1884" href="Equality.Decidable-UIP.html#1884" class="Function"
+      >constant&#8658;UIP</a
+      ><a name="1896"
+      > </a
+      ><a name="1897" class="Symbol"
+      >:</a
+      ><a name="1898"
+      >
+    </a
+      ><a name="1903" class="Symbol"
+      >&#8704;</a
+      ><a name="1904"
+      > </a
+      ><a name="1905" class="Symbol"
+      >{</a
+      ><a name="1906" href="Equality.Decidable-UIP.html#1906" class="Bound"
+      >a</a
+      ><a name="1907" class="Symbol"
+      >}</a
+      ><a name="1908"
+      > </a
+      ><a name="1909" class="Symbol"
+      >{</a
+      ><a name="1910" href="Equality.Decidable-UIP.html#1910" class="Bound"
+      >A</a
+      ><a name="1911"
+      > </a
+      ><a name="1912" class="Symbol"
+      >:</a
+      ><a name="1913"
+      > </a
+      ><a name="1914" class="PrimitiveType"
+      >Set</a
+      ><a name="1917"
+      > </a
+      ><a name="1918" href="Equality.Decidable-UIP.html#1906" class="Bound"
+      >a</a
+      ><a name="1919" class="Symbol"
+      >}</a
+      ><a name="1920"
+      > </a
+      ><a name="1921" class="Symbol"
+      >&#8594;</a
+      ><a name="1922"
+      >
+    </a
+      ><a name="1927" class="Symbol"
+      >((</a
+      ><a name="1929" href="Equality.Decidable-UIP.html#1929" class="Bound"
+      >x</a
+      ><a name="1930"
+      > </a
+      ><a name="1931" href="Equality.Decidable-UIP.html#1931" class="Bound"
+      >y</a
+      ><a name="1932"
+      > </a
+      ><a name="1933" class="Symbol"
+      >:</a
+      ><a name="1934"
+      > </a
+      ><a name="1935" href="Equality.Decidable-UIP.html#1910" class="Bound"
+      >A</a
+      ><a name="1936" class="Symbol"
+      >)</a
+      ><a name="1937"
+      > </a
+      ><a name="1938" class="Symbol"
+      >&#8594;</a
+      ><a name="1939"
+      > </a
+      ><a name="1940" href="Prelude.html#4135" class="Function"
+      >&#8707;</a
+      ><a name="1941"
+      > </a
+      ><a name="1942" class="Symbol"
+      >&#955;</a
+      ><a name="1943"
+      > </a
+      ><a name="1944" class="Symbol"
+      >(</a
+      ><a name="1945" href="Equality.Decidable-UIP.html#1945" class="Bound"
+      >f</a
+      ><a name="1946"
+      > </a
+      ><a name="1947" class="Symbol"
+      >:</a
+      ><a name="1948"
+      > </a
+      ><a name="1949" href="Equality.Decidable-UIP.html#1929" class="Bound"
+      >x</a
+      ><a name="1950"
+      > </a
+      ><a name="1951" href="Equality.html#510" class="Function Operator"
+      >&#8801;</a
+      ><a name="1952"
+      > </a
+      ><a name="1953" href="Equality.Decidable-UIP.html#1931" class="Bound"
+      >y</a
+      ><a name="1954"
+      > </a
+      ><a name="1955" class="Symbol"
+      >&#8594;</a
+      ><a name="1956"
+      > </a
+      ><a name="1957" href="Equality.Decidable-UIP.html#1929" class="Bound"
+      >x</a
+      ><a name="1958"
+      > </a
+      ><a name="1959" href="Equality.html#510" class="Function Operator"
+      >&#8801;</a
+      ><a name="1960"
+      > </a
+      ><a name="1961" href="Equality.Decidable-UIP.html#1931" class="Bound"
+      >y</a
+      ><a name="1962" class="Symbol"
+      >)</a
+      ><a name="1963"
+      > </a
+      ><a name="1964" class="Symbol"
+      >&#8594;</a
+      ><a name="1965"
+      > </a
+      ><a name="1966" href="Equality.Decidable-UIP.html#656" class="Function"
+      >Constant</a
+      ><a name="1974"
+      > </a
+      ><a name="1975" href="Equality.Decidable-UIP.html#1945" class="Bound"
+      >f</a
+      ><a name="1976" class="Symbol"
+      >)</a
+      ><a name="1977"
+      > </a
+      ><a name="1978" class="Symbol"
+      >&#8594;</a
+      ><a name="1979"
+      >
+    </a
+      ><a name="1984" href="Equality.html#14961" class="Function"
+      >Uniqueness-of-identity-proofs</a
+      ><a name="2013"
+      > </a
+      ><a name="2014" href="Equality.Decidable-UIP.html#1910" class="Bound"
+      >A</a
+      ><a name="2015"
+      >
+  </a
+      ><a name="2018" href="Equality.Decidable-UIP.html#1884" class="Function"
+      >constant&#8658;UIP</a
+      ><a name="2030"
+      > </a
+      ><a name="2031" href="Equality.Decidable-UIP.html#2031" class="Bound"
+      >constant</a
+      ><a name="2039"
+      > </a
+      ><a name="2040" class="Symbol"
+      >{</a
+      ><a name="2041" href="Equality.Decidable-UIP.html#2041" class="Bound"
+      >x</a
+      ><a name="2042" class="Symbol"
+      >}</a
+      ><a name="2043"
+      > </a
+      ><a name="2044" class="Symbol"
+      >{</a
+      ><a name="2045" href="Equality.Decidable-UIP.html#2045" class="Bound"
+      >y</a
+      ><a name="2046" class="Symbol"
+      >}</a
+      ><a name="2047"
+      > </a
+      ><a name="2048" class="Symbol"
+      >=</a
+      ><a name="2049"
+      >
+    </a
+      ><a name="2054" href="Equality.Decidable-UIP.html#1014" class="Function"
+      >irrelevant</a
+      ><a name="2064"
+      > </a
+      ><a name="2065" class="Symbol"
+      >(</a
+      ><a name="2066" href="Equality.Decidable-UIP.html#2031" class="Bound"
+      >constant</a
+      ><a name="2074"
+      > </a
+      ><a name="2075" href="Equality.Decidable-UIP.html#2041" class="Bound"
+      >x</a
+      ><a name="2076"
+      > </a
+      ><a name="2077" href="Equality.Decidable-UIP.html#2045" class="Bound"
+      >y</a
+      ><a name="2078" class="Symbol"
+      >)</a
+      ><a name="2079"
+      >
+               </a
+      ><a name="2095" class="Symbol"
+      >(</a
+      ><a name="2096" href="Equality.Decidable-UIP.html#1434" class="Function"
+      >left-inverse</a
+      ><a name="2108"
+      > </a
+      ><a name="2109" class="Symbol"
+      >(&#955;</a
+      ><a name="2111"
+      > </a
+      ><a name="2112" href="Equality.Decidable-UIP.html#2112" class="Bound"
+      >x</a
+      ><a name="2113"
+      > </a
+      ><a name="2114" href="Equality.Decidable-UIP.html#2114" class="Bound"
+      >y</a
+      ><a name="2115"
+      > </a
+      ><a name="2116" class="Symbol"
+      >&#8594;</a
+      ><a name="2117"
+      > </a
+      ><a name="2118" href="Prelude.html#4037" class="Field"
+      >proj&#8321;</a
+      ><a name="2123"
+      > </a
+      ><a name="2124" href="Prelude.html#3142" class="Function Operator"
+      >$</a
+      ><a name="2125"
+      > </a
+      ><a name="2126" href="Equality.Decidable-UIP.html#2031" class="Bound"
+      >constant</a
+      ><a name="2134"
+      > </a
+      ><a name="2135" href="Equality.Decidable-UIP.html#2112" class="Bound"
+      >x</a
+      ><a name="2136"
+      > </a
+      ><a name="2137" href="Equality.Decidable-UIP.html#2114" class="Bound"
+      >y</a
+      ><a name="2138" class="Symbol"
+      >))</a
+      ><a name="2140"
+      >
+
+  </a
+      ><a name="2144" class="Comment"
+      >-- Sets which are decidable come with constant endofunctions.</a
+      ><a name="2205"
+      >
+
+  </a
+      ><a name="2209" href="Equality.Decidable-UIP.html#2209" class="Function"
+      >decidable&#8658;constant</a
+      ><a name="2227"
+      > </a
+      ><a name="2228" class="Symbol"
+      >:</a
+      ><a name="2229"
+      > </a
+      ><a name="2230" class="Symbol"
+      >&#8704;</a
+      ><a name="2231"
+      > </a
+      ><a name="2232" class="Symbol"
+      >{</a
+      ><a name="2233" href="Equality.Decidable-UIP.html#2233" class="Bound"
+      >a</a
+      ><a name="2234" class="Symbol"
+      >}</a
+      ><a name="2235"
+      > </a
+      ><a name="2236" class="Symbol"
+      >{</a
+      ><a name="2237" href="Equality.Decidable-UIP.html#2237" class="Bound"
+      >A</a
+      ><a name="2238"
+      > </a
+      ><a name="2239" class="Symbol"
+      >:</a
+      ><a name="2240"
+      > </a
+      ><a name="2241" class="PrimitiveType"
+      >Set</a
+      ><a name="2244"
+      > </a
+      ><a name="2245" href="Equality.Decidable-UIP.html#2233" class="Bound"
+      >a</a
+      ><a name="2246" class="Symbol"
+      >}</a
+      ><a name="2247"
+      > </a
+      ><a name="2248" class="Symbol"
+      >&#8594;</a
+      ><a name="2249"
+      > </a
+      ><a name="2250" href="Prelude.html#6512" class="Function"
+      >Dec</a
+      ><a name="2253"
+      > </a
+      ><a name="2254" href="Equality.Decidable-UIP.html#2237" class="Bound"
+      >A</a
+      ><a name="2255"
+      > </a
+      ><a name="2256" class="Symbol"
+      >&#8594;</a
+      ><a name="2257"
+      >
+                       </a
+      ><a name="2281" href="Prelude.html#4135" class="Function"
+      >&#8707;</a
+      ><a name="2282"
+      > </a
+      ><a name="2283" class="Symbol"
+      >&#955;</a
+      ><a name="2284"
+      > </a
+      ><a name="2285" class="Symbol"
+      >(</a
+      ><a name="2286" href="Equality.Decidable-UIP.html#2286" class="Bound"
+      >f</a
+      ><a name="2287"
+      > </a
+      ><a name="2288" class="Symbol"
+      >:</a
+      ><a name="2289"
+      > </a
+      ><a name="2290" href="Equality.Decidable-UIP.html#2237" class="Bound"
+      >A</a
+      ><a name="2291"
+      > </a
+      ><a name="2292" class="Symbol"
+      >&#8594;</a
+      ><a name="2293"
+      > </a
+      ><a name="2294" href="Equality.Decidable-UIP.html#2237" class="Bound"
+      >A</a
+      ><a name="2295" class="Symbol"
+      >)</a
+      ><a name="2296"
+      > </a
+      ><a name="2297" class="Symbol"
+      >&#8594;</a
+      ><a name="2298"
+      > </a
+      ><a name="2299" href="Equality.Decidable-UIP.html#656" class="Function"
+      >Constant</a
+      ><a name="2307"
+      > </a
+      ><a name="2308" href="Equality.Decidable-UIP.html#2286" class="Bound"
+      >f</a
+      ><a name="2309"
+      >
+  </a
+      ><a name="2312" href="Equality.Decidable-UIP.html#2209" class="Function"
+      >decidable&#8658;constant</a
+      ><a name="2330"
+      > </a
+      ><a name="2331" class="Symbol"
+      >(</a
+      ><a name="2332" href="Prelude.html#5976" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="2336"
+      >  </a
+      ><a name="2338" href="Equality.Decidable-UIP.html#2338" class="Bound"
+      >x</a
+      ><a name="2339" class="Symbol"
+      >)</a
+      ><a name="2340"
+      > </a
+      ><a name="2341" class="Symbol"
+      >=</a
+      ><a name="2342"
+      > </a
+      ><a name="2343" class="Symbol"
+      >(</a
+      ><a name="2344" href="Prelude.html#3263" class="Function"
+      >const</a
+      ><a name="2349"
+      > </a
+      ><a name="2350" href="Equality.Decidable-UIP.html#2338" class="Bound"
+      >x</a
+      ><a name="2351"
+      > </a
+      ><a name="2352" href="Prelude.html#4021" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2353"
+      > </a
+      ><a name="2354" class="Symbol"
+      >&#955;</a
+      ><a name="2355"
+      > </a
+      ><a name="2356" href="Equality.Decidable-UIP.html#2356" class="Bound"
+      >_</a
+      ><a name="2357"
+      > </a
+      ><a name="2358" href="Equality.Decidable-UIP.html#2358" class="Bound"
+      >_</a
+      ><a name="2359"
+      > </a
+      ><a name="2360" class="Symbol"
+      >&#8594;</a
+      ><a name="2361"
+      > </a
+      ><a name="2362" href="Equality.html#570" class="Function"
+      >refl</a
+      ><a name="2366"
+      > </a
+      ><a name="2367" href="Equality.Decidable-UIP.html#2338" class="Bound"
+      >x</a
+      ><a name="2368" class="Symbol"
+      >)</a
+      ><a name="2369"
+      >
+  </a
+      ><a name="2372" href="Equality.Decidable-UIP.html#2209" class="Function"
+      >decidable&#8658;constant</a
+      ><a name="2390"
+      > </a
+      ><a name="2391" class="Symbol"
+      >(</a
+      ><a name="2392" href="Prelude.html#6001" class="InductiveConstructor"
+      >inj&#8322;</a
+      ><a name="2396"
+      > </a
+      ><a name="2397" href="Equality.Decidable-UIP.html#2397" class="Bound"
+      >&#172;x</a
+      ><a name="2399" class="Symbol"
+      >)</a
+      ><a name="2400"
+      > </a
+      ><a name="2401" class="Symbol"
+      >=</a
+      ><a name="2402"
+      > </a
+      ><a name="2403" class="Symbol"
+      >(</a
+      ><a name="2404" href="Prelude.html#2882" class="Function"
+      >id</a
+      ><a name="2406"
+      >      </a
+      ><a name="2412" href="Prelude.html#4021" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2413"
+      > </a
+      ><a name="2414" class="Symbol"
+      >&#955;</a
+      ><a name="2415"
+      > </a
+      ><a name="2416" href="Equality.Decidable-UIP.html#2416" class="Bound"
+      >_</a
+      ><a name="2417"
+      > </a
+      ><a name="2418" class="Symbol"
+      >&#8594;</a
+      ><a name="2419"
+      > </a
+      ><a name="2420" href="Prelude.html#742" class="Function"
+      >&#8869;-elim</a
+      ><a name="2426"
+      > </a
+      ><a name="2427" href="Prelude.html#2940" class="Function Operator"
+      >&#8728;</a
+      ><a name="2428"
+      > </a
+      ><a name="2429" href="Equality.Decidable-UIP.html#2397" class="Bound"
+      >&#172;x</a
+      ><a name="2431" class="Symbol"
+      >)</a
+      ><a name="2432"
+      >
+
+  </a
+      ><a name="2436" class="Comment"
+      >-- Sets with decidable equality have unique identity proofs.</a
+      ><a name="2496"
+      >
+
+  </a
+      ><a name="2500" href="Equality.Decidable-UIP.html#2500" class="Function"
+      >decidable&#8658;UIP</a
+      ><a name="2513"
+      > </a
+      ><a name="2514" class="Symbol"
+      >:</a
+      ><a name="2515"
+      > </a
+      ><a name="2516" class="Symbol"
+      >&#8704;</a
+      ><a name="2517"
+      > </a
+      ><a name="2518" class="Symbol"
+      >{</a
+      ><a name="2519" href="Equality.Decidable-UIP.html#2519" class="Bound"
+      >a</a
+      ><a name="2520" class="Symbol"
+      >}</a
+      ><a name="2521"
+      > </a
+      ><a name="2522" class="Symbol"
+      >{</a
+      ><a name="2523" href="Equality.Decidable-UIP.html#2523" class="Bound"
+      >A</a
+      ><a name="2524"
+      > </a
+      ><a name="2525" class="Symbol"
+      >:</a
+      ><a name="2526"
+      > </a
+      ><a name="2527" class="PrimitiveType"
+      >Set</a
+      ><a name="2530"
+      > </a
+      ><a name="2531" href="Equality.Decidable-UIP.html#2519" class="Bound"
+      >a</a
+      ><a name="2532" class="Symbol"
+      >}</a
+      ><a name="2533"
+      > </a
+      ><a name="2534" class="Symbol"
+      >&#8594;</a
+      ><a name="2535"
+      >
+    </a
+      ><a name="2540" href="Equality.html#894" class="Function"
+      >Decidable-equality</a
+      ><a name="2558"
+      > </a
+      ><a name="2559" href="Equality.Decidable-UIP.html#2523" class="Bound"
+      >A</a
+      ><a name="2560"
+      > </a
+      ><a name="2561" class="Symbol"
+      >&#8594;</a
+      ><a name="2562"
+      > </a
+      ><a name="2563" href="Equality.html#14961" class="Function"
+      >Uniqueness-of-identity-proofs</a
+      ><a name="2592"
+      > </a
+      ><a name="2593" href="Equality.Decidable-UIP.html#2523" class="Bound"
+      >A</a
+      ><a name="2594"
+      >
+  </a
+      ><a name="2597" href="Equality.Decidable-UIP.html#2500" class="Function"
+      >decidable&#8658;UIP</a
+      ><a name="2610"
+      > </a
+      ><a name="2611" href="Equality.Decidable-UIP.html#2611" class="Bound"
+      >dec</a
+      ><a name="2614"
+      > </a
+      ><a name="2615" class="Symbol"
+      >=</a
+      ><a name="2616"
+      >
+    </a
+      ><a name="2621" href="Equality.Decidable-UIP.html#1884" class="Function"
+      >constant&#8658;UIP</a
+      ><a name="2633"
+      > </a
+      ><a name="2634" class="Symbol"
+      >(&#955;</a
+      ><a name="2636"
+      > </a
+      ><a name="2637" href="Equality.Decidable-UIP.html#2637" class="Bound"
+      >x</a
+      ><a name="2638"
+      > </a
+      ><a name="2639" href="Equality.Decidable-UIP.html#2639" class="Bound"
+      >y</a
+      ><a name="2640"
+      > </a
+      ><a name="2641" class="Symbol"
+      >&#8594;</a
+      ><a name="2642"
+      > </a
+      ><a name="2643" href="Equality.Decidable-UIP.html#2209" class="Function"
+      >decidable&#8658;constant</a
+      ><a name="2661"
+      > </a
+      ><a name="2662" class="Symbol"
+      >(</a
+      ><a name="2663" href="Equality.Decidable-UIP.html#2611" class="Bound"
+      >dec</a
+      ><a name="2666"
+      > </a
+      ><a name="2667" href="Equality.Decidable-UIP.html#2637" class="Bound"
+      >x</a
+      ><a name="2668"
+      > </a
+      ><a name="2669" href="Equality.Decidable-UIP.html#2639" class="Bound"
+      >y</a
+      ><a name="2670" class="Symbol"
+      >))</a
+      ><a name="2672"
+      >
+
+  </a
+      ><a name="2676" class="Comment"
+      >-- Types with decidable equality are sets.</a
+      ><a name="2718"
+      >
+
+  </a
+      ><a name="2722" href="Equality.Decidable-UIP.html#2722" class="Function"
+      >decidable&#8658;set</a
+      ><a name="2735"
+      > </a
+      ><a name="2736" class="Symbol"
+      >:</a
+      ><a name="2737"
+      > </a
+      ><a name="2738" class="Symbol"
+      >&#8704;</a
+      ><a name="2739"
+      > </a
+      ><a name="2740" class="Symbol"
+      >{</a
+      ><a name="2741" href="Equality.Decidable-UIP.html#2741" class="Bound"
+      >a</a
+      ><a name="2742" class="Symbol"
+      >}</a
+      ><a name="2743"
+      > </a
+      ><a name="2744" class="Symbol"
+      >{</a
+      ><a name="2745" href="Equality.Decidable-UIP.html#2745" class="Bound"
+      >A</a
+      ><a name="2746"
+      > </a
+      ><a name="2747" class="Symbol"
+      >:</a
+      ><a name="2748"
+      > </a
+      ><a name="2749" class="PrimitiveType"
+      >Set</a
+      ><a name="2752"
+      > </a
+      ><a name="2753" href="Equality.Decidable-UIP.html#2741" class="Bound"
+      >a</a
+      ><a name="2754" class="Symbol"
+      >}</a
+      ><a name="2755"
+      > </a
+      ><a name="2756" class="Symbol"
+      >&#8594;</a
+      ><a name="2757"
+      > </a
+      ><a name="2758" href="Equality.html#894" class="Function"
+      >Decidable-equality</a
+      ><a name="2776"
+      > </a
+      ><a name="2777" href="Equality.Decidable-UIP.html#2745" class="Bound"
+      >A</a
+      ><a name="2778"
+      > </a
+      ><a name="2779" class="Symbol"
+      >&#8594;</a
+      ><a name="2780"
+      > </a
+      ><a name="2781" href="H-level.html#858" class="Function"
+      >Is-set</a
+      ><a name="2787"
+      > </a
+      ><a name="2788" href="Equality.Decidable-UIP.html#2745" class="Bound"
+      >A</a
+      ><a name="2789"
+      >
+  </a
+      ><a name="2792" href="Equality.Decidable-UIP.html#2722" class="Function"
+      >decidable&#8658;set</a
+      ><a name="2805"
+      > </a
+      ><a name="2806" class="Symbol"
+      >{</a
+      ><a name="2807" class="Argument"
+      >A</a
+      ><a name="2808"
+      > </a
+      ><a name="2809" class="Symbol"
+      >=</a
+      ><a name="2810"
+      > </a
+      ><a name="2811" href="Equality.Decidable-UIP.html#2811" class="Bound"
+      >A</a
+      ><a name="2812" class="Symbol"
+      >}</a
+      ><a name="2813"
+      > </a
+      ><a name="2814" href="Equality.Decidable-UIP.html#2814" class="Bound"
+      >dec</a
+      ><a name="2817"
+      > </a
+      ><a name="2818" class="Symbol"
+      >=</a
+      ><a name="2819"
+      >
+    </a
+      ><a name="2824" href="Logical-equivalence.html#558" class="Field"
+      >_&#8660;_.from</a
+      ><a name="2832"
+      > </a
+      ><a name="2833" class="Symbol"
+      >{</a
+      ><a name="2834" class="Argument"
+      >To</a
+      ><a name="2836"
+      > </a
+      ><a name="2837" class="Symbol"
+      >=</a
+      ><a name="2838"
+      > </a
+      ><a name="2839" href="Equality.html#14961" class="Function"
+      >Uniqueness-of-identity-proofs</a
+      ><a name="2868"
+      > </a
+      ><a name="2869" href="Equality.Decidable-UIP.html#2811" class="Bound"
+      >A</a
+      ><a name="2870" class="Symbol"
+      >}</a
+      ><a name="2871"
+      >
+             </a
+      ><a name="2885" href="H-level.html#3329" class="Function"
+      >set&#8660;UIP</a
+      ><a name="2892"
+      > </a
+      ><a name="2893" class="Symbol"
+      >(</a
+      ><a name="2894" href="Equality.Decidable-UIP.html#2500" class="Function"
+      >decidable&#8658;UIP</a
+      ><a name="2907"
+      > </a
+      ><a name="2908" href="Equality.Decidable-UIP.html#2814" class="Bound"
+      >dec</a
+      ><a name="2911" class="Symbol"
+      >)</a
+      ><a name="2912"
+      >
+
+  </a
+      ><a name="2916" class="Comment"
+      >-- Non-dependent functions with propositional domains are constant.</a
+      ><a name="2983"
+      >
+
+  </a
+      ><a name="2987" href="Equality.Decidable-UIP.html#2987" class="Function"
+      >propositional-domain&#8658;constant</a
+      ><a name="3016"
+      > </a
+      ><a name="3017" class="Symbol"
+      >:</a
+      ><a name="3018"
+      >
+    </a
+      ><a name="3023" class="Symbol"
+      >&#8704;</a
+      ><a name="3024"
+      > </a
+      ><a name="3025" class="Symbol"
+      >{</a
+      ><a name="3026" href="Equality.Decidable-UIP.html#3026" class="Bound"
+      >a</a
+      ><a name="3027"
+      > </a
+      ><a name="3028" href="Equality.Decidable-UIP.html#3028" class="Bound"
+      >b</a
+      ><a name="3029" class="Symbol"
+      >}</a
+      ><a name="3030"
+      > </a
+      ><a name="3031" class="Symbol"
+      >{</a
+      ><a name="3032" href="Equality.Decidable-UIP.html#3032" class="Bound"
+      >A</a
+      ><a name="3033"
+      > </a
+      ><a name="3034" class="Symbol"
+      >:</a
+      ><a name="3035"
+      > </a
+      ><a name="3036" class="PrimitiveType"
+      >Set</a
+      ><a name="3039"
+      > </a
+      ><a name="3040" href="Equality.Decidable-UIP.html#3026" class="Bound"
+      >a</a
+      ><a name="3041" class="Symbol"
+      >}</a
+      ><a name="3042"
+      > </a
+      ><a name="3043" class="Symbol"
+      >{</a
+      ><a name="3044" href="Equality.Decidable-UIP.html#3044" class="Bound"
+      >B</a
+      ><a name="3045"
+      > </a
+      ><a name="3046" class="Symbol"
+      >:</a
+      ><a name="3047"
+      > </a
+      ><a name="3048" class="PrimitiveType"
+      >Set</a
+      ><a name="3051"
+      > </a
+      ><a name="3052" href="Equality.Decidable-UIP.html#3028" class="Bound"
+      >b</a
+      ><a name="3053" class="Symbol"
+      >}</a
+      ><a name="3054"
+      > </a
+      ><a name="3055" class="Symbol"
+      >&#8594;</a
+      ><a name="3056"
+      >
+    </a
+      ><a name="3061" href="H-level.html#791" class="Function"
+      >Is-proposition</a
+      ><a name="3075"
+      > </a
+      ><a name="3076" href="Equality.Decidable-UIP.html#3032" class="Bound"
+      >A</a
+      ><a name="3077"
+      > </a
+      ><a name="3078" class="Symbol"
+      >&#8594;</a
+      ><a name="3079"
+      > </a
+      ><a name="3080" class="Symbol"
+      >(</a
+      ><a name="3081" href="Equality.Decidable-UIP.html#3081" class="Bound"
+      >f</a
+      ><a name="3082"
+      > </a
+      ><a name="3083" class="Symbol"
+      >:</a
+      ><a name="3084"
+      > </a
+      ><a name="3085" href="Equality.Decidable-UIP.html#3032" class="Bound"
+      >A</a
+      ><a name="3086"
+      > </a
+      ><a name="3087" class="Symbol"
+      >&#8594;</a
+      ><a name="3088"
+      > </a
+      ><a name="3089" href="Equality.Decidable-UIP.html#3044" class="Bound"
+      >B</a
+      ><a name="3090" class="Symbol"
+      >)</a
+      ><a name="3091"
+      > </a
+      ><a name="3092" class="Symbol"
+      >&#8594;</a
+      ><a name="3093"
+      > </a
+      ><a name="3094" href="Equality.Decidable-UIP.html#656" class="Function"
+      >Constant</a
+      ><a name="3102"
+      > </a
+      ><a name="3103" href="Equality.Decidable-UIP.html#3081" class="Bound"
+      >f</a
+      ><a name="3104"
+      >
+  </a
+      ><a name="3107" href="Equality.Decidable-UIP.html#2987" class="Function"
+      >propositional-domain&#8658;constant</a
+      ><a name="3136"
+      > </a
+      ><a name="3137" href="Equality.Decidable-UIP.html#3137" class="Bound"
+      >A-prop</a
+      ><a name="3143"
+      > </a
+      ><a name="3144" href="Equality.Decidable-UIP.html#3144" class="Bound"
+      >f</a
+      ><a name="3145"
+      > </a
+      ><a name="3146" class="Symbol"
+      >=</a
+      ><a name="3147"
+      > </a
+      ><a name="3148" class="Symbol"
+      >&#955;</a
+      ><a name="3149"
+      > </a
+      ><a name="3150" href="Equality.Decidable-UIP.html#3150" class="Bound"
+      >x</a
+      ><a name="3151"
+      > </a
+      ><a name="3152" href="Equality.Decidable-UIP.html#3152" class="Bound"
+      >y</a
+      ><a name="3153"
+      > </a
+      ><a name="3154" class="Symbol"
+      >&#8594;</a
+      ><a name="3155"
+      >
+    </a
+      ><a name="3160" href="Equality.html#2932" class="Function"
+      >cong</a
+      ><a name="3164"
+      > </a
+      ><a name="3165" href="Equality.Decidable-UIP.html#3144" class="Bound"
+      >f</a
+      ><a name="3166"
+      > </a
+      ><a name="3167" class="Symbol"
+      >(</a
+      ><a name="3168" href="Logical-equivalence.html#537" class="Field"
+      >_&#8660;_.to</a
+      ><a name="3174"
+      > </a
+      ><a name="3175" href="H-level.html#2557" class="Function"
+      >propositional&#8660;irrelevant</a
+      ><a name="3199"
+      > </a
+      ><a name="3200" href="Equality.Decidable-UIP.html#3137" class="Bound"
+      >A-prop</a
+      ><a name="3206"
+      > </a
+      ><a name="3207" href="Equality.Decidable-UIP.html#3150" class="Bound"
+      >x</a
+      ><a name="3208"
+      > </a
+      ><a name="3209" href="Equality.Decidable-UIP.html#3152" class="Bound"
+      >y</a
+      ><a name="3210" class="Symbol"
+      >)</a
+      ><a name="3211"
+      >
+
+  </a
+      ><a name="3215" class="Comment"
+      >-- If there is a propositional, reflexive relation on A, and related</a
+      ><a name="3283"
+      >
+  </a
+      ><a name="3286" class="Comment"
+      >-- elements are equal, then A is a set.</a
+      ><a name="3325"
+      >
+  </a
+      ><a name="3328" class="Comment"
+      >--</a
+      ><a name="3330"
+      >
+  </a
+      ><a name="3333" class="Comment"
+      >-- (The statement of this lemma is one part of the statement of</a
+      ><a name="3396"
+      >
+  </a
+      ><a name="3399" class="Comment"
+      >-- Theorem 7.2.2 in &quot;Homotopy Type Theory: Univalent Foundations of</a
+      ><a name="3466"
+      >
+  </a
+      ><a name="3469" class="Comment"
+      >-- Mathematics&quot; (first edition).)</a
+      ><a name="3502"
+      >
+
+  </a
+      ><a name="3506" href="Equality.Decidable-UIP.html#3506" class="Function"
+      >propositional-identity&#8658;set</a
+      ><a name="3532"
+      > </a
+      ><a name="3533" class="Symbol"
+      >:</a
+      ><a name="3534"
+      >
+    </a
+      ><a name="3539" class="Symbol"
+      >&#8704;</a
+      ><a name="3540"
+      > </a
+      ><a name="3541" class="Symbol"
+      >{</a
+      ><a name="3542" href="Equality.Decidable-UIP.html#3542" class="Bound"
+      >a</a
+      ><a name="3543"
+      > </a
+      ><a name="3544" href="Equality.Decidable-UIP.html#3544" class="Bound"
+      >b</a
+      ><a name="3545" class="Symbol"
+      >}</a
+      ><a name="3546"
+      > </a
+      ><a name="3547" class="Symbol"
+      >{</a
+      ><a name="3548" href="Equality.Decidable-UIP.html#3548" class="Bound"
+      >A</a
+      ><a name="3549"
+      > </a
+      ><a name="3550" class="Symbol"
+      >:</a
+      ><a name="3551"
+      > </a
+      ><a name="3552" class="PrimitiveType"
+      >Set</a
+      ><a name="3555"
+      > </a
+      ><a name="3556" href="Equality.Decidable-UIP.html#3542" class="Bound"
+      >a</a
+      ><a name="3557" class="Symbol"
+      >}</a
+      ><a name="3558"
+      >
+    </a
+      ><a name="3563" class="Symbol"
+      >(</a
+      ><a name="3564" href="Equality.Decidable-UIP.html#3564" class="Bound"
+      >B</a
+      ><a name="3565"
+      > </a
+      ><a name="3566" class="Symbol"
+      >:</a
+      ><a name="3567"
+      > </a
+      ><a name="3568" href="Equality.Decidable-UIP.html#3548" class="Bound"
+      >A</a
+      ><a name="3569"
+      > </a
+      ><a name="3570" class="Symbol"
+      >&#8594;</a
+      ><a name="3571"
+      > </a
+      ><a name="3572" href="Equality.Decidable-UIP.html#3548" class="Bound"
+      >A</a
+      ><a name="3573"
+      > </a
+      ><a name="3574" class="Symbol"
+      >&#8594;</a
+      ><a name="3575"
+      > </a
+      ><a name="3576" class="PrimitiveType"
+      >Set</a
+      ><a name="3579"
+      > </a
+      ><a name="3580" href="Equality.Decidable-UIP.html#3544" class="Bound"
+      >b</a
+      ><a name="3581" class="Symbol"
+      >)</a
+      ><a name="3582"
+      > </a
+      ><a name="3583" class="Symbol"
+      >&#8594;</a
+      ><a name="3584"
+      >
+    </a
+      ><a name="3589" class="Symbol"
+      >(&#8704;</a
+      ><a name="3591"
+      > </a
+      ><a name="3592" href="Equality.Decidable-UIP.html#3592" class="Bound"
+      >x</a
+      ><a name="3593"
+      > </a
+      ><a name="3594" href="Equality.Decidable-UIP.html#3594" class="Bound"
+      >y</a
+      ><a name="3595"
+      > </a
+      ><a name="3596" class="Symbol"
+      >&#8594;</a
+      ><a name="3597"
+      > </a
+      ><a name="3598" href="H-level.html#791" class="Function"
+      >Is-proposition</a
+      ><a name="3612"
+      > </a
+      ><a name="3613" class="Symbol"
+      >(</a
+      ><a name="3614" href="Equality.Decidable-UIP.html#3564" class="Bound"
+      >B</a
+      ><a name="3615"
+      > </a
+      ><a name="3616" href="Equality.Decidable-UIP.html#3592" class="Bound"
+      >x</a
+      ><a name="3617"
+      > </a
+      ><a name="3618" href="Equality.Decidable-UIP.html#3594" class="Bound"
+      >y</a
+      ><a name="3619" class="Symbol"
+      >))</a
+      ><a name="3621"
+      > </a
+      ><a name="3622" class="Symbol"
+      >&#8594;</a
+      ><a name="3623"
+      >
+    </a
+      ><a name="3628" class="Symbol"
+      >(&#8704;</a
+      ><a name="3630"
+      > </a
+      ><a name="3631" href="Equality.Decidable-UIP.html#3631" class="Bound"
+      >x</a
+      ><a name="3632"
+      > </a
+      ><a name="3633" class="Symbol"
+      >&#8594;</a
+      ><a name="3634"
+      > </a
+      ><a name="3635" href="Equality.Decidable-UIP.html#3564" class="Bound"
+      >B</a
+      ><a name="3636"
+      > </a
+      ><a name="3637" href="Equality.Decidable-UIP.html#3631" class="Bound"
+      >x</a
+      ><a name="3638"
+      > </a
+      ><a name="3639" href="Equality.Decidable-UIP.html#3631" class="Bound"
+      >x</a
+      ><a name="3640" class="Symbol"
+      >)</a
+      ><a name="3641"
+      > </a
+      ><a name="3642" class="Symbol"
+      >&#8594;</a
+      ><a name="3643"
+      >
+    </a
+      ><a name="3648" class="Symbol"
+      >(&#8704;</a
+      ><a name="3650"
+      > </a
+      ><a name="3651" href="Equality.Decidable-UIP.html#3651" class="Bound"
+      >x</a
+      ><a name="3652"
+      > </a
+      ><a name="3653" href="Equality.Decidable-UIP.html#3653" class="Bound"
+      >y</a
+      ><a name="3654"
+      > </a
+      ><a name="3655" class="Symbol"
+      >&#8594;</a
+      ><a name="3656"
+      > </a
+      ><a name="3657" href="Equality.Decidable-UIP.html#3564" class="Bound"
+      >B</a
+      ><a name="3658"
+      > </a
+      ><a name="3659" href="Equality.Decidable-UIP.html#3651" class="Bound"
+      >x</a
+      ><a name="3660"
+      > </a
+      ><a name="3661" href="Equality.Decidable-UIP.html#3653" class="Bound"
+      >y</a
+      ><a name="3662"
+      > </a
+      ><a name="3663" class="Symbol"
+      >&#8594;</a
+      ><a name="3664"
+      > </a
+      ><a name="3665" href="Equality.Decidable-UIP.html#3651" class="Bound"
+      >x</a
+      ><a name="3666"
+      > </a
+      ><a name="3667" href="Equality.html#510" class="Function Operator"
+      >&#8801;</a
+      ><a name="3668"
+      > </a
+      ><a name="3669" href="Equality.Decidable-UIP.html#3653" class="Bound"
+      >y</a
+      ><a name="3670" class="Symbol"
+      >)</a
+      ><a name="3671"
+      > </a
+      ><a name="3672" class="Symbol"
+      >&#8594;</a
+      ><a name="3673"
+      >
+    </a
+      ><a name="3678" href="H-level.html#858" class="Function"
+      >Is-set</a
+      ><a name="3684"
+      > </a
+      ><a name="3685" href="Equality.Decidable-UIP.html#3548" class="Bound"
+      >A</a
+      ><a name="3686"
+      >
+  </a
+      ><a name="3689" href="Equality.Decidable-UIP.html#3506" class="Function"
+      >propositional-identity&#8658;set</a
+      ><a name="3715"
+      > </a
+      ><a name="3716" href="Equality.Decidable-UIP.html#3716" class="Bound"
+      >B</a
+      ><a name="3717"
+      > </a
+      ><a name="3718" href="Equality.Decidable-UIP.html#3718" class="Bound"
+      >B-prop</a
+      ><a name="3724"
+      > </a
+      ><a name="3725" href="Equality.Decidable-UIP.html#3725" class="Bound"
+      >B-refl</a
+      ><a name="3731"
+      > </a
+      ><a name="3732" href="Equality.Decidable-UIP.html#3732" class="Bound"
+      >f</a
+      ><a name="3733"
+      > </a
+      ><a name="3734" class="Symbol"
+      >=</a
+      ><a name="3735"
+      >
+    </a
+      ><a name="3740" href="Logical-equivalence.html#558" class="Field"
+      >_&#8660;_.from</a
+      ><a name="3748"
+      > </a
+      ><a name="3749" href="H-level.html#3329" class="Function"
+      >set&#8660;UIP</a
+      ><a name="3756"
+      > </a
+      ><a name="3757" href="Prelude.html#3142" class="Function Operator"
+      >$</a
+      ><a name="3758"
+      > </a
+      ><a name="3759" href="Equality.Decidable-UIP.html#1884" class="Function"
+      >constant&#8658;UIP</a
+      ><a name="3771"
+      > </a
+      ><a name="3772" class="Symbol"
+      >&#955;</a
+      ><a name="3773"
+      > </a
+      ><a name="3774" href="Equality.Decidable-UIP.html#3774" class="Bound"
+      >x</a
+      ><a name="3775"
+      > </a
+      ><a name="3776" href="Equality.Decidable-UIP.html#3776" class="Bound"
+      >y</a
+      ><a name="3777"
+      > </a
+      ><a name="3778" class="Symbol"
+      >&#8594;</a
+      ><a name="3779"
+      >
+      </a
+      ><a name="3786" class="Symbol"
+      >(&#955;</a
+      ><a name="3788"
+      > </a
+      ><a name="3789" href="Equality.Decidable-UIP.html#3789" class="Bound"
+      >eq</a
+      ><a name="3791"
+      > </a
+      ><a name="3792" class="Symbol"
+      >&#8594;</a
+      ><a name="3793"
+      > </a
+      ><a name="3794" href="Equality.Decidable-UIP.html#3732" class="Bound"
+      >f</a
+      ><a name="3795"
+      > </a
+      ><a name="3796" href="Equality.Decidable-UIP.html#3774" class="Bound"
+      >x</a
+      ><a name="3797"
+      > </a
+      ><a name="3798" href="Equality.Decidable-UIP.html#3776" class="Bound"
+      >y</a
+      ><a name="3799"
+      > </a
+      ><a name="3800" class="Symbol"
+      >(</a
+      ><a name="3801" href="Equality.html#3333" class="Function"
+      >subst</a
+      ><a name="3806"
+      > </a
+      ><a name="3807" class="Symbol"
+      >(</a
+      ><a name="3808" href="Equality.Decidable-UIP.html#3716" class="Bound"
+      >B</a
+      ><a name="3809"
+      > </a
+      ><a name="3810" href="Equality.Decidable-UIP.html#3774" class="Bound"
+      >x</a
+      ><a name="3811" class="Symbol"
+      >)</a
+      ><a name="3812"
+      > </a
+      ><a name="3813" href="Equality.Decidable-UIP.html#3789" class="Bound"
+      >eq</a
+      ><a name="3815"
+      > </a
+      ><a name="3816" class="Symbol"
+      >(</a
+      ><a name="3817" href="Equality.Decidable-UIP.html#3725" class="Bound"
+      >B-refl</a
+      ><a name="3823"
+      > </a
+      ><a name="3824" href="Equality.Decidable-UIP.html#3774" class="Bound"
+      >x</a
+      ><a name="3825" class="Symbol"
+      >)))</a
+      ><a name="3828"
+      > </a
+      ><a name="3829" href="Prelude.html#4021" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3830"
+      >
+      </a
+      ><a name="3837" class="Symbol"
+      >(&#955;</a
+      ><a name="3839"
+      > </a
+      ><a name="3840" href="Equality.Decidable-UIP.html#3840" class="Bound"
+      >_</a
+      ><a name="3841"
+      > </a
+      ><a name="3842" href="Equality.Decidable-UIP.html#3842" class="Bound"
+      >_</a
+      ><a name="3843"
+      > </a
+      ><a name="3844" class="Symbol"
+      >&#8594;</a
+      ><a name="3845"
+      > </a
+      ><a name="3846" href="Equality.Decidable-UIP.html#2987" class="Function"
+      >propositional-domain&#8658;constant</a
+      ><a name="3875"
+      > </a
+      ><a name="3876" class="Symbol"
+      >(</a
+      ><a name="3877" href="Equality.Decidable-UIP.html#3718" class="Bound"
+      >B-prop</a
+      ><a name="3883"
+      > </a
+      ><a name="3884" href="Equality.Decidable-UIP.html#3774" class="Bound"
+      >x</a
+      ><a name="3885"
+      > </a
+      ><a name="3886" href="Equality.Decidable-UIP.html#3776" class="Bound"
+      >y</a
+      ><a name="3887" class="Symbol"
+      >)</a
+      ><a name="3888"
+      > </a
+      ><a name="3889" class="Symbol"
+      >(</a
+      ><a name="3890" href="Equality.Decidable-UIP.html#3732" class="Bound"
+      >f</a
+      ><a name="3891"
+      > </a
+      ><a name="3892" href="Equality.Decidable-UIP.html#3774" class="Bound"
+      >x</a
+      ><a name="3893"
+      > </a
+      ><a name="3894" href="Equality.Decidable-UIP.html#3776" class="Bound"
+      >y</a
+      ><a name="3895" class="Symbol"
+      >)</a
+      ><a name="3896"
+      > </a
+      ><a name="3897" class="Symbol"
+      >_</a
+      ><a name="3898"
+      > </a
+      ><a name="3899" class="Symbol"
+      >_)</a
+      ><a name="3901"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

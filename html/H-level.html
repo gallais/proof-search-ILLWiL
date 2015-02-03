@@ -1,0 +1,2849 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >H-level</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Comment"
+      >------------------------------------------------------------------------</a
+      ><a name="73"
+      >
+</a
+      ><a name="74" class="Comment"
+      >-- H-levels</a
+      ><a name="85"
+      >
+</a
+      ><a name="86" class="Comment"
+      >------------------------------------------------------------------------</a
+      ><a name="158"
+      >
+
+</a
+      ><a name="160" class="Symbol"
+      >{-#</a
+      ><a name="163"
+      > </a
+      ><a name="164" class="Keyword"
+      >OPTIONS</a
+      ><a name="171"
+      > --without-K </a
+      ><a name="184" class="Symbol"
+      >#-}</a
+      ><a name="187"
+      >
+
+</a
+      ><a name="189" class="Comment"
+      >-- Partly based on Voevodsky's work on so-called univalent</a
+      ><a name="247"
+      >
+</a
+      ><a name="248" class="Comment"
+      >-- foundations.</a
+      ><a name="263"
+      >
+
+</a
+      ><a name="265" class="Keyword"
+      >open</a
+      ><a name="269"
+      > </a
+      ><a name="270" class="Keyword"
+      >import</a
+      ><a name="276"
+      > </a
+      ><a name="277" href="Equality.html#1" class="Module"
+      >Equality</a
+      ><a name="285"
+      >
+
+</a
+      ><a name="287" class="Keyword"
+      >module</a
+      ><a name="293"
+      > </a
+      ><a name="294" href="H-level.html#1" class="Module"
+      >H-level</a
+      ><a name="301"
+      >
+  </a
+      ><a name="304" class="Symbol"
+      >{</a
+      ><a name="305" href="H-level.html#305" class="Bound"
+      >reflexive</a
+      ><a name="314" class="Symbol"
+      >}</a
+      ><a name="315"
+      > </a
+      ><a name="316" class="Symbol"
+      >(</a
+      ><a name="317" href="H-level.html#317" class="Bound"
+      >eq</a
+      ><a name="319"
+      > </a
+      ><a name="320" class="Symbol"
+      >:</a
+      ><a name="321"
+      > </a
+      ><a name="322" class="Symbol"
+      >&#8704;</a
+      ><a name="323"
+      > </a
+      ><a name="324" class="Symbol"
+      >{</a
+      ><a name="325" href="H-level.html#325" class="Bound"
+      >a</a
+      ><a name="326"
+      > </a
+      ><a name="327" href="H-level.html#327" class="Bound"
+      >p</a
+      ><a name="328" class="Symbol"
+      >}</a
+      ><a name="329"
+      > </a
+      ><a name="330" class="Symbol"
+      >&#8594;</a
+      ><a name="331"
+      > </a
+      ><a name="332" href="Equality.html#2165" class="Record"
+      >Equality-with-J</a
+      ><a name="347"
+      > </a
+      ><a name="348" href="H-level.html#325" class="Bound"
+      >a</a
+      ><a name="349"
+      > </a
+      ><a name="350" href="H-level.html#327" class="Bound"
+      >p</a
+      ><a name="351"
+      > </a
+      ><a name="352" href="H-level.html#305" class="Bound"
+      >reflexive</a
+      ><a name="361" class="Symbol"
+      >)</a
+      ><a name="362"
+      > </a
+      ><a name="363" class="Keyword"
+      >where</a
+      ><a name="368"
+      >
+
+</a
+      ><a name="370" class="Keyword"
+      >open</a
+      ><a name="374"
+      > </a
+      ><a name="375" href="Equality.html#9726" class="Module"
+      >Derived-definitions-and-properties</a
+      ><a name="409"
+      > </a
+      ><a name="410" href="H-level.html#317" class="Bound"
+      >eq</a
+      ><a name="412"
+      >
+</a
+      ><a name="413" class="Keyword"
+      >open</a
+      ><a name="417"
+      > </a
+      ><a name="418" class="Keyword"
+      >import</a
+      ><a name="424"
+      > </a
+      ><a name="425" href="Logical-equivalence.html#1" class="Module"
+      >Logical-equivalence</a
+      ><a name="444"
+      > </a
+      ><a name="445" class="Keyword"
+      >hiding</a
+      ><a name="451"
+      > </a
+      ><a name="452" class="Symbol"
+      >(</a
+      ><a name="453"
+      >id</a
+      ><a name="455" class="Symbol"
+      >;</a
+      ><a name="456"
+      > _&#8728;_</a
+      ><a name="460" class="Symbol"
+      >)</a
+      ><a name="461"
+      >
+</a
+      ><a name="462" class="Keyword"
+      >open</a
+      ><a name="466"
+      > </a
+      ><a name="467" class="Keyword"
+      >import</a
+      ><a name="473"
+      > </a
+      ><a name="474" href="Prelude.html#1" class="Module"
+      >Prelude</a
+      ><a name="481"
+      >
+</a
+      ><a name="482" class="Keyword"
+      >open</a
+      ><a name="486"
+      > </a
+      ><a name="487" class="Keyword"
+      >import</a
+      ><a name="493"
+      > </a
+      ><a name="494" href="Surjection.html#1" class="Module"
+      >Surjection</a
+      ><a name="504"
+      > </a
+      ><a name="505" href="H-level.html#317" class="Bound"
+      >eq</a
+      ><a name="507"
+      > </a
+      ><a name="508" class="Keyword"
+      >hiding</a
+      ><a name="514"
+      > </a
+      ><a name="515" class="Symbol"
+      >(</a
+      ><a name="516"
+      >id</a
+      ><a name="518" class="Symbol"
+      >;</a
+      ><a name="519"
+      > _&#8728;_</a
+      ><a name="523" class="Symbol"
+      >)</a
+      ><a name="524"
+      >
+
+</a
+      ><a name="526" class="Comment"
+      >------------------------------------------------------------------------</a
+      ><a name="598"
+      >
+</a
+      ><a name="599" class="Comment"
+      >-- H-levels</a
+      ><a name="610"
+      >
+
+</a
+      ><a name="612" class="Comment"
+      >-- H-levels (&quot;homotopy levels&quot;).</a
+      ><a name="644"
+      >
+
+</a
+      ><a name="646" href="H-level.html#646" class="Function"
+      >H-level</a
+      ><a name="653"
+      > </a
+      ><a name="654" class="Symbol"
+      >:</a
+      ><a name="655"
+      > </a
+      ><a name="656" href="Prelude.html#1730" class="Function"
+      >&#8469;</a
+      ><a name="657"
+      > </a
+      ><a name="658" class="Symbol"
+      >&#8594;</a
+      ><a name="659"
+      > </a
+      ><a name="660" class="Symbol"
+      >&#8704;</a
+      ><a name="661"
+      > </a
+      ><a name="662" class="Symbol"
+      >{</a
+      ><a name="663" href="H-level.html#663" class="Bound"
+      >&#8467;</a
+      ><a name="664" class="Symbol"
+      >}</a
+      ><a name="665"
+      > </a
+      ><a name="666" class="Symbol"
+      >&#8594;</a
+      ><a name="667"
+      > </a
+      ><a name="668" class="PrimitiveType"
+      >Set</a
+      ><a name="671"
+      > </a
+      ><a name="672" href="H-level.html#663" class="Bound"
+      >&#8467;</a
+      ><a name="673"
+      > </a
+      ><a name="674" class="Symbol"
+      >&#8594;</a
+      ><a name="675"
+      > </a
+      ><a name="676" class="PrimitiveType"
+      >Set</a
+      ><a name="679"
+      > </a
+      ><a name="680" href="H-level.html#663" class="Bound"
+      >&#8467;</a
+      ><a name="681"
+      >
+</a
+      ><a name="682" href="H-level.html#646" class="Function"
+      >H-level</a
+      ><a name="689"
+      > </a
+      ><a name="690" href="Prelude.html#1778" class="InductiveConstructor"
+      >zero</a
+      ><a name="694"
+      >    </a
+      ><a name="698" href="H-level.html#698" class="Bound"
+      >A</a
+      ><a name="699"
+      > </a
+      ><a name="700" class="Symbol"
+      >=</a
+      ><a name="701"
+      > </a
+      ><a name="702" href="Equality.html#1070" class="Function"
+      >Contractible</a
+      ><a name="714"
+      > </a
+      ><a name="715" href="H-level.html#698" class="Bound"
+      >A</a
+      ><a name="716"
+      >
+</a
+      ><a name="717" href="H-level.html#646" class="Function"
+      >H-level</a
+      ><a name="724"
+      > </a
+      ><a name="725" class="Symbol"
+      >(</a
+      ><a name="726" href="Prelude.html#1750" class="InductiveConstructor"
+      >suc</a
+      ><a name="729"
+      > </a
+      ><a name="730" href="H-level.html#730" class="Bound"
+      >n</a
+      ><a name="731" class="Symbol"
+      >)</a
+      ><a name="732"
+      > </a
+      ><a name="733" href="H-level.html#733" class="Bound"
+      >A</a
+      ><a name="734"
+      > </a
+      ><a name="735" class="Symbol"
+      >=</a
+      ><a name="736"
+      > </a
+      ><a name="737" class="Symbol"
+      >(</a
+      ><a name="738" href="H-level.html#738" class="Bound"
+      >x</a
+      ><a name="739"
+      > </a
+      ><a name="740" href="H-level.html#740" class="Bound"
+      >y</a
+      ><a name="741"
+      > </a
+      ><a name="742" class="Symbol"
+      >:</a
+      ><a name="743"
+      > </a
+      ><a name="744" href="H-level.html#733" class="Bound"
+      >A</a
+      ><a name="745" class="Symbol"
+      >)</a
+      ><a name="746"
+      > </a
+      ><a name="747" class="Symbol"
+      >&#8594;</a
+      ><a name="748"
+      > </a
+      ><a name="749" href="H-level.html#646" class="Function"
+      >H-level</a
+      ><a name="756"
+      > </a
+      ><a name="757" href="H-level.html#730" class="Bound"
+      >n</a
+      ><a name="758"
+      > </a
+      ><a name="759" class="Symbol"
+      >(</a
+      ><a name="760" href="H-level.html#738" class="Bound"
+      >x</a
+      ><a name="761"
+      > </a
+      ><a name="762" href="Equality.html#510" class="Function Operator"
+      >&#8801;</a
+      ><a name="763"
+      > </a
+      ><a name="764" href="H-level.html#740" class="Bound"
+      >y</a
+      ><a name="765" class="Symbol"
+      >)</a
+      ><a name="766"
+      >
+
+</a
+      ><a name="768" class="Comment"
+      >-- Some named levels.</a
+      ><a name="789"
+      >
+
+</a
+      ><a name="791" href="H-level.html#791" class="Function"
+      >Is-proposition</a
+      ><a name="805"
+      > </a
+      ><a name="806" class="Symbol"
+      >:</a
+      ><a name="807"
+      > </a
+      ><a name="808" class="Symbol"
+      >&#8704;</a
+      ><a name="809"
+      > </a
+      ><a name="810" class="Symbol"
+      >{</a
+      ><a name="811" href="H-level.html#811" class="Bound"
+      >&#8467;</a
+      ><a name="812" class="Symbol"
+      >}</a
+      ><a name="813"
+      > </a
+      ><a name="814" class="Symbol"
+      >&#8594;</a
+      ><a name="815"
+      > </a
+      ><a name="816" class="PrimitiveType"
+      >Set</a
+      ><a name="819"
+      > </a
+      ><a name="820" href="H-level.html#811" class="Bound"
+      >&#8467;</a
+      ><a name="821"
+      > </a
+      ><a name="822" class="Symbol"
+      >&#8594;</a
+      ><a name="823"
+      > </a
+      ><a name="824" class="PrimitiveType"
+      >Set</a
+      ><a name="827"
+      > </a
+      ><a name="828" href="H-level.html#811" class="Bound"
+      >&#8467;</a
+      ><a name="829"
+      >
+</a
+      ><a name="830" href="H-level.html#791" class="Function"
+      >Is-proposition</a
+      ><a name="844"
+      > </a
+      ><a name="845" class="Symbol"
+      >=</a
+      ><a name="846"
+      > </a
+      ><a name="847" href="H-level.html#646" class="Function"
+      >H-level</a
+      ><a name="854"
+      > </a
+      ><a name="855" class="Number"
+      >1</a
+      ><a name="856"
+      >
+
+</a
+      ><a name="858" href="H-level.html#858" class="Function"
+      >Is-set</a
+      ><a name="864"
+      > </a
+      ><a name="865" class="Symbol"
+      >:</a
+      ><a name="866"
+      > </a
+      ><a name="867" class="Symbol"
+      >&#8704;</a
+      ><a name="868"
+      > </a
+      ><a name="869" class="Symbol"
+      >{</a
+      ><a name="870" href="H-level.html#870" class="Bound"
+      >&#8467;</a
+      ><a name="871" class="Symbol"
+      >}</a
+      ><a name="872"
+      > </a
+      ><a name="873" class="Symbol"
+      >&#8594;</a
+      ><a name="874"
+      > </a
+      ><a name="875" class="PrimitiveType"
+      >Set</a
+      ><a name="878"
+      > </a
+      ><a name="879" href="H-level.html#870" class="Bound"
+      >&#8467;</a
+      ><a name="880"
+      > </a
+      ><a name="881" class="Symbol"
+      >&#8594;</a
+      ><a name="882"
+      > </a
+      ><a name="883" class="PrimitiveType"
+      >Set</a
+      ><a name="886"
+      > </a
+      ><a name="887" href="H-level.html#870" class="Bound"
+      >&#8467;</a
+      ><a name="888"
+      >
+</a
+      ><a name="889" href="H-level.html#858" class="Function"
+      >Is-set</a
+      ><a name="895"
+      > </a
+      ><a name="896" class="Symbol"
+      >=</a
+      ><a name="897"
+      > </a
+      ><a name="898" href="H-level.html#646" class="Function"
+      >H-level</a
+      ><a name="905"
+      > </a
+      ><a name="906" class="Number"
+      >2</a
+      ><a name="907"
+      >
+
+</a
+      ><a name="909" class="Comment"
+      >-- Propositions are propositional types.</a
+      ><a name="949"
+      >
+
+</a
+      ><a name="951" href="H-level.html#951" class="Function"
+      >Proposition</a
+      ><a name="962"
+      > </a
+      ><a name="963" class="Symbol"
+      >:</a
+      ><a name="964"
+      > </a
+      ><a name="965" class="Symbol"
+      >(</a
+      ><a name="966" href="H-level.html#966" class="Bound"
+      >&#8467;</a
+      ><a name="967"
+      > </a
+      ><a name="968" class="Symbol"
+      >:</a
+      ><a name="969"
+      > </a
+      ><a name="970" href="Agda.Primitive.html#379" class="Postulate"
+      >Level</a
+      ><a name="975" class="Symbol"
+      >)</a
+      ><a name="976"
+      > </a
+      ><a name="977" class="Symbol"
+      >&#8594;</a
+      ><a name="978"
+      > </a
+      ><a name="979" class="PrimitiveType"
+      >Set</a
+      ><a name="982"
+      > </a
+      ><a name="983" class="Symbol"
+      >(</a
+      ><a name="984" href="Agda.Primitive.html#596" class="Primitive"
+      >lsuc</a
+      ><a name="988"
+      > </a
+      ><a name="989" href="H-level.html#966" class="Bound"
+      >&#8467;</a
+      ><a name="990" class="Symbol"
+      >)</a
+      ><a name="991"
+      >
+</a
+      ><a name="992" href="H-level.html#951" class="Function"
+      >Proposition</a
+      ><a name="1003"
+      > </a
+      ><a name="1004" class="Symbol"
+      >_</a
+      ><a name="1005"
+      > </a
+      ><a name="1006" class="Symbol"
+      >=</a
+      ><a name="1007"
+      > </a
+      ><a name="1008" href="Prelude.html#4135" class="Function"
+      >&#8707;</a
+      ><a name="1009"
+      > </a
+      ><a name="1010" href="H-level.html#791" class="Function"
+      >Is-proposition</a
+      ><a name="1024"
+      >
+
+</a
+      ><a name="1026" class="Comment"
+      >-- Types that are sets.</a
+      ><a name="1049"
+      >
+
+</a
+      ><a name="1051" href="H-level.html#1051" class="Function"
+      >SET</a
+      ><a name="1054"
+      > </a
+      ><a name="1055" class="Symbol"
+      >:</a
+      ><a name="1056"
+      > </a
+      ><a name="1057" class="Symbol"
+      >(</a
+      ><a name="1058" href="H-level.html#1058" class="Bound"
+      >&#8467;</a
+      ><a name="1059"
+      > </a
+      ><a name="1060" class="Symbol"
+      >:</a
+      ><a name="1061"
+      > </a
+      ><a name="1062" href="Agda.Primitive.html#379" class="Postulate"
+      >Level</a
+      ><a name="1067" class="Symbol"
+      >)</a
+      ><a name="1068"
+      > </a
+      ><a name="1069" class="Symbol"
+      >&#8594;</a
+      ><a name="1070"
+      > </a
+      ><a name="1071" class="PrimitiveType"
+      >Set</a
+      ><a name="1074"
+      > </a
+      ><a name="1075" class="Symbol"
+      >(</a
+      ><a name="1076" href="Agda.Primitive.html#596" class="Primitive"
+      >lsuc</a
+      ><a name="1080"
+      > </a
+      ><a name="1081" href="H-level.html#1058" class="Bound"
+      >&#8467;</a
+      ><a name="1082" class="Symbol"
+      >)</a
+      ><a name="1083"
+      >
+</a
+      ><a name="1084" href="H-level.html#1051" class="Function"
+      >SET</a
+      ><a name="1087"
+      > </a
+      ><a name="1088" class="Symbol"
+      >_</a
+      ><a name="1089"
+      > </a
+      ><a name="1090" class="Symbol"
+      >=</a
+      ><a name="1091"
+      > </a
+      ><a name="1092" href="Prelude.html#4135" class="Function"
+      >&#8707;</a
+      ><a name="1093"
+      > </a
+      ><a name="1094" href="H-level.html#858" class="Function"
+      >Is-set</a
+      ><a name="1100"
+      >
+
+</a
+      ><a name="1102" class="Comment"
+      >-- The underlying type.</a
+      ><a name="1125"
+      >
+
+</a
+      ><a name="1127" href="H-level.html#1127" class="Function"
+      >Type</a
+      ><a name="1131"
+      > </a
+      ><a name="1132" class="Symbol"
+      >:</a
+      ><a name="1133"
+      > </a
+      ><a name="1134" class="Symbol"
+      >&#8704;</a
+      ><a name="1135"
+      > </a
+      ><a name="1136" class="Symbol"
+      >{</a
+      ><a name="1137" href="H-level.html#1137" class="Bound"
+      >&#8467;</a
+      ><a name="1138" class="Symbol"
+      >}</a
+      ><a name="1139"
+      > </a
+      ><a name="1140" class="Symbol"
+      >&#8594;</a
+      ><a name="1141"
+      > </a
+      ><a name="1142" href="H-level.html#1051" class="Function"
+      >SET</a
+      ><a name="1145"
+      > </a
+      ><a name="1146" href="H-level.html#1137" class="Bound"
+      >&#8467;</a
+      ><a name="1147"
+      > </a
+      ><a name="1148" class="Symbol"
+      >&#8594;</a
+      ><a name="1149"
+      > </a
+      ><a name="1150" class="PrimitiveType"
+      >Set</a
+      ><a name="1153"
+      > </a
+      ><a name="1154" href="H-level.html#1137" class="Bound"
+      >&#8467;</a
+      ><a name="1155"
+      >
+</a
+      ><a name="1156" href="H-level.html#1127" class="Function"
+      >Type</a
+      ><a name="1160"
+      > </a
+      ><a name="1161" href="H-level.html#1161" class="Bound"
+      >A</a
+      ><a name="1162"
+      > </a
+      ><a name="1163" class="Symbol"
+      >=</a
+      ><a name="1164"
+      > </a
+      ><a name="1165" href="Prelude.html#4037" class="Field"
+      >proj&#8321;</a
+      ><a name="1170"
+      > </a
+      ><a name="1171" href="H-level.html#1161" class="Bound"
+      >A</a
+      ><a name="1172"
+      >
+
+</a
+      ><a name="1174" class="Comment"
+      >------------------------------------------------------------------------</a
+      ><a name="1246"
+      >
+</a
+      ><a name="1247" class="Comment"
+      >-- General properties</a
+      ><a name="1268"
+      >
+
+</a
+      ><a name="1270" class="Keyword"
+      >abstract</a
+      ><a name="1278"
+      >
+
+  </a
+      ><a name="1282" class="Comment"
+      >-- H-level is upwards closed in its first argument.</a
+      ><a name="1333"
+      >
+
+  </a
+      ><a name="1337" href="H-level.html#1337" class="Function"
+      >mono&#8321;</a
+      ><a name="1342"
+      > </a
+      ><a name="1343" class="Symbol"
+      >:</a
+      ><a name="1344"
+      > </a
+      ><a name="1345" class="Symbol"
+      >&#8704;</a
+      ><a name="1346"
+      > </a
+      ><a name="1347" class="Symbol"
+      >{</a
+      ><a name="1348" href="H-level.html#1348" class="Bound"
+      >a</a
+      ><a name="1349" class="Symbol"
+      >}</a
+      ><a name="1350"
+      > </a
+      ><a name="1351" class="Symbol"
+      >{</a
+      ><a name="1352" href="H-level.html#1352" class="Bound"
+      >A</a
+      ><a name="1353"
+      > </a
+      ><a name="1354" class="Symbol"
+      >:</a
+      ><a name="1355"
+      > </a
+      ><a name="1356" class="PrimitiveType"
+      >Set</a
+      ><a name="1359"
+      > </a
+      ><a name="1360" href="H-level.html#1348" class="Bound"
+      >a</a
+      ><a name="1361" class="Symbol"
+      >}</a
+      ><a name="1362"
+      > </a
+      ><a name="1363" href="H-level.html#1363" class="Bound"
+      >n</a
+      ><a name="1364"
+      > </a
+      ><a name="1365" class="Symbol"
+      >&#8594;</a
+      ><a name="1366"
+      > </a
+      ><a name="1367" href="H-level.html#646" class="Function"
+      >H-level</a
+      ><a name="1374"
+      > </a
+      ><a name="1375" href="H-level.html#1363" class="Bound"
+      >n</a
+      ><a name="1376"
+      > </a
+      ><a name="1377" href="H-level.html#1352" class="Bound"
+      >A</a
+      ><a name="1378"
+      > </a
+      ><a name="1379" class="Symbol"
+      >&#8594;</a
+      ><a name="1380"
+      > </a
+      ><a name="1381" href="H-level.html#646" class="Function"
+      >H-level</a
+      ><a name="1388"
+      > </a
+      ><a name="1389" class="Symbol"
+      >(</a
+      ><a name="1390" class="Number"
+      >1</a
+      ><a name="1391"
+      > </a
+      ><a name="1392" href="Prelude.html#2008" class="Function Operator"
+      >+</a
+      ><a name="1393"
+      > </a
+      ><a name="1394" href="H-level.html#1363" class="Bound"
+      >n</a
+      ><a name="1395" class="Symbol"
+      >)</a
+      ><a name="1396"
+      > </a
+      ><a name="1397" href="H-level.html#1352" class="Bound"
+      >A</a
+      ><a name="1398"
+      >
+  </a
+      ><a name="1401" href="H-level.html#1337" class="Function"
+      >mono&#8321;</a
+      ><a name="1406"
+      >         </a
+      ><a name="1415" class="Symbol"
+      >(</a
+      ><a name="1416" href="Prelude.html#1750" class="InductiveConstructor"
+      >suc</a
+      ><a name="1419"
+      > </a
+      ><a name="1420" href="H-level.html#1420" class="Bound"
+      >n</a
+      ><a name="1421" class="Symbol"
+      >)</a
+      ><a name="1422"
+      > </a
+      ><a name="1423" href="H-level.html#1423" class="Bound"
+      >h</a
+      ><a name="1424"
+      > </a
+      ><a name="1425" href="H-level.html#1425" class="Bound"
+      >x</a
+      ><a name="1426"
+      > </a
+      ><a name="1427" href="H-level.html#1427" class="Bound"
+      >y</a
+      ><a name="1428"
+      > </a
+      ><a name="1429" class="Symbol"
+      >=</a
+      ><a name="1430"
+      > </a
+      ><a name="1431" href="H-level.html#1337" class="Function"
+      >mono&#8321;</a
+      ><a name="1436"
+      > </a
+      ><a name="1437" href="H-level.html#1420" class="Bound"
+      >n</a
+      ><a name="1438"
+      > </a
+      ><a name="1439" class="Symbol"
+      >(</a
+      ><a name="1440" href="H-level.html#1423" class="Bound"
+      >h</a
+      ><a name="1441"
+      > </a
+      ><a name="1442" href="H-level.html#1425" class="Bound"
+      >x</a
+      ><a name="1443"
+      > </a
+      ><a name="1444" href="H-level.html#1427" class="Bound"
+      >y</a
+      ><a name="1445" class="Symbol"
+      >)</a
+      ><a name="1446"
+      >
+  </a
+      ><a name="1449" href="H-level.html#1337" class="Function"
+      >mono&#8321;</a
+      ><a name="1454"
+      > </a
+      ><a name="1455" class="Symbol"
+      >{</a
+      ><a name="1456" class="Argument"
+      >A</a
+      ><a name="1457"
+      > </a
+      ><a name="1458" class="Symbol"
+      >=</a
+      ><a name="1459"
+      > </a
+      ><a name="1460" href="H-level.html#1460" class="Bound"
+      >A</a
+      ><a name="1461" class="Symbol"
+      >}</a
+      ><a name="1462"
+      > </a
+      ><a name="1463" href="Prelude.html#1778" class="InductiveConstructor"
+      >zero</a
+      ><a name="1467"
+      >    </a
+      ><a name="1471" href="H-level.html#1471" class="Bound"
+      >h</a
+      ><a name="1472"
+      > </a
+      ><a name="1473" href="H-level.html#1473" class="Bound"
+      >x</a
+      ><a name="1474"
+      > </a
+      ><a name="1475" href="H-level.html#1475" class="Bound"
+      >y</a
+      ><a name="1476"
+      > </a
+      ><a name="1477" class="Symbol"
+      >=</a
+      ><a name="1478"
+      > </a
+      ><a name="1479" class="Symbol"
+      >(</a
+      ><a name="1480" href="H-level.html#1513" class="Function"
+      >trivial</a
+      ><a name="1487"
+      > </a
+      ><a name="1488" href="H-level.html#1473" class="Bound"
+      >x</a
+      ><a name="1489"
+      > </a
+      ><a name="1490" href="H-level.html#1475" class="Bound"
+      >y</a
+      ><a name="1491"
+      > </a
+      ><a name="1492" href="Prelude.html#4021" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1493"
+      > </a
+      ><a name="1494" href="H-level.html#1648" class="Function"
+      >irr</a
+      ><a name="1497" class="Symbol"
+      >)</a
+      ><a name="1498"
+      >
+    </a
+      ><a name="1503" class="Keyword"
+      >where</a
+      ><a name="1508"
+      >
+    </a
+      ><a name="1513" href="H-level.html#1513" class="Function"
+      >trivial</a
+      ><a name="1520"
+      > </a
+      ><a name="1521" class="Symbol"
+      >:</a
+      ><a name="1522"
+      > </a
+      ><a name="1523" class="Symbol"
+      >(</a
+      ><a name="1524" href="H-level.html#1524" class="Bound"
+      >x</a
+      ><a name="1525"
+      > </a
+      ><a name="1526" href="H-level.html#1526" class="Bound"
+      >y</a
+      ><a name="1527"
+      > </a
+      ><a name="1528" class="Symbol"
+      >:</a
+      ><a name="1529"
+      > </a
+      ><a name="1530" href="H-level.html#1460" class="Bound"
+      >A</a
+      ><a name="1531" class="Symbol"
+      >)</a
+      ><a name="1532"
+      > </a
+      ><a name="1533" class="Symbol"
+      >&#8594;</a
+      ><a name="1534"
+      > </a
+      ><a name="1535" href="H-level.html#1524" class="Bound"
+      >x</a
+      ><a name="1536"
+      > </a
+      ><a name="1537" href="Equality.html#510" class="Function Operator"
+      >&#8801;</a
+      ><a name="1538"
+      > </a
+      ><a name="1539" href="H-level.html#1526" class="Bound"
+      >y</a
+      ><a name="1540"
+      >
+    </a
+      ><a name="1545" href="H-level.html#1513" class="Function"
+      >trivial</a
+      ><a name="1552"
+      > </a
+      ><a name="1553" href="H-level.html#1553" class="Bound"
+      >x</a
+      ><a name="1554"
+      > </a
+      ><a name="1555" href="H-level.html#1555" class="Bound"
+      >y</a
+      ><a name="1556"
+      > </a
+      ><a name="1557" class="Symbol"
+      >=</a
+      ><a name="1558"
+      >
+      </a
+      ><a name="1565" href="H-level.html#1553" class="Bound"
+      >x</a
+      ><a name="1566"
+      >        </a
+      ><a name="1574" href="Equality.html#6787" class="Function Operator"
+      >&#8801;&#10216;</a
+      ><a name="1576"
+      > </a
+      ><a name="1577" href="Equality.html#6042" class="Function"
+      >sym</a
+      ><a name="1580"
+      > </a
+      ><a name="1581" href="Prelude.html#3142" class="Function Operator"
+      >$</a
+      ><a name="1582"
+      > </a
+      ><a name="1583" href="Prelude.html#4051" class="Field"
+      >proj&#8322;</a
+      ><a name="1588"
+      > </a
+      ><a name="1589" href="H-level.html#1471" class="Bound"
+      >h</a
+      ><a name="1590"
+      > </a
+      ><a name="1591" href="H-level.html#1553" class="Bound"
+      >x</a
+      ><a name="1592"
+      > </a
+      ><a name="1593" href="Equality.html#6787" class="Function Operator"
+      >&#10217;</a
+      ><a name="1594"
+      >
+      </a
+      ><a name="1601" href="Prelude.html#4037" class="Field"
+      >proj&#8321;</a
+      ><a name="1606"
+      > </a
+      ><a name="1607" href="H-level.html#1471" class="Bound"
+      >h</a
+      ><a name="1608"
+      >  </a
+      ><a name="1610" href="Equality.html#6959" class="Function"
+      >&#8801;&#10216;</a
+      ><a name="1612"
+      > </a
+      ><a name="1613" href="Prelude.html#4051" class="Field"
+      >proj&#8322;</a
+      ><a name="1618"
+      > </a
+      ><a name="1619" href="H-level.html#1471" class="Bound"
+      >h</a
+      ><a name="1620"
+      > </a
+      ><a name="1621" href="H-level.html#1555" class="Bound"
+      >y</a
+      ><a name="1622"
+      > </a
+      ><a name="1623" href="Equality.html#6959" class="Function"
+      >&#10217;&#8718;</a
+      ><a name="1625"
+      >
+      </a
+      ><a name="1632" href="H-level.html#1555" class="Bound"
+      >y</a
+      ><a name="1633"
+      >        </a
+      ><a name="1641" href="Equality.html#6959" class="Function"
+      >&#8718;</a
+      ><a name="1642"
+      >
+
+    </a
+      ><a name="1648" href="H-level.html#1648" class="Function"
+      >irr</a
+      ><a name="1651"
+      > </a
+      ><a name="1652" class="Symbol"
+      >:</a
+      ><a name="1653"
+      > </a
+      ><a name="1654" class="Symbol"
+      >&#8704;</a
+      ><a name="1655"
+      > </a
+      ><a name="1656" class="Symbol"
+      >{</a
+      ><a name="1657" href="H-level.html#1657" class="Bound"
+      >x</a
+      ><a name="1658"
+      > </a
+      ><a name="1659" href="H-level.html#1659" class="Bound"
+      >y</a
+      ><a name="1660" class="Symbol"
+      >}</a
+      ><a name="1661"
+      > </a
+      ><a name="1662" class="Symbol"
+      >(</a
+      ><a name="1663" href="H-level.html#1663" class="Bound"
+      >x&#8801;y</a
+      ><a name="1666"
+      > </a
+      ><a name="1667" class="Symbol"
+      >:</a
+      ><a name="1668"
+      > </a
+      ><a name="1669" href="H-level.html#1657" class="Bound"
+      >x</a
+      ><a name="1670"
+      > </a
+      ><a name="1671" href="Equality.html#510" class="Function Operator"
+      >&#8801;</a
+      ><a name="1672"
+      > </a
+      ><a name="1673" href="H-level.html#1659" class="Bound"
+      >y</a
+      ><a name="1674" class="Symbol"
+      >)</a
+      ><a name="1675"
+      > </a
+      ><a name="1676" class="Symbol"
+      >&#8594;</a
+      ><a name="1677"
+      > </a
+      ><a name="1678" href="H-level.html#1513" class="Function"
+      >trivial</a
+      ><a name="1685"
+      > </a
+      ><a name="1686" href="H-level.html#1657" class="Bound"
+      >x</a
+      ><a name="1687"
+      > </a
+      ><a name="1688" href="H-level.html#1659" class="Bound"
+      >y</a
+      ><a name="1689"
+      > </a
+      ><a name="1690" href="Equality.html#510" class="Function Operator"
+      >&#8801;</a
+      ><a name="1691"
+      > </a
+      ><a name="1692" href="H-level.html#1663" class="Bound"
+      >x&#8801;y</a
+      ><a name="1695"
+      >
+    </a
+      ><a name="1700" href="H-level.html#1648" class="Function"
+      >irr</a
+      ><a name="1703"
+      > </a
+      ><a name="1704" class="Symbol"
+      >=</a
+      ><a name="1705"
+      > </a
+      ><a name="1706" href="Equality.html#2325" class="Function"
+      >elim</a
+      ><a name="1710"
+      > </a
+      ><a name="1711" class="Symbol"
+      >(&#955;</a
+      ><a name="1713"
+      > </a
+      ><a name="1714" class="Symbol"
+      >{</a
+      ><a name="1715" href="H-level.html#1715" class="Bound"
+      >x</a
+      ><a name="1716"
+      > </a
+      ><a name="1717" href="H-level.html#1717" class="Bound"
+      >y</a
+      ><a name="1718" class="Symbol"
+      >}</a
+      ><a name="1719"
+      > </a
+      ><a name="1720" href="H-level.html#1720" class="Bound"
+      >x&#8801;y</a
+      ><a name="1723"
+      > </a
+      ><a name="1724" class="Symbol"
+      >&#8594;</a
+      ><a name="1725"
+      > </a
+      ><a name="1726" href="H-level.html#1513" class="Function"
+      >trivial</a
+      ><a name="1733"
+      > </a
+      ><a name="1734" href="H-level.html#1715" class="Bound"
+      >x</a
+      ><a name="1735"
+      > </a
+      ><a name="1736" href="H-level.html#1717" class="Bound"
+      >y</a
+      ><a name="1737"
+      > </a
+      ><a name="1738" href="Equality.html#510" class="Function Operator"
+      >&#8801;</a
+      ><a name="1739"
+      > </a
+      ><a name="1740" href="H-level.html#1720" class="Bound"
+      >x&#8801;y</a
+      ><a name="1743" class="Symbol"
+      >)</a
+      ><a name="1744"
+      >
+               </a
+      ><a name="1760" class="Symbol"
+      >(&#955;</a
+      ><a name="1762"
+      > </a
+      ><a name="1763" href="H-level.html#1763" class="Bound"
+      >x</a
+      ><a name="1764"
+      > </a
+      ><a name="1765" class="Symbol"
+      >&#8594;</a
+      ><a name="1766"
+      > </a
+      ><a name="1767" href="Equality.html#18516" class="Function"
+      >trans-sym&#737;</a
+      ><a name="1777"
+      > </a
+      ><a name="1778" class="Symbol"
+      >(</a
+      ><a name="1779" href="Prelude.html#4051" class="Field"
+      >proj&#8322;</a
+      ><a name="1784"
+      > </a
+      ><a name="1785" href="H-level.html#1471" class="Bound"
+      >h</a
+      ><a name="1786"
+      > </a
+      ><a name="1787" href="H-level.html#1763" class="Bound"
+      >x</a
+      ><a name="1788" class="Symbol"
+      >))</a
+      ><a name="1790"
+      >
+
+  </a
+      ><a name="1794" href="H-level.html#1794" class="Function"
+      >mono</a
+      ><a name="1798"
+      > </a
+      ><a name="1799" class="Symbol"
+      >:</a
+      ><a name="1800"
+      > </a
+      ><a name="1801" class="Symbol"
+      >&#8704;</a
+      ><a name="1802"
+      > </a
+      ><a name="1803" class="Symbol"
+      >{</a
+      ><a name="1804" href="H-level.html#1804" class="Bound"
+      >a</a
+      ><a name="1805"
+      > </a
+      ><a name="1806" href="H-level.html#1806" class="Bound"
+      >m</a
+      ><a name="1807"
+      > </a
+      ><a name="1808" href="H-level.html#1808" class="Bound"
+      >n</a
+      ><a name="1809" class="Symbol"
+      >}</a
+      ><a name="1810"
+      > </a
+      ><a name="1811" class="Symbol"
+      >{</a
+      ><a name="1812" href="H-level.html#1812" class="Bound"
+      >A</a
+      ><a name="1813"
+      > </a
+      ><a name="1814" class="Symbol"
+      >:</a
+      ><a name="1815"
+      > </a
+      ><a name="1816" class="PrimitiveType"
+      >Set</a
+      ><a name="1819"
+      > </a
+      ><a name="1820" href="H-level.html#1804" class="Bound"
+      >a</a
+      ><a name="1821" class="Symbol"
+      >}</a
+      ><a name="1822"
+      > </a
+      ><a name="1823" class="Symbol"
+      >&#8594;</a
+      ><a name="1824"
+      > </a
+      ><a name="1825" href="H-level.html#1806" class="Bound"
+      >m</a
+      ><a name="1826"
+      > </a
+      ><a name="1827" href="Prelude.html#2128" class="Datatype Operator"
+      >&#8804;</a
+      ><a name="1828"
+      > </a
+      ><a name="1829" href="H-level.html#1808" class="Bound"
+      >n</a
+      ><a name="1830"
+      > </a
+      ><a name="1831" class="Symbol"
+      >&#8594;</a
+      ><a name="1832"
+      > </a
+      ><a name="1833" href="H-level.html#646" class="Function"
+      >H-level</a
+      ><a name="1840"
+      > </a
+      ><a name="1841" href="H-level.html#1806" class="Bound"
+      >m</a
+      ><a name="1842"
+      > </a
+      ><a name="1843" href="H-level.html#1812" class="Bound"
+      >A</a
+      ><a name="1844"
+      > </a
+      ><a name="1845" class="Symbol"
+      >&#8594;</a
+      ><a name="1846"
+      > </a
+      ><a name="1847" href="H-level.html#646" class="Function"
+      >H-level</a
+      ><a name="1854"
+      > </a
+      ><a name="1855" href="H-level.html#1808" class="Bound"
+      >n</a
+      ><a name="1856"
+      > </a
+      ><a name="1857" href="H-level.html#1812" class="Bound"
+      >A</a
+      ><a name="1858"
+      >
+  </a
+      ><a name="1861" href="H-level.html#1794" class="Function"
+      >mono</a
+      ><a name="1865"
+      > </a
+      ><a name="1866" href="Prelude.html#2158" class="InductiveConstructor"
+      >&#8804;-refl</a
+      ><a name="1872"
+      >               </a
+      ><a name="1887" class="Symbol"
+      >=</a
+      ><a name="1888"
+      > </a
+      ><a name="1889" href="Prelude.html#2882" class="Function"
+      >id</a
+      ><a name="1891"
+      >
+  </a
+      ><a name="1894" href="H-level.html#1794" class="Function"
+      >mono</a
+      ><a name="1898"
+      > </a
+      ><a name="1899" class="Symbol"
+      >(</a
+      ><a name="1900" href="Prelude.html#2197" class="InductiveConstructor"
+      >&#8804;-step</a
+      ><a name="1906"
+      > </a
+      ><a name="1907" class="Symbol"
+      >{</a
+      ><a name="1908" class="Argument"
+      >n</a
+      ><a name="1909"
+      > </a
+      ><a name="1910" class="Symbol"
+      >=</a
+      ><a name="1911"
+      > </a
+      ><a name="1912" href="H-level.html#1912" class="Bound"
+      >n</a
+      ><a name="1913" class="Symbol"
+      >}</a
+      ><a name="1914"
+      > </a
+      ><a name="1915" href="H-level.html#1915" class="Bound"
+      >m&#8804;n</a
+      ><a name="1918" class="Symbol"
+      >)</a
+      ><a name="1919"
+      > </a
+      ><a name="1920" class="Symbol"
+      >=</a
+      ><a name="1921"
+      > </a
+      ><a name="1922" class="Symbol"
+      >&#955;</a
+      ><a name="1923"
+      > </a
+      ><a name="1924" href="H-level.html#1924" class="Bound"
+      >h</a
+      ><a name="1925"
+      > </a
+      ><a name="1926" class="Symbol"
+      >&#8594;</a
+      ><a name="1927"
+      > </a
+      ><a name="1928" href="H-level.html#1337" class="Function"
+      >mono&#8321;</a
+      ><a name="1933"
+      > </a
+      ><a name="1934" href="H-level.html#1912" class="Bound"
+      >n</a
+      ><a name="1935"
+      > </a
+      ><a name="1936" class="Symbol"
+      >(</a
+      ><a name="1937" href="H-level.html#1794" class="Function"
+      >mono</a
+      ><a name="1941"
+      > </a
+      ><a name="1942" href="H-level.html#1915" class="Bound"
+      >m&#8804;n</a
+      ><a name="1945"
+      > </a
+      ><a name="1946" href="H-level.html#1924" class="Bound"
+      >h</a
+      ><a name="1947" class="Symbol"
+      >)</a
+      ><a name="1948"
+      >
+
+  </a
+      ><a name="1952" class="Comment"
+      >-- If something is contractible given the assumption that it is</a
+      ><a name="2015"
+      >
+  </a
+      ><a name="2018" class="Comment"
+      >-- inhabited, then it is propositional.</a
+      ><a name="2057"
+      >
+
+  </a
+      ><a name="2061" href="H-level.html#2061" class="Function"
+      >[inhabited&#8658;contractible]&#8658;propositional</a
+      ><a name="2099"
+      > </a
+      ><a name="2100" class="Symbol"
+      >:</a
+      ><a name="2101"
+      >
+    </a
+      ><a name="2106" class="Symbol"
+      >&#8704;</a
+      ><a name="2107"
+      > </a
+      ><a name="2108" class="Symbol"
+      >{</a
+      ><a name="2109" href="H-level.html#2109" class="Bound"
+      >a</a
+      ><a name="2110" class="Symbol"
+      >}</a
+      ><a name="2111"
+      > </a
+      ><a name="2112" class="Symbol"
+      >{</a
+      ><a name="2113" href="H-level.html#2113" class="Bound"
+      >A</a
+      ><a name="2114"
+      > </a
+      ><a name="2115" class="Symbol"
+      >:</a
+      ><a name="2116"
+      > </a
+      ><a name="2117" class="PrimitiveType"
+      >Set</a
+      ><a name="2120"
+      > </a
+      ><a name="2121" href="H-level.html#2109" class="Bound"
+      >a</a
+      ><a name="2122" class="Symbol"
+      >}</a
+      ><a name="2123"
+      > </a
+      ><a name="2124" class="Symbol"
+      >&#8594;</a
+      ><a name="2125"
+      > </a
+      ><a name="2126" class="Symbol"
+      >(</a
+      ><a name="2127" href="H-level.html#2113" class="Bound"
+      >A</a
+      ><a name="2128"
+      > </a
+      ><a name="2129" class="Symbol"
+      >&#8594;</a
+      ><a name="2130"
+      > </a
+      ><a name="2131" href="Equality.html#1070" class="Function"
+      >Contractible</a
+      ><a name="2143"
+      > </a
+      ><a name="2144" href="H-level.html#2113" class="Bound"
+      >A</a
+      ><a name="2145" class="Symbol"
+      >)</a
+      ><a name="2146"
+      > </a
+      ><a name="2147" class="Symbol"
+      >&#8594;</a
+      ><a name="2148"
+      > </a
+      ><a name="2149" href="H-level.html#791" class="Function"
+      >Is-proposition</a
+      ><a name="2163"
+      > </a
+      ><a name="2164" href="H-level.html#2113" class="Bound"
+      >A</a
+      ><a name="2165"
+      >
+  </a
+      ><a name="2168" href="H-level.html#2061" class="Function"
+      >[inhabited&#8658;contractible]&#8658;propositional</a
+      ><a name="2206"
+      > </a
+      ><a name="2207" href="H-level.html#2207" class="Bound"
+      >h</a
+      ><a name="2208"
+      > </a
+      ><a name="2209" href="H-level.html#2209" class="Bound"
+      >x</a
+      ><a name="2210"
+      > </a
+      ><a name="2211" class="Symbol"
+      >=</a
+      ><a name="2212"
+      > </a
+      ><a name="2213" href="H-level.html#1337" class="Function"
+      >mono&#8321;</a
+      ><a name="2218"
+      > </a
+      ><a name="2219" class="Number"
+      >0</a
+      ><a name="2220"
+      > </a
+      ><a name="2221" class="Symbol"
+      >(</a
+      ><a name="2222" href="H-level.html#2207" class="Bound"
+      >h</a
+      ><a name="2223"
+      > </a
+      ><a name="2224" href="H-level.html#2209" class="Bound"
+      >x</a
+      ><a name="2225" class="Symbol"
+      >)</a
+      ><a name="2226"
+      > </a
+      ><a name="2227" href="H-level.html#2209" class="Bound"
+      >x</a
+      ><a name="2228"
+      >
+
+  </a
+      ><a name="2232" class="Comment"
+      >-- If something has h-level (1 + n) given the assumption that it is</a
+      ><a name="2299"
+      >
+  </a
+      ><a name="2302" class="Comment"
+      >-- inhabited, then it has h-level (1 + n).</a
+      ><a name="2344"
+      >
+
+  </a
+      ><a name="2348" href="H-level.html#2348" class="Function"
+      >[inhabited&#8658;+]&#8658;+</a
+      ><a name="2363"
+      > </a
+      ><a name="2364" class="Symbol"
+      >:</a
+      ><a name="2365"
+      >
+    </a
+      ><a name="2370" class="Symbol"
+      >&#8704;</a
+      ><a name="2371"
+      > </a
+      ><a name="2372" class="Symbol"
+      >{</a
+      ><a name="2373" href="H-level.html#2373" class="Bound"
+      >a</a
+      ><a name="2374" class="Symbol"
+      >}</a
+      ><a name="2375"
+      > </a
+      ><a name="2376" class="Symbol"
+      >{</a
+      ><a name="2377" href="H-level.html#2377" class="Bound"
+      >A</a
+      ><a name="2378"
+      > </a
+      ><a name="2379" class="Symbol"
+      >:</a
+      ><a name="2380"
+      > </a
+      ><a name="2381" class="PrimitiveType"
+      >Set</a
+      ><a name="2384"
+      > </a
+      ><a name="2385" href="H-level.html#2373" class="Bound"
+      >a</a
+      ><a name="2386" class="Symbol"
+      >}</a
+      ><a name="2387"
+      > </a
+      ><a name="2388" href="H-level.html#2388" class="Bound"
+      >n</a
+      ><a name="2389"
+      > </a
+      ><a name="2390" class="Symbol"
+      >&#8594;</a
+      ><a name="2391"
+      > </a
+      ><a name="2392" class="Symbol"
+      >(</a
+      ><a name="2393" href="H-level.html#2377" class="Bound"
+      >A</a
+      ><a name="2394"
+      > </a
+      ><a name="2395" class="Symbol"
+      >&#8594;</a
+      ><a name="2396"
+      > </a
+      ><a name="2397" href="H-level.html#646" class="Function"
+      >H-level</a
+      ><a name="2404"
+      > </a
+      ><a name="2405" class="Symbol"
+      >(</a
+      ><a name="2406" class="Number"
+      >1</a
+      ><a name="2407"
+      > </a
+      ><a name="2408" href="Prelude.html#2008" class="Function Operator"
+      >+</a
+      ><a name="2409"
+      > </a
+      ><a name="2410" href="H-level.html#2388" class="Bound"
+      >n</a
+      ><a name="2411" class="Symbol"
+      >)</a
+      ><a name="2412"
+      > </a
+      ><a name="2413" href="H-level.html#2377" class="Bound"
+      >A</a
+      ><a name="2414" class="Symbol"
+      >)</a
+      ><a name="2415"
+      > </a
+      ><a name="2416" class="Symbol"
+      >&#8594;</a
+      ><a name="2417"
+      > </a
+      ><a name="2418" href="H-level.html#646" class="Function"
+      >H-level</a
+      ><a name="2425"
+      > </a
+      ><a name="2426" class="Symbol"
+      >(</a
+      ><a name="2427" class="Number"
+      >1</a
+      ><a name="2428"
+      > </a
+      ><a name="2429" href="Prelude.html#2008" class="Function Operator"
+      >+</a
+      ><a name="2430"
+      > </a
+      ><a name="2431" href="H-level.html#2388" class="Bound"
+      >n</a
+      ><a name="2432" class="Symbol"
+      >)</a
+      ><a name="2433"
+      > </a
+      ><a name="2434" href="H-level.html#2377" class="Bound"
+      >A</a
+      ><a name="2435"
+      >
+  </a
+      ><a name="2438" href="H-level.html#2348" class="Function"
+      >[inhabited&#8658;+]&#8658;+</a
+      ><a name="2453"
+      > </a
+      ><a name="2454" href="H-level.html#2454" class="Bound"
+      >n</a
+      ><a name="2455"
+      > </a
+      ><a name="2456" href="H-level.html#2456" class="Bound"
+      >h</a
+      ><a name="2457"
+      > </a
+      ><a name="2458" href="H-level.html#2458" class="Bound"
+      >x</a
+      ><a name="2459"
+      > </a
+      ><a name="2460" class="Symbol"
+      >=</a
+      ><a name="2461"
+      > </a
+      ><a name="2462" href="H-level.html#2456" class="Bound"
+      >h</a
+      ><a name="2463"
+      > </a
+      ><a name="2464" href="H-level.html#2458" class="Bound"
+      >x</a
+      ><a name="2465"
+      > </a
+      ><a name="2466" href="H-level.html#2458" class="Bound"
+      >x</a
+      ><a name="2467"
+      >
+
+  </a
+      ><a name="2471" class="Comment"
+      >-- Being propositional is logically equivalent to having at most one</a
+      ><a name="2539"
+      >
+  </a
+      ><a name="2542" class="Comment"
+      >-- element.</a
+      ><a name="2553"
+      >
+
+  </a
+      ><a name="2557" href="H-level.html#2557" class="Function"
+      >propositional&#8660;irrelevant</a
+      ><a name="2581"
+      > </a
+      ><a name="2582" class="Symbol"
+      >:</a
+      ><a name="2583"
+      >
+    </a
+      ><a name="2588" class="Symbol"
+      >&#8704;</a
+      ><a name="2589"
+      > </a
+      ><a name="2590" class="Symbol"
+      >{</a
+      ><a name="2591" href="H-level.html#2591" class="Bound"
+      >a</a
+      ><a name="2592" class="Symbol"
+      >}</a
+      ><a name="2593"
+      > </a
+      ><a name="2594" class="Symbol"
+      >{</a
+      ><a name="2595" href="H-level.html#2595" class="Bound"
+      >A</a
+      ><a name="2596"
+      > </a
+      ><a name="2597" class="Symbol"
+      >:</a
+      ><a name="2598"
+      > </a
+      ><a name="2599" class="PrimitiveType"
+      >Set</a
+      ><a name="2602"
+      > </a
+      ><a name="2603" href="H-level.html#2591" class="Bound"
+      >a</a
+      ><a name="2604" class="Symbol"
+      >}</a
+      ><a name="2605"
+      > </a
+      ><a name="2606" class="Symbol"
+      >&#8594;</a
+      ><a name="2607"
+      > </a
+      ><a name="2608" href="H-level.html#791" class="Function"
+      >Is-proposition</a
+      ><a name="2622"
+      > </a
+      ><a name="2623" href="H-level.html#2595" class="Bound"
+      >A</a
+      ><a name="2624"
+      > </a
+      ><a name="2625" href="Logical-equivalence.html#467" class="Record Operator"
+      >&#8660;</a
+      ><a name="2626"
+      > </a
+      ><a name="2627" href="Equality.html#14815" class="Function"
+      >Proof-irrelevant</a
+      ><a name="2643"
+      > </a
+      ><a name="2644" href="H-level.html#2595" class="Bound"
+      >A</a
+      ><a name="2645"
+      >
+  </a
+      ><a name="2648" href="H-level.html#2557" class="Function"
+      >propositional&#8660;irrelevant</a
+      ><a name="2672"
+      > </a
+      ><a name="2673" class="Symbol"
+      >{</a
+      ><a name="2674" href="H-level.html#2674" class="Bound"
+      >A</a
+      ><a name="2675" class="Symbol"
+      >}</a
+      ><a name="2676"
+      > </a
+      ><a name="2677" class="Symbol"
+      >=</a
+      ><a name="2678"
+      > </a
+      ><a name="2679" class="Keyword"
+      >record</a
+      ><a name="2685"
+      >
+    </a
+      ><a name="2690" class="Symbol"
+      >{</a
+      ><a name="2691"
+      > </a
+      ><a name="2692" class="Field"
+      >to</a
+      ><a name="2694"
+      >   </a
+      ><a name="2697" class="Symbol"
+      >=</a
+      ><a name="2698"
+      > </a
+      ><a name="2699" class="Symbol"
+      >&#955;</a
+      ><a name="2700"
+      > </a
+      ><a name="2701" href="H-level.html#2701" class="Bound"
+      >h</a
+      ><a name="2702"
+      > </a
+      ><a name="2703" href="H-level.html#2703" class="Bound"
+      >x</a
+      ><a name="2704"
+      > </a
+      ><a name="2705" href="H-level.html#2705" class="Bound"
+      >y</a
+      ><a name="2706"
+      > </a
+      ><a name="2707" class="Symbol"
+      >&#8594;</a
+      ><a name="2708"
+      > </a
+      ><a name="2709" href="Prelude.html#4037" class="Field"
+      >proj&#8321;</a
+      ><a name="2714"
+      > </a
+      ><a name="2715" class="Symbol"
+      >(</a
+      ><a name="2716" href="H-level.html#2701" class="Bound"
+      >h</a
+      ><a name="2717"
+      > </a
+      ><a name="2718" href="H-level.html#2703" class="Bound"
+      >x</a
+      ><a name="2719"
+      > </a
+      ><a name="2720" href="H-level.html#2705" class="Bound"
+      >y</a
+      ><a name="2721" class="Symbol"
+      >)</a
+      ><a name="2722"
+      >
+    </a
+      ><a name="2727" class="Symbol"
+      >;</a
+      ><a name="2728"
+      > </a
+      ><a name="2729" class="Field"
+      >from</a
+      ><a name="2733"
+      > </a
+      ><a name="2734" class="Symbol"
+      >=</a
+      ><a name="2735"
+      > </a
+      ><a name="2736" class="Symbol"
+      >&#955;</a
+      ><a name="2737"
+      > </a
+      ><a name="2738" href="H-level.html#2738" class="Bound"
+      >irr</a
+      ><a name="2741"
+      > </a
+      ><a name="2742" class="Symbol"
+      >&#8594;</a
+      ><a name="2743"
+      >
+        </a
+      ><a name="2752" href="H-level.html#2061" class="Function"
+      >[inhabited&#8658;contractible]&#8658;propositional</a
+      ><a name="2790"
+      > </a
+      ><a name="2791" class="Symbol"
+      >(&#955;</a
+      ><a name="2793"
+      > </a
+      ><a name="2794" href="H-level.html#2794" class="Bound"
+      >x</a
+      ><a name="2795"
+      > </a
+      ><a name="2796" class="Symbol"
+      >&#8594;</a
+      ><a name="2797"
+      > </a
+      ><a name="2798" class="Symbol"
+      >(</a
+      ><a name="2799" href="H-level.html#2794" class="Bound"
+      >x</a
+      ><a name="2800"
+      > </a
+      ><a name="2801" href="Prelude.html#4021" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2802"
+      > </a
+      ><a name="2803" href="H-level.html#2738" class="Bound"
+      >irr</a
+      ><a name="2806"
+      > </a
+      ><a name="2807" href="H-level.html#2794" class="Bound"
+      >x</a
+      ><a name="2808" class="Symbol"
+      >))</a
+      ><a name="2810"
+      >
+    </a
+      ><a name="2815" class="Symbol"
+      >}</a
+      ><a name="2816"
+      >
+
+  </a
+      ><a name="2820" class="Comment"
+      >-- If a propositional type is inhabited, then it is contractible.</a
+      ><a name="2885"
+      >
+
+  </a
+      ><a name="2889" href="H-level.html#2889" class="Function"
+      >propositional&#8658;inhabited&#8658;contractible</a
+      ><a name="2925"
+      > </a
+      ><a name="2926" class="Symbol"
+      >:</a
+      ><a name="2927"
+      >
+    </a
+      ><a name="2932" class="Symbol"
+      >&#8704;</a
+      ><a name="2933"
+      > </a
+      ><a name="2934" class="Symbol"
+      >{</a
+      ><a name="2935" href="H-level.html#2935" class="Bound"
+      >a</a
+      ><a name="2936" class="Symbol"
+      >}</a
+      ><a name="2937"
+      > </a
+      ><a name="2938" class="Symbol"
+      >{</a
+      ><a name="2939" href="H-level.html#2939" class="Bound"
+      >A</a
+      ><a name="2940"
+      > </a
+      ><a name="2941" class="Symbol"
+      >:</a
+      ><a name="2942"
+      > </a
+      ><a name="2943" class="PrimitiveType"
+      >Set</a
+      ><a name="2946"
+      > </a
+      ><a name="2947" href="H-level.html#2935" class="Bound"
+      >a</a
+      ><a name="2948" class="Symbol"
+      >}</a
+      ><a name="2949"
+      > </a
+      ><a name="2950" class="Symbol"
+      >&#8594;</a
+      ><a name="2951"
+      > </a
+      ><a name="2952" href="H-level.html#791" class="Function"
+      >Is-proposition</a
+      ><a name="2966"
+      > </a
+      ><a name="2967" href="H-level.html#2939" class="Bound"
+      >A</a
+      ><a name="2968"
+      > </a
+      ><a name="2969" class="Symbol"
+      >&#8594;</a
+      ><a name="2970"
+      > </a
+      ><a name="2971" href="H-level.html#2939" class="Bound"
+      >A</a
+      ><a name="2972"
+      > </a
+      ><a name="2973" class="Symbol"
+      >&#8594;</a
+      ><a name="2974"
+      > </a
+      ><a name="2975" href="Equality.html#1070" class="Function"
+      >Contractible</a
+      ><a name="2987"
+      > </a
+      ><a name="2988" href="H-level.html#2939" class="Bound"
+      >A</a
+      ><a name="2989"
+      >
+  </a
+      ><a name="2992" href="H-level.html#2889" class="Function"
+      >propositional&#8658;inhabited&#8658;contractible</a
+      ><a name="3028"
+      > </a
+      ><a name="3029" href="H-level.html#3029" class="Bound"
+      >p</a
+      ><a name="3030"
+      > </a
+      ><a name="3031" href="H-level.html#3031" class="Bound"
+      >x</a
+      ><a name="3032"
+      > </a
+      ><a name="3033" class="Symbol"
+      >=</a
+      ><a name="3034"
+      >
+    </a
+      ><a name="3039" class="Symbol"
+      >(</a
+      ><a name="3040" href="H-level.html#3031" class="Bound"
+      >x</a
+      ><a name="3041"
+      > </a
+      ><a name="3042" href="Prelude.html#4021" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3043"
+      > </a
+      ><a name="3044" href="Logical-equivalence.html#537" class="Field"
+      >_&#8660;_.to</a
+      ><a name="3050"
+      > </a
+      ><a name="3051" href="H-level.html#2557" class="Function"
+      >propositional&#8660;irrelevant</a
+      ><a name="3075"
+      > </a
+      ><a name="3076" href="H-level.html#3029" class="Bound"
+      >p</a
+      ><a name="3077"
+      > </a
+      ><a name="3078" href="H-level.html#3031" class="Bound"
+      >x</a
+      ><a name="3079" class="Symbol"
+      >)</a
+      ><a name="3080"
+      >
+
+  </a
+      ><a name="3084" class="Comment"
+      >-- Being a set is logically equivalent to having unique identity</a
+      ><a name="3148"
+      >
+  </a
+      ><a name="3151" class="Comment"
+      >-- proofs. Note that this means that, assuming that Agda is</a
+      ><a name="3210"
+      >
+  </a
+      ><a name="3213" class="Comment"
+      >-- consistent, I cannot prove (inside Agda) that there is any type</a
+      ><a name="3279"
+      >
+  </a
+      ><a name="3282" class="Comment"
+      >-- whose minimal h-level is at least three.</a
+      ><a name="3325"
+      >
+
+  </a
+      ><a name="3329" href="H-level.html#3329" class="Function"
+      >set&#8660;UIP</a
+      ><a name="3336"
+      > </a
+      ><a name="3337" class="Symbol"
+      >:</a
+      ><a name="3338"
+      > </a
+      ><a name="3339" class="Symbol"
+      >&#8704;</a
+      ><a name="3340"
+      > </a
+      ><a name="3341" class="Symbol"
+      >{</a
+      ><a name="3342" href="H-level.html#3342" class="Bound"
+      >a</a
+      ><a name="3343" class="Symbol"
+      >}</a
+      ><a name="3344"
+      > </a
+      ><a name="3345" class="Symbol"
+      >{</a
+      ><a name="3346" href="H-level.html#3346" class="Bound"
+      >A</a
+      ><a name="3347"
+      > </a
+      ><a name="3348" class="Symbol"
+      >:</a
+      ><a name="3349"
+      > </a
+      ><a name="3350" class="PrimitiveType"
+      >Set</a
+      ><a name="3353"
+      > </a
+      ><a name="3354" href="H-level.html#3342" class="Bound"
+      >a</a
+      ><a name="3355" class="Symbol"
+      >}</a
+      ><a name="3356"
+      > </a
+      ><a name="3357" class="Symbol"
+      >&#8594;</a
+      ><a name="3358"
+      >
+            </a
+      ><a name="3371" href="H-level.html#858" class="Function"
+      >Is-set</a
+      ><a name="3377"
+      > </a
+      ><a name="3378" href="H-level.html#3346" class="Bound"
+      >A</a
+      ><a name="3379"
+      > </a
+      ><a name="3380" href="Logical-equivalence.html#467" class="Record Operator"
+      >&#8660;</a
+      ><a name="3381"
+      > </a
+      ><a name="3382" href="Equality.html#14961" class="Function"
+      >Uniqueness-of-identity-proofs</a
+      ><a name="3411"
+      > </a
+      ><a name="3412" href="H-level.html#3346" class="Bound"
+      >A</a
+      ><a name="3413"
+      >
+  </a
+      ><a name="3416" href="H-level.html#3329" class="Function"
+      >set&#8660;UIP</a
+      ><a name="3423"
+      > </a
+      ><a name="3424" class="Symbol"
+      >{</a
+      ><a name="3425" class="Argument"
+      >A</a
+      ><a name="3426"
+      > </a
+      ><a name="3427" class="Symbol"
+      >=</a
+      ><a name="3428"
+      > </a
+      ><a name="3429" href="H-level.html#3429" class="Bound"
+      >A</a
+      ><a name="3430" class="Symbol"
+      >}</a
+      ><a name="3431"
+      > </a
+      ><a name="3432" class="Symbol"
+      >=</a
+      ><a name="3433"
+      > </a
+      ><a name="3434" class="Keyword"
+      >record</a
+      ><a name="3440"
+      >
+    </a
+      ><a name="3445" class="Symbol"
+      >{</a
+      ><a name="3446"
+      > </a
+      ><a name="3447" class="Field"
+      >to</a
+      ><a name="3449"
+      >   </a
+      ><a name="3452" class="Symbol"
+      >=</a
+      ><a name="3453"
+      > </a
+      ><a name="3454" class="Symbol"
+      >&#955;</a
+      ><a name="3455"
+      > </a
+      ><a name="3456" href="H-level.html#3456" class="Bound"
+      >h</a
+      ><a name="3457"
+      > </a
+      ><a name="3458" class="Symbol"
+      >{</a
+      ><a name="3459" href="H-level.html#3459" class="Bound"
+      >x</a
+      ><a name="3460" class="Symbol"
+      >}</a
+      ><a name="3461"
+      > </a
+      ><a name="3462" class="Symbol"
+      >{</a
+      ><a name="3463" href="H-level.html#3463" class="Bound"
+      >y</a
+      ><a name="3464" class="Symbol"
+      >}</a
+      ><a name="3465"
+      > </a
+      ><a name="3466" href="H-level.html#3466" class="Bound"
+      >x&#8801;y</a
+      ><a name="3469"
+      > </a
+      ><a name="3470" href="H-level.html#3470" class="Bound"
+      >x&#8801;y&#8242;</a
+      ><a name="3474"
+      > </a
+      ><a name="3475" class="Symbol"
+      >&#8594;</a
+      ><a name="3476"
+      > </a
+      ><a name="3477" href="Prelude.html#4037" class="Field"
+      >proj&#8321;</a
+      ><a name="3482"
+      > </a
+      ><a name="3483" class="Symbol"
+      >(</a
+      ><a name="3484" href="H-level.html#3456" class="Bound"
+      >h</a
+      ><a name="3485"
+      > </a
+      ><a name="3486" href="H-level.html#3459" class="Bound"
+      >x</a
+      ><a name="3487"
+      > </a
+      ><a name="3488" href="H-level.html#3463" class="Bound"
+      >y</a
+      ><a name="3489"
+      > </a
+      ><a name="3490" href="H-level.html#3466" class="Bound"
+      >x&#8801;y</a
+      ><a name="3493"
+      > </a
+      ><a name="3494" href="H-level.html#3470" class="Bound"
+      >x&#8801;y&#8242;</a
+      ><a name="3498" class="Symbol"
+      >)</a
+      ><a name="3499"
+      >
+    </a
+      ><a name="3504" class="Symbol"
+      >;</a
+      ><a name="3505"
+      > </a
+      ><a name="3506" class="Field"
+      >from</a
+      ><a name="3510"
+      > </a
+      ><a name="3511" class="Symbol"
+      >=</a
+      ><a name="3512"
+      > </a
+      ><a name="3513" class="Symbol"
+      >&#955;</a
+      ><a name="3514"
+      > </a
+      ><a name="3515" href="H-level.html#3515" class="Bound"
+      >UIP</a
+      ><a name="3518"
+      > </a
+      ><a name="3519" href="H-level.html#3519" class="Bound"
+      >x</a
+      ><a name="3520"
+      > </a
+      ><a name="3521" href="H-level.html#3521" class="Bound"
+      >y</a
+      ><a name="3522"
+      > </a
+      ><a name="3523" class="Symbol"
+      >&#8594;</a
+      ><a name="3524"
+      >
+        </a
+      ><a name="3533" href="H-level.html#2061" class="Function"
+      >[inhabited&#8658;contractible]&#8658;propositional</a
+      ><a name="3571"
+      > </a
+      ><a name="3572" class="Symbol"
+      >(&#955;</a
+      ><a name="3574"
+      > </a
+      ><a name="3575" href="H-level.html#3575" class="Bound"
+      >x&#8801;y</a
+      ><a name="3578"
+      > </a
+      ><a name="3579" class="Symbol"
+      >&#8594;</a
+      ><a name="3580"
+      > </a
+      ><a name="3581" class="Symbol"
+      >(</a
+      ><a name="3582" href="H-level.html#3575" class="Bound"
+      >x&#8801;y</a
+      ><a name="3585"
+      > </a
+      ><a name="3586" href="Prelude.html#4021" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3587"
+      > </a
+      ><a name="3588" href="H-level.html#3515" class="Bound"
+      >UIP</a
+      ><a name="3591"
+      > </a
+      ><a name="3592" href="H-level.html#3575" class="Bound"
+      >x&#8801;y</a
+      ><a name="3595" class="Symbol"
+      >))</a
+      ><a name="3597"
+      >
+    </a
+      ><a name="3602" class="Symbol"
+      >}</a
+      ><a name="3603"
+      >
+
+</a
+      ><a name="3605" class="Comment"
+      >-- H-level&#160;n respects (split) surjections.</a
+      ><a name="3647"
+      >
+
+</a
+      ><a name="3649" href="H-level.html#3649" class="Function"
+      >respects-surjection</a
+      ><a name="3668"
+      > </a
+      ><a name="3669" class="Symbol"
+      >:</a
+      ><a name="3670"
+      >
+  </a
+      ><a name="3673" class="Symbol"
+      >&#8704;</a
+      ><a name="3674"
+      > </a
+      ><a name="3675" class="Symbol"
+      >{</a
+      ><a name="3676" href="H-level.html#3676" class="Bound"
+      >a</a
+      ><a name="3677"
+      > </a
+      ><a name="3678" href="H-level.html#3678" class="Bound"
+      >b</a
+      ><a name="3679" class="Symbol"
+      >}</a
+      ><a name="3680"
+      > </a
+      ><a name="3681" class="Symbol"
+      >{</a
+      ><a name="3682" href="H-level.html#3682" class="Bound"
+      >A</a
+      ><a name="3683"
+      > </a
+      ><a name="3684" class="Symbol"
+      >:</a
+      ><a name="3685"
+      > </a
+      ><a name="3686" class="PrimitiveType"
+      >Set</a
+      ><a name="3689"
+      > </a
+      ><a name="3690" href="H-level.html#3676" class="Bound"
+      >a</a
+      ><a name="3691" class="Symbol"
+      >}</a
+      ><a name="3692"
+      > </a
+      ><a name="3693" class="Symbol"
+      >{</a
+      ><a name="3694" href="H-level.html#3694" class="Bound"
+      >B</a
+      ><a name="3695"
+      > </a
+      ><a name="3696" class="Symbol"
+      >:</a
+      ><a name="3697"
+      > </a
+      ><a name="3698" class="PrimitiveType"
+      >Set</a
+      ><a name="3701"
+      > </a
+      ><a name="3702" href="H-level.html#3678" class="Bound"
+      >b</a
+      ><a name="3703" class="Symbol"
+      >}</a
+      ><a name="3704"
+      > </a
+      ><a name="3705" class="Symbol"
+      >&#8594;</a
+      ><a name="3706"
+      >
+  </a
+      ><a name="3709" href="H-level.html#3682" class="Bound"
+      >A</a
+      ><a name="3710"
+      > </a
+      ><a name="3711" href="Surjection.html#717" class="Record Operator"
+      >&#8608;</a
+      ><a name="3712"
+      > </a
+      ><a name="3713" href="H-level.html#3694" class="Bound"
+      >B</a
+      ><a name="3714"
+      > </a
+      ><a name="3715" class="Symbol"
+      >&#8594;</a
+      ><a name="3716"
+      > </a
+      ><a name="3717" class="Symbol"
+      >&#8704;</a
+      ><a name="3718"
+      > </a
+      ><a name="3719" href="H-level.html#3719" class="Bound"
+      >n</a
+      ><a name="3720"
+      > </a
+      ><a name="3721" class="Symbol"
+      >&#8594;</a
+      ><a name="3722"
+      > </a
+      ><a name="3723" href="H-level.html#646" class="Function"
+      >H-level</a
+      ><a name="3730"
+      > </a
+      ><a name="3731" href="H-level.html#3719" class="Bound"
+      >n</a
+      ><a name="3732"
+      > </a
+      ><a name="3733" href="H-level.html#3682" class="Bound"
+      >A</a
+      ><a name="3734"
+      > </a
+      ><a name="3735" class="Symbol"
+      >&#8594;</a
+      ><a name="3736"
+      > </a
+      ><a name="3737" href="H-level.html#646" class="Function"
+      >H-level</a
+      ><a name="3744"
+      > </a
+      ><a name="3745" href="H-level.html#3719" class="Bound"
+      >n</a
+      ><a name="3746"
+      > </a
+      ><a name="3747" href="H-level.html#3694" class="Bound"
+      >B</a
+      ><a name="3748"
+      >
+</a
+      ><a name="3749" href="H-level.html#3649" class="Function"
+      >respects-surjection</a
+      ><a name="3768"
+      > </a
+      ><a name="3769" href="H-level.html#3769" class="Bound"
+      >A&#8608;B</a
+      ><a name="3772"
+      > </a
+      ><a name="3773" href="Prelude.html#1778" class="InductiveConstructor"
+      >zero</a
+      ><a name="3777"
+      > </a
+      ><a name="3778" class="Symbol"
+      >(</a
+      ><a name="3779" href="H-level.html#3779" class="Bound"
+      >x</a
+      ><a name="3780"
+      > </a
+      ><a name="3781" href="Prelude.html#4021" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3782"
+      > </a
+      ><a name="3783" href="H-level.html#3783" class="Bound"
+      >irr</a
+      ><a name="3786" class="Symbol"
+      >)</a
+      ><a name="3787"
+      > </a
+      ><a name="3788" class="Symbol"
+      >=</a
+      ><a name="3789"
+      > </a
+      ><a name="3790" class="Symbol"
+      >(</a
+      ><a name="3791" href="Logical-equivalence.html#537" class="Function"
+      >to</a
+      ><a name="3793"
+      > </a
+      ><a name="3794" href="H-level.html#3779" class="Bound"
+      >x</a
+      ><a name="3795"
+      > </a
+      ><a name="3796" href="Prelude.html#4021" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3797"
+      > </a
+      ><a name="3798" href="H-level.html#3843" class="Function"
+      >irr&#8242;</a
+      ><a name="3802" class="Symbol"
+      >)</a
+      ><a name="3803"
+      >
+  </a
+      ><a name="3806" class="Keyword"
+      >where</a
+      ><a name="3811"
+      >
+  </a
+      ><a name="3814" class="Keyword"
+      >open</a
+      ><a name="3818"
+      > </a
+      ><a name="3819" href="Surjection.html#717" class="Module Operator"
+      >_&#8608;_</a
+      ><a name="3822"
+      > </a
+      ><a name="3823" href="H-level.html#3769" class="Bound"
+      >A&#8608;B</a
+      ><a name="3826"
+      >
+
+  </a
+      ><a name="3830" class="Keyword"
+      >abstract</a
+      ><a name="3838"
+      >
+    </a
+      ><a name="3843" href="H-level.html#3843" class="Function"
+      >irr&#8242;</a
+      ><a name="3847"
+      > </a
+      ><a name="3848" class="Symbol"
+      >:</a
+      ><a name="3849"
+      > </a
+      ><a name="3850" class="Symbol"
+      >&#8704;</a
+      ><a name="3851"
+      > </a
+      ><a name="3852" href="H-level.html#3852" class="Bound"
+      >y</a
+      ><a name="3853"
+      > </a
+      ><a name="3854" class="Symbol"
+      >&#8594;</a
+      ><a name="3855"
+      > </a
+      ><a name="3856" href="Logical-equivalence.html#537" class="Function"
+      >to</a
+      ><a name="3858"
+      > </a
+      ><a name="3859" href="H-level.html#3779" class="Bound"
+      >x</a
+      ><a name="3860"
+      > </a
+      ><a name="3861" href="Equality.html#510" class="Function Operator"
+      >&#8801;</a
+      ><a name="3862"
+      > </a
+      ><a name="3863" href="H-level.html#3852" class="Bound"
+      >y</a
+      ><a name="3864"
+      >
+    </a
+      ><a name="3869" href="H-level.html#3843" class="Function"
+      >irr&#8242;</a
+      ><a name="3873"
+      > </a
+      ><a name="3874" class="Symbol"
+      >=</a
+      ><a name="3875"
+      > </a
+      ><a name="3876" class="Symbol"
+      >&#955;</a
+      ><a name="3877"
+      > </a
+      ><a name="3878" href="H-level.html#3878" class="Bound"
+      >y</a
+      ><a name="3879"
+      > </a
+      ><a name="3880" class="Symbol"
+      >&#8594;</a
+      ><a name="3881"
+      >
+      </a
+      ><a name="3888" href="Logical-equivalence.html#537" class="Function"
+      >to</a
+      ><a name="3890"
+      > </a
+      ><a name="3891" href="H-level.html#3779" class="Bound"
+      >x</a
+      ><a name="3892"
+      >         </a
+      ><a name="3901" href="Equality.html#6787" class="Function Operator"
+      >&#8801;&#10216;</a
+      ><a name="3903"
+      > </a
+      ><a name="3904" href="Equality.html#2932" class="Function"
+      >cong</a
+      ><a name="3908"
+      > </a
+      ><a name="3909" href="Logical-equivalence.html#537" class="Function"
+      >to</a
+      ><a name="3911"
+      > </a
+      ><a name="3912" class="Symbol"
+      >(</a
+      ><a name="3913" href="H-level.html#3783" class="Bound"
+      >irr</a
+      ><a name="3916"
+      > </a
+      ><a name="3917" class="Symbol"
+      >(</a
+      ><a name="3918" href="Logical-equivalence.html#558" class="Function"
+      >from</a
+      ><a name="3922"
+      > </a
+      ><a name="3923" href="H-level.html#3878" class="Bound"
+      >y</a
+      ><a name="3924" class="Symbol"
+      >))</a
+      ><a name="3926"
+      > </a
+      ><a name="3927" href="Equality.html#6787" class="Function Operator"
+      >&#10217;</a
+      ><a name="3928"
+      >
+      </a
+      ><a name="3935" href="Logical-equivalence.html#537" class="Function"
+      >to</a
+      ><a name="3937"
+      > </a
+      ><a name="3938" class="Symbol"
+      >(</a
+      ><a name="3939" href="Logical-equivalence.html#558" class="Function"
+      >from</a
+      ><a name="3943"
+      > </a
+      ><a name="3944" href="H-level.html#3878" class="Bound"
+      >y</a
+      ><a name="3945" class="Symbol"
+      >)</a
+      ><a name="3946"
+      >  </a
+      ><a name="3948" href="Equality.html#6959" class="Function"
+      >&#8801;&#10216;</a
+      ><a name="3950"
+      > </a
+      ><a name="3951" href="Surjection.html#864" class="Function"
+      >right-inverse-of</a
+      ><a name="3967"
+      > </a
+      ><a name="3968" href="H-level.html#3878" class="Bound"
+      >y</a
+      ><a name="3969"
+      > </a
+      ><a name="3970" href="Equality.html#6959" class="Function"
+      >&#10217;&#8718;</a
+      ><a name="3972"
+      >
+      </a
+      ><a name="3979" href="H-level.html#3878" class="Bound"
+      >y</a
+      ><a name="3980"
+      >            </a
+      ><a name="3992" href="Equality.html#6959" class="Function"
+      >&#8718;</a
+      ><a name="3993"
+      >
+
+</a
+      ><a name="3995" href="H-level.html#3649" class="Function"
+      >respects-surjection</a
+      ><a name="4014"
+      > </a
+      ><a name="4015" href="H-level.html#4015" class="Bound"
+      >A&#8608;B</a
+      ><a name="4018"
+      > </a
+      ><a name="4019" class="Symbol"
+      >(</a
+      ><a name="4020" href="Prelude.html#1750" class="InductiveConstructor"
+      >suc</a
+      ><a name="4023"
+      > </a
+      ><a name="4024" href="H-level.html#4024" class="Bound"
+      >n</a
+      ><a name="4025" class="Symbol"
+      >)</a
+      ><a name="4026"
+      > </a
+      ><a name="4027" href="H-level.html#4027" class="Bound"
+      >h</a
+      ><a name="4028"
+      > </a
+      ><a name="4029" class="Symbol"
+      >=</a
+      ><a name="4030"
+      > </a
+      ><a name="4031" class="Symbol"
+      >&#955;</a
+      ><a name="4032"
+      > </a
+      ><a name="4033" href="H-level.html#4033" class="Bound"
+      >x</a
+      ><a name="4034"
+      > </a
+      ><a name="4035" href="H-level.html#4035" class="Bound"
+      >y</a
+      ><a name="4036"
+      > </a
+      ><a name="4037" class="Symbol"
+      >&#8594;</a
+      ><a name="4038"
+      >
+  </a
+      ><a name="4041" href="H-level.html#3649" class="Function"
+      >respects-surjection</a
+      ><a name="4060"
+      > </a
+      ><a name="4061" class="Symbol"
+      >(</a
+      ><a name="4062" href="Surjection.html#2978" class="Function"
+      >&#8608;-&#8801;</a
+      ><a name="4065"
+      > </a
+      ><a name="4066" href="H-level.html#4015" class="Bound"
+      >A&#8608;B</a
+      ><a name="4069" class="Symbol"
+      >)</a
+      ><a name="4070"
+      > </a
+      ><a name="4071" href="H-level.html#4024" class="Bound"
+      >n</a
+      ><a name="4072"
+      > </a
+      ><a name="4073" class="Symbol"
+      >(</a
+      ><a name="4074" href="H-level.html#4027" class="Bound"
+      >h</a
+      ><a name="4075"
+      > </a
+      ><a name="4076" class="Symbol"
+      >(</a
+      ><a name="4077" href="Logical-equivalence.html#558" class="Function"
+      >from</a
+      ><a name="4081"
+      > </a
+      ><a name="4082" href="H-level.html#4033" class="Bound"
+      >x</a
+      ><a name="4083" class="Symbol"
+      >)</a
+      ><a name="4084"
+      > </a
+      ><a name="4085" class="Symbol"
+      >(</a
+      ><a name="4086" href="Logical-equivalence.html#558" class="Function"
+      >from</a
+      ><a name="4090"
+      > </a
+      ><a name="4091" href="H-level.html#4035" class="Bound"
+      >y</a
+      ><a name="4092" class="Symbol"
+      >))</a
+      ><a name="4094"
+      >
+  </a
+      ><a name="4097" class="Keyword"
+      >where</a
+      ><a name="4102"
+      > </a
+      ><a name="4103" class="Keyword"
+      >open</a
+      ><a name="4107"
+      > </a
+      ><a name="4108" href="Surjection.html#717" class="Module Operator"
+      >_&#8608;_</a
+      ><a name="4111"
+      > </a
+      ><a name="4112" href="H-level.html#4015" class="Bound"
+      >A&#8608;B</a
+      ><a name="4115"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

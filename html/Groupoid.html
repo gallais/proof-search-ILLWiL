@@ -1,0 +1,1535 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >Groupoid</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Comment"
+      >------------------------------------------------------------------------</a
+      ><a name="73"
+      >
+</a
+      ><a name="74" class="Comment"
+      >-- Groupoids</a
+      ><a name="86"
+      >
+</a
+      ><a name="87" class="Comment"
+      >------------------------------------------------------------------------</a
+      ><a name="159"
+      >
+
+</a
+      ><a name="161" class="Symbol"
+      >{-#</a
+      ><a name="164"
+      > </a
+      ><a name="165" class="Keyword"
+      >OPTIONS</a
+      ><a name="172"
+      > --without-K </a
+      ><a name="185" class="Symbol"
+      >#-}</a
+      ><a name="188"
+      >
+
+</a
+      ><a name="190" class="Keyword"
+      >open</a
+      ><a name="194"
+      > </a
+      ><a name="195" class="Keyword"
+      >import</a
+      ><a name="201"
+      > </a
+      ><a name="202" href="Equality.html#1" class="Module"
+      >Equality</a
+      ><a name="210"
+      >
+
+</a
+      ><a name="212" class="Keyword"
+      >module</a
+      ><a name="218"
+      > </a
+      ><a name="219" href="Groupoid.html#1" class="Module"
+      >Groupoid</a
+      ><a name="227"
+      >
+  </a
+      ><a name="230" class="Symbol"
+      >{</a
+      ><a name="231" href="Groupoid.html#231" class="Bound"
+      >reflexive</a
+      ><a name="240" class="Symbol"
+      >}</a
+      ><a name="241"
+      > </a
+      ><a name="242" class="Symbol"
+      >(</a
+      ><a name="243" href="Groupoid.html#243" class="Bound"
+      >eq</a
+      ><a name="245"
+      > </a
+      ><a name="246" class="Symbol"
+      >:</a
+      ><a name="247"
+      > </a
+      ><a name="248" class="Symbol"
+      >&#8704;</a
+      ><a name="249"
+      > </a
+      ><a name="250" class="Symbol"
+      >{</a
+      ><a name="251" href="Groupoid.html#251" class="Bound"
+      >a</a
+      ><a name="252"
+      > </a
+      ><a name="253" href="Groupoid.html#253" class="Bound"
+      >p</a
+      ><a name="254" class="Symbol"
+      >}</a
+      ><a name="255"
+      > </a
+      ><a name="256" class="Symbol"
+      >&#8594;</a
+      ><a name="257"
+      > </a
+      ><a name="258" href="Equality.html#2165" class="Record"
+      >Equality-with-J</a
+      ><a name="273"
+      > </a
+      ><a name="274" href="Groupoid.html#251" class="Bound"
+      >a</a
+      ><a name="275"
+      > </a
+      ><a name="276" href="Groupoid.html#253" class="Bound"
+      >p</a
+      ><a name="277"
+      > </a
+      ><a name="278" href="Groupoid.html#231" class="Bound"
+      >reflexive</a
+      ><a name="287" class="Symbol"
+      >)</a
+      ><a name="288"
+      > </a
+      ><a name="289" class="Keyword"
+      >where</a
+      ><a name="294"
+      >
+
+</a
+      ><a name="296" class="Keyword"
+      >open</a
+      ><a name="300"
+      > </a
+      ><a name="301" href="Equality.html#9726" class="Module"
+      >Derived-definitions-and-properties</a
+      ><a name="335"
+      > </a
+      ><a name="336" href="Groupoid.html#243" class="Bound"
+      >eq</a
+      ><a name="338"
+      >
+</a
+      ><a name="339" class="Keyword"
+      >open</a
+      ><a name="343"
+      > </a
+      ><a name="344" class="Keyword"
+      >import</a
+      ><a name="350"
+      > </a
+      ><a name="351" href="Prelude.html#1" class="Module"
+      >Prelude</a
+      ><a name="358"
+      > </a
+      ><a name="359" class="Keyword"
+      >hiding</a
+      ><a name="365"
+      > </a
+      ><a name="366" class="Symbol"
+      >(</a
+      ><a name="367"
+      >id</a
+      ><a name="369" class="Symbol"
+      >;</a
+      ><a name="370"
+      > _&#8728;_</a
+      ><a name="374" class="Symbol"
+      >)</a
+      ><a name="375"
+      >
+
+</a
+      ><a name="377" class="Comment"
+      >-- Groupoids using _&#8801;_ as the underlying equality.</a
+      ><a name="427"
+      >
+
+</a
+      ><a name="429" class="Keyword"
+      >record</a
+      ><a name="435"
+      > </a
+      ><a name="436" href="Groupoid.html#436" class="Record"
+      >Groupoid</a
+      ><a name="444"
+      > </a
+      ><a name="445" href="Groupoid.html#445" class="Bound"
+      >o</a
+      ><a name="446"
+      > </a
+      ><a name="447" href="Groupoid.html#447" class="Bound"
+      >p</a
+      ><a name="448"
+      > </a
+      ><a name="449" class="Symbol"
+      >:</a
+      ><a name="450"
+      > </a
+      ><a name="451" class="PrimitiveType"
+      >Set</a
+      ><a name="454"
+      > </a
+      ><a name="455" class="Symbol"
+      >(</a
+      ><a name="456" href="Agda.Primitive.html#596" class="Primitive"
+      >lsuc</a
+      ><a name="460"
+      > </a
+      ><a name="461" class="Symbol"
+      >(</a
+      ><a name="462" href="Groupoid.html#445" class="Bound"
+      >o</a
+      ><a name="463"
+      > </a
+      ><a name="464" href="Agda.Primitive.html#626" class="Primitive Operator"
+      >&#8852;</a
+      ><a name="465"
+      > </a
+      ><a name="466" href="Groupoid.html#447" class="Bound"
+      >p</a
+      ><a name="467" class="Symbol"
+      >))</a
+      ><a name="469"
+      > </a
+      ><a name="470" class="Keyword"
+      >where</a
+      ><a name="475"
+      >
+  </a
+      ><a name="478" class="Keyword"
+      >infix</a
+      ><a name="483"
+      >  </a
+      ><a name="485" class="Number"
+      >8</a
+      ><a name="486"
+      > _&#8315;&#185;
+  </a
+      ><a name="493" class="Keyword"
+      >infixr</a
+      ><a name="499"
+      > </a
+      ><a name="500" class="Number"
+      >7</a
+      ><a name="501"
+      > _&#8728;_
+  </a
+      ><a name="508" class="Keyword"
+      >infix</a
+      ><a name="513"
+      >  </a
+      ><a name="515" class="Number"
+      >4</a
+      ><a name="516"
+      > _&#8764;_
+  </a
+      ><a name="523" class="Keyword"
+      >field</a
+      ><a name="528"
+      >
+    </a
+      ><a name="533" href="Groupoid.html#533" class="Field"
+      >Object</a
+      ><a name="539"
+      > </a
+      ><a name="540" class="Symbol"
+      >:</a
+      ><a name="541"
+      > </a
+      ><a name="542" class="PrimitiveType"
+      >Set</a
+      ><a name="545"
+      > </a
+      ><a name="546" href="Groupoid.html#445" class="Bound"
+      >o</a
+      ><a name="547"
+      >
+    </a
+      ><a name="552" href="Groupoid.html#552" class="Field Operator"
+      >_&#8764;_</a
+      ><a name="555"
+      >    </a
+      ><a name="559" class="Symbol"
+      >:</a
+      ><a name="560"
+      > </a
+      ><a name="561" href="Groupoid.html#533" class="Bound"
+      >Object</a
+      ><a name="567"
+      > </a
+      ><a name="568" class="Symbol"
+      >&#8594;</a
+      ><a name="569"
+      > </a
+      ><a name="570" href="Groupoid.html#533" class="Bound"
+      >Object</a
+      ><a name="576"
+      > </a
+      ><a name="577" class="Symbol"
+      >&#8594;</a
+      ><a name="578"
+      > </a
+      ><a name="579" class="PrimitiveType"
+      >Set</a
+      ><a name="582"
+      > </a
+      ><a name="583" href="Groupoid.html#447" class="Bound"
+      >p</a
+      ><a name="584"
+      >
+
+    </a
+      ><a name="590" href="Groupoid.html#590" class="Field"
+      >id</a
+      ><a name="592"
+      >  </a
+      ><a name="594" class="Symbol"
+      >:</a
+      ><a name="595"
+      > </a
+      ><a name="596" class="Symbol"
+      >&#8704;</a
+      ><a name="597"
+      > </a
+      ><a name="598" class="Symbol"
+      >{</a
+      ><a name="599" href="Groupoid.html#599" class="Bound"
+      >x</a
+      ><a name="600" class="Symbol"
+      >}</a
+      ><a name="601"
+      > </a
+      ><a name="602" class="Symbol"
+      >&#8594;</a
+      ><a name="603"
+      > </a
+      ><a name="604" href="Groupoid.html#599" class="Bound"
+      >x</a
+      ><a name="605"
+      > </a
+      ><a name="606" href="Groupoid.html#552" class="Bound Operator"
+      >&#8764;</a
+      ><a name="607"
+      > </a
+      ><a name="608" href="Groupoid.html#599" class="Bound"
+      >x</a
+      ><a name="609"
+      >
+    </a
+      ><a name="614" href="Groupoid.html#614" class="Field Operator"
+      >_&#8728;_</a
+      ><a name="617"
+      > </a
+      ><a name="618" class="Symbol"
+      >:</a
+      ><a name="619"
+      > </a
+      ><a name="620" class="Symbol"
+      >&#8704;</a
+      ><a name="621"
+      > </a
+      ><a name="622" class="Symbol"
+      >{</a
+      ><a name="623" href="Groupoid.html#623" class="Bound"
+      >x</a
+      ><a name="624"
+      > </a
+      ><a name="625" href="Groupoid.html#625" class="Bound"
+      >y</a
+      ><a name="626"
+      > </a
+      ><a name="627" href="Groupoid.html#627" class="Bound"
+      >z</a
+      ><a name="628" class="Symbol"
+      >}</a
+      ><a name="629"
+      > </a
+      ><a name="630" class="Symbol"
+      >&#8594;</a
+      ><a name="631"
+      > </a
+      ><a name="632" href="Groupoid.html#625" class="Bound"
+      >y</a
+      ><a name="633"
+      > </a
+      ><a name="634" href="Groupoid.html#552" class="Bound Operator"
+      >&#8764;</a
+      ><a name="635"
+      > </a
+      ><a name="636" href="Groupoid.html#627" class="Bound"
+      >z</a
+      ><a name="637"
+      > </a
+      ><a name="638" class="Symbol"
+      >&#8594;</a
+      ><a name="639"
+      > </a
+      ><a name="640" href="Groupoid.html#623" class="Bound"
+      >x</a
+      ><a name="641"
+      > </a
+      ><a name="642" href="Groupoid.html#552" class="Bound Operator"
+      >&#8764;</a
+      ><a name="643"
+      > </a
+      ><a name="644" href="Groupoid.html#625" class="Bound"
+      >y</a
+      ><a name="645"
+      > </a
+      ><a name="646" class="Symbol"
+      >&#8594;</a
+      ><a name="647"
+      > </a
+      ><a name="648" href="Groupoid.html#623" class="Bound"
+      >x</a
+      ><a name="649"
+      > </a
+      ><a name="650" href="Groupoid.html#552" class="Bound Operator"
+      >&#8764;</a
+      ><a name="651"
+      > </a
+      ><a name="652" href="Groupoid.html#627" class="Bound"
+      >z</a
+      ><a name="653"
+      >
+    </a
+      ><a name="658" href="Groupoid.html#658" class="Field Operator"
+      >_&#8315;&#185;</a
+      ><a name="661"
+      > </a
+      ><a name="662" class="Symbol"
+      >:</a
+      ><a name="663"
+      > </a
+      ><a name="664" class="Symbol"
+      >&#8704;</a
+      ><a name="665"
+      > </a
+      ><a name="666" class="Symbol"
+      >{</a
+      ><a name="667" href="Groupoid.html#667" class="Bound"
+      >x</a
+      ><a name="668"
+      > </a
+      ><a name="669" href="Groupoid.html#669" class="Bound"
+      >y</a
+      ><a name="670" class="Symbol"
+      >}</a
+      ><a name="671"
+      > </a
+      ><a name="672" class="Symbol"
+      >&#8594;</a
+      ><a name="673"
+      > </a
+      ><a name="674" href="Groupoid.html#667" class="Bound"
+      >x</a
+      ><a name="675"
+      > </a
+      ><a name="676" href="Groupoid.html#552" class="Bound Operator"
+      >&#8764;</a
+      ><a name="677"
+      > </a
+      ><a name="678" href="Groupoid.html#669" class="Bound"
+      >y</a
+      ><a name="679"
+      > </a
+      ><a name="680" class="Symbol"
+      >&#8594;</a
+      ><a name="681"
+      > </a
+      ><a name="682" href="Groupoid.html#669" class="Bound"
+      >y</a
+      ><a name="683"
+      > </a
+      ><a name="684" href="Groupoid.html#552" class="Bound Operator"
+      >&#8764;</a
+      ><a name="685"
+      > </a
+      ><a name="686" href="Groupoid.html#667" class="Bound"
+      >x</a
+      ><a name="687"
+      >
+
+    </a
+      ><a name="693" href="Groupoid.html#693" class="Field"
+      >left-identity</a
+      ><a name="706"
+      >  </a
+      ><a name="708" class="Symbol"
+      >:</a
+      ><a name="709"
+      > </a
+      ><a name="710" class="Symbol"
+      >&#8704;</a
+      ><a name="711"
+      > </a
+      ><a name="712" class="Symbol"
+      >{</a
+      ><a name="713" href="Groupoid.html#713" class="Bound"
+      >x</a
+      ><a name="714"
+      > </a
+      ><a name="715" href="Groupoid.html#715" class="Bound"
+      >y</a
+      ><a name="716" class="Symbol"
+      >}</a
+      ><a name="717"
+      > </a
+      ><a name="718" class="Symbol"
+      >(</a
+      ><a name="719" href="Groupoid.html#719" class="Bound"
+      >p</a
+      ><a name="720"
+      > </a
+      ><a name="721" class="Symbol"
+      >:</a
+      ><a name="722"
+      > </a
+      ><a name="723" href="Groupoid.html#713" class="Bound"
+      >x</a
+      ><a name="724"
+      > </a
+      ><a name="725" href="Groupoid.html#552" class="Bound Operator"
+      >&#8764;</a
+      ><a name="726"
+      > </a
+      ><a name="727" href="Groupoid.html#715" class="Bound"
+      >y</a
+      ><a name="728" class="Symbol"
+      >)</a
+      ><a name="729"
+      > </a
+      ><a name="730" class="Symbol"
+      >&#8594;</a
+      ><a name="731"
+      > </a
+      ><a name="732" href="Groupoid.html#590" class="Bound"
+      >id</a
+      ><a name="734"
+      > </a
+      ><a name="735" href="Groupoid.html#614" class="Bound Operator"
+      >&#8728;</a
+      ><a name="736"
+      > </a
+      ><a name="737" href="Groupoid.html#719" class="Bound"
+      >p</a
+      ><a name="738"
+      > </a
+      ><a name="739" href="Equality.html#510" class="Function Operator"
+      >&#8801;</a
+      ><a name="740"
+      > </a
+      ><a name="741" href="Groupoid.html#719" class="Bound"
+      >p</a
+      ><a name="742"
+      >
+    </a
+      ><a name="747" href="Groupoid.html#747" class="Field"
+      >right-identity</a
+      ><a name="761"
+      > </a
+      ><a name="762" class="Symbol"
+      >:</a
+      ><a name="763"
+      > </a
+      ><a name="764" class="Symbol"
+      >&#8704;</a
+      ><a name="765"
+      > </a
+      ><a name="766" class="Symbol"
+      >{</a
+      ><a name="767" href="Groupoid.html#767" class="Bound"
+      >x</a
+      ><a name="768"
+      > </a
+      ><a name="769" href="Groupoid.html#769" class="Bound"
+      >y</a
+      ><a name="770" class="Symbol"
+      >}</a
+      ><a name="771"
+      > </a
+      ><a name="772" class="Symbol"
+      >(</a
+      ><a name="773" href="Groupoid.html#773" class="Bound"
+      >p</a
+      ><a name="774"
+      > </a
+      ><a name="775" class="Symbol"
+      >:</a
+      ><a name="776"
+      > </a
+      ><a name="777" href="Groupoid.html#767" class="Bound"
+      >x</a
+      ><a name="778"
+      > </a
+      ><a name="779" href="Groupoid.html#552" class="Bound Operator"
+      >&#8764;</a
+      ><a name="780"
+      > </a
+      ><a name="781" href="Groupoid.html#769" class="Bound"
+      >y</a
+      ><a name="782" class="Symbol"
+      >)</a
+      ><a name="783"
+      > </a
+      ><a name="784" class="Symbol"
+      >&#8594;</a
+      ><a name="785"
+      > </a
+      ><a name="786" href="Groupoid.html#773" class="Bound"
+      >p</a
+      ><a name="787"
+      > </a
+      ><a name="788" href="Groupoid.html#614" class="Bound Operator"
+      >&#8728;</a
+      ><a name="789"
+      > </a
+      ><a name="790" href="Groupoid.html#590" class="Bound"
+      >id</a
+      ><a name="792"
+      > </a
+      ><a name="793" href="Equality.html#510" class="Function Operator"
+      >&#8801;</a
+      ><a name="794"
+      > </a
+      ><a name="795" href="Groupoid.html#773" class="Bound"
+      >p</a
+      ><a name="796"
+      >
+    </a
+      ><a name="801" href="Groupoid.html#801" class="Field"
+      >assoc</a
+      ><a name="806"
+      >          </a
+      ><a name="816" class="Symbol"
+      >:</a
+      ><a name="817"
+      > </a
+      ><a name="818" class="Symbol"
+      >&#8704;</a
+      ><a name="819"
+      > </a
+      ><a name="820" class="Symbol"
+      >{</a
+      ><a name="821" href="Groupoid.html#821" class="Bound"
+      >w</a
+      ><a name="822"
+      > </a
+      ><a name="823" href="Groupoid.html#823" class="Bound"
+      >x</a
+      ><a name="824"
+      > </a
+      ><a name="825" href="Groupoid.html#825" class="Bound"
+      >y</a
+      ><a name="826"
+      > </a
+      ><a name="827" href="Groupoid.html#827" class="Bound"
+      >z</a
+      ><a name="828" class="Symbol"
+      >}</a
+      ><a name="829"
+      > </a
+      ><a name="830" class="Symbol"
+      >(</a
+      ><a name="831" href="Groupoid.html#831" class="Bound"
+      >p</a
+      ><a name="832"
+      > </a
+      ><a name="833" class="Symbol"
+      >:</a
+      ><a name="834"
+      > </a
+      ><a name="835" href="Groupoid.html#825" class="Bound"
+      >y</a
+      ><a name="836"
+      > </a
+      ><a name="837" href="Groupoid.html#552" class="Bound Operator"
+      >&#8764;</a
+      ><a name="838"
+      > </a
+      ><a name="839" href="Groupoid.html#827" class="Bound"
+      >z</a
+      ><a name="840" class="Symbol"
+      >)</a
+      ><a name="841"
+      > </a
+      ><a name="842" class="Symbol"
+      >(</a
+      ><a name="843" href="Groupoid.html#843" class="Bound"
+      >q</a
+      ><a name="844"
+      > </a
+      ><a name="845" class="Symbol"
+      >:</a
+      ><a name="846"
+      > </a
+      ><a name="847" href="Groupoid.html#823" class="Bound"
+      >x</a
+      ><a name="848"
+      > </a
+      ><a name="849" href="Groupoid.html#552" class="Bound Operator"
+      >&#8764;</a
+      ><a name="850"
+      > </a
+      ><a name="851" href="Groupoid.html#825" class="Bound"
+      >y</a
+      ><a name="852" class="Symbol"
+      >)</a
+      ><a name="853"
+      > </a
+      ><a name="854" class="Symbol"
+      >(</a
+      ><a name="855" href="Groupoid.html#855" class="Bound"
+      >r</a
+      ><a name="856"
+      > </a
+      ><a name="857" class="Symbol"
+      >:</a
+      ><a name="858"
+      > </a
+      ><a name="859" href="Groupoid.html#821" class="Bound"
+      >w</a
+      ><a name="860"
+      > </a
+      ><a name="861" href="Groupoid.html#552" class="Bound Operator"
+      >&#8764;</a
+      ><a name="862"
+      > </a
+      ><a name="863" href="Groupoid.html#823" class="Bound"
+      >x</a
+      ><a name="864" class="Symbol"
+      >)</a
+      ><a name="865"
+      > </a
+      ><a name="866" class="Symbol"
+      >&#8594;</a
+      ><a name="867"
+      >
+                     </a
+      ><a name="889" href="Groupoid.html#831" class="Bound"
+      >p</a
+      ><a name="890"
+      > </a
+      ><a name="891" href="Groupoid.html#614" class="Bound Operator"
+      >&#8728;</a
+      ><a name="892"
+      > </a
+      ><a name="893" class="Symbol"
+      >(</a
+      ><a name="894" href="Groupoid.html#843" class="Bound"
+      >q</a
+      ><a name="895"
+      > </a
+      ><a name="896" href="Groupoid.html#614" class="Bound Operator"
+      >&#8728;</a
+      ><a name="897"
+      > </a
+      ><a name="898" href="Groupoid.html#855" class="Bound"
+      >r</a
+      ><a name="899" class="Symbol"
+      >)</a
+      ><a name="900"
+      > </a
+      ><a name="901" href="Equality.html#510" class="Function Operator"
+      >&#8801;</a
+      ><a name="902"
+      > </a
+      ><a name="903" class="Symbol"
+      >(</a
+      ><a name="904" href="Groupoid.html#831" class="Bound"
+      >p</a
+      ><a name="905"
+      > </a
+      ><a name="906" href="Groupoid.html#614" class="Bound Operator"
+      >&#8728;</a
+      ><a name="907"
+      > </a
+      ><a name="908" href="Groupoid.html#843" class="Bound"
+      >q</a
+      ><a name="909" class="Symbol"
+      >)</a
+      ><a name="910"
+      > </a
+      ><a name="911" href="Groupoid.html#614" class="Bound Operator"
+      >&#8728;</a
+      ><a name="912"
+      > </a
+      ><a name="913" href="Groupoid.html#855" class="Bound"
+      >r</a
+      ><a name="914"
+      >
+    </a
+      ><a name="919" href="Groupoid.html#919" class="Field"
+      >left-inverse</a
+      ><a name="931"
+      >   </a
+      ><a name="934" class="Symbol"
+      >:</a
+      ><a name="935"
+      > </a
+      ><a name="936" class="Symbol"
+      >&#8704;</a
+      ><a name="937"
+      > </a
+      ><a name="938" class="Symbol"
+      >{</a
+      ><a name="939" href="Groupoid.html#939" class="Bound"
+      >x</a
+      ><a name="940"
+      > </a
+      ><a name="941" href="Groupoid.html#941" class="Bound"
+      >y</a
+      ><a name="942" class="Symbol"
+      >}</a
+      ><a name="943"
+      > </a
+      ><a name="944" class="Symbol"
+      >(</a
+      ><a name="945" href="Groupoid.html#945" class="Bound"
+      >p</a
+      ><a name="946"
+      > </a
+      ><a name="947" class="Symbol"
+      >:</a
+      ><a name="948"
+      > </a
+      ><a name="949" href="Groupoid.html#939" class="Bound"
+      >x</a
+      ><a name="950"
+      > </a
+      ><a name="951" href="Groupoid.html#552" class="Bound Operator"
+      >&#8764;</a
+      ><a name="952"
+      > </a
+      ><a name="953" href="Groupoid.html#941" class="Bound"
+      >y</a
+      ><a name="954" class="Symbol"
+      >)</a
+      ><a name="955"
+      > </a
+      ><a name="956" class="Symbol"
+      >&#8594;</a
+      ><a name="957"
+      > </a
+      ><a name="958" href="Groupoid.html#945" class="Bound"
+      >p</a
+      ><a name="959"
+      > </a
+      ><a name="960" href="Groupoid.html#658" class="Bound Operator"
+      >&#8315;&#185;</a
+      ><a name="962"
+      > </a
+      ><a name="963" href="Groupoid.html#614" class="Bound Operator"
+      >&#8728;</a
+      ><a name="964"
+      > </a
+      ><a name="965" href="Groupoid.html#945" class="Bound"
+      >p</a
+      ><a name="966"
+      > </a
+      ><a name="967" href="Equality.html#510" class="Function Operator"
+      >&#8801;</a
+      ><a name="968"
+      > </a
+      ><a name="969" href="Groupoid.html#590" class="Bound"
+      >id</a
+      ><a name="971"
+      >
+    </a
+      ><a name="976" href="Groupoid.html#976" class="Field"
+      >right-inverse</a
+      ><a name="989"
+      >  </a
+      ><a name="991" class="Symbol"
+      >:</a
+      ><a name="992"
+      > </a
+      ><a name="993" class="Symbol"
+      >&#8704;</a
+      ><a name="994"
+      > </a
+      ><a name="995" class="Symbol"
+      >{</a
+      ><a name="996" href="Groupoid.html#996" class="Bound"
+      >x</a
+      ><a name="997"
+      > </a
+      ><a name="998" href="Groupoid.html#998" class="Bound"
+      >y</a
+      ><a name="999" class="Symbol"
+      >}</a
+      ><a name="1000"
+      > </a
+      ><a name="1001" class="Symbol"
+      >(</a
+      ><a name="1002" href="Groupoid.html#1002" class="Bound"
+      >p</a
+      ><a name="1003"
+      > </a
+      ><a name="1004" class="Symbol"
+      >:</a
+      ><a name="1005"
+      > </a
+      ><a name="1006" href="Groupoid.html#996" class="Bound"
+      >x</a
+      ><a name="1007"
+      > </a
+      ><a name="1008" href="Groupoid.html#552" class="Bound Operator"
+      >&#8764;</a
+      ><a name="1009"
+      > </a
+      ><a name="1010" href="Groupoid.html#998" class="Bound"
+      >y</a
+      ><a name="1011" class="Symbol"
+      >)</a
+      ><a name="1012"
+      > </a
+      ><a name="1013" class="Symbol"
+      >&#8594;</a
+      ><a name="1014"
+      > </a
+      ><a name="1015" href="Groupoid.html#1002" class="Bound"
+      >p</a
+      ><a name="1016"
+      > </a
+      ><a name="1017" href="Groupoid.html#614" class="Bound Operator"
+      >&#8728;</a
+      ><a name="1018"
+      > </a
+      ><a name="1019" href="Groupoid.html#1002" class="Bound"
+      >p</a
+      ><a name="1020"
+      > </a
+      ><a name="1021" href="Groupoid.html#658" class="Bound Operator"
+      >&#8315;&#185;</a
+      ><a name="1023"
+      > </a
+      ><a name="1024" href="Equality.html#510" class="Function Operator"
+      >&#8801;</a
+      ><a name="1025"
+      > </a
+      ><a name="1026" href="Groupoid.html#590" class="Bound"
+      >id</a
+      ><a name="1028"
+      >
+
+  </a
+      ><a name="1032" class="Comment"
+      >-- Note that this definition should perhaps contain more coherence</a
+      ><a name="1098"
+      >
+  </a
+      ><a name="1101" class="Comment"
+      >-- properties: we have not assumed that _&#8801;_ is proof-irrelevant.</a
+      ><a name="1165"
+      >
+
+  </a
+      ><a name="1169" class="Comment"
+      >-- Some derived properties.</a
+      ><a name="1196"
+      >
+
+  </a
+      ><a name="1200" class="Keyword"
+      >abstract</a
+      ><a name="1208"
+      >
+
+    </a
+      ><a name="1214" class="Comment"
+      >-- The identity is an identity for the inverse operator as well.</a
+      ><a name="1278"
+      >
+
+    </a
+      ><a name="1284" href="Groupoid.html#1284" class="Function"
+      >identity</a
+      ><a name="1292"
+      > </a
+      ><a name="1293" class="Symbol"
+      >:</a
+      ><a name="1294"
+      > </a
+      ><a name="1295" class="Symbol"
+      >&#8704;</a
+      ><a name="1296"
+      > </a
+      ><a name="1297" class="Symbol"
+      >{</a
+      ><a name="1298" href="Groupoid.html#1298" class="Bound"
+      >x</a
+      ><a name="1299" class="Symbol"
+      >}</a
+      ><a name="1300"
+      > </a
+      ><a name="1301" class="Symbol"
+      >&#8594;</a
+      ><a name="1302"
+      > </a
+      ><a name="1303" href="Groupoid.html#590" class="Field"
+      >id</a
+      ><a name="1305"
+      > </a
+      ><a name="1306" class="Symbol"
+      >{</a
+      ><a name="1307" class="Argument"
+      >x</a
+      ><a name="1308"
+      > </a
+      ><a name="1309" class="Symbol"
+      >=</a
+      ><a name="1310"
+      > </a
+      ><a name="1311" href="Groupoid.html#1298" class="Bound"
+      >x</a
+      ><a name="1312" class="Symbol"
+      >}</a
+      ><a name="1313"
+      > </a
+      ><a name="1314" href="Groupoid.html#658" class="Field Operator"
+      >&#8315;&#185;</a
+      ><a name="1316"
+      > </a
+      ><a name="1317" href="Equality.html#510" class="Function Operator"
+      >&#8801;</a
+      ><a name="1318"
+      > </a
+      ><a name="1319" href="Groupoid.html#590" class="Field"
+      >id</a
+      ><a name="1321"
+      >
+    </a
+      ><a name="1326" href="Groupoid.html#1284" class="Function"
+      >identity</a
+      ><a name="1334"
+      > </a
+      ><a name="1335" class="Symbol"
+      >=</a
+      ><a name="1336"
+      >
+      </a
+      ><a name="1343" href="Groupoid.html#590" class="Field"
+      >id</a
+      ><a name="1345"
+      > </a
+      ><a name="1346" href="Groupoid.html#658" class="Field Operator"
+      >&#8315;&#185;</a
+      ><a name="1348"
+      >       </a
+      ><a name="1355" href="Equality.html#6787" class="Function Operator"
+      >&#8801;&#10216;</a
+      ><a name="1357"
+      > </a
+      ><a name="1358" href="Equality.html#6042" class="Function"
+      >sym</a
+      ><a name="1361"
+      > </a
+      ><a name="1362" href="Prelude.html#3142" class="Function Operator"
+      >$</a
+      ><a name="1363"
+      > </a
+      ><a name="1364" href="Groupoid.html#747" class="Field"
+      >right-identity</a
+      ><a name="1378"
+      > </a
+      ><a name="1379" class="Symbol"
+      >(</a
+      ><a name="1380" href="Groupoid.html#590" class="Field"
+      >id</a
+      ><a name="1382"
+      > </a
+      ><a name="1383" href="Groupoid.html#658" class="Field Operator"
+      >&#8315;&#185;</a
+      ><a name="1385" class="Symbol"
+      >)</a
+      ><a name="1386"
+      > </a
+      ><a name="1387" href="Equality.html#6787" class="Function Operator"
+      >&#10217;</a
+      ><a name="1388"
+      >
+      </a
+      ><a name="1395" href="Groupoid.html#590" class="Field"
+      >id</a
+      ><a name="1397"
+      > </a
+      ><a name="1398" href="Groupoid.html#658" class="Field Operator"
+      >&#8315;&#185;</a
+      ><a name="1400"
+      > </a
+      ><a name="1401" href="Groupoid.html#614" class="Field Operator"
+      >&#8728;</a
+      ><a name="1402"
+      > </a
+      ><a name="1403" href="Groupoid.html#590" class="Field"
+      >id</a
+      ><a name="1405"
+      >  </a
+      ><a name="1407" href="Equality.html#6959" class="Function"
+      >&#8801;&#10216;</a
+      ><a name="1409"
+      > </a
+      ><a name="1410" href="Groupoid.html#919" class="Field"
+      >left-inverse</a
+      ><a name="1422"
+      > </a
+      ><a name="1423" href="Groupoid.html#590" class="Field"
+      >id</a
+      ><a name="1425"
+      > </a
+      ><a name="1426" href="Equality.html#6959" class="Function"
+      >&#10217;&#8718;</a
+      ><a name="1428"
+      >
+      </a
+      ><a name="1435" href="Groupoid.html#590" class="Field"
+      >id</a
+      ><a name="1437"
+      >          </a
+      ><a name="1447" href="Equality.html#6959" class="Function"
+      >&#8718;</a
+      ><a name="1448"
+      >
+
+    </a
+      ><a name="1454" class="Comment"
+      >-- The inverse operator is idempotent.</a
+      ><a name="1492"
+      >
+
+    </a
+      ><a name="1498" href="Groupoid.html#1498" class="Function"
+      >idempotent</a
+      ><a name="1508"
+      > </a
+      ><a name="1509" class="Symbol"
+      >:</a
+      ><a name="1510"
+      > </a
+      ><a name="1511" class="Symbol"
+      >&#8704;</a
+      ><a name="1512"
+      > </a
+      ><a name="1513" class="Symbol"
+      >{</a
+      ><a name="1514" href="Groupoid.html#1514" class="Bound"
+      >x</a
+      ><a name="1515"
+      > </a
+      ><a name="1516" href="Groupoid.html#1516" class="Bound"
+      >y</a
+      ><a name="1517" class="Symbol"
+      >}</a
+      ><a name="1518"
+      > </a
+      ><a name="1519" class="Symbol"
+      >(</a
+      ><a name="1520" href="Groupoid.html#1520" class="Bound"
+      >p</a
+      ><a name="1521"
+      > </a
+      ><a name="1522" class="Symbol"
+      >:</a
+      ><a name="1523"
+      > </a
+      ><a name="1524" href="Groupoid.html#1514" class="Bound"
+      >x</a
+      ><a name="1525"
+      > </a
+      ><a name="1526" href="Groupoid.html#552" class="Field Operator"
+      >&#8764;</a
+      ><a name="1527"
+      > </a
+      ><a name="1528" href="Groupoid.html#1516" class="Bound"
+      >y</a
+      ><a name="1529" class="Symbol"
+      >)</a
+      ><a name="1530"
+      > </a
+      ><a name="1531" class="Symbol"
+      >&#8594;</a
+      ><a name="1532"
+      > </a
+      ><a name="1533" href="Groupoid.html#1520" class="Bound"
+      >p</a
+      ><a name="1534"
+      > </a
+      ><a name="1535" href="Groupoid.html#658" class="Field Operator"
+      >&#8315;&#185;</a
+      ><a name="1537"
+      > </a
+      ><a name="1538" href="Groupoid.html#658" class="Field Operator"
+      >&#8315;&#185;</a
+      ><a name="1540"
+      > </a
+      ><a name="1541" href="Equality.html#510" class="Function Operator"
+      >&#8801;</a
+      ><a name="1542"
+      > </a
+      ><a name="1543" href="Groupoid.html#1520" class="Bound"
+      >p</a
+      ><a name="1544"
+      >
+    </a
+      ><a name="1549" href="Groupoid.html#1498" class="Function"
+      >idempotent</a
+      ><a name="1559"
+      > </a
+      ><a name="1560" href="Groupoid.html#1560" class="Bound"
+      >p</a
+      ><a name="1561"
+      > </a
+      ><a name="1562" class="Symbol"
+      >=</a
+      ><a name="1563"
+      >
+      </a
+      ><a name="1570" href="Groupoid.html#1560" class="Bound"
+      >p</a
+      ><a name="1571"
+      > </a
+      ><a name="1572" href="Groupoid.html#658" class="Field Operator"
+      >&#8315;&#185;</a
+      ><a name="1574"
+      > </a
+      ><a name="1575" href="Groupoid.html#658" class="Field Operator"
+      >&#8315;&#185;</a
+      ><a name="1577"
+      >               </a
+      ><a name="1592" href="Equality.html#6787" class="Function Operator"
+      >&#8801;&#10216;</a
+      ><a name="1594"
+      > </a
+      ><a name="1595" href="Equality.html#6042" class="Function"
+      >sym</a
+      ><a name="1598"
+      > </a
+      ><a name="1599" href="Prelude.html#3142" class="Function Operator"
+      >$</a
+      ><a name="1600"
+      > </a
+      ><a name="1601" href="Groupoid.html#747" class="Field"
+      >right-identity</a
+      ><a name="1615"
+      > </a
+      ><a name="1616" class="Symbol"
+      >(</a
+      ><a name="1617" href="Groupoid.html#1560" class="Bound"
+      >p</a
+      ><a name="1618"
+      > </a
+      ><a name="1619" href="Groupoid.html#658" class="Field Operator"
+      >&#8315;&#185;</a
+      ><a name="1621"
+      > </a
+      ><a name="1622" href="Groupoid.html#658" class="Field Operator"
+      >&#8315;&#185;</a
+      ><a name="1624" class="Symbol"
+      >)</a
+      ><a name="1625"
+      > </a
+      ><a name="1626" href="Equality.html#6787" class="Function Operator"
+      >&#10217;</a
+      ><a name="1627"
+      >
+      </a
+      ><a name="1634" href="Groupoid.html#1560" class="Bound"
+      >p</a
+      ><a name="1635"
+      > </a
+      ><a name="1636" href="Groupoid.html#658" class="Field Operator"
+      >&#8315;&#185;</a
+      ><a name="1638"
+      > </a
+      ><a name="1639" href="Groupoid.html#658" class="Field Operator"
+      >&#8315;&#185;</a
+      ><a name="1641"
+      > </a
+      ><a name="1642" href="Groupoid.html#614" class="Field Operator"
+      >&#8728;</a
+      ><a name="1643"
+      > </a
+      ><a name="1644" href="Groupoid.html#590" class="Field"
+      >id</a
+      ><a name="1646"
+      >          </a
+      ><a name="1656" href="Equality.html#6787" class="Function Operator"
+      >&#8801;&#10216;</a
+      ><a name="1658"
+      > </a
+      ><a name="1659" href="Equality.html#6042" class="Function"
+      >sym</a
+      ><a name="1662"
+      > </a
+      ><a name="1663" href="Prelude.html#3142" class="Function Operator"
+      >$</a
+      ><a name="1664"
+      > </a
+      ><a name="1665" href="Equality.html#2932" class="Function"
+      >cong</a
+      ><a name="1669"
+      > </a
+      ><a name="1670" class="Symbol"
+      >(</a
+      ><a name="1671" href="Groupoid.html#614" class="Field Operator"
+      >_&#8728;_</a
+      ><a name="1674"
+      > </a
+      ><a name="1675" class="Symbol"
+      >(</a
+      ><a name="1676" href="Groupoid.html#1560" class="Bound"
+      >p</a
+      ><a name="1677"
+      > </a
+      ><a name="1678" href="Groupoid.html#658" class="Field Operator"
+      >&#8315;&#185;</a
+      ><a name="1680"
+      > </a
+      ><a name="1681" href="Groupoid.html#658" class="Field Operator"
+      >&#8315;&#185;</a
+      ><a name="1683" class="Symbol"
+      >))</a
+      ><a name="1685"
+      > </a
+      ><a name="1686" class="Symbol"
+      >(</a
+      ><a name="1687" href="Groupoid.html#919" class="Field"
+      >left-inverse</a
+      ><a name="1699"
+      > </a
+      ><a name="1700" href="Groupoid.html#1560" class="Bound"
+      >p</a
+      ><a name="1701" class="Symbol"
+      >)</a
+      ><a name="1702"
+      > </a
+      ><a name="1703" href="Equality.html#6787" class="Function Operator"
+      >&#10217;</a
+      ><a name="1704"
+      >
+      </a
+      ><a name="1711" href="Groupoid.html#1560" class="Bound"
+      >p</a
+      ><a name="1712"
+      > </a
+      ><a name="1713" href="Groupoid.html#658" class="Field Operator"
+      >&#8315;&#185;</a
+      ><a name="1715"
+      > </a
+      ><a name="1716" href="Groupoid.html#658" class="Field Operator"
+      >&#8315;&#185;</a
+      ><a name="1718"
+      > </a
+      ><a name="1719" href="Groupoid.html#614" class="Field Operator"
+      >&#8728;</a
+      ><a name="1720"
+      > </a
+      ><a name="1721" class="Symbol"
+      >(</a
+      ><a name="1722" href="Groupoid.html#1560" class="Bound"
+      >p</a
+      ><a name="1723"
+      > </a
+      ><a name="1724" href="Groupoid.html#658" class="Field Operator"
+      >&#8315;&#185;</a
+      ><a name="1726"
+      > </a
+      ><a name="1727" href="Groupoid.html#614" class="Field Operator"
+      >&#8728;</a
+      ><a name="1728"
+      > </a
+      ><a name="1729" href="Groupoid.html#1560" class="Bound"
+      >p</a
+      ><a name="1730" class="Symbol"
+      >)</a
+      ><a name="1731"
+      >  </a
+      ><a name="1733" href="Equality.html#6787" class="Function Operator"
+      >&#8801;&#10216;</a
+      ><a name="1735"
+      > </a
+      ><a name="1736" href="Groupoid.html#801" class="Field"
+      >assoc</a
+      ><a name="1741"
+      > </a
+      ><a name="1742" class="Symbol"
+      >_</a
+      ><a name="1743"
+      > </a
+      ><a name="1744" class="Symbol"
+      >_</a
+      ><a name="1745"
+      > </a
+      ><a name="1746" class="Symbol"
+      >_</a
+      ><a name="1747"
+      > </a
+      ><a name="1748" href="Equality.html#6787" class="Function Operator"
+      >&#10217;</a
+      ><a name="1749"
+      >
+      </a
+      ><a name="1756" class="Symbol"
+      >(</a
+      ><a name="1757" href="Groupoid.html#1560" class="Bound"
+      >p</a
+      ><a name="1758"
+      > </a
+      ><a name="1759" href="Groupoid.html#658" class="Field Operator"
+      >&#8315;&#185;</a
+      ><a name="1761"
+      > </a
+      ><a name="1762" href="Groupoid.html#658" class="Field Operator"
+      >&#8315;&#185;</a
+      ><a name="1764"
+      > </a
+      ><a name="1765" href="Groupoid.html#614" class="Field Operator"
+      >&#8728;</a
+      ><a name="1766"
+      > </a
+      ><a name="1767" href="Groupoid.html#1560" class="Bound"
+      >p</a
+      ><a name="1768"
+      > </a
+      ><a name="1769" href="Groupoid.html#658" class="Field Operator"
+      >&#8315;&#185;</a
+      ><a name="1771" class="Symbol"
+      >)</a
+      ><a name="1772"
+      > </a
+      ><a name="1773" href="Groupoid.html#614" class="Field Operator"
+      >&#8728;</a
+      ><a name="1774"
+      > </a
+      ><a name="1775" href="Groupoid.html#1560" class="Bound"
+      >p</a
+      ><a name="1776"
+      >  </a
+      ><a name="1778" href="Equality.html#6787" class="Function Operator"
+      >&#8801;&#10216;</a
+      ><a name="1780"
+      > </a
+      ><a name="1781" href="Equality.html#2932" class="Function"
+      >cong</a
+      ><a name="1785"
+      > </a
+      ><a name="1786" class="Symbol"
+      >(&#955;</a
+      ><a name="1788"
+      > </a
+      ><a name="1789" href="Groupoid.html#1789" class="Bound"
+      >q</a
+      ><a name="1790"
+      > </a
+      ><a name="1791" class="Symbol"
+      >&#8594;</a
+      ><a name="1792"
+      > </a
+      ><a name="1793" href="Groupoid.html#1789" class="Bound"
+      >q</a
+      ><a name="1794"
+      > </a
+      ><a name="1795" href="Groupoid.html#614" class="Field Operator"
+      >&#8728;</a
+      ><a name="1796"
+      > </a
+      ><a name="1797" href="Groupoid.html#1560" class="Bound"
+      >p</a
+      ><a name="1798" class="Symbol"
+      >)</a
+      ><a name="1799"
+      > </a
+      ><a name="1800" class="Symbol"
+      >(</a
+      ><a name="1801" href="Groupoid.html#919" class="Field"
+      >left-inverse</a
+      ><a name="1813"
+      > </a
+      ><a name="1814" class="Symbol"
+      >(</a
+      ><a name="1815" href="Groupoid.html#1560" class="Bound"
+      >p</a
+      ><a name="1816"
+      > </a
+      ><a name="1817" href="Groupoid.html#658" class="Field Operator"
+      >&#8315;&#185;</a
+      ><a name="1819" class="Symbol"
+      >))</a
+      ><a name="1821"
+      > </a
+      ><a name="1822" href="Equality.html#6787" class="Function Operator"
+      >&#10217;</a
+      ><a name="1823"
+      >
+      </a
+      ><a name="1830" href="Groupoid.html#590" class="Field"
+      >id</a
+      ><a name="1832"
+      > </a
+      ><a name="1833" href="Groupoid.html#614" class="Field Operator"
+      >&#8728;</a
+      ><a name="1834"
+      > </a
+      ><a name="1835" href="Groupoid.html#1560" class="Bound"
+      >p</a
+      ><a name="1836"
+      >                </a
+      ><a name="1852" href="Equality.html#6959" class="Function"
+      >&#8801;&#10216;</a
+      ><a name="1854"
+      > </a
+      ><a name="1855" href="Groupoid.html#693" class="Field"
+      >left-identity</a
+      ><a name="1868"
+      > </a
+      ><a name="1869" href="Groupoid.html#1560" class="Bound"
+      >p</a
+      ><a name="1870"
+      > </a
+      ><a name="1871" href="Equality.html#6959" class="Function"
+      >&#10217;&#8718;</a
+      ><a name="1873"
+      >
+      </a
+      ><a name="1880" href="Groupoid.html#1560" class="Bound"
+      >p</a
+      ><a name="1881"
+      >                     </a
+      ><a name="1902" href="Equality.html#6959" class="Function"
+      >&#8718;</a
+      ><a name="1903"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>
