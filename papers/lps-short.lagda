@@ -46,7 +46,7 @@ the problem and switching to a more structured presentation
 can alleviate her suffering.
 
 The calculus we target is a fragment of Intuitionistic
-Linear Logic (ILL onwards) and the tool we use to construct
+Linear Logic and the tool we use to construct
 the search procedure is Agda (but any reasonable type theory
 equipped with inductive families would do). The example is
 simple but already powerful enough to derive a solver for
@@ -73,7 +73,8 @@ favourite theorem prover.
 In this article, we argue that it would indeed be a grave
 mistake to implement them \emph{as is} and that type-theorists
 should aim to develop better-structured algorithms. We show,
-working on a fragment of ILL~\cite{girard1987linear}, the sort
+working on a fragment of Intuitionistic Linear Logic~\cite{girard1987linear}
+(ILL onwards), the sort
 of pitfalls to avoid and the generic ideas leading to better-behaved
 formulations.
 
@@ -203,9 +204,10 @@ trees as we purposefully ignore left rules. We write
 \inferrule{π}{\text{\AB{Γ} \entails{} \AB{σ}}}
 \end{mathpar}
 to mean that the current proof search state is \AB{Δ} and we managed to
-build a pseudo-derivation \AB{π} of type \AB{Γ} \entails{} \AB{σ}. \AB{π}
-and \AB{Γ} may be replaced by question marks when we haven't yet reached
-a point where we have found a proof and thus instantiated them.
+build a pseudo-derivation \AB{π} of type \AB{Γ} \entails{} \AB{σ}. The
+derivation \AB{π} and the context \AB{Γ} may be replaced by question marks
+when we haven't yet reached a point where we have found a proof and thus
+instantiated them.
 
 To materialise the idea that some resources in \AB{Δ} are available
 whereas others have already been consumed, we are going to mark with a box
@@ -312,7 +314,8 @@ derivation.
 \subsection{A Calculus with Leftovers}
 
 This observation of a proof search algorithm in action leads
-us to the definition of a three place relation describing the
+us to the definition of a three place relation \_\entails{}\_\coentails{}\_
+describing the
 new calculus where the notion of leftovers from a subproof is
 internalised. When we write down the sequent \AB{Γ} \entails{}
 \AB{σ} \coentails{} \AB{Δ}, we mean that from the input \AB{Γ},
@@ -321,11 +324,11 @@ linear calculus would look like in this setting.
 
 Assuming we already have a similar relation
 \AB{Γ} \belongs{} \AB{k} \cobelongs{} \AB{Δ} describing the act of
-consuming a resource \AIC{κ} \AB{k}\footnote{In this presentation,
+consuming a resource \AIC{κ} \AB{k} from a context \AB{Γ} with
+leftovers \AB{Δ}, then the axiom rule\footnote{In this presentation,
 we limit the axiom rule to atomic formulas only but it is not an
 issue: it is a well-known fact that an axiom rule for any formula
 is admissible by a simple induction on the formula's structure.}
-from a context \AB{Γ} with leftovers \AB{Δ}, then the axiom rule
 translates to:
 \begin{mathpar}
 \inferrule{\text{\AB{Γ} \belongs{} \AB{k} \cobelongs{} \AB{Δ}}
