@@ -95,10 +95,15 @@ This solver is then further specialised to proving that two
 lists are bag equivalent thus integrating really well with
 Danielsson's previous work~\cite{danielsson2012bag}.
 
+The interested reader can find the source code for this work
+(and the libraries it relies on) on our github repository:
+\url{https://github.com/gallais/proof-search-ILLWiL}.
+
+
 \section{The Calculus, Informally\label{sec:ILL}}
 
 Our whole development is parametrised by a type of atomic
-proposition \AB{Pr} on which we do not put any constraint
+propositions \AB{Pr} on which we do not put any constraint
 except that equality of its inhabitants should be decidable.
 We name \AF{\_≟\_} the function of type (\AB{p} \AB{q} \hasType{}
 \AB{Pr}) → \AD{Dec} (\AB{p} \AD{≡} \AB{q}) witnessing this
@@ -207,7 +212,7 @@ to mean that the current proof search state is \AB{Δ} and we managed to
 build a pseudo-derivation \AB{π} of type \AB{Γ} \entails{} \AB{σ}. The
 derivation \AB{π} and the context \AB{Γ} may be replaced by question marks
 when we haven't yet reached a point where we have found a proof and thus
-instatiated them.
+instantiated them.
 
 In order to materialise the idea that some resources in \AB{Δ} are available
 whereas others have already been consumed, we are going to mark with a box
@@ -231,7 +236,7 @@ The proof search problem we are facing is therefore:
 The goal's head symbol is a \tensor{}; as we have no interest in guessing
 whether to apply left rules─if at all necessary─, or how to partition the
 current context, we are simply going to start by looking for a proof of
-its left subcomponent using the full context. Given that \AB{τ} is an atomic
+its left sub-component using the full context. Given that \AB{τ} is an atomic
 formula, the only way for us to discharge this goal is to use an assumption
 available in the context. Fortunately, there is a \AB{τ} in the context;
 we are therefore able to produce a derivation where \AB{τ} has now been
@@ -436,10 +441,7 @@ in \autoref{fig:derivation}.
 
 \subsection{Resource-Aware Contexts}
 
-Let us make this all more formal. We start by defining
-\AD{Cover}s: given a type \AB{σ}, a cover \AB{S} is a
-formal object describing precisely which (non-empty) set of
-parts of \AB{σ} has been consumed already. The set of covers
+Let us make this all more formal. The set of covers
 of a type \AB{σ} is represented by an inductive family \AD{Cover}
 \AB{σ} listing all the different ways in which \AB{σ} may be
 partially used. The introduction rules, which are listed
@@ -798,9 +800,9 @@ use anything from the other one. Here is a such rule:
 We now have a fully formal definition of the more general system
 we hinted at when observing the execution of the search procedure
 in \autoref{sec:example}. We call this alternative formulation of
-the fragment of ILL we have decided to study \textbf{ILLWL} which
+the fragment of ILL we have decided to study \textbf{ILLWiL} which
 stands for \textbf{I}ntuitionistic \textbf{L}inear \textbf{L}ogic
-\textbf{W}ith \textbf{L}eftovers. It will only be useful if it is
+\textbf{Wi}th \textbf{L}eftovers. It will only be useful if it is
 equivalent to ILL. The following two sections are dedicated to
 proving that the formulation is both sound (all the derivations in
 the generalised calculus give rise to corresponding ones in ILL)
@@ -816,11 +818,11 @@ a corresponding one in the consumption-based calculus.
 One of the major differences between the two calculi is that in the
 one with leftovers, the context decorated with consumption annotations
 is the same throughout the whole derivation whereas we constantly chop
-up the multiset of resources in ILL. To go from ILL to ILLWL,
+up the multiset of resources in ILL. To go from ILL to ILLWiL,
 we need to introduce a notion of weakening which give us the ability to
 talk about working in a larger context.
 
-\subsection{A Notion of Weakening for ILLWL}
+\subsection{A Notion of Weakening for ILLWiL}
 
 One of the particularities of Linear Logic is precisely that there is no
 notion of weakening allowing to discard resources without using them. In
@@ -914,7 +916,7 @@ prove their innocuousness when it comes to derivability.
 \subsubsection{\AD{Usage} extensions}
 
 We call \AB{h}-\AD{Usage} extension of type \AB{σ} (written \uext{\AB{h}}{\AB{σ}})
-the description of a structure containing exactly one hole denoted \hole{}
+the description of a structure containing exactly one hole denoted \hole{\!\!}
 into which, using \_\fillU{}\_, one may plug an \AD{Usage} \AB{h} in order
 to get an \AD{Usage} \AB{σ}. We give side by side the constructors for the
 inductive type \uext{\_}{\_} and the corresponding case for \_\fillU{}\_.
@@ -1013,9 +1015,9 @@ Finally, one may simply throw in an entirely new \AD{Usage}:
 \end{mathpar}
 
 Now that this machinery is defined, we can easily state and prove the
-following simple weakening lemmma:
+following simple weakening lemma:
 
-\begin{lemma}[Weakening for ILLWL]
+\begin{lemma}[Weakening for ILLWiL]
 Given \AB{Γ} and \AB{Δ} two \AD{Usages} \AB{γ} and a goal \AB{σ}
 such that \AB{Γ} \entails{} \AB{σ} \coentails{} \AB{Δ} holds true,
 for any \AB{hs} of type \usext{\AB{γ}}{\AB{δ}}, it holds that:
@@ -1030,7 +1032,7 @@ and \_\eqsync{}\_\synced{}\_.
 \subsection{Proof of completeness}
 
 The first thing to do is to prove that the generalised axiom rule
-given in ILL is admissible in ILLWL.
+given in ILL is admissible in ILLWiL.
 
 \begin{lemma}[Admissibility of the Axiom Rule]Given a type \AB{σ}, one
 can find \AB{S}, a full \AD{Usage} \AB{σ}, such that
@@ -1068,13 +1070,13 @@ output context is indeed fully used.
 ad-hoc functions mimicking the action of splitting a variable in
 the context (for tensor) or picking a side (for with) at the
 \AD{Usages} level and proving that these actions do not affect
-derivability in ILLWL negatively.
+derivability in ILLWiL negatively.
 \end{proof}
 
 This is overall a reasonably simple proof but it had to be expected:
 ILL is a more explicit system listing precisely when every single
-left rule is applied whereas ILLWL is more on the elliptic side.
-Let us now deal with soudness:
+left rule is applied whereas ILLWiL is more on the elliptic side.
+Let us now deal with soundness:
 
 \section{Soundness\label{sec:soundness}}
 
@@ -1233,7 +1235,7 @@ The soundness result relating the new calculus to the original
 one makes explicit the fact that valid ILL derivations correspond
 to the ones in the generalised calculus which have no leftovers.
 Together with the completeness result it implies that if we can
-write a decision procedure for ILLWL then we will automatically
+write a decision procedure for ILLWiL then we will automatically
 have one for ILL.
 
 \section{Proof Search\label{sec:proofsearch}}
@@ -1402,7 +1404,7 @@ combine them using \AF{whenSome} or fail by returning the empty list.
 The only thing missing in order for us to have a decision procedure is a
 proof that all possible \emph{interesting} cases are considered by
 the proof search algorithm. The ``interesting'' keyword is here very
-important. In the \_\belongs{}\_\cobelongs{}\_ case, it is indeeed
+important. In the \_\belongs{}\_\cobelongs{}\_ case, it is indeed
 crucial that we try all potential candidates as future steps may
 reject subproofs.
 
@@ -1430,7 +1432,7 @@ the pair (\AB{Δ} \AIC{,} \AB{pr}) belongs to the list
 \end{theorem}
 
 From this result, we can conclude that we have in practice defined
-a decision procedure for ILLWL and therefore ILL as per the
+a decision procedure for ILLWiL and therefore ILL as per the
 soundness and completeness results proven in \autoref{sec:soundness}
 and \autoref{sec:completeness} respectively.
 
@@ -1464,7 +1466,7 @@ such that equality of its elements is decidable (\AB{\_≟\_} will
 be the name of the corresponding function). Alternatively, we may
 write \AB{M.name} to mean the \AB{name} defined by the commutative
 monoid \AB{Mon} (e.g. \AB{M.Carrier} will refer to the previously
-mentionned set \AR{Carrier} \AB{Mon}).
+mentioned set \AR{Carrier} \AB{Mon}).
 
 We start by defining a grammar for expressions with a finite number of
 variable whose carrier is a commutative monoid: a term may either be a
@@ -1552,8 +1554,8 @@ induction hypotheses:
   norm (t `∙ u)  = norm t ∙∙ norm u
 \end{code}
 
-This normalization step is proved semantics preserving with respect to
-the commutative's monoid notion of equality by the following lemma:
+This normalisation step is proved semantics preserving with respect to
+the commutative monoid's notion of equality by the following lemma:
 
 \begin{lemma}[Normalisation Soundness]\label{lem:normsnd}Given \AB{t}
 an \AD{Expr} \AB{n}, for any \AB{ρ} a \AF{Valuation} \AB{n}, we have:
@@ -1658,7 +1660,7 @@ solver to (perhaps) produce a derivation proving that
 \begin{proof}
 We know from \autoref{lem:normsnd} that we can reduce that problem to
 the equivalent \semT{\AF{norm} \AB{t}} \AB{ρ} \AF{M.≈} \semT{\AF{norm} \AB{u}} \AB{ρ}
-so we start by normalizing both sides to (\AB{e} \AD{,} \AB{ks}) on
+so we start by normalising both sides to (\AB{e} \AD{,} \AB{ks}) on
 one hand and (\AB{f} \AD{,} \AB{ls}) on the other. These two
 normal forms are then equal if the two constants \AB{e} and \AB{f}
 are themselves equal (which, by assumption, we know how to decide)
@@ -1670,7 +1672,7 @@ properties.
 \end{proof}
 
 Now, the standard library already contains a proof that (\AD{ℕ}, \AN{0},
-\AF{\_+\_}) is a commutative monoid so we can use this fact (named \AM{ℕ+}
+\AF{\_+\_}, \AD{\_≡\_}) is a commutative monoid so we can use this fact (named \AM{ℕ+}
 here) to have a look at an example. In the following code snippet, \AF{LHS},
 \AF{RHS} and \AF{CTX} are respectively reified versions of the left and
 right hand sides of the equation, as well as the \AF{Valuation} \AN{2}
@@ -1711,7 +1713,7 @@ module ExamplesTactics where
 \end{code}
 
 
-The normalization step reduced proving this equation to proving
+The normalisation step reduced proving this equation to proving
 that the pair (\AN{3}, \lmulti{}\AB{x}, \AB{y}\rmulti{}) is equal
 to the pair (\AN{3}, \lmulti{}\AB{y}, \AB{x}\rmulti{}). Equality
 of the first components is trivial whilst the multiset equality
@@ -1780,25 +1782,25 @@ done by hand. Having a nice interface for these solvers would
 involve a little bit of engineering work such as writing a
 (partial) function turning elements of the \AD{Term} type
 describing quoted Agda term into the corresponding \AD{Expr}.
-All of these issues have been thoroughly dealt with by Van Der
+All of these issues have been thoroughly dealt with by van der
 Walt and Swierstra~\cite{van2012reflection,van2013engineering}.
 
 \section{Conclusion, Related and Future Work\label{sec:related}}
 
 We have seen how, starting from provability in Intuitionistic
 Linear Logic, a problem with an extensional formulation, we
-can move towards a type-theoric approach to solving it. This
+can move towards a type-theoretic approach to solving it. This
 was done firstly by generalising the problem to a calculus
 with leftovers better matching the proof search process and
 secondly by introducing resource-aware contexts which are
 datatypes retaining the important hidden \emph{structure}
 of the problem. These constructions led to the definition of
 Intuitionistic Linear Logic With Leftovers, a more general
-calculus enjoying a notion of weakening but, at the same time,
+calculus enjoying a notion of weakening whilst, at the same time,
 sound and complete with respect to ILL. Provability of formulas
 in ILL being decidable is then a simple corollary of it being
-decidable for ILLWL. Finally, a side effect of this formalization
-effort is the definition of helpful tactics targetting commutative
+decidable for ILLWiL. Finally, a side effect of this formalisation
+effort is the definition of helpful tactics targeting commutative
 monoids and, in particular, bag equivalence of lists.
 
 
@@ -1813,13 +1815,15 @@ optimal fashion is in the same vein: we are, effectively, limiting
 the search space to proof trees with a very specific shape without
 losing any expressivity.
 
-
-
 In the domain of certified proof search, Kokke and Swierstra
 have designed a prolog-style procedure in Agda~\cite{kokkeauto}
 which, using a fuel-based model, will explore a bounded part of
 the set of trees describing the potential proofs generated by
 backward-chaining using a fixed set of deduction rules as methods.
+Their approach crucially relies on unification which, as demonstrated
+by Lengrand, Dyckhoff, and McKinna's work~\cite{lengrand2010focused},
+could be framed as a more general sequent calculus equipped with
+meta-variables and unification constraints.
 
 As already heavily hinted at by the previous section, there is a
 number of realms which benefit from proof search in Linear Logic.
@@ -1898,10 +1902,15 @@ We believe that moving from their presentation to one with
 input and output contexts as well as keeping more structured
 contexts would give rise to a range of calculi whose judgements
 are algorithmic in nature thus making them more amenable to
-(bidirectional) typechecking. Our notion of variable annotation
-also allows for slightly more subtle invariants being tracked:
-the annotation's structure may depend on the structure of the
-variable's type.
+(bidirectional) typechecking. We are interested in investigating
+a principled way to turn systems using annotations presented
+using an additive monoid into ones where consumption is the
+central notion.
+
+It should also be noted that our notion of variable annotation
+allows for slightly more subtle invariants being tracked: the
+annotation's structure may depend on the structure of the variable's
+type.
 
 \section*{Special Thanks}
 

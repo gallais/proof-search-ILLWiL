@@ -95,10 +95,14 @@ This solver is then further specialised to proving that two
 lists are bag equivalent thus integrating really well with
 Danielsson's previous work~\cite{danielsson2012bag}.
 
+The interested reader can find the source code for this work
+(and the libraries it relies on) on our github repository:
+\url{https://github.com/gallais/proof-search-ILLWiL}.
+
 \section{The Calculus, Informally\label{sec:ILL}}
 
 Our whole development is parametrised by a type of atomic
-proposition \AB{Pr} on which we do not put any constraint
+propositions \AB{Pr} on which we do not put any constraint
 except that equality of its inhabitants should be decidable.
 We name \AF{\_≟\_} the function of type (\AB{p} \AB{q} \hasType{}
 \AB{Pr}) → \AD{Dec} (\AB{p} \AD{≡} \AB{q}) witnessing this
@@ -117,7 +121,7 @@ $$
 Sequents (\AB{Γ} \entails{} \AB{σ}) comprise
 a multiset of types (\AB{Γ}), the context of available resources,
 and a type (\AB{σ}) corresponding to the proposition to be proven.
-one is trying to prove. Each type constructor comes with both
+Each type constructor comes with both
 introduction and elimination rules (also known as, respectively,
 right and left rules because of the side of the sequent they affect)
 described in \autoref{fig:ILLRules}. Multisets are inherently
@@ -436,24 +440,22 @@ in \autoref{fig:derivation}.
 
 \subsection{Resource-Aware Contexts}
 
-Let us make this all more formal. We start by defining
-\AD{Cover}s: given a type \AB{σ}, a cover \AB{S} is a
-formal object describing precisely which \emph{non-empty} set of
-parts of \AB{σ} has been consumed already. The set of covers
+Let us make this all more formal. The set of covers
 of a type \AB{σ} is represented by an inductive family \AD{Cover}
 \AB{σ} listing all the different ways in which \AB{σ} may be
-partially used. The introduction rules can be justified in
+(partially) used. The introduction rules can be justified in
 the following manner. The cover for an atomic proposition can
-only be one thing: the atom itself;
+only be one thing: the atom itself (covers \emph{have to} use at
+least parts of an assumption);
 
 In the case of a tensor, both subparts can be partially used
-(cf. \AB{S} \tensor{} \AB{T}) or it may be the case that only
-one side has been dug into so far (cf. \AB{S} \tensor \free{τ}
+(\AB{S} \tensor{} \AB{T}) or it may be the case that only
+one side has been dug into so far (\AB{S} \tensor \free{τ}
 and \free{σ}\tensor{} \AB{T});
 
 Similarly, a cover for a with-headed assumption can be a choice
-of a side (cf. \AB{S} \with\free{τ} and \free{σ}\with{} \AB{T}).
-Or, more surprisingly, it can be a full cover (cf. \AB{σ} \with{}
+of a side (\AB{S} \with\free{τ} and \free{σ}\with{} \AB{T}).
+Or, more surprisingly, it can be a full cover (\AB{σ} \with{}
 \AB{τ}) which is saying that \emph{both} sides will be entirely
 used in different subtrees. This sort of full cover is only ever
 created when synchronising two output contexts by using a with
@@ -566,8 +568,8 @@ pattern _&_ a b = a `& b
 \subsection{Being Synchronised, Formally}
 
 Now that \AD{Usages} have been introduced, we can give a formal
-treatment of the notion of synchronisation we evoked when giving
-the with introduction rule for the calculus with leftovers.
+treatment of the notion of synchronisation evoked in
+the \with{} introduction rule.
 Synchronisation is meant to say that the two \AD{Usages} are equal
 modulo some inconsequential variations. These inconsequential
 variations partly correspond to the fact that left rules may be
@@ -625,7 +627,7 @@ side of the \with{} whilst the other one is a full cover:
 
 \subsection{Resource-Aware Primitives}
 
-Now that \AD{Usages} and synchronization are properly defined,
+Now that \AD{Usages} and synchronisation are defined,
 we can make our earlier ternary relations precise.
 \begin{mathpar}
 \inferrule{\text{\AB{Γ} \hasType{} \AD{Usages} \AB{γ}}
@@ -718,7 +720,7 @@ use anything from the other one. Here is a such rule:
 We now have a fully formal definition of the more general system
 we hinted at when observing the execution of the search procedure
 in \autoref{sec:example}. We call this alternative formulation of
-the fragment of ILL we have decided to study \textbf{ILLWL} which
+the fragment of ILL we have decided to study \textbf{ILLWiL} which
 stands for \textbf{I}ntuitionistic \textbf{L}inear \textbf{L}ogic
 \textbf{Wi}th \textbf{L}eftovers. It will only be useful if it is
 equivalent to ILL. The following two sections are dedicated to
@@ -736,11 +738,11 @@ a corresponding one in the consumption-based calculus.
 One of the major differences between the two calculi is that in the
 one with leftovers, the context decorated with consumption annotations
 is the same throughout the whole derivation whereas we constantly chop
-up the multiset of resources in ILL. To go from ILL to ILLWL,
+up the multiset of resources in ILL. To go from ILL to ILLWiL,
 we need to introduce a notion of weakening which give us the ability to
 talk about working in a larger context.
 
-\subsection{A Notion of Weakening for ILLWL}
+\subsection{A Notion of Weakening for ILLWiL}
 
 A particular feature of Linear Logic is precisely that there is no
 notion of weakening allowing you to discard resources without using them. In
@@ -834,10 +836,10 @@ prove their innocuousness when it comes to derivability.
 \subsubsection{\AD{Usage} extensions}
 
 We call \AB{h}-\AD{Usage} extension of type \AB{σ} (written \uext{\AB{h}}{\AB{σ}})
-the description of a structure containing exactly one hole denoted \hole{}
+the description of a structure containing exactly one hole denoted \hole{\!\!}
 into which, using \_\fillU{}\_, one may plug an \AD{Usage} \AB{h} in order
 to get an \AD{Usage} \AB{σ}. For instance, one may have a hole on the right
-hand side of a tensor product (where \_\AF{⊗U}\_ is the intuitive
+of a tensor product (where \_\AF{⊗U}\_ is the intuitive
 lifting of tensor to \AD{Usage} unpacking both sides and outputting
 the appropriate annotation):
 
@@ -891,7 +893,7 @@ throw in an entirely new \AD{Usage}:
 This machinery defined, we can easily state and prove the
 following simple weakening lemma:
 
-\begin{lemma}[Weakening for ILLWL]
+\begin{lemma}[Weakening for ILLWiL]
 Given \AB{Γ} and \AB{Δ} two \AD{Usages} \AB{γ} and a goal \AB{σ}
 such that \AB{Γ} \entails{} \AB{σ} \coentails{} \AB{Δ} holds true,
 for any \AB{hs} of type \usext{\AB{γ}}{\AB{δ}}, it holds that:
@@ -906,7 +908,7 @@ and \_\eqsync{}\_\synced{}\_.
 \subsection{Proof of completeness}
 
 The first thing to do is to prove that the generalised axiom rule
-given in ILL is admissible in ILLWL.
+given in ILL is admissible in ILLWiL.
 
 \begin{lemma}[Admissibility of the Axiom Rule]Given a type \AB{σ}, one
 can find \AB{S}, a full \AD{Usage} \AB{σ}, such that
@@ -916,8 +918,7 @@ can find \AB{S}, a full \AD{Usage} \AB{σ}, such that
 the induction hypotheses.
 \end{proof}
 
-The admissibility of the axiom rule allows us to prove completeness
-by a structural induction on the derivation:
+The admissibility of the axiom rule allows us to prove completeness:
 
 \begin{theorem}[Completeness]Given a context \AB{γ} and a type \AB{σ}
 such that \AB{γ} \entails{} \AB{σ}, we can prove that there exists \AB{Γ}
@@ -944,13 +945,13 @@ output context is indeed fully used.
 ad-hoc functions mimicking the action of splitting a variable in
 the context (for tensor) or picking a side (for with) at the
 \AD{Usages} level and proving that these actions do not affect
-derivability in ILLWL negatively.
+derivability in ILLWiL negatively.
 \end{proof}
 
 This is overall a reasonably simple proof but it had to be expected:
 ILL is more explicit, listing each
-left-rule application whereas ILLWL is more elliptic.
-Let us now turn to soudness.
+left-rule application whereas ILLWiL is more elliptic.
+Let us now turn to soundness.
 
 \section{Soundness\label{sec:soundness}}
 
@@ -1021,11 +1022,11 @@ The proof of soundness is split into auxiliary lemmas which are
 used to combine the induction hypotheses. These lemmas, where the
 bulk of the work is done, are maybe the places where the precise
 role played by the constraints enforced in the generalised calculus
-come to light. We state them here and skip the relatively tedious
+come to light. We state them here and skip the tedious
 proofs. The interested reader can inspect the \file{Search/Calculus}
 file.
 
-\begin{lemma}[Introduction of with]
+\begin{lemma}[Introduction of \with{}]
 Assuming that we are given two subproofs
     \AB{Δ₁} \eqsync{} \AB{Γ} \diff{} \AB{E₁}
 and \erasure{\AB{E₁}} \entails{} \AB{σ}
@@ -1050,11 +1051,11 @@ a tensor constructor. We write \AB{E} \eqsync{} \AB{E₁} \AD{⋈} \AB{E₂}
 to mean that the context \AB{E} is obtained by interleaving \AB{E₁}
 and \AB{E₂}. This notion is defined inductively and, naturally, is
 proof-relevant. It corresponds in our list-based formalisation of ILL
-to the multiset union mentioned in the tensor introduction rule in
+to the multiset union mentioned in the \tensor{} introduction rule in
 \autoref{fig:ILLRules}.
 
 
-\begin{lemma}[Introduction of tensor]
+\begin{lemma}[Introduction of \tensor{}]
 Given \AB{F₁} and \AB{F₂} two \AD{Usages} \AB{γ} such that:
     \AB{Δ} \eqsync{} \AB{Γ} \diff{} \AB{F₁}
 and \erasure{\AB{F₁}} \entails{} \AB{σ}
@@ -1066,7 +1067,7 @@ together with two contexts \AB{E₁} and \AB{E₂} such that:
     \AB{E} \eqsync{} \AB{Γ} \diff{} \AB{F},
     \erasure{\AB{F}} \eqsync{} \AB{E₁} \AD{⋈} \AB{E₂},
     \AB{E₁} \entails{} \AB{σ}
-and \AB{E₂} \entails{} \AB{τ}
+and \AB{E₂} \entails{} \AB{τ}.
 \end{lemma}
 
 \begin{theorem}[Soundness of the Generalisation]
@@ -1091,7 +1092,7 @@ The soundness result relating the new calculus to the original
 one makes explicit the fact that valid ILL derivations correspond
 to the ones in the generalised calculus which have no leftovers.
 Together with the completeness result it implies that if we can
-write a decision procedure for ILLWL then we will automatically
+write a decision procedure for ILLWiL then we will automatically
 have one for ILL.
 
 \section{Proof Search\label{sec:proofsearch}}
@@ -1154,7 +1155,7 @@ of a \AD{Usage} \AB{σ} we will call \AB{T} and a proof that
 The only thing missing in order for us to have a decision procedure is a
 proof that all possible \emph{interesting} cases are considered by
 the proof search algorithm. The ``interesting'' keyword is here very
-important. In the \_\belongs{}\_\cobelongs{}\_ case, it is indeeed
+important. In the \_\belongs{}\_\cobelongs{}\_ case, it is indeed
 crucial that we try all potential candidates as future steps may
 reject subproofs.
 
@@ -1182,14 +1183,14 @@ the pair (\AB{Δ} \AIC{,} \AB{pr}) belongs to the list
 \end{theorem}
 
 From this result, we can conclude that we have in practice defined
-a decision procedure for ILLWL and therefore ILL as per the
+a decision procedure for ILLWiL and therefore ILL as per the
 soundness and completeness results proven in \autoref{sec:soundness}
 and \autoref{sec:completeness} respectively.
 
 
 \section{Applications: building Tactics\label{sec:application}}
 
-The theory of ILL with just atomic propositions and tensor products
+The theory of ILL with just atomic propositions and \tensor{}
 is exactly the one of bag equivalence: a goal will be provable if
 and only if the multiset of its atomic propositions is precisely
 the context's one.
@@ -1214,11 +1215,11 @@ precisely multiset equality. We call \AF{proveMonEq} the prover
 we derive from these observations.
 
 Now, the standard library already contains a proof that (\AD{ℕ}, \AN{0},
-\AF{\_+\_}) is a commutative monoid so we can use this fact to have a look
+\AF{\_+\_}, \AD{\_≡\_}) is a commutative monoid so we can use this fact to have a look
 at an example. In the following code snippet, \AF{LHS}, \AF{RHS} and
 \AF{CTX} are respectively reified\footnote{All these reification
 are currently done by hand but could be automated. These issues
-have been thoroughly dealt with by Van Der Walt and Swierstra~\cite{van2012reflection,van2013engineering}.}
+have been thoroughly dealt with by van der Walt and Swierstra~\cite{van2012reflection,van2013engineering}.}
 versions of the left and right hand sides of the equation and a
 valuation mapping variables language to their names in Agda.
 
@@ -1309,15 +1310,15 @@ module ExamplesTactics where
            CTX  = x Vec.∷ y Vec.∷ Vec.[]
 \end{code}}
 
-The normalization step reduced proving this equation to proving
+The normalisation step reduced proving this equation to proving
 that the pair (\AN{3}, \lmulti{}\AB{x}, \AB{y}\rmulti{}) is equal
 to the pair (\AN{3}, \lmulti{}\AB{y}, \AB{x}\rmulti{}). Equality
 of the first components is trivial whilst the multiset equality
 one is proven true by our solver.
 
 A solver for bag equivalence can be derived by observing that for
-all \AB{A}, (\AD{List} \AB{A}, \AF{\_++\_}, \AIC{[]}) is a commutative
-monoid for the equivalence relation \AF{\_≈-bag\_}.
+all \AB{A}, (\AD{List} \AB{A}, \AF{\_++\_}, \AIC{[]}, \AF{\_≈-bag\_})
+is a commutative monoid.
 
 \AgdaHide{
 \begin{code}
@@ -1344,18 +1345,18 @@ monoid for the equivalence relation \AF{\_≈-bag\_}.
 
 We have seen how, starting from provability in Intuitionistic
 Linear Logic, a problem with an extensional formulation, we
-can move towards a type-theoric approach to solving it. This
+can move towards a type-theoretic approach to solving it. This
 was done firstly by generalising the problem to a calculus
 with leftovers better matching the proof search process and
 secondly by introducing resource-aware contexts which are
 datatypes retaining the important hidden \emph{structure}
 of the problem. These constructions led to the definition of
 Intuitionistic Linear Logic With Leftovers, a more general
-calculus enjoying a notion of weakening but, at the same time,
+calculus enjoying a notion of weakening whilst, at the same time,
 sound and complete with respect to ILL. Provability of formulas
 in ILL being decidable is then a simple corollary of it being
-decidable for ILLWL. Finally, a side effect of this formalization
-effort is the definition of helpful tactics targetting commutative
+decidable for ILLWiL. Finally, a side effect of this formalisation
+effort is the definition of tactics targeting commutative
 monoids and, in particular, bag equivalence of lists.
 
 
@@ -1370,13 +1371,16 @@ optimal fashion is in the same vein: we are, effectively, limiting
 the search space to proof trees with a very specific shape without
 losing any expressivity.
 
-
-
 In the domain of certified proof search, Kokke and Swierstra
 have designed a prolog-style procedure in Agda~\cite{kokkeauto}
-which, using a fuel-based model, will explore a bounded part of
+which, using a fuel-based model, explores a bounded part of
 the set of trees describing the potential proofs generated by
 backward-chaining using a fixed set of deduction rules as methods.
+Their approach crucially relies on unification which, as demonstrated
+by Lengrand, Dyckhoff, and McKinna's work~\cite{lengrand2010focused},
+could be framed as a more general sequent calculus equipped with
+meta-variables and unification constraints.
+
 
 As already heavily hinted at by the previous section, there is a
 number of realms which benefit from proof search in Linear Logic.
@@ -1392,9 +1396,9 @@ all the corresponding storylines.
 \subsection{Tackling a Larger Fragment}
 
 The fragment we are studying is non-trivial: as showcased, having
-only tensor and atomic formulas would already be equivalent to testing
+only \tensor{} and atomic formulas would already be equivalent to testing
 bag equivalence between the context and the goal; limiting ourselves
-to with and atomic formulas would amount to checking that there is a
+to \with{} and atomic formulas would amount to checking that there is a
 non-empty intersection between the context and the goal. However mixing
 tensors and withs creates a more intricate theory hence this whole
 development. It would nonetheless be exciting to tackle a larger
@@ -1455,10 +1459,15 @@ We believe that moving from their presentation to one with
 input and output contexts as well as keeping more structured
 contexts would give rise to a range of calculi whose judgements
 are algorithmic in nature thus making them more amenable to
-(bidirectional) typechecking. Our notion of variable annotation
-also allows for slightly more subtle invariants being tracked:
-the annotation's structure may depend on the structure of the
-variable's type.
+(bidirectional) typechecking. We are interested in investigating
+a principled way to turn systems using annotations presented
+using an additive monoid into ones where consumption is the
+central notion.
+
+It should also be noted that our notion of variable annotation
+allows for slightly more subtle invariants being tracked: the
+annotation's structure may depend on the structure of the variable's
+type.
 
 \section*{Special Thanks}
 
